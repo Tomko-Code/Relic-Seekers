@@ -1,0 +1,17 @@
+- project  
+    - .git  
+    - .github  
+    - .godot  
+    - assets  
+        - art  
+        - audio
+        - shader
+        - themes
+    - builds
+    - docs
+    - src
+        - entities
+        - globals
+        - main
+        - menus
+        
