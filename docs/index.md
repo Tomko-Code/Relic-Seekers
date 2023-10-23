@@ -1,17 +1,21 @@
-# Welcome to MkDocs
+hide:
+    - navigation
+    - toc
+# Home
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+For full MkDocs documentation visit [mkdocs.org](https://www.mkdocs.org).<br />
+For full theme documentation visi [material](https://squidfunk.github.io/mkdocs-material/).
 
-## Commands
+## Setup
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+### 1. Download Godot game engine version 4.1.2 [link](https://github.com/godotengine/godot/releases/download/4.1.2-stable/Godot_v4.1.2-stable_win64.exe.zip)
 
-## Project layout
+### 2. Install python
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+### 3. Install MkDocs
+
+### 4. Install Git
+
+### 5. Set up Git
+
+### 6. Clone Project
