@@ -10,18 +10,15 @@ var direction_vector: Vector2
 var speed := 500
 
 
-func _ready():
-	set_physics_process(false)
-	pass
+#func _ready():
+#	set_physics_process(false)
+#	pass
 
 func launch(_direction_vector = Vector2(1,1), _speed = 500):
-	print("1")
 	direction_vector = _direction_vector
 	speed = _speed
-	set_physics_process(true)
+#	set_physics_process(true)
 	
-	
-
 
 func _physics_process(delta):
 	velocity = direction_vector.normalized() * speed
@@ -33,5 +30,5 @@ func _physics_process(delta):
 
 	
 	if _AnimatedSpriteComponent:
-		_AnimatedSpriteComponent.set_animation("bullet")
+		_AnimatedSpriteComponent.set_animation("default")
 			
