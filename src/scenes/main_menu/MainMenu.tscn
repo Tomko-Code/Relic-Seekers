@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://bb12yuir0g53d"]
 
-[ext_resource type="Script" path="res://scenes/main_menu/MainMenu.gd" id="1_va7e7"]
+[ext_resource type="Script" path="res://src/scenes/main_menu/MainMenu.gd" id="1_mwesm"]
 
 [node name="MainMenu" type="Node"]
-script = ExtResource("1_va7e7")
+script = ExtResource("1_mwesm")
 
 [node name="Root" type="Control" parent="."]
 layout_mode = 3

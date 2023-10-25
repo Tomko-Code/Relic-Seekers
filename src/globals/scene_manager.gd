@@ -1,8 +1,8 @@
 extends Node
 
 var scenes = {
-	test = {name="Test", scene=load("res://scenes/root/Test.tscn")},
-	main_menu = {name="MainMenu", scene=load("res://scenes/main_menu/MainMenu.tscn")},
+	test = {name="Test", scene=load("res://src/scenes/root/Test.tscn")},
+	main_menu = {name="MainMenu", scene=load("res://src/scenes/main_menu/MainMenu.tscn")},
 }
 
 var currentScene : Node = null
