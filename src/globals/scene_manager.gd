@@ -1,7 +1,7 @@
 extends Node
 
 var scenes = {
-	test = {name="Test", scene=load("res://src/scenes/root/Test.tscn")},
+	test = {name="Test", scene=load("res://src/scenes/mockup/test.tscn")},
 	main_menu = {name="MainMenu", scene=load("res://src/scenes/main_menu/MainMenu.tscn")},
 }
 

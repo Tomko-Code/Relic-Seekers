@@ -70,7 +70,6 @@ func _physics_process(delta):
 	
 	
 	if is_idle:
-		print("idle")
 		set_animation("idle")
 	else:
 		if movement_direction.left:
@@ -81,7 +80,6 @@ func _physics_process(delta):
 			set_animation("move_up")
 		elif movement_direction.down:
 			set_animation("move_down")
-		print("Else")
 
 
 #func _process(delta):
