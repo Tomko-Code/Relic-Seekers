@@ -12,20 +12,24 @@ var speed := 500
 
 func _ready():
 	set_physics_process(false)
+	pass
 
 func launch(_direction_vector = Vector2(1,1), _speed = 500):
+	print("1")
 	direction_vector = _direction_vector
 	speed = _speed
 	set_physics_process(true)
+	
+	
 
 
 func _physics_process(delta):
 	velocity = direction_vector.normalized() * speed
 	
-	var collision = parent.move_and_collide(get_parent().velocity * delta)
+	var collision = parent.move_and_collide(velocity * delta)
 	if collision:
-		get_parent().velocity = get_parent().velocity.slide(collision.get_normal())
-		collision = get_parent().move_and_collide(get_parent().velocity * delta)
+		velocity = velocity.slide(collision.get_normal())
+		collision = parent.move_and_collide(velocity * delta)
 
 	
 	if _AnimatedSpriteComponent:

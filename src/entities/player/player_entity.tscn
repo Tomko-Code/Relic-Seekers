@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://d2bsjmqg1fe1h"]
+[gd_scene load_steps=9 format=3 uid="uid://d2bsjmqg1fe1h"]
 
 [ext_resource type="Script" path="res://src/entities/player/player_entity.gd" id="1_7c5ui"]
 [ext_resource type="Script" path="res://src/entities/player/user_movement_component.gd" id="2_xekry"]
 [ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="3_t82yd"]
 [ext_resource type="SpriteFrames" uid="uid://bakc3okm8hm0d" path="res://assets/sprites/player_sprite.tres" id="4_p7cnc"]
 [ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="5_svlxf"]
+[ext_resource type="Script" path="res://src/entities/player/user_shooting_component.gd" id="6_67mor"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eip8d"]
 size = Vector2(64, 64)
@@ -43,5 +44,8 @@ script = ExtResource("5_svlxf")
 
 [node name="Hitbox" type="CollisionShape2D" parent="Components/BulletHitboxComponent"]
 shape = SubResource("RectangleShape2D_kummr")
+
+[node name="UserShootingComponent" type="Node" parent="Components"]
+script = ExtResource("6_67mor")
 
 [connection signal="body_entered" from="Components/BulletHitboxComponent" to="." method="_on_bullet_hitbox_component_body_entered"]

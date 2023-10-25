@@ -66,7 +66,6 @@ func _physics_process(delta):
 		if is_idle:
 			_AnimatedSpriteComponent.set_animation("idle")
 		else:
-			print(movement_direction)
 			if movement_direction.left:
 				_AnimatedSpriteComponent.set_animation("move_left")
 			elif movement_direction.right:
