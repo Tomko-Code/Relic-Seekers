@@ -1,9 +1,9 @@
 extends Node
 
-var scenes = {
-	test = {name="Test", scene=load("res://src/mockup/test.tscn")},
-	main_menu = {name="MainMenu", scene=load("res://src/scenes/main_menu/main_menu.tscn")},
-}
+#var scenes = {
+#	test = {name="Test", scene=load("res://src/mockup/test.tscn")},
+#	main_menu = {name="MainMenu", scene=load("res://src/scenes/main_menu/main_menu.tscn")},
+#}
 
 var current_scene : Node = null
 var _current_root : Node
@@ -12,7 +12,7 @@ var sceneStack = []
 
 
 func _init():
-	_load_scenes()
+	#_load_scenes()
 
 
 func setup(current_root):
