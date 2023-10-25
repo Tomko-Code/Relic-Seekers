@@ -21,7 +21,6 @@ ZoneManager="*res://src/globals/game_manager.gd"
 Constants="*res://src/globals/constants.gd"
 GameState="*res://src/globals/game_state.gd"
 
-
 [input]
 
 move_left={
