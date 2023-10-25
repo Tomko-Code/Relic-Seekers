@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://c2l6xvgolly5w"]
+
+[ext_resource type="Script" path="res://src/zone/zone.gd" id="1_alwwj"]
+[ext_resource type="PackedScene" uid="uid://csr0pian6yidg" path="res://src/mockup/mockup_floor.tscn" id="2_cgcss"]
+[ext_resource type="PackedScene" uid="uid://dgnqddfbme671" path="res://src/zone/zone_gate.tscn" id="3_0dlnw"]
+[ext_resource type="Texture2D" uid="uid://dayf0y6nyidev" path="res://icon.svg" id="4_rd5jf"]
+[ext_resource type="PackedScene" uid="uid://c4hyfn63y6ln3" path="res://tmp/mockup_player.tscn" id="5_jfwn5"]
+
+[node name="mockup_zone_static_00" type="Node2D"]
+script = ExtResource("1_alwwj")
+
+[node name="Floor" parent="." instance=ExtResource("2_cgcss")]
+position = Vector2(617.438, 323.25)
+scale = Vector2(4.94629, 2.83984)
+
+[node name="ZoneGate" parent="." instance=ExtResource("3_0dlnw")]
+position = Vector2(633, 312)
+
+[node name="Sprite2D" type="Sprite2D" parent="ZoneGate"]
+position = Vector2(-1, 0)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_rd5jf")
+
+[node name="MockupPlayer" parent="." instance=ExtResource("5_jfwn5")]

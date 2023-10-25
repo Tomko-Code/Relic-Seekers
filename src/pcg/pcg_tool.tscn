@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjiykb4m16l8n"]
+
+[ext_resource type="Script" path="res://src/pcg/pcg_tool.gd" id="1_4ahx3"]
+
+[node name="PCG_Tool" type="Node2D"]
+script = ExtResource("1_4ahx3")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = 1150.0
+offset_bottom = 643.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Generate"
+
+[connection signal="pressed" from="MarginContainer/Button" to="." method="_on_button_pressed"]
