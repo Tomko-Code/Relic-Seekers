@@ -17,10 +17,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-SceneManager="*res://src/globals/scene_manager.gd"
+ZoneManager="*res://src/globals/game_manager.gd"
 Constants="*res://src/globals/constants.gd"
-ZoneManager="*res://src/globals/zone_manager.gd"
 GameState="*res://src/globals/game_state.gd"
+
 
 [input]
 

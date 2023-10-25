@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1y35fla1q5wl"]
+
+[ext_resource type="Script" path="res://src/zone/zone.gd" id="1_dfrvr"]
+[ext_resource type="PackedScene" uid="uid://csr0pian6yidg" path="res://src/mockup/mockup_floor.tscn" id="2_tg6fr"]
+
+[node name="Zone" type="Node2D"]
+script = ExtResource("1_dfrvr")
+
+[node name="Floor" parent="." instance=ExtResource("2_tg6fr")]
