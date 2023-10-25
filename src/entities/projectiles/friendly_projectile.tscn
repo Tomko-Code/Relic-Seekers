@@ -7,7 +7,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_85nud"]
 radius = 17.0
 
-[node name="FriendlyProjectile" type="StaticBody2D" node_paths=PackedStringArray("_ProjectileMovementComponent")]
+[node name="FriendlyProjectile" type="AnimatableBody2D" node_paths=PackedStringArray("_ProjectileMovementComponent")]
 collision_layer = 8
 collision_mask = 0
 script = ExtResource("1_en1t6")
