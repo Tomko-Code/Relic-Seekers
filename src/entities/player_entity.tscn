@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2bsjmqg1fe1h"]
+[gd_scene load_steps=7 format=3 uid="uid://d2bsjmqg1fe1h"]
 
 [ext_resource type="Script" path="res://src/entities/player_entity.gd" id="1_ysghj"]
 [ext_resource type="SpriteFrames" uid="uid://bakc3okm8hm0d" path="res://assets/sprites/player_sprite.tres" id="2_n552x"]
+[ext_resource type="Script" path="res://src/entities/user_movement_component.gd" id="3_agaun"]
+[ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="3_mc80l"]
+[ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="5_g11eu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kummr"]
 size = Vector2(64, 64)
@@ -10,13 +13,22 @@ size = Vector2(64, 64)
 collision_mask = 2
 script = ExtResource("1_ysghj")
 
+[node name="Collider" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kummr")
+
 [node name="Camera" type="Camera2D" parent="."]
 
-[node name="CompositeSprite" type="Node2D" parent="."]
+[node name="UserMovementComponent" type="Node" parent="." node_paths=PackedStringArray("_AnimatedSpriteComponent")]
+script = ExtResource("3_agaun")
+_AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
 
-[node name="Sprite" type="AnimatedSprite2D" parent="CompositeSprite"]
+[node name="AnimatedSpriteComponent" type="Node2D" parent="."]
+script = ExtResource("3_mc80l")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="AnimatedSpriteComponent"]
 sprite_frames = ExtResource("2_n552x")
 animation = &"idle"
 
-[node name="Collider" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_kummr")
+[node name="HitboxComponent" type="Node" parent="." node_paths=PackedStringArray("_Collider")]
+script = ExtResource("5_g11eu")
+_Collider = NodePath("../Collider")
