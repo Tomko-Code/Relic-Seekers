@@ -16,7 +16,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-ZoneManager="*res://src/globals/zone_manager.gd"
+ZoneManager="*res://src/globals/game_manager.gd"
 
 [input]
 
