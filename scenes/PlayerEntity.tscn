@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2bsjmqg1fe1h"]
+
+[ext_resource type="Script" path="res://classes/entity/player_entity.gd" id="1_6uugq"]
+[ext_resource type="SpriteFrames" uid="uid://bakc3okm8hm0d" path="res://assets/sprites/player_sprite.tres" id="2_n552x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kummr"]
+size = Vector2(64, 64)
+
+[node name="PlayerEntity" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_6uugq")
+
+[node name="Camera" type="Camera2D" parent="."]
+
+[node name="CompositeSprite" type="Node2D" parent="."]
+
+[node name="Sprite" type="AnimatedSprite2D" parent="CompositeSprite"]
+sprite_frames = ExtResource("2_n552x")
+animation = &"idle"
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kummr")
