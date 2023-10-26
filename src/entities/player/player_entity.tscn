@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://d2bsjmqg1fe1h"]
+
+[ext_resource type="Script" path="res://src/entities/player/player_entity.gd" id="1_7c5ui"]
+[ext_resource type="Script" path="res://src/entities/player/user_movement_component.gd" id="2_xekry"]
+[ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="3_t82yd"]
+[ext_resource type="SpriteFrames" uid="uid://bakc3okm8hm0d" path="res://assets/sprites/player_sprite.tres" id="4_p7cnc"]
+[ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="5_svlxf"]
+[ext_resource type="Script" path="res://src/entities/player/user_shooting_component.gd" id="6_67mor"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eip8d"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kummr"]
+size = Vector2(32, 32)
+
+[node name="PlayerEntity" type="CharacterBody2D" node_paths=PackedStringArray("_UserMovementComponent", "_AnimatedSpriteComponent", "Camera")]
+collision_mask = 2
+script = ExtResource("1_7c5ui")
+_UserMovementComponent = NodePath("Components/UserMovementComponent")
+_AnimatedSpriteComponent = NodePath("Components/AnimatedSpriteComponent")
+Camera = NodePath("Camera")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_eip8d")
+
+[node name="Camera" type="Camera2D" parent="."]
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="UserMovementComponent" type="Node" parent="Components" node_paths=PackedStringArray("_AnimatedSpriteComponent")]
+script = ExtResource("2_xekry")
+_AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
+
+[node name="AnimatedSpriteComponent" type="Node2D" parent="Components"]
+script = ExtResource("3_t82yd")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Components/AnimatedSpriteComponent"]
+sprite_frames = ExtResource("4_p7cnc")
+animation = &"idle"
+
+[node name="BulletHitboxComponent" type="Area2D" parent="Components"]
+collision_mask = 16
+script = ExtResource("5_svlxf")
+
+[node name="Hitbox" type="CollisionShape2D" parent="Components/BulletHitboxComponent"]
+shape = SubResource("RectangleShape2D_kummr")
+
+[node name="UserShootingComponent" type="Node" parent="Components"]
+script = ExtResource("6_67mor")
+
+[connection signal="body_entered" from="Components/BulletHitboxComponent" to="." method="_on_bullet_hitbox_component_body_entered"]
