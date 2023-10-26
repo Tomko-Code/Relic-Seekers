@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxjnma2fk5pru"]
+
+[ext_resource type="Script" path="res://src/zone/zone.gd" id="1_rsflo"]
+[ext_resource type="PackedScene" uid="uid://csr0pian6yidg" path="res://src/mockup/mockup_floor.tscn" id="2_82up6"]
+[ext_resource type="PackedScene" uid="uid://dgnqddfbme671" path="res://src/zone/zone_gate.tscn" id="3_ef6f8"]
+[ext_resource type="Texture2D" uid="uid://dayf0y6nyidev" path="res://icon.svg" id="4_smhiw"]
+
+[node name="mockup_zone_static_01" type="Node2D"]
+script = ExtResource("1_rsflo")
+zone_name = "mockup_zone_static_01"
+
+[node name="Floor" parent="." instance=ExtResource("2_82up6")]
+position = Vector2(617.438, 323.25)
+scale = Vector2(4.94629, 2.83984)
+
+[node name="ZoneGate" parent="." instance=ExtResource("3_ef6f8")]
+position = Vector2(301, 305)
+connected_zone_res_path = "res://src/zones/mockup_zone_static_00.tscn"
+connected_zone_name = "mockup_zone_static_00"
+
+[node name="SpawnPosition" parent="ZoneGate" index="1"]
+position = Vector2(39, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ZoneGate"]
+position = Vector2(-1, 0)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_smhiw")
+
+[node name="ZoneGate2" parent="." instance=ExtResource("3_ef6f8")]
+position = Vector2(625, 142)
+connected_zone_res_path = "res://src/zones/mockup_zone_static_02.tscn"
+connected_zone_name = "mockup_zone_static_02"
+
+[node name="SpawnPosition" parent="ZoneGate2" index="1"]
+position = Vector2(0, 48)
+
+[node name="Sprite2D" type="Sprite2D" parent="ZoneGate2"]
+position = Vector2(-1, 1.00003)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_smhiw")
+
+[editable path="ZoneGate"]
+[editable path="ZoneGate2"]
