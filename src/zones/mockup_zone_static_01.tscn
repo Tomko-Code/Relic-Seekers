@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxjnma2fk5pru"]
+[gd_scene load_steps=6 format=3 uid="uid://cxjnma2fk5pru"]
 
 [ext_resource type="Script" path="res://src/zone/zone.gd" id="1_rsflo"]
 [ext_resource type="PackedScene" uid="uid://csr0pian6yidg" path="res://src/mockup/mockup_floor.tscn" id="2_82up6"]
 [ext_resource type="PackedScene" uid="uid://dgnqddfbme671" path="res://src/zone/zone_gate.tscn" id="3_ef6f8"]
 [ext_resource type="Texture2D" uid="uid://dayf0y6nyidev" path="res://icon.svg" id="4_smhiw"]
+[ext_resource type="PackedScene" uid="uid://c5fdro8asqha0" path="res://src/entities/enemies/enemy.tscn" id="5_egpv1"]
 
 [node name="mockup_zone_static_01" type="Node2D"]
 script = ExtResource("1_rsflo")
@@ -38,6 +39,12 @@ position = Vector2(0, 48)
 position = Vector2(-1, 1.00003)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("4_smhiw")
+
+[node name="Enemy" parent="." instance=ExtResource("5_egpv1")]
+position = Vector2(588, 388)
+
+[node name="Enemy2" parent="." instance=ExtResource("5_egpv1")]
+position = Vector2(794, 318)
 
 [editable path="ZoneGate"]
 [editable path="ZoneGate2"]

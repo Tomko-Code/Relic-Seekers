@@ -15,6 +15,12 @@ run/main_scene="res://src/mockup/test.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Constants="*res://src/globals/constants.gd"
+GameData="*res://src/globals/game_data.gd"
+GameManager="*res://src/globals/game_manager.gd"
+
 [input]
 
 move_right={
