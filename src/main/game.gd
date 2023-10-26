@@ -33,7 +33,7 @@ func start_game():
 	pass
 
 func _ready():
-	player = load("res://src/mockup/mockup_player.tscn").instantiate()
+	player = load("res://src/entities/player/player_entity.tscn").instantiate()
 	add_child(player)
 
 func _process(delta):

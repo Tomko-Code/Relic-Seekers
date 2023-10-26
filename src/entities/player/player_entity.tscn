@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://d2bsjmqg1fe1h"]
+[gd_scene load_steps=10 format=3 uid="uid://d2bsjmqg1fe1h"]
 
 [ext_resource type="Script" path="res://src/entities/player/player_entity.gd" id="1_7c5ui"]
+[ext_resource type="Texture2D" uid="uid://dayf0y6nyidev" path="res://icon.svg" id="2_fym7o"]
 [ext_resource type="Script" path="res://src/entities/player/user_movement_component.gd" id="2_xekry"]
 [ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="3_t82yd"]
 [ext_resource type="SpriteFrames" uid="uid://bakc3okm8hm0d" path="res://assets/sprites/player_sprite.tres" id="4_p7cnc"]
@@ -14,6 +15,7 @@ size = Vector2(64, 64)
 size = Vector2(32, 32)
 
 [node name="PlayerEntity" type="CharacterBody2D" node_paths=PackedStringArray("_UserMovementComponent", "_AnimatedSpriteComponent", "Camera")]
+z_index = 1
 collision_mask = 2
 script = ExtResource("1_7c5ui")
 _UserMovementComponent = NodePath("Components/UserMovementComponent")
@@ -24,6 +26,11 @@ Camera = NodePath("Camera")
 shape = SubResource("RectangleShape2D_eip8d")
 
 [node name="Camera" type="Camera2D" parent="."]
+
+[node name="bc" type="Sprite2D" parent="."]
+modulate = Color(0.666667, 0.0509804, 0.270588, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_fym7o")
 
 [node name="Components" type="Node2D" parent="."]
 
