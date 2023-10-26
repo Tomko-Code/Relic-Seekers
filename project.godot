@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*res://src/globals/game_manager.gd"
 Constants="*res://src/globals/constants.gd"
-GameState="*res://src/globals/game_data.gd"
+GameData="*res://src/globals/game_data.gd"
 
 [input]
 
