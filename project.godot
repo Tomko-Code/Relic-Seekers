@@ -21,6 +21,8 @@ GameManager="*res://src/globals/game_manager.gd"
 Constants="*res://src/globals/constants.gd"
 GameData="*res://src/globals/game_data.gd"
 
+
+
 [input]
 
 move_right={

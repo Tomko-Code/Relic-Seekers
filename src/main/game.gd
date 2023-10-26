@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var HUD = get_node("HUD")
+
 var loaded_zones = {}
 var game_running = false
 var current_zone = null
@@ -23,7 +24,7 @@ func change_zone(zone_name:String):
 	if current_zone != null:
 		remove_child(current_zone)
 		loaded_zones.erase(current_zone.zone_name)
-		current_zone.free()
+		current_zone.queue_free()
 	
 	add_child(loaded_zones[zone_name])
 	current_zone = loaded_zones[zone_name]

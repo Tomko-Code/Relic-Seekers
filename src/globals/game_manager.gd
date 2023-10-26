@@ -60,5 +60,6 @@ func _input(event):
 			GAME_STATE = GAME_STATES.MENU
 			switch_active_scene_to("Menu")
 
+# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	pass # Replace with function body.
