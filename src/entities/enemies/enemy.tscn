@@ -33,4 +33,4 @@ rotation = 3.14159
 scale = Vector2(0.28125, 0.28125)
 texture = ExtResource("3_mem3v")
 
-[connection signal="body_entered" from="Components/BulletHitboxComponent" to="." method="_on_bullet_hitbox_component_body_entered"]
+[connection signal="area_entered" from="Components/BulletHitboxComponent" to="." method="_on_bullet_hitbox_component_area_entered"]

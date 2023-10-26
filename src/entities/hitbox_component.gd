@@ -1,4 +1,5 @@
 class_name HitboxComponent
 extends Area2D
 
-#needs more components for now
+func get_entity():
+	return get_parent().get_parent()

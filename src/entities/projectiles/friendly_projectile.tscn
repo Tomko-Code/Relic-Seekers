@@ -1,25 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://dakgmo2poxul4"]
+[gd_scene load_steps=6 format=3 uid="uid://dakgmo2poxul4"]
 
 [ext_resource type="Script" path="res://src/entities/projectiles/friendly_projectile.gd" id="1_en1t6"]
 [ext_resource type="Script" path="res://src/entities/projectiles/projectile_movement_component.gd" id="1_ptuku"]
 [ext_resource type="Texture2D" uid="uid://jgv1go4erwru" path="res://assets/art/sprites/bullet2.png" id="2_igs68"]
+[ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="3_272di"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_85nud"]
 radius = 17.0
 
-[node name="FriendlyProjectile" type="AnimatableBody2D" node_paths=PackedStringArray("_ProjectileMovementComponent")]
-collision_layer = 8
+[node name="FriendlyProjectile" type="StaticBody2D" node_paths=PackedStringArray("_ProjectileMovementComponent")]
+collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_en1t6")
 _ProjectileMovementComponent = NodePath("Components/ProjectileMovementComponent")
-
-[node name="Hitbox" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_85nud")
 
 [node name="Components" type="Node2D" parent="."]
 
 [node name="ProjectileMovementComponent" type="Node" parent="Components"]
 script = ExtResource("1_ptuku")
+
+[node name="HitboxComponent" type="Area2D" parent="Components"]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("3_272di")
+
+[node name="Hitbox" type="CollisionShape2D" parent="Components/HitboxComponent"]
+shape = SubResource("CircleShape2D_85nud")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_igs68")

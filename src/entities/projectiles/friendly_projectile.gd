@@ -1,5 +1,5 @@
 class_name FriendlyProjectile
-extends AnimatableBody2D
+extends StaticBody2D
 
 
 @export var _ProjectileMovementComponent: ProjectileMovementComponent
