@@ -11,7 +11,6 @@ var is_idle := true
 var current_animation = ""
 var animation = ""
 
-@export var _HitboxComponent: HitboxComponent
 @export var _AnimatedSpriteComponent: AnimatedSpriteComponent
 
 
