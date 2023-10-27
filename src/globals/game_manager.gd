@@ -9,7 +9,6 @@ var loaded_scenes = {}
 func _init():
 	pass
 
-# load scene
 func load_scene(name: String, res_path: String):
 	if loaded_scenes.has(name):
 		print("game_manger:load_scene | scene :" + name + " is loaded.")

@@ -19,6 +19,7 @@ func _input(event):
 
 func shoot(direction_vector):
 	var projectile: FriendlyProjectile = load("res://src/entities/projectiles/friendly_projectile.tscn").instantiate()
+	
 	projectile.position = parent.position
 	
 	parent.get_parent().call_deferred("add_child", projectile)
