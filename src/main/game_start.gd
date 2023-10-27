@@ -1,5 +1,9 @@
 extends Node2D
 
+var load_preset = [
+	["res://src/entities/projectiles/friendly_projectile.tscn", "projectile/friendly_projectile"],
+]
+
 #This is a scene for starting real game
 func  _ready():
 	GameManager.load_scene("Game", "res://src/main/game.tscn")
