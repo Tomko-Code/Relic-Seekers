@@ -6,6 +6,7 @@ var load_preset = [
 
 #This is a scene for starting real game
 func  _ready():
+	ResourceManager.load_preset(load_preset)
 	GameManager.load_scene("Game", "res://src/main/game.tscn")
 	GameManager.load_scene("Menu", "res://src/menus/menu.tscn")
 	
