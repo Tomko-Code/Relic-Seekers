@@ -4,6 +4,8 @@ enum GAME_STATES {MENU, GAME, TRANSITION}
 var GAME_STATE: GAME_STATES = GAME_STATES.MENU
 var current_scene = null
 
+var game_camera = load("res://src/other/FollowCamera.tscn").instantiate()
+
 var loaded_scenes = {}
 
 func _init():
@@ -48,6 +50,14 @@ func free_scene(scene_name: String):
 		return
 	
 	scene.queue_free()
+
+func attach_camera_to_node(target_node: Node, _use_zones: bool = true, _interpolate_distance_from_mouse: bool = true,
+			_speed = 3, _near_zone = 300, _far_zone = 400, _draw_debug = false):
+	await get_tree().process_frame
+	if game_camera.get_parent():
+		game_camera.get_parent().remove_child(game_camera)
+	target_node.add_child(game_camera)
+	game_camera.initialize(_use_zones, _interpolate_distance_from_mouse, _speed, _near_zone, _far_zone, _draw_debug)
 
 # just for quick test proly should be inside Menu !
 # states maby not needed here !
