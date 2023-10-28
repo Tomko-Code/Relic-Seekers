@@ -3,12 +3,12 @@ extends CharacterBody2D
 
 @export var _UserMovementComponent: UserMovementComponent
 @export var _AnimatedSpriteComponent: AnimatedSpriteComponent
-@export var Camera: Camera2D
 
 
 
 func _ready():
-	Camera.make_current()
+	GameManager.attach_camera_to_node(self, true, true,
+			3, 300,400, true)
 
 
 func _physics_process(_delta):

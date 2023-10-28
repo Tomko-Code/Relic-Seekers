@@ -1,8 +1,9 @@
 extends Node2D
 
-@onready var Cursor = $Cursor
+@onready var Cursor = $CursorLayer/Cursor
+@onready var Camera = $Camera2D
 
-var speed = 3
+var speed = 30
 
 var near_zone = 300
 var far_zone = 400
@@ -13,6 +14,8 @@ var draw_zones = true
 var use_zones = true
 var interpolate_distance_from_mouse = true
 
+
+var last_offset = Vector2.ZERO
 
 func initialize(_use_zones: bool = true, _interpolate_distance_from_mouse: bool = true,
 			_speed = 3, _near_zone = 300, _far_zone = 400, _draw_debug = false):
@@ -26,32 +29,45 @@ func initialize(_use_zones: bool = true, _interpolate_distance_from_mouse: bool 
 	
 	use_zones = _use_zones
 	interpolate_distance_from_mouse = _interpolate_distance_from_mouse
+	
+	$CursorLayer/Cursor.position = get_viewport_rect().size / 2
 
 
 func _draw():
 	if draw_zones:
-		draw_arc(Vector2.ZERO, near_zone, PI*2, 0, 100, Color(1, 0, 0), 1)
-		draw_arc(Vector2.ZERO, far_zone, PI*2, 0, 100, Color(0, 1, 0), 1)
-		draw_arc(Vector2.ZERO, far_zone - near_zone, PI*2, 0, 100, Color(0, 0, 1), 1)
+		print(last_offset)
+		draw_arc(last_offset, near_zone, PI*2, 0, 100, Color(1, 0, 0), 1)
+		draw_arc(last_offset, far_zone, PI*2, 0, 100, Color(0, 1, 0), 1)
+		draw_arc(last_offset, far_zone - near_zone, PI*2, 0, 100, Color(0, 0, 1), 1)
 
 func _process(delta):
-	var mouse_pos = get_global_mouse_position()
-	var screen_center = Vector2.ZERO
+	var mouse_pos = Cursor.get_global_mouse_position()
+	var screen_center = get_viewport_rect().size / 2
 	
 	if use_zones:
 		var offset = mouse_pos - screen_center
-		if offset.length() < near_zone:
+		
+		offset = offset.normalized() * max(0, offset.length() - near_zone)
+		
+		if offset.length() < 1:
 			if interpolate_distance_from_mouse:
 				Cursor.position = Cursor.position.lerp(screen_center, speed * delta)
+				Camera.position = Camera.position.lerp(Vector2.ZERO, speed * delta)
+				
 			else:
 				Cursor.position = screen_center
+				Camera.position = Vector2.ZERO
 		else:
 			if offset.length() > intermediate_zone:
-				offset = offset.normalized() * intermediate_zone
-			
+				offset = offset.normalized() * intermediate_zone 
 			if interpolate_distance_from_mouse:
 				Cursor.position = Cursor.position.lerp(screen_center + offset, speed * delta)
+				Camera.position = Camera.position.lerp(Vector2.ZERO + offset, speed * delta)
 			else:
 				Cursor.position = screen_center + offset
+				Camera.position = Vector2.ZERO + offset
+		last_offset = offset
+		queue_redraw()
 	else:
-		Cursor.position = Vector2.ZERO
+		Cursor.position = screen_center
+		Camera.position = Vector2.ZERO
