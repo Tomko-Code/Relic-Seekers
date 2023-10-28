@@ -38,7 +38,8 @@ func _draw():
 		print(last_offset)
 		draw_arc(last_offset, near_zone, PI*2, 0, 100, Color(1, 0, 0), 1)
 		draw_arc(last_offset, far_zone, PI*2, 0, 100, Color(0, 1, 0), 1)
-		draw_arc(last_offset, far_zone - near_zone, PI*2, 0, 100, Color(0, 0, 1), 1)
+		draw_arc(Vector2.ZERO, far_zone - near_zone, PI*2, 0, 100, Color(0, 0, 1), 1)
+		draw_line(Camera.position, last_offset, Color(1,1,0), 1)
 
 func _process(delta):
 	var mouse_pos = Cursor.get_global_mouse_position()

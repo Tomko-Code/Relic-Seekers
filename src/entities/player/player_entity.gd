@@ -7,8 +7,16 @@ extends CharacterBody2D
 
 
 func _ready():
-	GameManager.attach_camera_to_node(self, true, true,
-			3, 300,400, true)
+	var use_zones = true
+	var interpolate_camera_position = true
+	var camera_speed = 1
+	var near_zone = 300
+	var far_zone = 400
+	var debug_display = true
+	
+	GameManager.attach_camera_to_node(self, use_zones, 
+		interpolate_camera_position, camera_speed, near_zone, far_zone, 
+		debug_display)
 
 
 func _physics_process(_delta):
