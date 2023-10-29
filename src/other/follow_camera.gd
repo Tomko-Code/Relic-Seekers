@@ -43,7 +43,6 @@ func initialize(_use_zones: bool = true, _interpolate_distance_from_mouse: bool 
 
 func _draw():
 	if draw_zones:
-		print(last_offset)
 		draw_arc(last_offset, near_zone, PI*2, 0, 100, Color(1, 0, 0), 1)
 		draw_arc(last_offset, far_zone, PI*2, 0, 100, Color(0, 1, 0), 1)
 		draw_arc(Vector2.ZERO, intermediate_zone, PI*2, 0, 100, Color(0, 0, 1), 1)
@@ -58,7 +57,6 @@ func _process(delta):
 		var offset = mouse_pos - screen_center
 		
 		offset = offset.normalized() * max(0, offset.length() - near_zone)
-		print((offset.length() / intermediate_zone))
 		offset = offset.normalized() * (offset.length() / intermediate_zone) * inner_zone
 		
 		
