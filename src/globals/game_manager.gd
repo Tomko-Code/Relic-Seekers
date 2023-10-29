@@ -51,13 +51,16 @@ func free_scene(scene_name: String):
 	
 	scene.queue_free()
 
-func attach_camera_to_node(target_node: Node, _use_zones: bool = true, _interpolate_distance_from_mouse: bool = true,
-			_speed = 3, _near_zone = 300, _far_zone = 400, _draw_debug = false):
+func attach_camera_to_node(target_node: Node, _use_zones: bool = true,
+	_interpolate_distance_from_mouse: bool = true, _speed: float = 3,
+	_near_zone: float = 300, _far_zone: float = 400, _inner_zone: float = 0, 
+	_draw_debug: bool = false):
 	await get_tree().process_frame
 	if game_camera.get_parent():
 		game_camera.get_parent().remove_child(game_camera)
 	target_node.add_child(game_camera)
-	game_camera.initialize(_use_zones, _interpolate_distance_from_mouse, _speed, _near_zone, _far_zone, _draw_debug)
+	game_camera.initialize(_use_zones, _interpolate_distance_from_mouse, _speed, _near_zone,
+		_far_zone, _inner_zone, _draw_debug)
 
 # just for quick test proly should be inside Menu !
 # states maby not needed here !
