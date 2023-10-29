@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://jumgdbiwdj0i"]
+
+[ext_resource type="Script" path="res://src/other/follow_camera.gd" id="1_g4usv"]
+[ext_resource type="Texture2D" uid="uid://dayf0y6nyidev" path="res://icon.svg" id="2_dixgj"]
+
+[node name="FollowCamera" type="Node2D"]
+script = ExtResource("1_g4usv")
+
+[node name="CursorLayer" type="CanvasLayer" parent="."]
+
+[node name="Cursor" type="Sprite2D" parent="CursorLayer"]
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("2_dixgj")
+
+[node name="Camera2D" type="Camera2D" parent="."]
