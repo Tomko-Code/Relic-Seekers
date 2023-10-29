@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqkjikwarcc0d"]
+
+[ext_resource type="Script" path="res://src/console/console.gd" id="1_nv5ud"]
+
+[node name="ConsoleLayer" type="CanvasLayer"]
+script = ExtResource("1_nv5ud")
+
+[node name="Console" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="TextEdit" type="TextEdit" parent="Console"]
+offset_right = 1152.0
+offset_bottom = 35.0
+placeholder_text = "help"
+
+[connection signal="text_changed" from="Console/TextEdit" to="." method="_on_text_edit_text_changed"]
