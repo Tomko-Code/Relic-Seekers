@@ -13,7 +13,7 @@ func _ready():
 	var near_zone = 300
 	var far_zone = 400
 	var inner_zone = 50
-	var debug_display = true
+	var debug_display = false
 	
 	GameManager.attach_camera_to_node(self, use_zones, 
 		interpolate_camera_position, camera_speed, near_zone, far_zone, 

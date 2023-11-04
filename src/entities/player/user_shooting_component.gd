@@ -1,9 +1,7 @@
 class_name UserShootingComponent
-extends Node
+extends ShootingComponent
 
-
-@onready var parent: CharacterBody2D = get_parent().get_parent()
-
+var last_direction = Vector2.ZERO
 
 func _input(event):
 	if event is InputEventKey && !event.echo:
@@ -17,7 +15,12 @@ func _input(event):
 			shoot(Vector2(0, -1))
 
 
+func get_direction():
+	return last_direction
+
+
 func shoot(direction_vector):
+	last_direction = direction_vector
 	var projectile: FriendlyProjectile = load("res://src/entities/projectiles/friendly_projectile.tscn").instantiate()
 	
 	projectile.position = parent.position
