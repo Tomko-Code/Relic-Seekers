@@ -6,6 +6,7 @@ var velocity: Vector2
 
 func _ready():
 	is_idle = false
+	is_rotable = true
 	set_physics_process(false)
 	pass
 

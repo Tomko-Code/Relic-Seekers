@@ -30,9 +30,10 @@ func get_direction_constant(vector: Vector2):
 func set_animation(animation):
 	if current_animation != animation:
 		for sprite in get_children():
-			sprite.play(animation)
-			sprite.set_frame_and_progress(1,0)
-			current_animation = animation
+			if sprite is AnimatedSprite2D:
+				sprite.play(animation)
+				sprite.set_frame_and_progress(1,0)
+				current_animation = animation
 
 
 func handle_entity_animation():
@@ -56,7 +57,9 @@ func handle_animated_sprite_without_direction():
 			set_animation("move_up")
 		elif _MovementComponent.get_direction().y > 0:
 			set_animation("move_down")
-
+	if _MovementComponent.is_rotable:
+		rotation = _MovementComponent.get_direction().angle()
+	
 
 func handle_animated_sprite_with_direction():
 	match get_direction_constant(_ShootingComponent.get_direction()):

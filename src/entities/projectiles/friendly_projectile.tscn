@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dakgmo2poxul4"]
+[gd_scene load_steps=7 format=3 uid="uid://dakgmo2poxul4"]
 
 [ext_resource type="Script" path="res://src/entities/projectiles/friendly_projectile.gd" id="1_en1t6"]
 [ext_resource type="Script" path="res://src/entities/projectiles/projectile_movement_component.gd" id="1_ptuku"]
 [ext_resource type="Texture2D" uid="uid://jgv1go4erwru" path="res://assets/art/sprites/bullet2.png" id="2_igs68"]
 [ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="3_272di"]
+[ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="4_nen6d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_85nud"]
 radius = 17.0
@@ -27,5 +28,9 @@ script = ExtResource("3_272di")
 [node name="Hitbox" type="CollisionShape2D" parent="Components/HitboxComponent"]
 shape = SubResource("CircleShape2D_85nud")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSpriteComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("_MovementComponent")]
+script = ExtResource("4_nen6d")
+_MovementComponent = NodePath("../ProjectileMovementComponent")
+
+[node name="Sprite2D" type="Sprite2D" parent="Components/AnimatedSpriteComponent"]
 texture = ExtResource("2_igs68")
