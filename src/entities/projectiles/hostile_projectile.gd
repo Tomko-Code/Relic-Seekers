@@ -1,5 +1,5 @@
 class_name HostileProjectile
-extends StaticBody2D
+extends CharacterBody2D
 
 
 # Called when the node enters the scene tree for the first time.
