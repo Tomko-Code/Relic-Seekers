@@ -4,8 +4,6 @@ extends CharacterBody2D
 @export var _UserMovementComponent: UserMovementComponent
 @export var _AnimatedSpriteComponent: AnimatedSpriteComponent
 
-
-
 func _ready():
 	var use_zones = true
 	var interpolate_camera_position = true
@@ -13,7 +11,7 @@ func _ready():
 	var near_zone = 300
 	var far_zone = 400
 	var inner_zone = 50
-	var debug_display = true
+	var debug_display = false
 	
 	GameManager.attach_camera_to_node(self, use_zones, 
 		interpolate_camera_position, camera_speed, near_zone, far_zone, 
@@ -21,6 +19,7 @@ func _ready():
 
 
 func _physics_process(_delta):
+	print("FPS " + str(Engine.get_frames_per_second()))
 	pass
 
 
