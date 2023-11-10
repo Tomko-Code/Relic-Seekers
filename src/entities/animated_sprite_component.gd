@@ -30,7 +30,7 @@ func get_direction_constant(vector: Vector2):
 func set_animation(animation):
 	if current_animation != animation:
 		for sprite in get_children():
-			if sprite is AnimatedSprite2D:
+			if sprite is AnimatedSprite2D and sprite.sprite_frames.has_animation(animation):
 				sprite.play(animation)
 				sprite.set_frame_and_progress(1,0)
 				current_animation = animation
