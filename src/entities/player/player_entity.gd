@@ -19,7 +19,6 @@ func _ready():
 
 
 func _physics_process(_delta):
-	print("FPS " + str(Engine.get_frames_per_second()))
 	pass
 
 
