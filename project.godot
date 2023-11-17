@@ -91,3 +91,8 @@ shoot_left_click={
 2d_physics/layer_6="Gates"
 2d_physics/layer_7="Pickable"
 2d_physics/layer_8="Interactable"
+2d_physics/layer_9="Pit"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
