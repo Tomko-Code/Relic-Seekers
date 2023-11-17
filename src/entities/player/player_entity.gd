@@ -4,8 +4,6 @@ extends CharacterBody2D
 @export var _UserMovementComponent: UserMovementComponent
 @export var _AnimatedSpriteComponent: AnimatedSpriteComponent
 
-
-
 func _ready():
 	var use_zones = true
 	var interpolate_camera_position = true

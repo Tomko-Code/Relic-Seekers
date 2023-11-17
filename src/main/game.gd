@@ -30,7 +30,9 @@ func change_zone(zone_name:String):
 	current_zone = loaded_zones[zone_name]
 
 func start_game():
-	pass
+	load_zone("mockup_zone_static_00", "res://src/zones/zone_swamp_prolog_00.tscn")
+	change_zone("zone_swamp_prolog_00")
+	game_running = true
 
 func _ready():
 	player = load("res://src/entities/player/player_entity.tscn").instantiate()

@@ -16,6 +16,4 @@ func _on_pressed():
 	if GameManager.loaded_scenes["Game"].game_running:
 		pass
 	else:
-		GameManager.loaded_scenes["Game"].load_zone("mockup_zone_static_00", "res://src/zones/mockup_zone_static_00.tscn")
-		GameManager.loaded_scenes["Game"].change_zone("mockup_zone_static_00")
-		GameManager.loaded_scenes["Game"].game_running = true
+		GameManager.loaded_scenes["Game"].start_game()
