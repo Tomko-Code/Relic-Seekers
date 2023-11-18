@@ -3,7 +3,7 @@ extends Node2D
 signal interacted
 
 @export var active: bool = true
-@export var interaction_input:InputEvent
+@export var interaction_input:InputEvent = null
 @export var input_text:String = ""
 @export var interaction_descryption:String = ""
 @export var offset:Vector2i = Vector2i.ZERO
@@ -19,7 +19,8 @@ func _ready() -> void:
 	$HBoxContainer/Descryption.text = interaction_descryption
 	$HBoxContainer/Input.text = "(" + input_text + ")"
 	
-	group_name = "interactable_" + String.chr(interaction_input.keycode)
+	if interaction_input != null:
+		group_name = "interactable_" + String.chr(interaction_input.keycode)
 
 func _input(event) -> void:
 	if event is InputEventKey:
