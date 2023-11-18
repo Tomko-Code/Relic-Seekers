@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cyc8r3434hrnr" path="res://assets/art/keys/W-Key.png" id="5_k0xf6"]
 
 [ext_resource type="FontFile" uid="uid://cuqexwqo0btki" path="res://assets/fonts/yoster.ttf" id="6_be8eq"]
+
 [ext_resource type="Texture2D" uid="uid://dxty3ut8bdoqm" path="res://assets/art/keys/Space-Key.png" id="6_gglbj"]
 
 [sub_resource type="Theme" id="Theme_t5s7l"]
