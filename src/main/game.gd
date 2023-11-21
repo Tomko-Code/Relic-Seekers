@@ -18,7 +18,7 @@ func load_zone(zone_name:String, res_path:String):
 	var zone = zone_res.instantiate()
 	loaded_zones[zone.zone_name] = zone
 
-func change_zone(zone_name:String):
+func change_zone(zone_name:String, zone_spawn:int = 0):
 	#await get_tree().process_frame
 	
 	if current_zone != null:

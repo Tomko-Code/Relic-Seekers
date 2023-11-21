@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://l1qgkquddmll"]
+
+[ext_resource type="PackedScene" uid="uid://bdlxq5bh2qqu2" path="res://src/entities/interactable/interactable_component.tscn" id="1_8kqmu"]
+[ext_resource type="Texture2D" uid="uid://c1opxea5dmvag" path="res://assets/art/tilemap/320x320-tileset-ruin.png" id="2_uapmw"]
+
+[node name="elevator" type="Node2D"]
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="InteractableComponent" parent="Components" instance=ExtResource("1_8kqmu")]
+position = Vector2(-22, -78)
+input_text = "Activate elevator."
+interaction_descryption = "C"
+
+[node name="Platform" type="Sprite2D" parent="."]
+texture = ExtResource("2_uapmw")
+region_enabled = true
+region_rect = Rect2(320, 1280, 320, 320)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
