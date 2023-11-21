@@ -13,5 +13,5 @@ func _physics_process(delta):
 	pass
 
 
-func  get_direction():
+func get_direction():
 	return direction

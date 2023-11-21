@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="2_84knj"]
 [ext_resource type="SpriteFrames" uid="uid://fms8hsyf3cim" path="res://assets/sprites/bullet_sprite.tres" id="2_n3s3o"]
 [ext_resource type="Script" path="res://src/entities/projectiles/projectile_movement_component.gd" id="3_fqkfd"]
-[ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="5_bc6jf"]
+[ext_resource type="PackedScene" uid="uid://cepkdm0iul06" path="res://src/entities/hitbox_component.tscn" id="5_ttxmc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cu0yi"]
 radius = 17.0
@@ -26,10 +26,9 @@ sprite_frames = ExtResource("2_n3s3o")
 [node name="ProjectileMovementComponent" type="Node" parent="Components"]
 script = ExtResource("3_fqkfd")
 
-[node name="HitboxComponent" type="Area2D" parent="Components"]
-collision_layer = 16
-collision_mask = 0
-script = ExtResource("5_bc6jf")
+[node name="HitboxComponent" parent="." instance=ExtResource("5_ttxmc")]
+collision_layer = 0
+collision_mask = 16
 
-[node name="Hitbox" type="CollisionShape2D" parent="Components/HitboxComponent"]
+[node name="Hitbox" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("CircleShape2D_cu0yi")

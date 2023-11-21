@@ -1,9 +1,5 @@
 class_name FriendlyProjectile
-extends CharacterBody2D
+extends BaseProjectile
 
-
-@export var _ProjectileMovementComponent: ProjectileMovementComponent
-
-
-func launch(direction_vector: Vector2, speed: float):
-	_ProjectileMovementComponent.launch(direction_vector, speed)
+func initialize(_speed: float, _range: float, _damage: float,_effects: Array):
+	super.initialize(_speed, _range, _damage, _effects)
