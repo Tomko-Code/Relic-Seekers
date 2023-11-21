@@ -1,10 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://bdlxq5bh2qqu2"]
+[gd_scene load_steps=12 format=3 uid="uid://bdlxq5bh2qqu2"]
 
 [ext_resource type="Script" path="res://src/entities/interactable/interactable_component.gd" id="1_7xkwy"]
 [ext_resource type="FontFile" uid="uid://bpdjfdnl7p1vf" path="res://assets/fonts/yoster.ttf" id="2_r1ib8"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wcsx0"]
-size = Vector2(88, 59)
 
 [sub_resource type="Theme" id="Theme_vi0k7"]
 default_font = ExtResource("2_r1ib8")
@@ -209,7 +206,6 @@ collision_layer = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 position = Vector2(34, 19.5)
-shape = SubResource("RectangleShape2D_wcsx0")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 z_index = 10
