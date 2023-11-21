@@ -7,6 +7,7 @@ signal interacted
 @export var input_text:String = ""
 @export var interaction_descryption:String = ""
 @export var offset:Vector2i = Vector2i.ZERO
+@export var shape: Shape2D = null
 
 var _in_range:bool = false
 var player:PlayerEntity = null
@@ -18,6 +19,8 @@ func _ready() -> void:
 	
 	$HBoxContainer/Descryption.text = interaction_descryption
 	$HBoxContainer/Input.text = "(" + input_text + ")"
+	
+	$InteractionArea/CollisionShape2D.shape = shape
 	
 	if interaction_input != null:
 		group_name = "interactable_" + String.chr(interaction_input.keycode)
