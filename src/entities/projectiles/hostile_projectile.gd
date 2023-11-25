@@ -1,5 +1,9 @@
 class_name HostileProjectile
-extends CharacterBody2D
+extends BaseProjectile
+
+
+func initialize(_speed: float, _range: float, _damage: float,_effects: Array):
+	super.initialize(_speed, _range, _damage, _effects)
 
 
 # Called when the node enters the scene tree for the first time.

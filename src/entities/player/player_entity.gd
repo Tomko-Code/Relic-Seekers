@@ -24,5 +24,4 @@ func _physics_process(_delta):
 	pass
 
 
-func _on_bullet_hitbox_component_body_entered(body):
-	print("i am hit!")
+

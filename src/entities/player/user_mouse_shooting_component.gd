@@ -1,6 +1,8 @@
 class_name UserMouseShootingComponent
 extends ShootingComponent
 
+@export var _StatsComponent: StatsComponent
+@export var _MovementComponent: MovementComponent
 
 func _input(event):
 	if event is InputEventMouse:
@@ -15,5 +17,20 @@ func get_direction():
 func shoot(direction_vector):
 	var projectile: FriendlyProjectile = load("res://src/entities/projectiles/friendly_projectile.tscn").instantiate()
 	projectile.position = parent.position
+	
+	projectile.initialize(_StatsComponent.get_shoot_speed(), 
+		_StatsComponent.get_shoot_range(),
+		_StatsComponent.get_shoot_damage(),
+		_StatsComponent.get_shoot_effects())
+	
 	parent.get_parent().call_deferred("add_child", projectile)
-	projectile.launch(direction_vector, 500)
+	
+	if _MovementComponent and _MovementComponent.direction != Vector2.ZERO:
+		var projectile_vector = direction_vector.normalized() * projectile.speed
+		var movement_vector = _MovementComponent.direction.normalized() * (_MovementComponent.speed / 1000)
+		
+		var result_vector = projectile_vector + movement_vector
+		projectile.speed = result_vector.length()
+		projectile.launch(result_vector.normalized())
+	else:
+		projectile.launch(direction_vector)

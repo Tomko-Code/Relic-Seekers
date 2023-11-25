@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://d2bsjmqg1fe1h"]
+[gd_scene load_steps=11 format=3 uid="uid://d2bsjmqg1fe1h"]
 
 [ext_resource type="Script" path="res://src/entities/player/player_entity.gd" id="1_7c5ui"]
 [ext_resource type="Texture2D" uid="uid://dayf0y6nyidev" path="res://icon.svg" id="2_fym7o"]
 [ext_resource type="Script" path="res://src/entities/player/user_movement_component.gd" id="2_xekry"]
 [ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="3_t82yd"]
 [ext_resource type="SpriteFrames" uid="uid://bakc3okm8hm0d" path="res://assets/sprites/player_sprite.tres" id="4_p7cnc"]
-[ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="5_svlxf"]
 [ext_resource type="Script" path="res://src/entities/player/user_mouse_shooting_component.gd" id="7_ls8cw"]
+[ext_resource type="PackedScene" uid="uid://cepkdm0iul06" path="res://src/entities/hitbox_component.tscn" id="8_tbtis"]
+[ext_resource type="Script" path="res://src/entities/player/player_stats_component.gd" id="8_y5dsv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eip8d"]
 size = Vector2(64, 64)
@@ -43,14 +44,17 @@ _ShootingComponent = NodePath("../UserMouseShootingComponent")
 sprite_frames = ExtResource("4_p7cnc")
 animation = &"idle"
 
-[node name="BulletHitboxComponent" type="Area2D" parent="Components"]
-collision_mask = 16
-script = ExtResource("5_svlxf")
-
-[node name="Hitbox" type="CollisionShape2D" parent="Components/BulletHitboxComponent"]
-shape = SubResource("RectangleShape2D_kummr")
-
-[node name="UserMouseShootingComponent" type="Node" parent="Components"]
+[node name="UserMouseShootingComponent" type="Node" parent="Components" node_paths=PackedStringArray("_StatsComponent", "_MovementComponent")]
 script = ExtResource("7_ls8cw")
+_StatsComponent = NodePath("../PlayerStatsComponent")
+_MovementComponent = NodePath("../UserMovementComponent")
 
-[connection signal="body_entered" from="Components/BulletHitboxComponent" to="." method="_on_bullet_hitbox_component_body_entered"]
+[node name="PlayerStatsComponent" type="Node" parent="Components"]
+script = ExtResource("8_y5dsv")
+
+[node name="HitboxComponent" parent="Components" node_paths=PackedStringArray("_StatsComponent") instance=ExtResource("8_tbtis")]
+collision_mask = 16
+_StatsComponent = NodePath("../PlayerStatsComponent")
+
+[node name="Hitbox" type="CollisionShape2D" parent="Components/HitboxComponent"]
+shape = SubResource("RectangleShape2D_kummr")
