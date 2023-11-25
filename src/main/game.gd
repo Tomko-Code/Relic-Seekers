@@ -7,7 +7,6 @@ var game_running = false
 var current_zone = null
 
 var player = null
-var camera = null
 
 func load_zone(zone_name:String, res_path:String):
 	if loaded_zones.has(zone_name):
@@ -36,6 +35,7 @@ func start_game():
 
 func _ready():
 	player = load("res://src/entities/player/player_entity.tscn").instantiate()
+	GameManager.player = player
 	add_child(player)
 
 func _process(delta):

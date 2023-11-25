@@ -5,6 +5,7 @@ var GAME_STATE: GAME_STATES = GAME_STATES.MENU
 var current_scene = null
 
 var game_camera = load("res://src/other/FollowCamera.tscn").instantiate()
+var player = null
 
 var loaded_scenes = {}
 
