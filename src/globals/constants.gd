@@ -1,5 +1,16 @@
 extends Node
 
+enum all_directions {
+	RIGHT,
+	RIGHT_UP,
+	UP,
+	LEFT_UP,
+	LEFT,
+	LEFT_DOWN,
+	DOWN,
+	RIGHT_DOWN
+}
+
 enum collision_layers {
 	PLAYER = 1,
 	STATIC,
