@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 Constants="*res://src/globals/constants.gd"
-
 GameData="*res://src/globals/game_data.gd"
 GameManager="*res://src/globals/game_manager.gd"
 ResourceManager="*res://src/globals/resource_manager.gd"

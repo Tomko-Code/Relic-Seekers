@@ -6,7 +6,9 @@ var path_save := "user://save_game_presistent";
 # Game INFO
 # is it a first time player starts game
 var is_new_game = true
-var data = {}
+var data = {
+	"prolg_complete": false,
+}
 
 func _ready():
 	# load presistent data

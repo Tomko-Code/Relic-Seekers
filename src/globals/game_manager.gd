@@ -63,6 +63,12 @@ func attach_camera_to_node(target_node: Node, _use_zones: bool = true,
 	game_camera.initialize(_use_zones, _interpolate_distance_from_mouse, _speed, _near_zone,
 		_far_zone, _inner_zone, _draw_debug)
 
+func change_camera_parent(target_node: Node) -> void:
+	#await get_tree().process_frame
+	if game_camera.get_parent():
+		game_camera.get_parent().remove_child(game_camera)
+	target_node.add_child(game_camera)
+
 # just for quick test proly should be inside Menu !
 # states maby not needed here !
 func _input(event):
