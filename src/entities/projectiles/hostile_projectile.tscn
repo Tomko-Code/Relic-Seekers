@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://xvnny3t8pt62"]
+[gd_scene load_steps=8 format=3 uid="uid://xvnny3t8pt62"]
 
 [ext_resource type="Script" path="res://src/entities/projectiles/hostile_projectile.gd" id="1_wbm3g"]
 [ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="2_84knj"]
 [ext_resource type="SpriteFrames" uid="uid://fms8hsyf3cim" path="res://assets/sprites/bullet_sprite.tres" id="2_n3s3o"]
 [ext_resource type="Script" path="res://src/entities/projectiles/projectile_movement_component.gd" id="3_fqkfd"]
+[ext_resource type="Script" path="res://src/systems/movement/bullet_animation_system.gd" id="5_0o0f6"]
 [ext_resource type="PackedScene" uid="uid://cepkdm0iul06" path="res://src/entities/hitbox_component.tscn" id="5_ttxmc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cu0yi"]
@@ -16,15 +17,19 @@ script = ExtResource("1_wbm3g")
 
 [node name="Components" type="Node2D" parent="."]
 
-[node name="AnimatedSpriteComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("_MovementComponent")]
+[node name="AnimatedSpriteComponent" type="Node2D" parent="Components"]
 script = ExtResource("2_84knj")
-_MovementComponent = NodePath("../ProjectileMovementComponent")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Components/AnimatedSpriteComponent"]
 sprite_frames = ExtResource("2_n3s3o")
 
 [node name="ProjectileMovementComponent" type="Node" parent="Components"]
 script = ExtResource("3_fqkfd")
+
+[node name="BulletAnimationSystem" type="Node" parent="Components" node_paths=PackedStringArray("_MovementComponent", "_AnimatedSpriteComponent")]
+script = ExtResource("5_0o0f6")
+_MovementComponent = NodePath("../ProjectileMovementComponent")
+_AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
 
 [node name="HitboxComponent" parent="." instance=ExtResource("5_ttxmc")]
 collision_layer = 0
