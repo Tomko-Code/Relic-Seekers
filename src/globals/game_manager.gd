@@ -5,6 +5,7 @@ var GAME_STATE: GAME_STATES = GAME_STATES.MENU
 var current_scene = null
 
 var game_camera = load("res://src/other/FollowCamera.tscn").instantiate()
+var player = null
 
 var loaded_scenes = {}
 
@@ -61,6 +62,12 @@ func attach_camera_to_node(target_node: Node, _use_zones: bool = true,
 	target_node.add_child(game_camera)
 	game_camera.initialize(_use_zones, _interpolate_distance_from_mouse, _speed, _near_zone,
 		_far_zone, _inner_zone, _draw_debug)
+
+func change_camera_parent(target_node: Node) -> void:
+	#await get_tree().process_frame
+	if game_camera.get_parent():
+		game_camera.get_parent().remove_child(game_camera)
+	target_node.add_child(game_camera)
 
 # just for quick test proly should be inside Menu !
 # states maby not needed here !

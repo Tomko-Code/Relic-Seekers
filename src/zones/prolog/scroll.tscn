@@ -1,0 +1,141 @@
+[gd_scene load_steps=9 format=3 uid="uid://cukeufucajf2q"]
+
+[ext_resource type="Texture2D" uid="uid://bs7cxxa2qor5w" path="res://assets/art/prolog/scroll.png" id="1_a0t36"]
+[ext_resource type="Theme" uid="uid://yeqhvo4g7l6" path="res://assets/themes/main_menu_theme.tres" id="1_yvs1b"]
+[ext_resource type="Script" path="res://src/zones/prolog/continue_stroll.gd" id="2_75rd1"]
+[ext_resource type="FontFile" uid="uid://bpdjfdnl7p1vf" path="res://assets/fonts/yoster.ttf" id="2_peb2b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6qsqn"]
+
+[sub_resource type="Animation" id="Animation_3pr0d"]
+resource_name = "FadeOut"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 3.5),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Color(0.0980392, 0.129412, 0.0980392, 1), Color(0.0980392, 0.129412, 0.0980392, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_30dg0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.0980392, 0.129412, 0.0980392, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n8cgd"]
+_data = {
+"FadeOut": SubResource("Animation_3pr0d"),
+"RESET": SubResource("Animation_30dg0")
+}
+
+[node name="Scroll" type="CanvasLayer"]
+layer = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+color = Color(0.0980392, 0.129412, 0.0980392, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -173.0
+offset_top = -44.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Continue" type="Button" parent="Control/MarginContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_yvs1b")
+text = "Continue >>"
+flat = true
+script = ExtResource("2_75rd1")
+
+[node name="ScrollContainer" type="CenterContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -300.0
+offset_right = 200.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/ScrollContainer"]
+custom_minimum_size = Vector2(400, 600)
+layout_mode = 2
+theme_override_constants/margin_right = -60
+
+[node name="ScrollTexture" type="TextureRect" parent="Control/ScrollContainer/MarginContainer"]
+material = SubResource("ShaderMaterial_6qsqn")
+layout_mode = 2
+texture = ExtResource("1_a0t36")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Control/ScrollContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_peb2b")
+theme_override_font_sizes/font_size = 20
+text = "Dear Alarion,
+
+As our trusted mage,
+we are tasking you with
+investigation of missing
+expedition. They were send
+to explore ancient  ruins,
+loaceted deep in swamps.
+Find these ruins and missing
+expedition members.
+
+With respect,
+High Mage Concuil"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
+libraries = {
+"": SubResource("AnimationLibrary_n8cgd")
+}
+
+[connection signal="pressed" from="Control/MarginContainer/Continue" to="Control/MarginContainer/Continue" method="_on_pressed"]
+[connection signal="animation_finished" from="Control/AnimationPlayer" to="Control/MarginContainer/Continue" method="_on_animation_player_animation_finished"]

@@ -11,14 +11,13 @@ config_version=5
 [application]
 
 config/name="relic_seekers"
-run/main_scene="res://src/mockup/test.tscn"
+run/main_scene="res://src/main/game_start.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Constants="*res://src/globals/constants.gd"
-
 GameData="*res://src/globals/game_data.gd"
 GameManager="*res://src/globals/game_manager.gd"
 ResourceManager="*res://src/globals/resource_manager.gd"
