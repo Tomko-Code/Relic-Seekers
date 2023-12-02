@@ -1,9 +1,77 @@
-[gd_scene load_steps=3 format=3 uid="uid://cbgrg2gkexspu"]
+[gd_scene load_steps=7 format=3 uid="uid://cbgrg2gkexspu"]
 
 [ext_resource type="Script" path="res://src/main/game.gd" id="1_3g1o0"]
 [ext_resource type="PackedScene" uid="uid://cfmmqeomv02jn" path="res://src/menus/hud.tscn" id="2_ob4nq"]
+
+[sub_resource type="Animation" id="Animation_gy77t"]
+resource_name = "FadeIN"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0980392, 0.0980392, 0.0980392, 0), Color(0.0980392, 0.0980392, 0.0980392, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qqkfs"]
+resource_name = "FadeOUT"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0980392, 0.0980392, 0.0980392, 1), Color(0.0980392, 0.0980392, 0.0980392, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_e0ttc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.0980392, 0.0980392, 0.0980392, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qq42f"]
+_data = {
+"FadeIN": SubResource("Animation_gy77t"),
+"FadeOUT": SubResource("Animation_qqkfs"),
+"RESET": SubResource("Animation_e0ttc")
+}
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_3g1o0")
 
 [node name="HUD" parent="." instance=ExtResource("2_ob4nq")]
+
+[node name="Transition" type="CanvasLayer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Transition"]
+libraries = {
+"": SubResource("AnimationLibrary_qq42f")
+}
+
+[node name="ColorRect" type="ColorRect" parent="Transition"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0980392, 0.0980392, 0.0980392, 1)
