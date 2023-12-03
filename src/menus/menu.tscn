@@ -34,7 +34,6 @@ grow_vertical = 2
 color = Color(0.0588235, 0.0588235, 0.0588235, 1)
 
 [node name="MainMenu" type="CenterContainer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -103,6 +102,7 @@ flat = true
 script = ExtResource("4_mwf21")
 
 [node name="Options" type="CenterContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
