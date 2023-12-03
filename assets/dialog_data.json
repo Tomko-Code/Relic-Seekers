@@ -1,0 +1,16 @@
+{
+    "dialog_name" : 
+    {
+        "complete" : false,
+        "dialogs" : [
+            {
+                "who" : "player",
+                "string" : "ludum ludum ludum ludum"
+            },
+            {
+                "who" : "player",
+                "string" : "ludum2 ludum2 ludum2 ludum2"
+            }
+        ]
+    }
+}
