@@ -1,6 +1,5 @@
-extends Node
-
 class_name Zone
+extends Node
 
 enum ZoneType{STATIC, GENERATED, GENERATED_PRESET}
 @export var type: ZoneType
