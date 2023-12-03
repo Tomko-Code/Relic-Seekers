@@ -6,3 +6,5 @@
 default_font = ExtResource("1_aabsi")
 Button/colors/font_hover_color = Color(0.847059, 0.776471, 0.298039, 1)
 Button/font_sizes/font_size = 25
+TabBar/colors/font_hovered_color = Color(0.94902, 0.94902, 0.145098, 1)
+TabBar/constants/h_separation = 16

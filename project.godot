@@ -26,6 +26,7 @@ ConsoleHandler="*res://src/console/console_handler.gd"
 [display]
 
 window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [input]
 
