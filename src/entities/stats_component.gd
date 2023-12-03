@@ -17,5 +17,5 @@ func get_shoot_effects():
 func get_shoot_damage():
 	return 1
 
-func take_damage(damage: int):
+func change_health(calue: int):
 	parent.queue_free()

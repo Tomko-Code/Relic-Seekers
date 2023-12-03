@@ -5,7 +5,7 @@ var GAME_STATE: GAME_STATES = GAME_STATES.MENU
 var current_scene = null
 
 var game_camera = load("res://src/other/FollowCamera.tscn").instantiate()
-var player = null
+var player: PlayerEntity = null
 var dialog_box:Dialog
 
 var loaded_scenes = {}
@@ -69,6 +69,14 @@ func change_camera_parent(target_node: Node) -> void:
 	if game_camera.get_parent():
 		game_camera.get_parent().remove_child(game_camera)
 	target_node.add_child(game_camera)
+
+
+func get_entity_component(entity, class_type):
+	var components = []
+	for component in entity.get_node("Components").get_children():
+		if is_instance_of(component, class_type):
+			components.append(component)
+	return components
 
 # just for quick test proly should be inside Menu !
 # states maby not needed here !

@@ -1,14 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://qbw5vkeuicbm"]
+[gd_scene load_steps=8 format=3 uid="uid://qbw5vkeuicbm"]
 
 [ext_resource type="PackedScene" uid="uid://d2bsjmqg1fe1h" path="res://src/entities/player/player_entity.tscn" id="1_8hfg7"]
+[ext_resource type="Script" path="res://src/mockup/test.gd" id="1_yqbn2"]
 [ext_resource type="Texture2D" uid="uid://dayf0y6nyidev" path="res://icon.svg" id="2_n6xia"]
 [ext_resource type="PackedScene" uid="uid://xvnny3t8pt62" path="res://src/entities/projectiles/hostile_projectile.tscn" id="3_b1s6w"]
 [ext_resource type="PackedScene" uid="uid://c5fdro8asqha0" path="res://src/entities/enemies/enemy.tscn" id="4_ypjg6"]
+[ext_resource type="PackedScene" uid="uid://b8pxblhi6pm8r" path="res://src/hud/player_health_display.tscn" id="6_a1w3u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_felbn"]
 size = Vector2(128, 128)
 
 [node name="Test" type="Node"]
+script = ExtResource("1_yqbn2")
 
 [node name="Map" type="Node2D" parent="."]
 
@@ -30,3 +33,11 @@ position = Vector2(193, -1)
 
 [node name="Enemy" parent="Map" instance=ExtResource("4_ypjg6")]
 position = Vector2(0, -223)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="player_health_display" parent="CanvasLayer" instance=ExtResource("6_a1w3u")]
+offset_left = 64.0
+offset_top = 38.0
+offset_right = -941.0
+offset_bottom = -562.0

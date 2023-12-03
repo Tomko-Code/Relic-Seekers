@@ -38,6 +38,7 @@ func start_game():
 	player = load("res://src/entities/player/player_entity.tscn").instantiate()
 	GameManager.player = player
 	
+	
 	# load zone
 	if GameData.data["prolg_complete"]:
 		load_zone("zone_sanctuary_00", "res://src/zones/zone_sanctuary_00.tscn")

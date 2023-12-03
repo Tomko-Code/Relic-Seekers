@@ -18,6 +18,8 @@ signal dash_over
 
 func _physics_process(delta):
 	direction = Vector2.ZERO
+	if parent.paused:
+		return
 	
 	if not can_dash:
 		dash_current_cooldown += delta
