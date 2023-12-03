@@ -1,0 +1,77 @@
+{
+    "test_dialog" : 
+    {
+        "dialogs" : [
+            {
+                "who" : "Player",
+                "string" : "ludum ludum ludum ludum"
+            },
+            {
+                "who" : "Thaladon",
+                "string" : "ludum2 ludum2 ludum2 ludum2"
+            }
+        ]
+    },
+    "first_thaladon_meeting" : 
+    {
+        "dialogs" : [
+            {
+                "who" : "Thaladon",
+                "string" : "Oh no ..."
+            },
+            {
+                "who" : "Player",
+                "string" : "Oh no? I'm here to help."
+            },
+            {
+                "who" : "Thaladon",
+                "string" : "Help ? This elevator is a one way ticket, you are now as traped here, same as the rest of us !"
+            },
+            {
+                "who" : "Player",
+                "string" : "And where is here ?"
+            },
+            {
+                "who" : "Thaladon",
+                "string" : "Based on text on walls, it's called sanctuary ..."
+            },
+            {
+                "who" : "Thaladon",
+                "string" : "Only way out is to activate elevator but ..."
+            },
+            {
+                "who" : "Thaladon",
+                "string" : "Controll pannel is locked by keys ..."
+            },
+            {
+                "who" : "Player",
+                "string" : "Where are the keys ?"
+            },
+            {
+                "who" : "Thaladon",
+                "string" : "Hiden around undegrounds. I will cast spell on you, so if you die you will return here back in time."
+            },
+            {
+                "who" : "Player",
+                "string" : "If you have sutch powerful spell to safly explore undegrounds why not look for them your self ?"
+            },
+            {
+                "who" : "Thaladon",
+                "string" : "Of Course we have tride, but after so many deaths we lost hope. Maby you will do better."
+            }
+        ]
+    },
+    "remark_thaladon_meeting" : 
+    {
+        "dialogs" : [
+            {
+                "who" : "Thaladon",
+                "string" : "What now ? Go and look for keys !"
+            },
+            {
+                "who" : "Player",
+                "string" : "Right ... "
+            }
+        ]
+    }
+}
