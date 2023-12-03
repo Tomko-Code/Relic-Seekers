@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://bva47qjx0qji7"]
+[gd_scene load_steps=2 format=3 uid="uid://w5ok5rbyi7yb"]
 
 [ext_resource type="Script" path="res://src/entities/player/player_dash_ghost.gd" id="1_ab8dw"]
 
