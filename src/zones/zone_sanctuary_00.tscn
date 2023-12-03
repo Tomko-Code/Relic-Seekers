@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ck03mwgfgpew4"]
+[gd_scene load_steps=6 format=3 uid="uid://ck03mwgfgpew4"]
 
 [ext_resource type="PackedScene" uid="uid://nt8opsk0xeca" path="res://src/zone/zone_sanctuary.tscn" id="1_i477g"]
 [ext_resource type="Script" path="res://src/zones/zone_sanctuary_00.gd" id="2_fqal5"]
 [ext_resource type="Texture2D" uid="uid://c1opxea5dmvag" path="res://assets/art/tilemap/320x320-tileset-ruin.png" id="3_w6xm8"]
+[ext_resource type="PackedScene" uid="uid://blc3na0tm1ve3" path="res://src/entities/Interactables/thaladon/thaladon.tscn" id="4_p1rgw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m2dlf"]
 size = Vector2(48, 23)
@@ -32,3 +33,6 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="320x320-tileset-ruin/StaticBody2D" index="0"]
 position = Vector2(0, -32.5)
 shape = SubResource("RectangleShape2D_m2dlf")
+
+[node name="thaladon" parent="." index="5" instance=ExtResource("4_p1rgw")]
+position = Vector2(-388, 171)

@@ -1,0 +1,172 @@
+[gd_scene load_steps=10 format=3 uid="uid://bh3fyfhc3w8xt"]
+
+[ext_resource type="Script" path="res://src/dialog/dialog.gd" id="1_m1crk"]
+[ext_resource type="AudioStream" uid="uid://bjxbj4mn424j6" path="res://assets/audio/dialog/plop-bleep-single.wav" id="2_0su4b"]
+[ext_resource type="FontFile" uid="uid://bpdjfdnl7p1vf" path="res://assets/fonts/yoster.ttf" id="3_gdrbr"]
+[ext_resource type="Texture2D" uid="uid://bsm0afqv1mm5" path="res://assets/art/UI/9-path-small.png" id="3_oh2ej"]
+[ext_resource type="Texture2D" uid="uid://biggwlor1dxdl" path="res://assets/art/portrets/player_portret.png" id="4_rv3t3"]
+
+[sub_resource type="Animation" id="Animation_0n4f4"]
+resource_name = "Show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_hbdel"]
+resource_name = "Hide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_lptro"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vl3fs"]
+_data = {
+"Hide": SubResource("Animation_hbdel"),
+"RESET": SubResource("Animation_lptro"),
+"Show": SubResource("Animation_0n4f4")
+}
+
+[node name="Dialog" type="CanvasLayer" node_paths=PackedStringArray("string_lable", "who_lable", "portret", "interact_button")]
+script = ExtResource("1_m1crk")
+string_lable = NodePath("Control/HBoxContainer/StringContainer/Margin/VBoxContainer/Margin/String")
+who_lable = NodePath("Control/HBoxContainer/StringContainer/Margin/VBoxContainer/Who")
+portret = NodePath("Control/HBoxContainer/PortretContainer/Margin/Portret")
+interact_button = NodePath("Control/HBoxContainer/StringContainer/Margin/VBoxContainer/ButtonDialogIntearct")
+
+[node name="Audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_0su4b")
+bus = &"Dialog"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vl3fs")
+}
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -170.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PortretContainer" type="MarginContainer" parent="Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Box" type="NinePatchRect" parent="Control/HBoxContainer/PortretContainer"]
+layout_mode = 2
+texture = ExtResource("3_oh2ej")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="Margin" type="MarginContainer" parent="Control/HBoxContainer/PortretContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="Portret" type="TextureRect" parent="Control/HBoxContainer/PortretContainer/Margin"]
+layout_mode = 2
+texture = ExtResource("4_rv3t3")
+
+[node name="StringContainer" type="MarginContainer" parent="Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Box" type="NinePatchRect" parent="Control/HBoxContainer/StringContainer"]
+layout_mode = 2
+texture = ExtResource("3_oh2ej")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="Margin" type="MarginContainer" parent="Control/HBoxContainer/StringContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 7
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_right = 7
+theme_override_constants/margin_bottom = 7
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer/StringContainer/Margin"]
+layout_mode = 2
+
+[node name="Who" type="Label" parent="Control/HBoxContainer/StringContainer/Margin/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_gdrbr")
+theme_override_font_sizes/font_size = 25
+text = "Who"
+
+[node name="Margin" type="MarginContainer" parent="Control/HBoxContainer/StringContainer/Margin/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+
+[node name="String" type="Label" parent="Control/HBoxContainer/StringContainer/Margin/VBoxContainer/Margin"]
+layout_mode = 2
+text = "rer"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="ButtonDialogIntearct" type="Button" parent="Control/HBoxContainer/StringContainer/Margin/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+focus_mode = 0
+theme_override_fonts/font = ExtResource("3_gdrbr")
+text = "Interaction"
+flat = true
+
+[connection signal="pressed" from="Control/HBoxContainer/StringContainer/Margin/VBoxContainer/ButtonDialogIntearct" to="." method="_on_button_dialog_intearct_pressed"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ic178eu4k44h"
-path="res://.godot/imported/animation_sprites.png-0410f6d6ff540f0775f8ab47cb851cee.ctex"
+uid="uid://nde52tght8mm"
+path="res://.godot/imported/alarion_portret.png-5a5f68bc1c10c963ac4dfdbbdcbb1a20.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/animation_sprites.png"
-dest_files=["res://.godot/imported/animation_sprites.png-0410f6d6ff540f0775f8ab47cb851cee.ctex"]
+source_file="res://assets/art/portrets/alarion_portret.png"
+dest_files=["res://.godot/imported/alarion_portret.png-5a5f68bc1c10c963ac4dfdbbdcbb1a20.ctex"]
 
 [params]
 

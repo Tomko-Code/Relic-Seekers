@@ -1,16 +1,16 @@
 [gd_scene load_steps=11 format=3 uid="uid://d2bsjmqg1fe1h"]
 
 [ext_resource type="Script" path="res://src/entities/player/player_entity.gd" id="1_7c5ui"]
-[ext_resource type="Texture2D" uid="uid://dayf0y6nyidev" path="res://icon.svg" id="2_fym7o"]
 [ext_resource type="Script" path="res://src/entities/player/user_movement_component.gd" id="2_xekry"]
 [ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="3_t82yd"]
-[ext_resource type="SpriteFrames" uid="uid://bakc3okm8hm0d" path="res://assets/sprites/player_sprite.tres" id="4_p7cnc"]
+[ext_resource type="SpriteFrames" uid="uid://ch01odi3jhnmr" path="res://assets/sprites/player_tmp.tres" id="5_0x5y7"]
 [ext_resource type="Script" path="res://src/entities/player/user_mouse_shooting_component.gd" id="7_ls8cw"]
 [ext_resource type="PackedScene" uid="uid://cepkdm0iul06" path="res://src/entities/hitbox_component.tscn" id="8_tbtis"]
 [ext_resource type="Script" path="res://src/entities/player/player_stats_component.gd" id="8_y5dsv"]
+[ext_resource type="Script" path="res://src/systems/movement/four_direction_animation_system_extra.gd" id="9_b4i7k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eip8d"]
-size = Vector2(64, 64)
+size = Vector2(48, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kummr"]
 size = Vector2(32, 32)
@@ -25,24 +25,18 @@ _AnimatedSpriteComponent = NodePath("Components/AnimatedSpriteComponent")
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_eip8d")
 
-[node name="bc" type="Sprite2D" parent="."]
-modulate = Color(0.666667, 0.0509804, 0.270588, 1)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_fym7o")
-
 [node name="Components" type="Node2D" parent="."]
 
-[node name="UserMovementComponent" type="Node" parent="Components"]
+[node name="UserMovementComponent" type="Node" parent="Components" node_paths=PackedStringArray("_AnimatedSpriteComponent")]
 script = ExtResource("2_xekry")
+_AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
 
-[node name="AnimatedSpriteComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("_MovementComponent", "_ShootingComponent")]
+[node name="AnimatedSpriteComponent" type="Node2D" parent="Components"]
 script = ExtResource("3_t82yd")
-_MovementComponent = NodePath("../UserMovementComponent")
-_ShootingComponent = NodePath("../UserMouseShootingComponent")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="Components/AnimatedSpriteComponent"]
-sprite_frames = ExtResource("4_p7cnc")
-animation = &"idle"
+sprite_frames = ExtResource("5_0x5y7")
+animation = &"idle_up_right"
 
 [node name="UserMouseShootingComponent" type="Node" parent="Components" node_paths=PackedStringArray("_StatsComponent", "_MovementComponent")]
 script = ExtResource("7_ls8cw")
@@ -58,3 +52,9 @@ _StatsComponent = NodePath("../PlayerStatsComponent")
 
 [node name="Hitbox" type="CollisionShape2D" parent="Components/HitboxComponent"]
 shape = SubResource("RectangleShape2D_kummr")
+
+[node name="FourDirectionMovementSystemExtra" type="Node" parent="Components" node_paths=PackedStringArray("_MovementComponent", "_AnimatedSpriteComponent", "_ShootingComponent")]
+script = ExtResource("9_b4i7k")
+_MovementComponent = NodePath("../UserMovementComponent")
+_AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
+_ShootingComponent = NodePath("../UserMouseShootingComponent")
