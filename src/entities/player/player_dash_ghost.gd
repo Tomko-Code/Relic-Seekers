@@ -5,6 +5,7 @@ func freeze_frame(sprite_component: AnimatedSpriteComponent):
 	var animated_sprite: AnimatedSprite2D = sprite_component.get_child(0)
 	var frames = animated_sprite.sprite_frames
 	
+	modulate = Color.SKY_BLUE
 	sprite_frames = frames.duplicate()
 	
 	animation = animated_sprite.animation
