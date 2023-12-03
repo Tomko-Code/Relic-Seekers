@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://d2bsjmqg1fe1h"]
+[gd_scene load_steps=11 format=3 uid="uid://d2bsjmqg1fe1h"]
 
 [ext_resource type="Script" path="res://src/entities/player/player_entity.gd" id="1_7c5ui"]
-[ext_resource type="Texture2D" uid="uid://dayf0y6nyidev" path="res://icon.svg" id="2_fym7o"]
 [ext_resource type="Script" path="res://src/entities/player/user_movement_component.gd" id="2_xekry"]
 [ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="3_t82yd"]
 [ext_resource type="SpriteFrames" uid="uid://dljijosh7tmgp" path="res://assets/sprites/player_tmp.tres" id="5_0x5y7"]
@@ -26,15 +25,11 @@ _AnimatedSpriteComponent = NodePath("Components/AnimatedSpriteComponent")
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_eip8d")
 
-[node name="bc" type="Sprite2D" parent="."]
-modulate = Color(0.666667, 0.0509804, 0.270588, 1)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_fym7o")
-
 [node name="Components" type="Node2D" parent="."]
 
-[node name="UserMovementComponent" type="Node" parent="Components"]
+[node name="UserMovementComponent" type="Node" parent="Components" node_paths=PackedStringArray("_AnimatedSpriteComponent")]
 script = ExtResource("2_xekry")
+_AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
 
 [node name="AnimatedSpriteComponent" type="Node2D" parent="Components"]
 script = ExtResource("3_t82yd")
