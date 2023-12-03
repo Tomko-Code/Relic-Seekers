@@ -5,6 +5,9 @@ extends ShootingComponent
 @export var _MovementComponent: MovementComponent
 
 func _input(event):
+	if parent.paused:
+		return
+	
 	if event is InputEventMouse:
 		if event.is_action_pressed("shoot_left_click"):
 			shoot(get_direction())

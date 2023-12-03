@@ -15,7 +15,7 @@ func _on_bullet_hitbox_component_area_entered(_area):
 		var entity = hitbox.get_entity()
 		
 		if _StatsComponent and entity is BaseProjectile:
-			_StatsComponent.take_damage(entity.damage)
+			_StatsComponent.change_health(entity.damage)
 			
 		if entity is BaseProjectile:
 			entity.hit(get_entity())

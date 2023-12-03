@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8kmrku5c0xra"]
+
+[ext_resource type="PackedScene" uid="uid://b8pxblhi6pm8r" path="res://src/hud/player_health_display.tscn" id="1_pojjn"]
+
+[node name="hud_root" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 452.0
+offset_top = 146.0
+offset_right = 492.0
+offset_bottom = 186.0
+
+[node name="player_health_display" parent="Control" instance=ExtResource("1_pojjn")]
+layout_mode = 1
+offset_left = 230.0
+offset_top = 93.0
+offset_right = 206.0
+offset_bottom = 69.0

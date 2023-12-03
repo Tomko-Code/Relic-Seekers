@@ -31,11 +31,11 @@ script = ExtResource("5_0o0f6")
 _MovementComponent = NodePath("../ProjectileMovementComponent")
 _AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
 
-[node name="HitboxComponent" parent="." instance=ExtResource("5_ttxmc")]
-collision_layer = 0
-collision_mask = 16
+[node name="HitboxComponent" parent="Components" instance=ExtResource("5_ttxmc")]
+collision_layer = 16
+collision_mask = 0
 
-[node name="Hitbox" type="CollisionShape2D" parent="HitboxComponent"]
+[node name="Hitbox" type="CollisionShape2D" parent="Components/HitboxComponent"]
 shape = SubResource("CircleShape2D_cu0yi")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]

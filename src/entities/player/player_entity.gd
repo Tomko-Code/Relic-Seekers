@@ -6,6 +6,9 @@ extends CharacterBody2D
 
 var paused:bool = false
 
+signal death
+signal health_changed
+
 func _ready():
 	var use_zones = true
 	var interpolate_camera_position = true

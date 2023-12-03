@@ -27,5 +27,5 @@ func shoot(direction_vector):
 	
 	parent.get_parent().call_deferred("add_child", projectile)
 	
-	projectile.launch(direction_vector, 500)
+	#projectile.launch(direction_vector, 500)
 	

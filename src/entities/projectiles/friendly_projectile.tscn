@@ -29,8 +29,8 @@ script = ExtResource("4_nen6d")
 texture = ExtResource("2_igs68")
 
 [node name="HitboxComponent" parent="Components" instance=ExtResource("5_6wwgm")]
-collision_layer = 10
-collision_mask = 2
+collision_layer = 8
+collision_mask = 0
 
 [node name="Hitbox" type="CollisionShape2D" parent="Components/HitboxComponent"]
 shape = SubResource("CircleShape2D_85nud")

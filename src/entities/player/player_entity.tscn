@@ -35,6 +35,7 @@ _AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
 script = ExtResource("3_t82yd")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="Components/AnimatedSpriteComponent"]
+use_parent_material = true
 sprite_frames = ExtResource("5_0x5y7")
 animation = &"idle_up_right"
 
@@ -43,8 +44,9 @@ script = ExtResource("7_ls8cw")
 _StatsComponent = NodePath("../PlayerStatsComponent")
 _MovementComponent = NodePath("../UserMovementComponent")
 
-[node name="PlayerStatsComponent" type="Node" parent="Components"]
+[node name="PlayerStatsComponent" type="Node" parent="Components" node_paths=PackedStringArray("_AnimatedSpriteComponent")]
 script = ExtResource("8_y5dsv")
+_AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
 
 [node name="HitboxComponent" parent="Components" node_paths=PackedStringArray("_StatsComponent") instance=ExtResource("8_tbtis")]
 collision_mask = 16
