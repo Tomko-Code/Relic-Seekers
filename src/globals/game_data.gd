@@ -13,9 +13,9 @@ var data = {
 }
 
 func _ready():
+	data["dialog"] = {}
 	load_presistent()
 	load_dialog_data()
-	print(dialog_data)
 
 # save presistent data on game exit
 func _exit_tree():

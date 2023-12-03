@@ -19,9 +19,5 @@ func _ready():
 		interpolate_camera_position, camera_speed, near_zone, far_zone, 
 		inner_zone, debug_display)
 
-
 func _physics_process(_delta):
 	pass
-
-
-

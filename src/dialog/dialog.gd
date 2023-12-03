@@ -2,8 +2,8 @@ extends CanvasLayer
 
 class_name Dialog
 
-signal dialog_started
-signal dialog_ended
+signal dialog_started(dialog_name)
+signal dialog_ended(dialog_name)
 
 @export var string_lable:Label
 @export var who_lable:Label
@@ -25,13 +25,16 @@ var portrets = {
 }
 
 func _ready() -> void:
-	GameData.data["dialog"] = {}
-	play("first_thaladon_meeting")
+	hide()
+	GameManager.dialog_box = self
 
 func play(dialog_name:String) -> void:
 	print("Dialog playing : " + dialog_name)
 	
 	$AnimationPlayer.play("Show")
+	
+	if GameManager.player != null:
+		GameManager.player.paused = true
 	
 	current_dialog_name = dialog_name
 	current_dialog_line = 0
@@ -49,7 +52,7 @@ func play(dialog_name:String) -> void:
 	
 	show()
 	
-	emit_signal("dialog_started")
+	emit_signal("dialog_started", current_dialog_name)
 
 func _on_button_dialog_intearct_pressed() -> void:
 	pass
@@ -88,7 +91,12 @@ func _on_dialong_ended() -> void:
 
 func _close_dialog() -> void:
 	$AnimationPlayer.play("Hide")
-	emit_signal("dialog_ended")
+	emit_signal("dialog_ended", current_dialog_name)
+	
+	if GameManager.player != null:
+		GameManager.player.paused = false
+	
+	hide()
 	GameData.data["dialog"][current_dialog_name] = true
 
 func _input(event) -> void:

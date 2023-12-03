@@ -60,5 +60,18 @@
                 "string" : "Of Course we have tride, but after so many deaths we lost hope. Maby you will do better."
             }
         ]
+    },
+    "remark_thaladon_meeting" : 
+    {
+        "dialogs" : [
+            {
+                "who" : "Thaladon",
+                "string" : "What now ? Go and look for keys !"
+            },
+            {
+                "who" : "Player",
+                "string" : "Right ... "
+            }
+        ]
     }
 }

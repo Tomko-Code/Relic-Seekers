@@ -6,6 +6,7 @@ var current_scene = null
 
 var game_camera = load("res://src/other/FollowCamera.tscn").instantiate()
 var player = null
+var dialog_box:Dialog
 
 var loaded_scenes = {}
 

@@ -23,6 +23,10 @@ GameManager="*res://src/globals/game_manager.gd"
 ResourceManager="*res://src/globals/resource_manager.gd"
 ConsoleHandler="*res://src/console/console_handler.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [input]
 
 move_right={
