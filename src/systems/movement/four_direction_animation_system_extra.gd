@@ -37,7 +37,7 @@ func _process(delta):
 				set_animation("up_right")
 			Constants.all_directions.UP:
 				#_AnimatedSpriteComponent.set_animation("move_up")
-				if _AnimatedSpriteComponent.current_animation not in ["move_left_up", "move_up_right"]:
+				if _AnimatedSpriteComponent.current_animation not in ["move_left_up", "move_up_right"] or _MovementComponent.is_idle:
 					set_animation("left_up")
 			Constants.all_directions.LEFT_UP:
 				set_animation("left_up")
@@ -48,7 +48,7 @@ func _process(delta):
 				set_animation("left_down")
 			Constants.all_directions.DOWN:
 				#_AnimatedSpriteComponent.set_animation("move_down")
-				if _AnimatedSpriteComponent.current_animation not in ["move_right_down", "move_left_down"]:
+				if _AnimatedSpriteComponent.current_animation not in ["move_right_down", "move_left_down"] or _MovementComponent.is_idle:
 					set_animation("left_down")
 			Constants.all_directions.RIGHT_DOWN:
 				set_animation("right_down")
