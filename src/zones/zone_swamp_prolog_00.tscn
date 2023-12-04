@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bw7ifh1o0aqvi"]
+[gd_scene load_steps=17 format=3 uid="uid://bw7ifh1o0aqvi"]
 
 [ext_resource type="PackedScene" uid="uid://cjrwxvn3vh2m7" path="res://src/zone/zone_swamp.tscn" id="1_xpavx"]
 [ext_resource type="Script" path="res://src/zone/spawn.gd" id="2_de7uq"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bjnhtnejhudku" path="res://src/zones/prolog/ruin.tscn" id="8_0ye0t"]
 [ext_resource type="PackedScene" uid="uid://cukeufucajf2q" path="res://src/zones/prolog/scroll.tscn" id="11_trjcj"]
 [ext_resource type="Texture2D" uid="uid://j2uiohtgidtx" path="res://assets/art/tilemap/64x64-tileset-path-swamp.png" id="12_u2c2c"]
+[ext_resource type="PackedScene" uid="uid://xvnny3t8pt62" path="res://src/entities/projectiles/hostile_projectile.tscn" id="13_8rxdq"]
 
 [sub_resource type="Theme" id="Theme_t5s7l"]
 default_font = ExtResource("6_be8eq")
@@ -435,3 +436,12 @@ layer_0/tile_data = PackedInt32Array(196613, 589824, 3, 196612, 589824, 1, 26214
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." index="8"]
 color = Color(0.815686, 0.996078, 0.909804, 1)
+
+[node name="HostileProjectile" parent="." index="9" instance=ExtResource("13_8rxdq")]
+position = Vector2(1241, 561)
+
+[node name="HostileProjectile2" parent="." index="10" instance=ExtResource("13_8rxdq")]
+position = Vector2(1233, 400)
+
+[node name="HostileProjectile3" parent="." index="11" instance=ExtResource("13_8rxdq")]
+position = Vector2(1244, 487)
