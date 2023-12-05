@@ -25,7 +25,7 @@ func _ready() -> void:
 	box.visible = false
 	update_box()
 
-func set_box_position(pos:Vector2):
+func set_box_position(pos:Vector2) -> void:
 	box_position = pos
 	box.position.x = pos.x - box.size.x/2
 	box.position.y = pos.y - box.size.y
@@ -40,7 +40,7 @@ func update_box() -> void:
 		seperator.show()
 		descryption_lable.text = interaction_descryption
 	
-	input_lable.text = ">" + input_text + "<"
+	input_lable.text = "(" + input_text + ")"
 	title_lable.text = interaction_title
 	
 	$InteractionArea/CollisionShape2D.shape = shape
@@ -88,6 +88,6 @@ func _on_interaction_area_body_exited(body) -> void:
 	remove_from_group(group_name)
 	box.visible = false
 
-func _on_box_item_rect_changed():
+func _on_box_item_rect_changed() -> void:
 	set_box_position(box_position)
 	update_box()
