@@ -47,16 +47,19 @@ script = ExtResource("1_217d3")
 [node name="Components" type="Node2D" parent="."]
 
 [node name="InteractableComponent" parent="Components" instance=ExtResource("1_gvcdu")]
-position = Vector2(-22, -57)
 interaction_input = SubResource("InputEventKey_l3ux4")
+interaction_descryption = ""
+interaction_title = "Talk"
 input_text = "X"
-interaction_descryption = "Talk"
+box_position = Vector2(0, 10)
 shape = SubResource("CircleShape2D_od20g")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = SubResource("SpriteFrames_p5g5f")
 animation = &"Idle"
 autoplay = "Idle"
 frame_progress = 0.203555
 
+[connection signal="focus_change" from="Components/InteractableComponent" to="." method="_on_interactable_component_focus_change"]
 [connection signal="interacted" from="Components/InteractableComponent" to="." method="_on_interactable_component_interacted"]

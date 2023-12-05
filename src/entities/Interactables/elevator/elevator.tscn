@@ -152,11 +152,11 @@ script = ExtResource("1_bchdk")
 [node name="Components" type="Node2D" parent="."]
 
 [node name="InteractableComponent" parent="Components" instance=ExtResource("2_nqvy4")]
-position = Vector2(-22, -78)
 interaction_input = SubResource("InputEventKey_h1agr")
+interaction_descryption = ""
+interaction_title = "Activate elevator."
 input_text = "X"
-interaction_descryption = "Activate elevator."
-offset = Vector2i(-60, 0)
+box_position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_t2bs0")
 
 [node name="Platform" type="Sprite2D" parent="."]
