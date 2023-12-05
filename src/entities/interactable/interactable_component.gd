@@ -1,12 +1,20 @@
 extends Node2D
 
 signal interacted
+signal focus_change(focus:bool)
+
+@export var box:VBoxContainer
+@export var title_lable:RichTextLabel
+@export var input_lable:Label
+@export var seperator:HSeparator
+@export var descryption_lable:RichTextLabel
 
 @export var active: bool = true
 @export var interaction_input:InputEvent = null
-@export var input_text:String = ""
 @export var interaction_descryption:String = ""
-@export var offset:Vector2i = Vector2i.ZERO
+@export var interaction_title:String = ""
+@export var input_text:String = ""
+@export var box_position:Vector2 = Vector2.ZERO
 @export var shape: Shape2D = null
 
 var _in_range:bool = false
@@ -14,16 +22,34 @@ var player:PlayerEntity = null
 var group_name:String
 
 func _ready() -> void:
-	$HBoxContainer.visible = false
-	$HBoxContainer.position = offset
+	box.visible = false
+	update_box()
+
+func set_box_position(pos:Vector2) -> void:
+	box_position = pos
+	box.position.x = pos.x - box.size.x/2
+	box.position.y = pos.y - box.size.y
+
+# used if somthing changes about the box
+func update_box() -> void:
 	
-	$HBoxContainer/Descryption.text = interaction_descryption
-	$HBoxContainer/Input.text = "(" + input_text + ")"
+	if interaction_descryption == "":
+		seperator.hide()
+		descryption_lable.text = ""
+	else:
+		seperator.show()
+		descryption_lable.text = interaction_descryption
+	
+	input_lable.text = "(" + input_text + ")"
+	title_lable.text = interaction_title
 	
 	$InteractionArea/CollisionShape2D.shape = shape
 	
 	if interaction_input != null:
 		group_name = "interactable_" + String.chr(interaction_input.keycode)
+	
+	set_box_position(box_position)
+	
 
 func _input(event) -> void:
 	if event is InputEventKey:
@@ -50,12 +76,18 @@ func is_closest_iteraction() -> bool:
 
 func _on_interaction_area_body_entered(body) -> void:
 	_in_range = true
+	emit_signal("focus_change", _in_range)
 	player = body
 	add_to_group(group_name)
 	$AnimationPlayer.play("FadeIN")
 
 func _on_interaction_area_body_exited(body) -> void:
 	_in_range = false
+	emit_signal("focus_change", _in_range)
 	player = null
 	remove_from_group(group_name)
-	$HBoxContainer.visible = false
+	box.visible = false
+
+func _on_box_item_rect_changed() -> void:
+	set_box_position(box_position)
+	update_box()

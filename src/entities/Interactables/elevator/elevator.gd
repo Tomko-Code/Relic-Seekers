@@ -3,6 +3,9 @@ extends Node2D
 var activated:bool = false
 var starting_player_position:Vector2
 
+func _ready():
+	pass
+
 func _on_interactable_component_interacted() -> void:
 	if GameManager.player != null:
 		
