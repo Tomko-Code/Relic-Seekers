@@ -21,3 +21,5 @@ enum collision_layers {
 	PICKAPABLE,
 	INTERACTABLE,
 }
+
+enum STARTING_OPTIONS { NORMAL, COMBAT }

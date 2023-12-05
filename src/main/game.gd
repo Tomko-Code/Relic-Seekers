@@ -33,13 +33,26 @@ func change_zone(zone_name:String, zone_spawn:int = 0):
 	
 	print("Zone change to : " + current_zone.zone_name)
 
-func start_game():
-	# load player
+func start_game(start_option:Constants.STARTING_OPTIONS):
+	load_player()
+	game_running = true
+	
+	match start_option:
+		Constants.STARTING_OPTIONS.NORMAL:
+			normal_start()
+		Constants.STARTING_OPTIONS.COMBAT:
+			combat_start()
+
+
+func load_player() -> void:
 	player = load("res://src/entities/player/player_entity.tscn").instantiate()
 	GameManager.player = player
-	
-	
-	# load zone
+
+func combat_start() -> void:
+	load_zone("zone_combat_00", "res://src/zones/zone_combat_00.tscn")
+	change_zone("zone_combat_00")
+
+func normal_start() -> void:
 	if GameData.data["prolg_complete"]:
 		load_zone("zone_sanctuary_00", "res://src/zones/zone_sanctuary_00.tscn")
 		change_zone("zone_sanctuary_00")
@@ -49,8 +62,6 @@ func start_game():
 		load_zone("zone_sanctuary_00", "res://src/zones/zone_sanctuary_00.tscn")
 		
 		change_zone("zone_swamp_prolog_00")
-	
-	game_running = true
 
 func _ready():
 	pass
