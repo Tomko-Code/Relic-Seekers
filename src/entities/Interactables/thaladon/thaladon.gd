@@ -9,3 +9,7 @@ func _on_interactable_component_interacted():
 		GameManager.player.paused = true
 	else:
 		GameManager.dialog_box.play("first_thaladon_meeting")
+
+
+func _on_interactable_component_focus_change(focus):
+	print(focus)

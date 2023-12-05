@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://byoo2gb70drio"]
+
+[ext_resource type="FontFile" uid="uid://wxqcfc30ah8a" path="res://assets/fonts/HelvetiPixel.ttf" id="1_xkqqb"]
+
+[resource]
+default_font = ExtResource("1_xkqqb")
+default_font_size = 32
