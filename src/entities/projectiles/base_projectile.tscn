@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://beh02bikkq1hm"]
+
+[ext_resource type="Script" path="res://src/entities/projectiles/base_projectile.gd" id="1_3uif0"]
+[ext_resource type="Script" path="res://src/entities/projectiles/projectile_movement_component.gd" id="2_3v5n6"]
+[ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="3_y2vy7"]
+[ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="5_impmo"]
+[ext_resource type="Script" path="res://src/systems/movement/bullet_animation_system.gd" id="6_eakuu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_85nud"]
+radius = 17.0
+
+[node name="BaseProjectile" type="CharacterBody2D" node_paths=PackedStringArray("_ProjectileMovementComponent")]
+z_index = 1
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_3uif0")
+_ProjectileMovementComponent = NodePath("Components/ProjectileMovementComponent")
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="ProjectileMovementComponent" type="Node" parent="Components"]
+script = ExtResource("2_3v5n6")
+
+[node name="AnimatedSpriteComponent" type="Node2D" parent="Components"]
+script = ExtResource("3_y2vy7")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Components/AnimatedSpriteComponent"]
+
+[node name="BulletAnimationSystem" type="Node" parent="Components" node_paths=PackedStringArray("_MovementComponent", "_AnimatedSpriteComponent")]
+script = ExtResource("6_eakuu")
+_MovementComponent = NodePath("../ProjectileMovementComponent")
+_AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
+
+[node name="HitboxComponent" type="Area2D" parent="Components"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("5_impmo")
+
+[node name="Hitbox" type="CollisionShape2D" parent="Components/HitboxComponent"]
+shape = SubResource("CircleShape2D_85nud")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_85nud")

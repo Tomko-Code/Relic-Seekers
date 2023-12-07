@@ -23,6 +23,8 @@ Settings="*res://src/globals/settings.gd"
 ResourceManager="*res://src/globals/resource_manager.gd"
 GameManager="*res://src/globals/game_manager.gd"
 ConsoleHandler="*res://src/console/console_handler.gd"
+ProjectilesDb="*res://src/globals/projectiles_db.gd"
+ProjectilesHandler="*res://src/globals/projectiles_handler.gd"
 
 [display]
 

@@ -18,7 +18,10 @@ func get_direction():
 
 
 func shoot(direction_vector):
-	var projectile: FriendlyProjectile = load("res://src/entities/projectiles/friendly_projectile.tscn").instantiate()
+	var projectile = ProjectilesHandler.spawn_projectile("test_projectile_a", true)
+	if not projectile:
+		push_error("FAILED TO SPAWN PROJECTILE")
+	#var projectile: FriendlyProjectile = load("res://src/entities/projectiles/friendly_projectile.tscn").instantiate()
 	projectile.position = parent.position
 	
 	projectile.initialize(_StatsComponent.get_shoot_speed(), 
@@ -27,6 +30,7 @@ func shoot(direction_vector):
 		_StatsComponent.get_shoot_effects())
 	
 	parent.get_parent().call_deferred("add_child", projectile)
+	#parent.get_parent().add_child(projectile)
 	
 	if _MovementComponent and _MovementComponent.direction != Vector2.ZERO:
 		var projectile_vector = direction_vector.normalized() * projectile.speed
