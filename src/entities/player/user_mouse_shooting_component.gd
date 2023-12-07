@@ -18,7 +18,7 @@ func get_direction():
 
 
 func shoot(direction_vector):
-	var projectile = ProjectilesHandler.spawn_projectile("test_projectile_a", true)
+	var projectile = ProjectilesHandler.spawn_projectile("test_projectile_b", true)
 	if not projectile:
 		push_error("FAILED TO SPAWN PROJECTILE")
 	#var projectile: FriendlyProjectile = load("res://src/entities/projectiles/friendly_projectile.tscn").instantiate()
