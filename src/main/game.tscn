@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cbgrg2gkexspu"]
+[gd_scene load_steps=8 format=3 uid="uid://cbgrg2gkexspu"]
 
 [ext_resource type="Script" path="res://src/main/game.gd" id="1_3g1o0"]
 [ext_resource type="PackedScene" uid="uid://cfmmqeomv02jn" path="res://src/menus/hud.tscn" id="2_ob4nq"]
-[ext_resource type="PackedScene" uid="uid://b8pxblhi6pm8r" path="res://src/hud/player_health_display.tscn" id="3_ua024"]
 [ext_resource type="PackedScene" uid="uid://bh3fyfhc3w8xt" path="res://src/dialog/dialog.tscn" id="3_yw5p0"]
 
 [sub_resource type="Animation" id="Animation_gy77t"]
@@ -61,8 +60,6 @@ _data = {
 script = ExtResource("1_3g1o0")
 
 [node name="HUD" parent="." instance=ExtResource("2_ob4nq")]
-
-[node name="player_health_display" parent="HUD" instance=ExtResource("3_ua024")]
 
 [node name="Transition" type="CanvasLayer" parent="."]
 

@@ -1,0 +1,95 @@
+[gd_scene load_steps=4 format=3 uid="uid://53bp13dkihat"]
+
+[ext_resource type="Script" path="res://src/menus/popup_input.gd" id="1_7xr2y"]
+[ext_resource type="Texture2D" uid="uid://bsm0afqv1mm5" path="res://assets/art/UI/9-path-small.png" id="1_kmayg"]
+[ext_resource type="Theme" uid="uid://yeqhvo4g7l6" path="res://assets/themes/main_menu_theme.tres" id="2_ytpx8"]
+
+[node name="PopupInput" type="Popup" node_paths=PackedStringArray("title_lable")]
+snap_2d_transforms_to_pixel = true
+snap_2d_vertices_to_pixel = true
+title = "Event"
+initial_position = 4
+size = Vector2i(292, 134)
+visible = true
+always_on_top = true
+extend_to_title = true
+content_scale_aspect = 1
+script = ExtResource("1_7xr2y")
+title_lable = NodePath("MarginContainer/Control/Title")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_kmayg")
+region_rect = Rect2(0, 0, 48, 48)
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 0
+
+[node name="Control" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Title" type="Label" parent="MarginContainer/Control"]
+layout_mode = 2
+theme = ExtResource("2_ytpx8")
+theme_override_font_sizes/font_size = 24
+text = "Title"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/Control"]
+layout_mode = 2
+
+[node name="Input" type="Label" parent="MarginContainer/Control"]
+layout_mode = 2
+theme = ExtResource("2_ytpx8")
+theme_override_font_sizes/font_size = 24
+text = "waiting for input . . ."
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/Control"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="MarginContainer" parent="MarginContainer/Control"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Cancel" type="Button" parent="MarginContainer/Control/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("2_ytpx8")
+theme_override_font_sizes/font_size = 24
+text = "Cancel"
+flat = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Control/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Accept" type="Button" parent="MarginContainer/Control/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("2_ytpx8")
+theme_override_font_sizes/font_size = 24
+text = "Accept"
+flat = true

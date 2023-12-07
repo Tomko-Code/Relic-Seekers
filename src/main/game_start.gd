@@ -12,6 +12,9 @@ func  _ready():
 	GameManager.load_scene("Game", "res://src/main/game.tscn")
 	GameManager.load_scene("Menu", "res://src/menus/menu.tscn")
 	
+	# And setting !
+	GameManager.loaded_scenes["Menu"].set_up_menu()
+	
 	match STARTING_OPTION:
 		Constants.STARTING_OPTIONS.NORMAL:
 			normal_start()

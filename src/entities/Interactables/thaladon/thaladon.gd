@@ -12,4 +12,4 @@ func _on_interactable_component_interacted():
 
 
 func _on_interactable_component_focus_change(focus):
-	print(focus)
+	pass
