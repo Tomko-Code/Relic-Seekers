@@ -1,12 +1,17 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://yeqhvo4g7l6"]
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://yeqhvo4g7l6"]
 
 [ext_resource type="FontFile" uid="uid://bpdjfdnl7p1vf" path="res://assets/fonts/yoster.ttf" id="1_aabsi"]
 [ext_resource type="Texture2D" uid="uid://db2b2mk6p5vhl" path="res://assets/art/UI/menu/unchecked_menu.svg" id="1_etd3n"]
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_xikll"]
+color = Color(0.901961, 0.901961, 0.901961, 1)
+thickness = 2
+
 [resource]
 default_font = ExtResource("1_aabsi")
 Button/colors/font_hover_color = Color(0.847059, 0.776471, 0.298039, 1)
-Button/font_sizes/font_size = 25
+Button/font_sizes/font_size = 36
 CheckBox/icons/unchecked = ExtResource("1_etd3n")
+HSeparator/styles/separator = SubResource("StyleBoxLine_xikll")
 TabBar/colors/font_hovered_color = Color(0.94902, 0.94902, 0.145098, 1)
 TabBar/constants/h_separation = 16
