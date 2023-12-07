@@ -1,0 +1,93 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7ndb0a0etud5"]
+
+[ext_resource type="Texture2D" uid="uid://bwx1f53jboxkp" path="res://assets/art/UI/9-path-01.png" id="1_05p4i"]
+[ext_resource type="Script" path="res://src/menus/gameplay_settings.gd" id="1_uxs3g"]
+[ext_resource type="Theme" uid="uid://yeqhvo4g7l6" path="res://assets/themes/main_menu_theme.tres" id="3_nlxr4"]
+
+[node name="Gameplay" type="MarginContainer" node_paths=PackedStringArray("action_list", "check_box_fps")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uxs3g")
+action_list = NodePath("MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/ActionList")
+check_box_fps = NodePath("MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/FPS/CheckBoxFPS")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_05p4i")
+region_rect = Rect2(0, 0, 48, 48)
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Utility" type="Label" parent="MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("3_nlxr4")
+theme_override_font_sizes/font_size = 60
+text = "Utility"
+horizontal_alignment = 1
+
+[node name="FPS" type="HBoxContainer" parent="MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LableFPS" type="Label" parent="MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/FPS"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme = ExtResource("3_nlxr4")
+text = "Show FPS:"
+
+[node name="CheckBoxFPS" type="CheckBox" parent="MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/FPS"]
+layout_mode = 2
+size_flags_horizontal = 2
+focus_mode = 0
+theme = ExtResource("3_nlxr4")
+
+[node name="HSeparatorUtility" type="HSeparator" parent="MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_nlxr4")
+theme_override_constants/separation = 11
+
+[node name="Controls" type="Label" parent="MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("3_nlxr4")
+theme_override_font_sizes/font_size = 60
+text = "Controls"
+horizontal_alignment = 1
+
+[node name="HSeparatorControls" type="HSeparator" parent="MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_nlxr4")
+
+[node name="ActionList" type="VBoxContainer" parent="MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="toggled" from="MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/FPS/CheckBoxFPS" to="." method="_on_check_box_fps_toggled"]

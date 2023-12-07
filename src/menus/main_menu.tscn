@@ -1,0 +1,97 @@
+[gd_scene load_steps=8 format=3 uid="uid://55vajytef40i"]
+
+[ext_resource type="Script" path="res://src/menus/main_menu.gd" id="1_hn0mp"]
+[ext_resource type="FontFile" uid="uid://chdwcd6b8dwyl" path="res://assets/fonts/Crumbled-Pixels.ttf" id="2_qu6tb"]
+[ext_resource type="Texture2D" uid="uid://bwx1f53jboxkp" path="res://assets/art/UI/9-path-01.png" id="3_lmt07"]
+[ext_resource type="Theme" uid="uid://yeqhvo4g7l6" path="res://assets/themes/main_menu_theme.tres" id="4_cb0wx"]
+[ext_resource type="Script" path="res://src/menus/start-button.gd" id="5_umx3l"]
+[ext_resource type="Script" path="res://src/menus/exit.gd" id="6_lffqb"]
+
+[sub_resource type="Theme" id="Theme_81snc"]
+default_font = ExtResource("2_qu6tb")
+default_font_size = 160
+
+[node name="MainMenu" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hn0mp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MenuTitle" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_81snc")
+text = "Relic Seekers"
+horizontal_alignment = 1
+
+[node name="MarginContainer1" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer/MarginContainer1"]
+layout_mode = 2
+texture = ExtResource("3_lmt07")
+region_rect = Rect2(0, 0, 48, 48)
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/MarginContainer1"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="MenuButtonList" type="VBoxContainer" parent="VBoxContainer/MarginContainer1/MarginContainer2"]
+layout_mode = 2
+
+[node name="Start" type="Button" parent="VBoxContainer/MarginContainer1/MarginContainer2/MenuButtonList"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("4_cb0wx")
+text = "Start"
+flat = true
+script = ExtResource("5_umx3l")
+
+[node name="Options" type="Button" parent="VBoxContainer/MarginContainer1/MarginContainer2/MenuButtonList"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("4_cb0wx")
+text = "Options"
+flat = true
+
+[node name="About" type="Button" parent="VBoxContainer/MarginContainer1/MarginContainer2/MenuButtonList"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("4_cb0wx")
+text = "About"
+flat = true
+
+[node name="Credits" type="Button" parent="VBoxContainer/MarginContainer1/MarginContainer2/MenuButtonList"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("4_cb0wx")
+text = "Credits"
+flat = true
+
+[node name="Exit" type="Button" parent="VBoxContainer/MarginContainer1/MarginContainer2/MenuButtonList"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("4_cb0wx")
+text = "Exit"
+flat = true
+script = ExtResource("6_lffqb")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 40
+
+[connection signal="pressed" from="VBoxContainer/MarginContainer1/MarginContainer2/MenuButtonList/Start" to="VBoxContainer/MarginContainer1/MarginContainer2/MenuButtonList/Start" method="_on_pressed"]
+[connection signal="visibility_changed" from="VBoxContainer/MarginContainer1/MarginContainer2/MenuButtonList/Start" to="VBoxContainer/MarginContainer1/MarginContainer2/MenuButtonList/Start" method="_on_visibility_changed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer1/MarginContainer2/MenuButtonList/Exit" to="VBoxContainer/MarginContainer1/MarginContainer2/MenuButtonList/Exit" method="_on_pressed"]

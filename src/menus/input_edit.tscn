@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://bu2v0fhcuuh25"]
+
+[ext_resource type="Texture2D" uid="uid://bsm0afqv1mm5" path="res://assets/art/UI/9-path-small.png" id="1_d0pcu"]
+[ext_resource type="Script" path="res://src/menus/input_edit.gd" id="1_uhqkc"]
+[ext_resource type="Theme" uid="uid://yeqhvo4g7l6" path="res://assets/themes/main_menu_theme.tres" id="3_r8b6s"]
+
+[node name="InputEdit" type="MarginContainer" node_paths=PackedStringArray("input_lable", "action_button")]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 33.0
+grow_horizontal = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+script = ExtResource("1_uhqkc")
+input_lable = NodePath("HBoxContainer/Input")
+action_button = NodePath("MarginButton/InputButton")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_d0pcu")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="MarginButton" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="InputButton" type="Button" parent="MarginButton"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_r8b6s")
+theme_override_font_sizes/font_size = 24
+text = "   Action"
+alignment = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Input" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("3_r8b6s")
+theme_override_font_sizes/font_size = 24
+text = "Input"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+
+[connection signal="pressed" from="MarginButton/InputButton" to="." method="_on_input_button_pressed"]

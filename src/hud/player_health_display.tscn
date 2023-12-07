@@ -24,4 +24,5 @@ theme_override_constants/separation = 4
 [node name="TextureRect" type="TextureRect" parent="Hearts"]
 layout_mode = 2
 texture = ExtResource("2_7x357")
-expand_mode = 3
+expand_mode = 2
+stretch_mode = 2
