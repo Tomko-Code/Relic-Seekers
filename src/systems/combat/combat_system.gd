@@ -4,6 +4,7 @@ extends Node
 
 @export var _HitboxComponent: HitboxComponent
 @export var _StatsComponent: StatsComponent
+@export var _MovementComponent: MovementComponent
 
 
 func _ready():
@@ -14,6 +15,10 @@ func get_entity():
 
 #on projectile hit entity
 func _on_bullet_enter_hitbox(_area):
+	if _MovementComponent is UserMovementComponent:
+		_MovementComponent = _MovementComponent as UserMovementComponent
+		if _MovementComponent.is_dashing:
+			return
 	if _area is HitboxComponent:
 		var hitbox: HitboxComponent = _area
 		var bullet = hitbox.get_entity()

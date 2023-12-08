@@ -66,6 +66,7 @@ _MovementComponent = NodePath("../UserMovementComponent")
 [node name="PlayerStatsComponent" type="Node" parent="Components" node_paths=PackedStringArray("_AnimatedSpriteComponent")]
 script = ExtResource("8_y5dsv")
 _AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
+soot_frequency = 0.5
 
 [node name="HitboxComponent" parent="Components" node_paths=PackedStringArray("_StatsComponent") instance=ExtResource("8_tbtis")]
 collision_mask = 16

@@ -4,10 +4,6 @@ extends StatsComponent
 var max_health: int = 6
 var current_health: int = max_health
 
-var shoot_speed: float = 500
-var shoot_range: float = 50
-var shoot_damage: int = 1
-
 var is_invulnerable = false
 var invulnerable_current_duration = 0
 var invulnerable_max_duration = 1.5
