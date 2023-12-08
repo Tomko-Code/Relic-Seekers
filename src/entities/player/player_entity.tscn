@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://d2bsjmqg1fe1h"]
+[gd_scene load_steps=13 format=3 uid="uid://d2bsjmqg1fe1h"]
 
 [ext_resource type="Script" path="res://src/entities/player/player_entity.gd" id="1_7c5ui"]
+[ext_resource type="AudioStream" uid="uid://bq42j7hi8q3h5" path="res://assets/audio/sfx/516858__matrixxx__retro-drop-03.wav" id="2_v3sqh"]
 [ext_resource type="Script" path="res://src/entities/player/user_movement_component.gd" id="2_xekry"]
 [ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="3_t82yd"]
 [ext_resource type="SpriteFrames" uid="uid://ch01odi3jhnmr" path="res://assets/sprites/player_tmp.tres" id="5_0x5y7"]
@@ -36,6 +37,12 @@ collision_mask = 256
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PitHitBox"]
 shape = SubResource("CircleShape2D_cn6ma")
+
+[node name="AudioPitFall" type="AudioStreamPlayer" parent="PitHitBox"]
+stream = ExtResource("2_v3sqh")
+volume_db = -15.0
+pitch_scale = 2.5
+bus = &"SFX"
 
 [node name="Components" type="Node2D" parent="."]
 

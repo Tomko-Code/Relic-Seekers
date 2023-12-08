@@ -46,6 +46,8 @@ func fall(pos:Vector2) -> void:
 	var zone:Zone = game.current_zone
 	var cord = zone.look_for_open_space(pos)
 	
+	$PitHitBox/AudioPitFall.play()
+	
 	_PlayerStatsComponent.change_health(1)
 	global_position = (cord * Constants.FLOOR_TILE_SIZE) + (Constants.FLOOR_TILE_SIZE/2)
 
