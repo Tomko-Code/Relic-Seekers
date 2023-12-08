@@ -11,8 +11,8 @@ script/source = "extends Zone
 [node name="ZoneSanctuary" instance=ExtResource("1_qwegj")]
 script = SubResource("GDScript_e8pas")
 
-[node name="Floors" parent="." index="1"]
+[node name="Floors" parent="." index="2"]
 tile_set = ExtResource("2_hcen3")
 
-[node name="Walls" parent="." index="2"]
+[node name="Walls" parent="." index="3"]
 tile_set = ExtResource("3_3xce5")

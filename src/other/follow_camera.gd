@@ -40,7 +40,6 @@ func initialize(_use_zones: bool = true, _interpolate_distance_from_mouse: bool 
 	
 	$CursorLayer/Cursor.position = get_viewport_rect().size / 2
 
-
 func _draw():
 	if draw_zones:
 		draw_arc(last_offset, near_zone, PI*2, 0, 100, Color(1, 0, 0), 1)

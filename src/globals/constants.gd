@@ -1,5 +1,8 @@
 extends Node
 
+const FLOOR_TILE_SIZE = Vector2(64, 64)
+const WALL_TILE_SIZE = Vector2(320, 320)
+
 enum all_directions {
 	RIGHT,
 	RIGHT_UP,
