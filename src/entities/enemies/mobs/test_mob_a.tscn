@@ -8,10 +8,10 @@
 [ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="6_v7wjf"]
 [ext_resource type="SpriteFrames" uid="uid://ch01odi3jhnmr" path="res://assets/sprites/player_tmp.tres" id="7_7lvug"]
 [ext_resource type="Script" path="res://src/systems/movement/four_direction_animation_system_extra.gd" id="8_niq8f"]
-[ext_resource type="Script" path="res://src/entities/movement_component.gd" id="9_ayflp"]
+[ext_resource type="Script" path="res://src/entities/enemies/follow_and_shoot_movement_component.gd" id="9_t87yi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i5roa"]
-size = Vector2(64, 64)
+size = Vector2(32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_va406"]
 size = Vector2(32, 32)
@@ -34,17 +34,18 @@ collision_mask = 8
 script = ExtResource("3_8kqiq")
 
 [node name="Hitbox" type="CollisionShape2D" parent="Components/HitboxComponent"]
-visible = false
 shape = SubResource("RectangleShape2D_i5roa")
 
-[node name="CombatSystem" type="Node" parent="Components" node_paths=PackedStringArray("_HitboxComponent", "_StatsComponent")]
+[node name="CombatSystem" type="Node" parent="Components" node_paths=PackedStringArray("_HitboxComponent", "_StatsComponent", "_MovementComponent")]
 script = ExtResource("4_j1sqd")
 _HitboxComponent = NodePath("../HitboxComponent")
 _StatsComponent = NodePath("../StatsComponent")
+_MovementComponent = NodePath("../FollowAndShootMovementComponent")
 
-[node name="GenericShootingComponent" type="Node" parent="Components" node_paths=PackedStringArray("_StatsComponent")]
+[node name="GenericShootingComponent" type="Node" parent="Components" node_paths=PackedStringArray("_StatsComponent", "_MovementComponent")]
 script = ExtResource("5_xtjsy")
 _StatsComponent = NodePath("../StatsComponent")
+_MovementComponent = NodePath("../FollowAndShootMovementComponent")
 
 [node name="AnimatedSpriteComponent" type="Node2D" parent="Components"]
 script = ExtResource("6_v7wjf")
@@ -56,13 +57,17 @@ animation = &"idle_left_down"
 
 [node name="FourDirectionMovementSystemExtra" type="Node" parent="Components" node_paths=PackedStringArray("_MovementComponent", "_AnimatedSpriteComponent", "_ShootingComponent")]
 script = ExtResource("8_niq8f")
-_MovementComponent = NodePath("../MovementComponent")
+_MovementComponent = NodePath("../FollowAndShootMovementComponent")
 _AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
 _ShootingComponent = NodePath("../GenericShootingComponent")
 
-[node name="MovementComponent" type="Node" parent="Components"]
-script = ExtResource("9_ayflp")
+[node name="FollowAndShootMovementComponent" type="Node" parent="Components" node_paths=PackedStringArray("nav_agent", "_ShootingComponent")]
+script = ExtResource("9_t87yi")
+nav_agent = NodePath("../../NavigationAgent2D")
+_ShootingComponent = NodePath("../GenericShootingComponent")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("RectangleShape2D_va406")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+radius = 60.0
