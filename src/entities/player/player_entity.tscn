@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d2bsjmqg1fe1h"]
+[gd_scene load_steps=12 format=3 uid="uid://d2bsjmqg1fe1h"]
 
 [ext_resource type="Script" path="res://src/entities/player/player_entity.gd" id="1_7c5ui"]
 [ext_resource type="Script" path="res://src/entities/player/user_movement_component.gd" id="2_xekry"]
@@ -12,18 +12,30 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eip8d"]
 size = Vector2(48, 48)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_cn6ma"]
+radius = 1.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kummr"]
 size = Vector2(32, 32)
 
-[node name="PlayerEntity" type="CharacterBody2D" node_paths=PackedStringArray("_UserMovementComponent", "_AnimatedSpriteComponent")]
+[node name="PlayerEntity" type="CharacterBody2D" node_paths=PackedStringArray("_UserMovementComponent", "_AnimatedSpriteComponent", "_PlayerStatsComponent", "pit_hit_box")]
 z_index = 1
 collision_mask = 2
 script = ExtResource("1_7c5ui")
 _UserMovementComponent = NodePath("Components/UserMovementComponent")
 _AnimatedSpriteComponent = NodePath("Components/AnimatedSpriteComponent")
+_PlayerStatsComponent = NodePath("Components/PlayerStatsComponent")
+pit_hit_box = NodePath("PitHitBox")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_eip8d")
+
+[node name="PitHitBox" type="Area2D" parent="."]
+position = Vector2(2, 22)
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PitHitBox"]
+shape = SubResource("CircleShape2D_cn6ma")
 
 [node name="Components" type="Node2D" parent="."]
 
@@ -60,3 +72,6 @@ script = ExtResource("9_b4i7k")
 _MovementComponent = NodePath("../UserMovementComponent")
 _AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
 _ShootingComponent = NodePath("../UserMouseShootingComponent")
+
+[connection signal="body_entered" from="PitHitBox" to="." method="_on_pit_hit_box_body_entered"]
+[connection signal="body_exited" from="PitHitBox" to="." method="_on_pit_hit_box_body_exited"]

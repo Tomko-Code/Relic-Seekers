@@ -5,10 +5,12 @@ var acceleration = 10
 var is_dashing = false
 var can_dash = true
 
-var dash_max_cooldown = 1
+var dash_max_cooldown = 0.5
 var dash_current_cooldown = 0
 
-var dash_max_duration = 0.15
+var das_start_pos:Vector2
+
+var dash_max_duration = 0.12
 var dash_current_duration = 0
 var last_direction
 
@@ -56,6 +58,9 @@ func _physics_process(delta):
 	last_direction = direction
 	
 	if Input.is_action_pressed("dash") and direction != Vector2.ZERO and can_dash:
+		# TODO : big kek but for now it's fine
+		das_start_pos = $"../../PitHitBox/CollisionShape2D".global_position
+		
 		can_dash = false
 		is_dashing = true
 		

@@ -10,7 +10,7 @@ var shoot_damage: int = 1
 
 var is_invulnerable = false
 var invulnerable_current_duration = 0
-var invulnerable_max_duration = 1.0
+var invulnerable_max_duration = 1.5
 
 var flash_max_duration = 0.08
 var flash_current_duration = 0
