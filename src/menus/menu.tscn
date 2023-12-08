@@ -4,8 +4,8 @@
 [ext_resource type="AudioStream" uid="uid://0y1vkqjs2qu6" path="res://assets/audio/music/Ancient Rite.mp3" id="1_i7oc2"]
 [ext_resource type="Script" path="res://src/menus/AudioStreamPlayer.gd" id="2_mkkke"]
 [ext_resource type="PackedScene" uid="uid://55vajytef40i" path="res://src/menus/main_menu.tscn" id="4_pt8b7"]
-[ext_resource type="Texture2D" path="res://assets/art/UI/menu/hook_bottom.png" id="5_vfv4x"]
-[ext_resource type="Texture2D" path="res://assets/art/UI/menu/hook_top.png" id="6_j0fqq"]
+[ext_resource type="Texture2D" uid="uid://krb471mm03jh" path="res://assets/art/UI/menu/hook_bottom.png" id="5_vfv4x"]
+[ext_resource type="Texture2D" uid="uid://lw2umemvwnxm" path="res://assets/art/UI/menu/hook_top.png" id="6_j0fqq"]
 [ext_resource type="PackedScene" uid="uid://bpgge7nk2irr2" path="res://src/menus/options.tscn" id="10_yxr5v"]
 
 [sub_resource type="Gradient" id="Gradient_0pjgu"]
