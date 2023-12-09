@@ -23,6 +23,13 @@ Settings="*res://src/globals/settings.gd"
 ResourceManager="*res://src/globals/resource_manager.gd"
 GameManager="*res://src/globals/game_manager.gd"
 ConsoleHandler="*res://src/console/console_handler.gd"
+ProjectilesDb="*res://src/globals/projectiles_db.gd"
+ProjectilesHandler="*res://src/globals/projectiles_handler.gd"
+EnemiesDb="*res://src/globals/enemies_db.gd"
+EnemiesHandler="*res://src/globals/enemies_handler.gd"
+SpellsDb="*res://src/globals/spells_db.gd"
+SpellsHandler="*res://src/globals/spells_handler.gd"
+SpellEffectsDb="*res://src/globals/spell_effects_db.gd"
 
 [display]
 
@@ -107,6 +114,10 @@ back={
 2d_physics/layer_7="Pickable"
 2d_physics/layer_8="Interactable"
 2d_physics/layer_9="Pit"
+
+[navigation]
+
+2d/default_edge_connection_margin=32
 
 [rendering]
 

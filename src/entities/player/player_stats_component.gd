@@ -1,13 +1,6 @@
 class_name PlayerStatsComponent
 extends StatsComponent
 
-var max_health: int = 6
-var current_health: int = max_health
-
-var shoot_speed: float = 500
-var shoot_range: float = 50
-var shoot_damage: int = 1
-
 var is_invulnerable = false
 var invulnerable_current_duration = 0
 var invulnerable_max_duration = 1.5
@@ -20,19 +13,18 @@ var cur_flash = true
 
 @export var _AnimatedSpriteComponent: AnimatedSpriteComponent
 
+var default_spell: Spell = SpellsHandler.create_spell("default_spell")
+var current_spell: Spell = default_spell
+var spells: Array[Spell] = []
 
-func get_shoot_speed():
-	return shoot_speed
+func _init():
+	max_health = 6 as int
+	current_health = max_health as int
+	default_spell.projectile_data.merge(get_projectile_data())
 
-func get_shoot_range():
-	return shoot_range
+func get_shoot_frequency():
+	return current_spell.shoot_frequency
 
-func get_shoot_damage():
-	return shoot_damage
-
-func get_shoot_effects():
-	return []
-	
 func get_health():
 	return current_health
 
@@ -47,7 +39,7 @@ func change_health(value: int):
 	parent.emit_signal("health_changed")
 	
 	if current_health <= 0:
-		parent.emit_signal("death")
+		parent.call_death()
 
 func make_invulnerable():
 	is_invulnerable = true
