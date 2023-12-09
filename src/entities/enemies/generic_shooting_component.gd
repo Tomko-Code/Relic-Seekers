@@ -13,15 +13,12 @@ func get_direction():
 
 
 func shoot(direction_vector):
-	var projectile = ProjectilesHandler.spawn_projectile(_StatsComponent.projectile_type, false)
+	var projectile = ProjectilesHandler.spawn_projectile(_StatsComponent.get_projectile_type(), false)
 	if not projectile:
 		push_error("FAILED TO SPAWN PROJECTILE")
 	projectile.position = parent.position
 	
-	projectile.initialize(_StatsComponent.get_shoot_speed(), 
-		_StatsComponent.get_shoot_range(),
-		_StatsComponent.get_shoot_damage(),
-		_StatsComponent.get_shoot_effects())
+	projectile.initialize(_StatsComponent.get_projectile_data())
 	
 	parent.get_parent().call_deferred("add_child", projectile)
 	

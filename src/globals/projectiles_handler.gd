@@ -12,6 +12,8 @@ func spawn_projectile(projectile_name, is_friendly: bool):
 		var sprite: AnimatedSprite2D = projectile.get_node("Components/AnimatedSpriteComponent/Sprite")
 		sprite.sprite_frames = ProjectilesDb.projectiles[projectile_name].sprite
 		
+		projectile.type = projectile_name
+		
 		var hitbox: HitboxComponent = projectile.get_node("Components/HitboxComponent")
 		if is_friendly:
 			hitbox.set_collision_layer(friendly_layer)
@@ -27,3 +29,7 @@ func spawn_projectile(projectile_name, is_friendly: bool):
 func clear_projectile(projectile):
 	all_projectiles.erase(projectile)
 	
+func clear_all_projectiles():
+	for projectile in all_projectiles:
+		projectile.queue_free()
+	all_projectiles = []

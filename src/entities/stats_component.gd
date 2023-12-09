@@ -6,12 +6,26 @@ extends Node
 
 @export var shoot_speed: float = 500
 @export var shoot_range: float = 100
-@export var shoot_damage = 1
+@export var shoot_damage: int = 1
 @export var shoot_frequency: float = 1
 
 @export var projectile_type: String
 
+@export var max_health: float = 10
+var current_health: float = max_health
 
+func get_projectile_data():
+	return {
+		type = projectile_type,
+		speed = shoot_speed,
+		range = shoot_range,
+		damage = shoot_damage,
+		effects = get_shoot_effects()
+	}
+
+func get_projectile_type():
+	return projectile_type
+	
 func get_shoot_speed():
 	return shoot_speed
 
@@ -27,5 +41,8 @@ func get_shoot_damage():
 func get_shoot_frequency():
 	return shoot_frequency
 
-func change_health(calue: int):
+func change_health(value):
+	current_health -= value
+	if current_health <= 0:
+		parent.call_death()
 	parent.queue_free()

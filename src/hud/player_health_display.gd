@@ -18,8 +18,8 @@ func set_health():
 	var player = GameManager.player
 	var player_stats: PlayerStatsComponent = GameManager.get_entity_component(player, PlayerStatsComponent)[0]
 	
-	current_health = player_stats.current_health
-	max_health = player_stats.max_health
+	current_health = player_stats.current_health as int
+	max_health = player_stats.max_health as int
 
 func fill_hearts():
 	set_health()

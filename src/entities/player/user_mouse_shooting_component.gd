@@ -1,7 +1,7 @@
 class_name UserMouseShootingComponent
 extends ShootingComponent
 
-@export var _StatsComponent: StatsComponent
+@export var _PlayerStatsComponent: PlayerStatsComponent
 @export var _MovementComponent: MovementComponent
 
 var shooting_frequency_current = 0
@@ -9,19 +9,12 @@ var shooting_frequency_current = 0
 func get_direction():
 	return parent.get_local_mouse_position().normalized()
 
-
 func shoot(direction_vector):
-	var projectile = ProjectilesHandler.spawn_projectile(_StatsComponent.projectile_type, true)
+	var projectile: BaseProjectile = _PlayerStatsComponent.current_spell.spawn_projectile()
 	if not projectile:
 		push_error("FAILED TO SPAWN PROJECTILE")
 	#var projectile: FriendlyProjectile = load("res://src/entities/projectiles/friendly_projectile.tscn").instantiate()
-	projectile.position = parent.position
-	
-	projectile.initialize(_StatsComponent.get_shoot_speed(), 
-		_StatsComponent.get_shoot_range(),
-		_StatsComponent.get_shoot_damage(),
-		_StatsComponent.get_shoot_effects())
-	
+	projectile.position = parent.position + get_direction() * 20
 	parent.get_parent().call_deferred("add_child", projectile)
 	#parent.get_parent().add_child(projectile)
 	
@@ -50,6 +43,6 @@ func _physics_process(delta):
 	if is_shooting or shooting_frequency_current != 0:
 		shooting_frequency_current += delta
 	
-	if shooting_frequency_current >= _StatsComponent.get_shoot_frequency():
+	if shooting_frequency_current >= _PlayerStatsComponent.get_shoot_frequency():
 		shooting_frequency_current = 0
 	
