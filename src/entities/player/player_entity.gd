@@ -23,6 +23,8 @@ func _ready():
 	var inner_zone = 50
 	var debug_display = false
 	
+	GameData.save_file.player_inventory
+	
 	GameManager.attach_camera_to_node(self, use_zones, 
 		interpolate_camera_position, camera_speed, near_zone, far_zone, 
 		inner_zone, debug_display)
