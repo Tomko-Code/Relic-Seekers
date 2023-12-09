@@ -13,6 +13,7 @@ func spawn_projectile(projectile_name, is_friendly: bool):
 		sprite.sprite_frames = ProjectilesDb.projectiles[projectile_name].sprite
 		
 		projectile.type = projectile_name
+		projectile.is_friendly = is_friendly
 		
 		var hitbox: HitboxComponent = projectile.get_node("Components/HitboxComponent")
 		if is_friendly:

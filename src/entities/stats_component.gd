@@ -43,6 +43,6 @@ func get_shoot_frequency():
 
 func change_health(value):
 	current_health -= value
+	parent.emit_signal("health_changed")
 	if current_health <= 0:
 		parent.call_death()
-	parent.queue_free()

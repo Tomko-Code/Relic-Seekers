@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ceuj26gcgt1mt"]
+[gd_scene load_steps=13 format=3 uid="uid://ceuj26gcgt1mt"]
 
 [ext_resource type="Script" path="res://src/entities/enemies/mobs/test_mob_a.gd" id="1_wwkd7"]
 [ext_resource type="Script" path="res://src/entities/stats_component.gd" id="2_jown2"]
@@ -9,6 +9,7 @@
 [ext_resource type="SpriteFrames" uid="uid://ch01odi3jhnmr" path="res://assets/sprites/player_tmp.tres" id="7_7lvug"]
 [ext_resource type="Script" path="res://src/systems/movement/four_direction_animation_system_extra.gd" id="8_niq8f"]
 [ext_resource type="Script" path="res://src/entities/enemies/follow_and_shoot_movement_component.gd" id="9_t87yi"]
+[ext_resource type="PackedScene" uid="uid://b001mo8qgm6le" path="res://src/entities/enemies/health_bar_component.tscn" id="10_bh6gw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i5roa"]
 size = Vector2(32, 32)
@@ -65,6 +66,9 @@ _ShootingComponent = NodePath("../GenericShootingComponent")
 script = ExtResource("9_t87yi")
 nav_agent = NodePath("../../NavigationAgent2D")
 _ShootingComponent = NodePath("../GenericShootingComponent")
+
+[node name="HealthBarComponent" parent="Components" node_paths=PackedStringArray("_StatsComponent") instance=ExtResource("10_bh6gw")]
+_StatsComponent = NodePath("../StatsComponent")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_va406")

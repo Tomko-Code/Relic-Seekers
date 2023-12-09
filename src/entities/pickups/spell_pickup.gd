@@ -20,7 +20,6 @@ func set_spell(_spell: Spell):
 
 func pickup_spell():
 	var player_stats: PlayerStatsComponent = GameManager.get_entity_component(GameManager.player, StatsComponent)[0]
-	if not spell.projectile_data:
-		spell.projectile_data = player_stats.get_projectile_data()
+	spell.projectile_data.merge(player_stats.get_projectile_data())
 	player_stats.current_spell = spell
 	queue_free()

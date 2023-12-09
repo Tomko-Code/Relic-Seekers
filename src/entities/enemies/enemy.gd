@@ -1,6 +1,7 @@
 class_name Enemy
 extends CharacterBody2D
 
+signal health_changed
 signal death
 
 func _ready():
