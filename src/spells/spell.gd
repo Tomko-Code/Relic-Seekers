@@ -43,6 +43,9 @@ func get_description():
 	var full_description = description + "\n"
 	for effect in effects:
 		full_description += effect.get_description() + "\n*****\n"
+	if projectile_data.has("effects"):
+		for effect in projectile_data["effects"]:
+			full_description += effect.get_description() + "\n*****\n"
 	full_description = full_description.trim_suffix("\n*****\n")
 	return full_description
 

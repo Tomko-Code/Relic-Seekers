@@ -17,7 +17,7 @@ var spells = {
 		full_name = "Test Spell",
 		projectile_type = "test_projectile_b",
 		description = "This Is A Test Spell",
-		projectile_data = { can_bounce = true },
+		projectile_data = { can_bounce = true, effects = [ProjectileSpeedBoostSpellEffect.new(3)] },
 		frames = load("res://assets/sprites/spells/spell_a.tres"),
 		effects = [SparkSpellEffect.new()],
 		ammo = -1,

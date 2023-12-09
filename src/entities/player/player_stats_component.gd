@@ -20,7 +20,7 @@ var spells: Array[Spell] = []
 func _init():
 	max_health = 6 as int
 	current_health = max_health as int
-	default_spell.projectile_data = get_projectile_data()
+	default_spell.projectile_data.merge(get_projectile_data())
 
 func get_shoot_frequency():
 	return current_spell.shoot_frequency
