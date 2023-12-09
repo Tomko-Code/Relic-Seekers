@@ -18,6 +18,9 @@ signal dash_over
 
 @export var _AnimatedSpriteComponent: AnimatedSpriteComponent
 
+func _ready():
+	speed = 500
+
 func _physics_process(delta):
 	direction = Vector2.ZERO
 	if parent.paused:

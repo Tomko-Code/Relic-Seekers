@@ -1,3 +1,4 @@
+class_name InteractibleComponent
 extends Node2D
 
 signal interacted

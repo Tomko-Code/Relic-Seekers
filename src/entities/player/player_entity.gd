@@ -61,3 +61,6 @@ func _draw():
 
 func _on_pit_hit_box_body_exited(body):
 	pit_count -= 1
+	
+func call_death():
+	emit_signal("death")
