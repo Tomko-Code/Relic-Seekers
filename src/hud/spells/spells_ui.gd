@@ -20,3 +20,6 @@ func update_spells():
 		var spell_slot = spell_slots.pop_front() as SpellContainer
 		spell_slot.set_spell(spell)
 	
+	spell_slots = spells_container.get_children()
+	for spell_slot in spell_slots:
+		spell_slot.update_selection()

@@ -8,6 +8,10 @@ var spell: Spell
 
 func _ready():
 	update_spell()
+	update_selection()
+
+func update_selection():
+	$Selection.visible = spell == GameData.save_file.player_inventory.get_current_spell()
 
 func update_spell():
 	if spell:
