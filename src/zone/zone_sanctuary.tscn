@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://nt8opsk0xeca"]
+
+[ext_resource type="PackedScene" uid="uid://b1y35fla1q5wl" path="res://src/zone/zone.tscn" id="1_qwegj"]
+[ext_resource type="TileSet" uid="uid://bkmo2rtall6mj" path="res://assets/tileset/floors-tileset.tres" id="2_hcen3"]
+[ext_resource type="TileSet" uid="uid://b2a0t26snnvc7" path="res://assets/tileset/walls-tileset.tres" id="3_3xce5"]
+
+[sub_resource type="GDScript" id="GDScript_e8pas"]
+script/source = "extends Zone
+"
+
+[node name="ZoneSanctuary" instance=ExtResource("1_qwegj")]
+script = SubResource("GDScript_e8pas")
+
+[node name="Floors" parent="." index="2"]
+tile_set = ExtResource("2_hcen3")
+
+[node name="Walls" parent="." index="3"]
+tile_set = ExtResource("3_3xce5")

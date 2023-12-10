@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="relic_seekers"
-run/main_scene="res://src/mockup/test.tscn"
+run/main_scene="res://src/main/game_start.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -19,9 +19,21 @@ config/icon="res://icon.svg"
 
 Constants="*res://src/globals/constants.gd"
 GameData="*res://src/globals/game_data.gd"
-GameManager="*res://src/globals/game_manager.gd"
+Settings="*res://src/globals/settings.gd"
 ResourceManager="*res://src/globals/resource_manager.gd"
+GameManager="*res://src/globals/game_manager.gd"
 ConsoleHandler="*res://src/console/console_handler.gd"
+ProjectilesDb="*res://src/globals/projectiles_db.gd"
+ProjectilesHandler="*res://src/globals/projectiles_handler.gd"
+EnemiesDb="*res://src/globals/enemies_db.gd"
+EnemiesHandler="*res://src/globals/enemies_handler.gd"
+SpellsDb="*res://src/globals/spells_db.gd"
+SpellsHandler="*res://src/globals/spells_handler.gd"
+SpellEffectsDb="*res://src/globals/spell_effects_db.gd"
+
+[display]
+
+window/stretch/mode="viewport"
 
 [input]
 
@@ -80,6 +92,16 @@ shoot_left_click={
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
 ]
 }
+dash={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"echo":false,"script":null)
+]
+}
+back={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
+}
 
 [layer_names]
 
@@ -92,6 +114,10 @@ shoot_left_click={
 2d_physics/layer_7="Pickable"
 2d_physics/layer_8="Interactable"
 2d_physics/layer_9="Pit"
+
+[navigation]
+
+2d/default_edge_connection_margin=32
 
 [rendering]
 

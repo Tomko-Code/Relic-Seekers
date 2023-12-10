@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://di6h3mqc3bfpf"]
+
+[ext_resource type="Texture2D" uid="uid://r20jqwjxdts4" path="res://assets/art/icons/heart_animated_2.png" id="1_xv7qo"]
+
+[resource]
+atlas = ExtResource("1_xv7qo")
+region = Rect2(0, 0, 16, 16)

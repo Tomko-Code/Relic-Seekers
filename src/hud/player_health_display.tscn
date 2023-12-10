@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8pxblhi6pm8r"]
+
+[ext_resource type="Script" path="res://src/hud/player_health_display.gd" id="1_306j0"]
+[ext_resource type="Texture2D" uid="uid://di6h3mqc3bfpf" path="res://assets/art/icons/full_heart.tres" id="2_7x357"]
+
+[node name="player_health_display" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1005.0
+offset_bottom = -600.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+script = ExtResource("1_306j0")
+
+[node name="Hearts" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TextureRect" type="TextureRect" parent="Hearts"]
+layout_mode = 2
+texture = ExtResource("2_7x357")
+expand_mode = 2
+stretch_mode = 2

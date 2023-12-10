@@ -1,35 +1,104 @@
-[gd_scene load_steps=2 format=3 uid="uid://bayd172qbyqj0"]
+[gd_scene load_steps=13 format=3 uid="uid://bayd172qbyqj0"]
 
-[ext_resource type="Script" path="res://src/menus/start-button.gd" id="1_xva4m"]
+[ext_resource type="Script" path="res://src/menus/menu.gd" id="1_gsry1"]
+[ext_resource type="AudioStream" uid="uid://0y1vkqjs2qu6" path="res://assets/audio/music/Ancient Rite.mp3" id="1_i7oc2"]
+[ext_resource type="Script" path="res://src/menus/AudioStreamPlayer.gd" id="2_mkkke"]
+[ext_resource type="PackedScene" uid="uid://55vajytef40i" path="res://src/menus/main_menu.tscn" id="4_pt8b7"]
+[ext_resource type="Texture2D" uid="uid://krb471mm03jh" path="res://assets/art/UI/menu/hook_bottom.png" id="5_vfv4x"]
+[ext_resource type="Texture2D" uid="uid://lw2umemvwnxm" path="res://assets/art/UI/menu/hook_top.png" id="6_j0fqq"]
+[ext_resource type="PackedScene" uid="uid://bpgge7nk2irr2" path="res://src/menus/options.tscn" id="10_yxr5v"]
 
-[node name="Menu" type="Control"]
+[sub_resource type="Gradient" id="Gradient_0pjgu"]
+offsets = PackedFloat32Array(0.22541, 1)
+colors = PackedColorArray(0.929412, 0.556863, 0.0392157, 1, 1, 0.92549, 0.360784, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mkga2"]
+gradient = SubResource("Gradient_0pjgu")
+
+[sub_resource type="Curve" id="Curve_2j3b0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.996364, 0.242105), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_sswb2"]
+curve = SubResource("Curve_2j3b0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l7vvm"]
+emission_shape = 1
+emission_sphere_radius = 50.0
+particle_flag_disable_z = true
+direction = Vector3(0, -11, 0)
+gravity = Vector3(0, -98, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 100.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 15.0
+scale_max = 15.0
+scale_curve = SubResource("CurveTexture_sswb2")
+color_ramp = SubResource("GradientTexture1D_mkga2")
+
+[node name="Menu" type="Control" node_paths=PackedStringArray("main_menu", "options")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_gsry1")
+main_menu = NodePath("MainMenu")
+options = NodePath("Options")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_i7oc2")
+autoplay = true
+bus = &"Music"
+script = ExtResource("2_mkkke")
+
+[node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -23.0
-offset_top = -21.5
-offset_right = 23.0
-offset_bottom = 21.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.0588235, 0.0588235, 0.0588235, 1)
 
-[node name="StartButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Start"
-script = ExtResource("1_xva4m")
+[node name="TextureRectHookBotton" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_vfv4x")
 
-[node name="Button2" type="Button" parent="VBoxContainer"]
-layout_mode = 2
+[node name="GPUParticles2D" type="GPUParticles2D" parent="TextureRectHookBotton"]
+position = Vector2(139, 470)
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_l7vvm")
 
-[connection signal="pressed" from="VBoxContainer/StartButton" to="VBoxContainer/StartButton" method="_on_pressed"]
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="TextureRectHookBotton"]
+position = Vector2(1016, 470)
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_l7vvm")
+
+[node name="TextureRectHookTop" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_j0fqq")
+
+[node name="MainMenu" parent="." instance=ExtResource("4_pt8b7")]
+layout_mode = 1
+
+[node name="Options" parent="." instance=ExtResource("10_yxr5v")]
+visible = false
+layout_mode = 1
+
+[connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_finished"]
+[connection signal="pressed" from="MainMenu/VBoxContainer/MarginContainer1/MarginContainer2/MenuButtonList/Options" to="." method="_on_options_pressed"]
+
+[editable path="MainMenu"]

@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://doo5nthidvht1"]
+
+[ext_resource type="Script" path="res://src/entities/pickups/spell_pickup.gd" id="1_cmxdu"]
+[ext_resource type="PackedScene" uid="uid://bdlxq5bh2qqu2" path="res://src/entities/interactable/interactable_component.tscn" id="2_uh565"]
+[ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="3_wy3x1"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_vubgw"]
+device = -1
+keycode = 70
+unicode = 102
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7o126"]
+radius = 16.0
+
+[node name="SpellPickup" type="Node2D"]
+script = ExtResource("1_cmxdu")
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="InteractableComponent" parent="Components" instance=ExtResource("2_uh565")]
+interaction_input = SubResource("InputEventKey_vubgw")
+input_text = "F"
+shape = SubResource("CircleShape2D_7o126")
+
+[node name="AnimatedSpriteComponent" type="Node2D" parent="Components"]
+script = ExtResource("3_wy3x1")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Components/AnimatedSpriteComponent"]

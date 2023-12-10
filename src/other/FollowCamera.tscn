@@ -13,3 +13,5 @@ scale = Vector2(0.375, 0.375)
 texture = ExtResource("2_dixgj")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+process_callback = 0
+position_smoothing_speed = 25.0
