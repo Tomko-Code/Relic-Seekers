@@ -11,8 +11,8 @@ func get_direction():
 
 func shoot(direction_vector):
 	var projectile: BaseProjectile = _PlayerStatsComponent.current_spell.spawn_projectile()
-	if not projectile:
-		push_error("FAILED TO SPAWN PROJECTILE")
+	if projectile == null:
+		return
 	#var projectile: FriendlyProjectile = load("res://src/entities/projectiles/friendly_projectile.tscn").instantiate()
 	projectile.position = parent.position + get_direction() * 20
 	parent.get_parent().call_deferred("add_child", projectile)

@@ -13,14 +13,31 @@ var cur_flash = true
 
 @export var _AnimatedSpriteComponent: AnimatedSpriteComponent
 
-var default_spell: Spell = SpellsHandler.create_spell("default_spell")
-var current_spell: Spell = default_spell
-var spells: Array[Spell] = []
+var current_spell: Spell = GameData.save_file.player_inventory.get_current_spell()
 
 func _init():
-	max_health = 6 as int
-	current_health = max_health as int
-	default_spell.projectile_data.merge(get_projectile_data())
+	max_health = GameData.save_file.max_health
+	current_health = GameData.save_file.current_health
+	SpellsHandler.default_spell.projectile_data.merge(get_projectile_data())
+
+func _ready():
+	GameData.save_file.player_inventory.spells_changed.connect(update_current_spell)
+
+func update_current_spell():
+	current_spell = GameData.save_file.player_inventory.get_current_spell()
+
+func _input(event):
+	if event is InputEventKey:
+		if Input.is_action_just_pressed("spell_slot_0") and not event.is_echo():
+			GameData.save_file.player_inventory.change_current_spell(0)
+		elif Input.is_action_just_pressed("spell_slot_1") and not event.is_echo():
+			GameData.save_file.player_inventory.change_current_spell(1)
+		elif Input.is_action_just_pressed("spell_slot_2") and not event.is_echo():
+			GameData.save_file.player_inventory.change_current_spell(2)
+		elif Input.is_action_just_pressed("spell_slot_3") and not event.is_echo():
+			GameData.save_file.player_inventory.change_current_spell(3)
+		elif Input.is_action_just_pressed("spell_slot_4") and not event.is_echo():
+			GameData.save_file.player_inventory.change_current_spell(4)
 
 func get_shoot_frequency():
 	return current_spell.shoot_frequency

@@ -6,10 +6,10 @@
 [ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="3_t82yd"]
 [ext_resource type="SpriteFrames" uid="uid://ch01odi3jhnmr" path="res://assets/sprites/player_tmp.tres" id="5_0x5y7"]
 [ext_resource type="Script" path="res://src/entities/player/user_mouse_shooting_component.gd" id="7_ls8cw"]
-[ext_resource type="PackedScene" uid="uid://cepkdm0iul06" path="res://src/entities/hitbox_component.tscn" id="8_tbtis"]
 [ext_resource type="Script" path="res://src/entities/player/player_stats_component.gd" id="8_y5dsv"]
 [ext_resource type="Script" path="res://src/systems/movement/four_direction_animation_system_extra.gd" id="9_b4i7k"]
 [ext_resource type="Script" path="res://src/systems/combat/combat_system.gd" id="10_tlm1e"]
+[ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="10_vk5ky"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eip8d"]
 size = Vector2(48, 48)
@@ -68,12 +68,6 @@ _MovementComponent = NodePath("../UserMovementComponent")
 script = ExtResource("8_y5dsv")
 _AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
 
-[node name="HitboxComponent" parent="Components" instance=ExtResource("8_tbtis")]
-collision_mask = 16
-
-[node name="Hitbox" type="CollisionShape2D" parent="Components/HitboxComponent"]
-shape = SubResource("RectangleShape2D_kummr")
-
 [node name="FourDirectionMovementSystemExtra" type="Node" parent="Components" node_paths=PackedStringArray("_MovementComponent", "_AnimatedSpriteComponent", "_ShootingComponent")]
 script = ExtResource("9_b4i7k")
 _MovementComponent = NodePath("../UserMovementComponent")
@@ -86,5 +80,13 @@ _HitboxComponent = NodePath("../HitboxComponent")
 _StatsComponent = NodePath("../PlayerStatsComponent")
 _MovementComponent = NodePath("../UserMovementComponent")
 
+[node name="HitboxComponent" type="Area2D" parent="Components"]
+collision_mask = 16
+script = ExtResource("10_vk5ky")
+
+[node name="Hitbox" type="CollisionShape2D" parent="Components/HitboxComponent"]
+shape = SubResource("RectangleShape2D_kummr")
+
+[connection signal="health_changed" from="." to="." method="_on_health_changed"]
 [connection signal="body_entered" from="PitHitBox" to="." method="_on_pit_hit_box_body_entered"]
 [connection signal="body_exited" from="PitHitBox" to="." method="_on_pit_hit_box_body_exited"]

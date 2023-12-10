@@ -1,7 +1,8 @@
 class_name Spell
-extends RefCounted
+extends Node
 
 signal out_of_ammo
+signal ammo_changed
 
 var type: String = "none"
 var full_name: String = "None"
@@ -11,9 +12,10 @@ var description: String = "Stub test Spell"
 var ammo: int = 50
 
 #/ dmg/ range/ speed/ flags
-var projectile_data: Dictionary = {}
-var frames := load("res://assets/sprites/spells/spell_a.tres")
-var effects: Array = []
+@export var projectile_data: Dictionary = {}
+var frames: SpriteFrames = load("res://assets/sprites/spells/spell_a.tres")
+
+@export var effects: Array = []
 
 var shoot_frequency: float = 0.5
 
@@ -30,7 +32,9 @@ func spawn_projectile():
 	
 	if ammo > 0:
 		ammo -= 1
-	if ammo == 0:
+		emit_signal("ammo_changed")
+	elif ammo == 0:
+		return null
 		emit_signal("out_of_ammo")
 		
 	return projectile

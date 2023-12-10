@@ -3,7 +3,7 @@ extends Node
 var spells = {
 	default_spell = {
 		type= "default_spell",
-		full_name = "Default Spell",
+		full_name = "Fireball",
 		projectile_type = "test_projectile_a",
 		description = "This Is A Default Spell",
 		projectile_data = {},
@@ -17,10 +17,10 @@ var spells = {
 		full_name = "Test Spell",
 		projectile_type = "test_projectile_b",
 		description = "This Is A Test Spell",
-		projectile_data = { can_bounce = true, effects = [ProjectileSpeedBoostSpellEffect.new(3)] },
+		projectile_data = { can_bounce = true, effects = [ProjectileSpeedBoostSpellEffect.new().init(2)] },
 		frames = load("res://assets/sprites/spells/spell_a.tres"),
 		effects = [SparkSpellEffect.new()],
-		ammo = -1,
+		ammo = 50,
 		shoot_frequency = 0.5,
 	}
 }

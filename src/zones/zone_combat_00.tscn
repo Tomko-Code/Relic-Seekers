@@ -22,6 +22,6 @@ layer_0/tile_data = PackedInt32Array(-65538, 458752, 2, -65537, 458752, 2, -1310
 [node name="TestMobA" parent="." index="4" instance=ExtResource("3_l0l71")]
 position = Vector2(270, -121)
 
-[node name="SpellTestSpawn" type="Node2D" parent="." index="5"]
+[node name="SpellTestSpawn" type="Marker2D" parent="." index="5"]
 position = Vector2(-431, 89)
 script = ExtResource("4_pfgsf")

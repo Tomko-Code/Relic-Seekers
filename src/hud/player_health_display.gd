@@ -1,7 +1,7 @@
 extends MarginContainer
 
-var current_health = 6
-var max_health = 6
+var current_health = 10
+var max_health = 10
 
 func _ready():
 	if GameManager.player:
