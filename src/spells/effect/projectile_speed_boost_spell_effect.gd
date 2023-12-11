@@ -1,12 +1,12 @@
 class_name ProjectileSpeedBoostSpellEffect
 extends SpellEffect
 
-var tier
-var speed_multipliers = [1.25, 1.5, 1.75, 2]
+@export var tier: int
+@export var speed_multipliers = [1.25, 1.5, 1.75, 2]
 
-func _init(_tier: int):
-	tier = clampi(_tier, 0,3)
-	
+func init(value: int):
+	tier = clampi(value, 0,3)
+	return self
 
 func apply_on_projectile(projectile: BaseProjectile):
 	projectile.speed *= speed_multipliers[tier]
