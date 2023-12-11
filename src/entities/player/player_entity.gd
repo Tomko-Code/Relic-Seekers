@@ -59,3 +59,10 @@ func _draw():
 
 func _on_pit_hit_box_body_exited(body):
 	pit_count -= 1
+	
+func call_death():
+	emit_signal("death")
+
+func _on_health_changed():
+	#GameData.save_file.current_health = _PlayerStatsComponent.current_health
+	pass

@@ -4,8 +4,13 @@ extends MovementComponent
 var velocity: Vector2
 var distance_traveled_duration: float = 0
 var range: float = 0
+var can_bounce = false
 
 func _ready():
+	speed = parent.speed
+	range = parent.range
+	can_bounce = parent.can_bounce
+	
 	if not parent is BaseProjectile:
 		push_error("ProjectileMovementComponent set on BaseProjectile")
 	
@@ -30,7 +35,7 @@ func _physics_process(delta):
 	velocity = direction.normalized() * speed
 	
 	var collision = parent.move_and_collide(velocity * delta)
-	if collision:
+	if collision and can_bounce:
 		velocity = velocity.bounce(collision.get_normal())
 		direction = direction.bounce(collision.get_normal())
 		
@@ -38,4 +43,5 @@ func _physics_process(delta):
 
 		#velocity = velocity.slide(collision.get_normal())
 		collision = parent.move_and_collide(velocity * delta)
-			
+	elif collision:
+		parent.expire()

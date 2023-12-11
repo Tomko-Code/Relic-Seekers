@@ -1,13 +1,6 @@
 class_name PlayerStatsComponent
 extends StatsComponent
 
-var max_health: int = 6
-var current_health: int = max_health
-
-var shoot_speed: float = 500
-var shoot_range: float = 50
-var shoot_damage: int = 1
-
 var is_invulnerable = false
 var invulnerable_current_duration = 0
 var invulnerable_max_duration = 1.5
@@ -20,23 +13,40 @@ var cur_flash = true
 
 @export var _AnimatedSpriteComponent: AnimatedSpriteComponent
 
+var current_spell: Spell = GameData.save_file.player_inventory.get_current_spell()
 
-func get_shoot_speed():
-	return shoot_speed
+func _init():
+	max_health = GameData.save_file.max_health
+	current_health = GameData.save_file.current_health
+	SpellsHandler.default_spell.projectile_data.merge(get_projectile_data())
 
-func get_shoot_range():
-	return shoot_range
+func _ready():
+	GameData.save_file.player_inventory.spells_changed.connect(update_current_spell)
 
-func get_shoot_damage():
-	return shoot_damage
+func update_current_spell():
+	current_spell = GameData.save_file.player_inventory.get_current_spell()
 
-func get_shoot_effects():
-	return []
-	
+func _input(event):
+	if event is InputEventKey:
+		if Input.is_action_just_pressed("spell_slot_0") and not event.is_echo():
+			GameData.save_file.player_inventory.change_current_spell(0)
+		elif Input.is_action_just_pressed("spell_slot_1") and not event.is_echo():
+			GameData.save_file.player_inventory.change_current_spell(1)
+		elif Input.is_action_just_pressed("spell_slot_2") and not event.is_echo():
+			GameData.save_file.player_inventory.change_current_spell(2)
+		elif Input.is_action_just_pressed("spell_slot_3") and not event.is_echo():
+			GameData.save_file.player_inventory.change_current_spell(3)
+		elif Input.is_action_just_pressed("spell_slot_4") and not event.is_echo():
+			GameData.save_file.player_inventory.change_current_spell(4)
+
+func get_shoot_frequency():
+	return current_spell.shoot_frequency
+
 func get_health():
 	return current_health
 
-func change_health(value: int):
+func change_health(value):
+	value = round(value)
 	if is_invulnerable and value > 0: 
 		return
 	current_health -= value
@@ -47,7 +57,7 @@ func change_health(value: int):
 	parent.emit_signal("health_changed")
 	
 	if current_health <= 0:
-		parent.emit_signal("death")
+		parent.call_death()
 
 func make_invulnerable():
 	is_invulnerable = true

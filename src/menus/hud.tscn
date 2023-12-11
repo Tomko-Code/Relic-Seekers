@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfmmqeomv02jn"]
+[gd_scene load_steps=5 format=3 uid="uid://cfmmqeomv02jn"]
 
 [ext_resource type="PackedScene" uid="uid://b8pxblhi6pm8r" path="res://src/hud/player_health_display.tscn" id="1_gwtj2"]
 [ext_resource type="Script" path="res://src/menus/hud.gd" id="1_qpert"]
 [ext_resource type="FontFile" uid="uid://bhqolxe327vw3" path="res://assets/fonts/Chava-Regular.ttf" id="3_aeurd"]
+[ext_resource type="PackedScene" uid="uid://dritma3ktfaep" path="res://src/hud/spells/spells_ui.tscn" id="4_bsckq"]
 
 [node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("fps_lable")]
 script = ExtResource("1_qpert")
@@ -44,3 +45,7 @@ horizontal_alignment = 1
 [node name="Filler2" type="MarginContainer" parent="MarginContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="SpellsUi" parent="MarginContainer" instance=ExtResource("4_bsckq")]
+layout_mode = 2
+size_flags_vertical = 8

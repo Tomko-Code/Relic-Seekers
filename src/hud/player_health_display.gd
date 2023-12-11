@@ -1,7 +1,7 @@
 extends MarginContainer
 
-var current_health = 6
-var max_health = 6
+var current_health = 10
+var max_health = 10
 
 func _ready():
 	if GameManager.player:
@@ -18,8 +18,8 @@ func set_health():
 	var player = GameManager.player
 	var player_stats: PlayerStatsComponent = GameManager.get_entity_component(player, PlayerStatsComponent)[0]
 	
-	current_health = player_stats.current_health
-	max_health = player_stats.max_health
+	current_health = player_stats.current_health as int
+	max_health = player_stats.max_health as int
 
 func fill_hearts():
 	set_health()
