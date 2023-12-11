@@ -45,7 +45,8 @@ func get_shoot_frequency():
 func get_health():
 	return current_health
 
-func change_health(value: int):
+func change_health(value):
+	value = round(value)
 	if is_invulnerable and value > 0: 
 		return
 	current_health -= value

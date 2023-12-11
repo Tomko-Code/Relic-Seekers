@@ -41,7 +41,7 @@ func get_shoot_damage():
 func get_shoot_frequency():
 	return shoot_frequency
 
-func change_health(value):
+func change_health(value: float):
 	current_health -= value
 	parent.emit_signal("health_changed")
 	if current_health <= 0:

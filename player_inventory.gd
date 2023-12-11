@@ -26,7 +26,7 @@ func get_current_spell():
 	return spells[current_spell_slot]
 
 func add_spell(new_spell: Spell):
-	for spell_slot_id in range(1,4):
+	for spell_slot_id in range(1,5):
 		if spells[spell_slot_id] == null:
 			spells[spell_slot_id] = new_spell
 			emit_signal("spells_changed")
@@ -34,7 +34,7 @@ func add_spell(new_spell: Spell):
 	
 	var last_spell = spells.back()
 	
-	for spell_slot_id in range(3,1,-1):
+	for spell_slot_id in range(3,0,-1):
 		spells[spell_slot_id+1] = spells[spell_slot_id]
 	spells[1] = new_spell
 	emit_signal("spells_changed")

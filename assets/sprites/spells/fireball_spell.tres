@@ -1,0 +1,53 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://dos43h567k3kf"]
+
+[ext_resource type="Texture2D" uid="uid://cmvnrixukrvau" path="res://assets/art/sprites/spells/fireball_spell_sprite.png" id="1_n0w1y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xd13h"]
+atlas = ExtResource("1_n0w1y")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqqsd"]
+atlas = ExtResource("1_n0w1y")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qggb"]
+atlas = ExtResource("1_n0w1y")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xriko"]
+atlas = ExtResource("1_n0w1y")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwrcu"]
+atlas = ExtResource("1_n0w1y")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vah3a"]
+atlas = ExtResource("1_n0w1y")
+region = Rect2(160, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xd13h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqqsd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qggb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xriko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwrcu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vah3a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
