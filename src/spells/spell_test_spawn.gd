@@ -1,5 +1,5 @@
 class_name SpellTestSpawn
-extends Node2D
+extends Marker2D
 
 func _ready():
 	var spell = SpellsHandler.create_spell("test_spell")
