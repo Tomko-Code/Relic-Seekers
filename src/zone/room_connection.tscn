@@ -1,4 +1,12 @@
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [gd_scene load_steps=4 format=3 uid="uid://c2hm58vmhc2kt"]
+=======
+[gd_scene load_steps=4 format=3 uid="uid://cicx7evxe0ygx"]
+>>>>>>> Stashed changes
+=======
+[gd_scene load_steps=4 format=3 uid="uid://cicx7evxe0ygx"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Script" path="res://src/zone/room_connection.gd" id="1_pwu8d"]
 [ext_resource type="Texture2D" uid="uid://dayf0y6nyidev" path="res://icon.svg" id="2_3eqmo"]
