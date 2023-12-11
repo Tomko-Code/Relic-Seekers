@@ -1,7 +1,8 @@
 extends RefCounted
+class_name RoomConnectionData
 
-var connected_room:Room = null
-var parent_room:Room = null
+var connected_room:RoomData = null
+var parent_room:RoomData = null
 
 # cord inside room
 var inside_cord:Vector2 = Vector2.ZERO
