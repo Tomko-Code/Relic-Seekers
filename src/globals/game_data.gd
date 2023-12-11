@@ -15,6 +15,18 @@ var data = {
 
 var save_file:SaveFile
 
+# rooms data
+var rooms_data = {
+	"Start" : {
+		"shape" : [[1]],
+		"res" : preload("res://src/rooms/start_room.tscn")
+	},
+	"Normal1" : {
+		"shape" : [[1]],
+		"res" : preload("res://src/rooms/test_room_0.tscn")
+	}
+}
+
 func load_save_file():
 	if ResourceLoader.exists(save_path):
 		save_file = ResourceLoader.load(save_path)
