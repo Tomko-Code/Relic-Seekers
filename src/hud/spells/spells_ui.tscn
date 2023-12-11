@@ -1,0 +1,94 @@
+[gd_scene load_steps=5 format=3 uid="uid://dritma3ktfaep"]
+
+[ext_resource type="PackedScene" uid="uid://dm6v215fvufe4" path="res://src/hud/spells/spell_container.tscn" id="1_l7fwu"]
+[ext_resource type="Script" path="res://src/hud/spells/spells_ui.gd" id="1_vmlpn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_emlgu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6dft"]
+bg_color = Color(0.2, 0.00784314, 0.0784314, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.109804, 0, 0.109804, 1)
+
+[node name="SpellsUi" type="PanelContainer" node_paths=PackedStringArray("spells_container", "artifacts_container", "current_spell_slot")]
+offset_right = 1152.0
+offset_bottom = 204.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_emlgu")
+script = ExtResource("1_vmlpn")
+spells_container = NodePath("HBoxContainer/PanelContainer/MarginContainer/SpellSlots")
+artifacts_container = NodePath("HBoxContainer/MarginContainer/VBoxContainer/ArtifactSlots")
+current_spell_slot = NodePath("HBoxContainer/MarginContainer/VBoxContainer/CurrentSpell")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_direction = 2
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ArtifactSlots" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="ArtifactSlotQ" parent="HBoxContainer/MarginContainer/VBoxContainer/ArtifactSlots" instance=ExtResource("1_l7fwu")]
+layout_mode = 2
+shortcut = "Q"
+
+[node name="ArtifactSlotE" parent="HBoxContainer/MarginContainer/VBoxContainer/ArtifactSlots" instance=ExtResource("1_l7fwu")]
+layout_mode = 2
+shortcut = "E"
+
+[node name="CurrentSpell" parent="HBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_l7fwu")]
+custom_minimum_size = Vector2(136, 136)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="SpellSlots" type="HBoxContainer" parent="HBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="SpellSlot0" parent="HBoxContainer/PanelContainer/MarginContainer/SpellSlots" instance=ExtResource("1_l7fwu")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m6dft")
+shortcut = "1"
+
+[node name="SpellSlot1" parent="HBoxContainer/PanelContainer/MarginContainer/SpellSlots" instance=ExtResource("1_l7fwu")]
+layout_mode = 2
+shortcut = "2"
+
+[node name="SpellSlot2" parent="HBoxContainer/PanelContainer/MarginContainer/SpellSlots" instance=ExtResource("1_l7fwu")]
+layout_mode = 2
+shortcut = "3"
+
+[node name="SpellSlot3" parent="HBoxContainer/PanelContainer/MarginContainer/SpellSlots" instance=ExtResource("1_l7fwu")]
+layout_mode = 2
+shortcut = "4"
+
+[node name="SpellSlot4" parent="HBoxContainer/PanelContainer/MarginContainer/SpellSlots" instance=ExtResource("1_l7fwu")]
+layout_mode = 2
+shortcut = "5"

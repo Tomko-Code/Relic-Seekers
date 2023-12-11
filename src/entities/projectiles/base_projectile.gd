@@ -5,7 +5,7 @@ var type: String = "base_projectile"
 var speed: float = 100.0
 var range: float = 100
 var effects: Array = []
-var damage: int = 1
+var damage: float = 1
 var can_bounce: bool = false
 
 var is_friendly: bool = false

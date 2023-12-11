@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://dm6v215fvufe4"]
+
+[ext_resource type="Script" path="res://src/hud/spells/spell_container.gd" id="1_iyk2u"]
+[ext_resource type="Texture2D" uid="uid://bflmc8smydtu4" path="res://assets/art/sprites/spells/non_spell.tres" id="2_h1mp4"]
+[ext_resource type="FontFile" uid="uid://wxqcfc30ah8a" path="res://assets/fonts/HelvetiPixel.ttf" id="3_lc2w2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v60gf"]
+bg_color = Color(0.00784314, 0.101961, 0.160784, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ta6j5"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.94902, 0.784314, 0.192157, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[node name="SpellContainer" type="PanelContainer"]
+custom_minimum_size = Vector2(72, 72)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1080.0
+offset_bottom = -576.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v60gf")
+script = ExtResource("1_iyk2u")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Spell" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_h1mp4")
+stretch_mode = 5
+
+[node name="Shortcut" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("3_lc2w2")
+theme_override_font_sizes/font_size = 32
+text = "1"
+
+[node name="Ammo" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("3_lc2w2")
+theme_override_font_sizes/font_size = 32
+text = "50"
+
+[node name="Selection" type="Panel" parent="."]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ta6j5")
