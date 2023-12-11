@@ -30,7 +30,6 @@ EnemiesHandler="*res://src/globals/enemies_handler.gd"
 SpellsDb="*res://src/globals/spells_db.gd"
 SpellsHandler="*res://src/globals/spells_handler.gd"
 SpellEffectsDb="*res://src/globals/spell_effects_db.gd"
-"<<<<<<<Updatedupstream[display]window/stretch/mode"="viewport"
 
 [display]
 
