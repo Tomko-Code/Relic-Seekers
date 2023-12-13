@@ -22,11 +22,22 @@ var room_shape = []
 var connection_arry = []
 var closed_connection_arry = []
 
+func set_up(_type:String) -> RoomData:
+	type = _type
+	room_shape = GameData.rooms_data[_type]["shape"]
+	for conn in GameData.rooms_data[_type]["connections"]:
+		add_connection(conn[0], conn[1])
+	
+	return self
+
 func add_connection(inside_cord:Vector2, direction:Vector2) -> void:
 	var new_connection:RoomConnectionData = RoomConnectionData.new()
 	new_connection.inside_cord = inside_cord
 	new_connection.direction = direction
 	new_connection.parent_room = self
+	
+	# TEST FOR DUPLICAT
+	# TEST FOR OUTSIDE
 	
 	connection_arry.append(new_connection)
 
@@ -54,6 +65,15 @@ func connect_room(room:RoomData, conn:RoomConnectionData):
 	print(closed_connection_arry)
 	print(room.closed_connection_arry)
 	return true
+
+func get_connections_with_direction(direction:Vector2) -> Array[RoomConnectionData]:
+	var result:Array[RoomConnectionData] = []
+	
+	for conn in connection_arry:
+		if conn.direction == direction:
+			result.append(conn)
+	
+	return result
 
 func get_connection(_cord:Vector2, direction:Vector2) -> RoomConnectionData:
 	_cord -= cord

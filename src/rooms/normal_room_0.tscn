@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://85y20cht4em5"]
+[gd_scene load_steps=3 format=3 uid="uid://c1wj2vys6rgl8"]
 
 [ext_resource type="PackedScene" uid="uid://bnrt7xcfjh5bx" path="res://src/zone/room.tscn" id="1_w8sqs"]
 [ext_resource type="Script" path="res://src/rooms/normal_room_0.gd" id="2_mjuoc"]
