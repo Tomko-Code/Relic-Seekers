@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjnhtnejhudku"]
+[gd_scene load_steps=7 format=3 uid="uid://bjnhtnejhudku"]
 
 [ext_resource type="Texture2D" uid="uid://c1opxea5dmvag" path="res://assets/art/tilemap/320x320-tileset-ruin.png" id="1_cc5le"]
 [ext_resource type="PackedScene" uid="uid://l1qgkquddmll" path="res://src/entities/Interactables/elevator/elevator.tscn" id="3_klitk"]
@@ -98,6 +98,9 @@ sources/0 = SubResource("TileSetAtlasSource_2gmwe")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_av52w"]
 size = Vector2(48, 24)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_81r6a"]
+size = Vector2(54, 1200)
+
 [node name="Ruin" type="Node2D"]
 
 [node name="Walls_Floor" type="TileMap" parent="."]
@@ -115,3 +118,18 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="elevator/StaticBody2D"]
 position = Vector2(5, -6)
 shape = SubResource("RectangleShape2D_av52w")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(17, -63)
+shape = SubResource("RectangleShape2D_81r6a")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(911, -3)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(17, -63)
+shape = SubResource("RectangleShape2D_81r6a")

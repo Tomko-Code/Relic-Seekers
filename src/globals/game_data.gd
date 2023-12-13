@@ -33,6 +33,12 @@ var rooms_data = {
 		"connections" : [
 			[Vector2(0,0), Vector2.DOWN]
 		]
+	},
+	"swamp_room" : {
+		# This is wrong but it's unique room
+		"shape" : [[1]],
+		"res" : load("res://src/rooms/swamp_room.tscn"),
+		"connections" : []
 	}
 }
 

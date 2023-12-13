@@ -45,8 +45,8 @@ func on_dash_over():
 
 func fall(pos:Vector2) -> void:
 	var game = GameManager.loaded_scenes["Game"]
-	var zone:Zone = game.current_zone
-	var cord = zone.look_for_open_space(pos)
+	var level:Level = game.active_level
+	var cord = level.currnet_active_room.look_for_open_space(pos)
 	
 	$PitHitBox/AudioPitFall.play()
 	

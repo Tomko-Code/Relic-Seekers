@@ -7,6 +7,7 @@ var map = []
 var unspawned_rooms = []
 var rooms = []
 var currnet_active_room:Room = null
+var default_room:Room = null
 
 func spawn_room(room_data:RoomData):
 	if room_data.type == "":
@@ -47,6 +48,9 @@ func is_overlaping(room_data:RoomData, cord:Vector2):
 				return true
 	
 	return false
+
+func get_cord_center_position(cord:Vector2) -> Vector2:
+	return (cord * Constants.CHUNK_SIZE) + Constants.CHUNK_SIZE/2
 
 func place_room(room_data:RoomData, cord:Vector2):
 	room_data.cord = cord
