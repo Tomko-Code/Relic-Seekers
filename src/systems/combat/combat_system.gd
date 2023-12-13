@@ -25,6 +25,7 @@ func _on_bullet_enter_hitbox(_area):
 		
 		if _StatsComponent and bullet is BaseProjectile:
 			_StatsComponent.change_health(bullet.damage)
-			
+		
 		if bullet is BaseProjectile:
 			bullet.hit(get_entity())
+			_MovementComponent.recoil(bullet)
