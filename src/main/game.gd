@@ -2,40 +2,67 @@ extends Node2D
 
 @onready var HUD = get_node("HUD")
 
-var loaded_zones = {}
-var game_running = false
-var current_zone: Zone = null
+var game_running:bool = false
 
-var player = null
+enum LEVEL_STATES { NULL, CURRENT, SANCTUARY}
+var level_state:LEVEL_STATES = LEVEL_STATES.NULL
 
-func load_zone(zone_name:String, res_path:String):
-	if loaded_zones.has(zone_name):
-		print("game:load_zone | zone :" + zone_name + " is loaded.")
+var sanctuary_level:SanctuaryLevel = null
+var current_level:Level = null
+
+var active_level:Level = null
+
+var player:PlayerEntity = null
+
+func change_current_level(level:Level) -> void:
+	# Check if level is alrady active
+	if current_level == level:
+		print("Level is already active : " + current_level.name)
 		return
 	
-	var zone_res = load(res_path)
-	var zone = zone_res.instantiate()
-	loaded_zones[zone.zone_name] = zone
+	# Remove current level
+	if current_level != null:
+		clear_level(current_level)
+	
+	current_level = level
+	print("Current level change to : " + level.name)
 
-func change_zone(zone_name:String, zone_spawn:int = 0):
+func clear_level(level:Level) -> void:
+	if level_state == LEVEL_STATES.CURRENT:
+		deactivate_level(level)
 	
-	if current_zone != null:
-		remove_child(current_zone)
-		current_zone.remove_child(player)
-		loaded_zones.erase(current_zone.zone_name)
-		current_zone.queue_free()
-	
-	add_child(loaded_zones[zone_name])
-	current_zone = loaded_zones[zone_name]
-	
-	current_zone.add_child(player)
-	current_zone.on_zone_enter(zone_spawn)
-	
-	print("Zone change to : " + current_zone.zone_name)
+	level.queue_free()
 
-func start_game(start_option:Constants.STARTING_OPTIONS):
-	load_player()
+func deactivate_level(level:Level) -> void:
+	remove_child(level)
+	level.remove_child(player)
+
+func activate_level(level:Level) -> void:
+	add_child(level)
+	level.add_child(player)
+
+func change_active_to_current_level() -> void:
+	if level_state == LEVEL_STATES.SANCTUARY:
+		deactivate_level(sanctuary_level)
+	
+	activate_level(current_level)
+	
+	level_state = LEVEL_STATES.CURRENT
+
+func change_active_to_sanctuary_level() -> void:
+	if level_state == LEVEL_STATES.CURRENT:
+		deactivate_level(current_level)
+	
+	activate_level(sanctuary_level)
+	
+	level_state = LEVEL_STATES.SANCTUARY
+
+func start_game(start_option:Constants.STARTING_OPTIONS) -> void:
 	game_running = true
+	
+	print("Game starts in mode : " + str(start_option))
+	print("Player load.")
+	load_player()
 	
 	match start_option:
 		Constants.STARTING_OPTIONS.NORMAL:
@@ -49,19 +76,25 @@ func load_player() -> void:
 	GameManager.player = player
 
 func combat_start() -> void:
-	load_zone("zone_combat_00", "res://src/zones/zone_combat_00.tscn")
-	change_zone("zone_combat_00")
+	pass
+	#load_zone("zone_combat_00", "res://src/zones/zone_combat_00.tscn")
+	#change_zone("zone_combat_00")
 
 func normal_start() -> void:
+	# Load sanctuary
+	sanctuary_level = SanctuaryLevel.new()
+	sanctuary_level.set_up()
+	
 	if GameData.data["prolg_complete"]:
-		load_zone("zone_sanctuary_00", "res://src/zones/zone_sanctuary_00.tscn")
-		change_zone("zone_sanctuary_00")
+		var level:StartLevel = StartLevel.new()
+		level.set_up()
+		change_current_level(level)
+		change_active_to_current_level()
 	else:
-		# presuming first start of the game
-		load_zone("zone_swamp_prolog_00", "res://src/zones/zone_swamp_prolog_00.tscn")
-		load_zone("zone_sanctuary_00", "res://src/zones/zone_sanctuary_00.tscn")
-		
-		change_zone("zone_swamp_prolog_00")
+		var level:PrologLevel = PrologLevel.new()
+		level.set_up()
+		change_current_level(level)
+		change_active_to_current_level()
 
 func _ready():
 	pass

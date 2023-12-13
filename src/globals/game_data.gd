@@ -19,11 +19,20 @@ var save_file:SaveFile
 var rooms_data = {
 	"Start" : {
 		"shape" : [[1]],
-		"res" : preload("res://src/rooms/start_room.tscn")
+		"res" : load("res://src/rooms/start_room.tscn"),
+		"connections" : [
+			[Vector2(0,0), Vector2.UP]
+		]
 	},
 	"Normal1" : {
-		"shape" : [[1]],
-		"res" : preload("res://src/rooms/test_room_0.tscn")
+		"shape" : [
+			[1]
+			#[1]
+		],
+		"res" : load("res://src/rooms/normal_room_0.tscn"),
+		"connections" : [
+			[Vector2(0,0), Vector2.DOWN]
+		]
 	}
 }
 
