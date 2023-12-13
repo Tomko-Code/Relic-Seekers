@@ -1,7 +1,7 @@
 class_name MovementComponent
 extends Node
 
-var speed := 50000.0
+var speed := 300.0
 var direction := Vector2.ZERO
 
 @onready var parent: CharacterBody2D = get_parent().get_parent()

@@ -1,0 +1,77 @@
+[gd_scene load_steps=13 format=3 uid="uid://ceuj26gcgt1mt"]
+
+[ext_resource type="Script" path="res://src/entities/enemies/mobs/test_mob_a.gd" id="1_wwkd7"]
+[ext_resource type="Script" path="res://src/entities/stats_component.gd" id="2_jown2"]
+[ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="3_8kqiq"]
+[ext_resource type="Script" path="res://src/systems/combat/combat_system.gd" id="4_j1sqd"]
+[ext_resource type="Script" path="res://src/entities/enemies/generic_shooting_component.gd" id="5_xtjsy"]
+[ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="6_v7wjf"]
+[ext_resource type="SpriteFrames" uid="uid://ch01odi3jhnmr" path="res://assets/sprites/player_tmp.tres" id="7_7lvug"]
+[ext_resource type="Script" path="res://src/systems/movement/four_direction_animation_system_extra.gd" id="8_niq8f"]
+[ext_resource type="Script" path="res://src/entities/enemies/follow_and_shoot_movement_component.gd" id="9_t87yi"]
+[ext_resource type="PackedScene" uid="uid://b001mo8qgm6le" path="res://src/entities/enemies/health_bar_component.tscn" id="10_bh6gw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i5roa"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_va406"]
+size = Vector2(32, 32)
+
+[node name="TestMobA" type="CharacterBody2D"]
+modulate = Color(0, 1, 0, 1)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_wwkd7")
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="StatsComponent" type="Node" parent="Components"]
+script = ExtResource("2_jown2")
+projectile_type = "test_projectile_a"
+
+[node name="HitboxComponent" type="Area2D" parent="Components"]
+collision_layer = 4
+collision_mask = 8
+script = ExtResource("3_8kqiq")
+
+[node name="Hitbox" type="CollisionShape2D" parent="Components/HitboxComponent"]
+shape = SubResource("RectangleShape2D_i5roa")
+
+[node name="CombatSystem" type="Node" parent="Components" node_paths=PackedStringArray("_HitboxComponent", "_StatsComponent", "_MovementComponent")]
+script = ExtResource("4_j1sqd")
+_HitboxComponent = NodePath("../HitboxComponent")
+_StatsComponent = NodePath("../StatsComponent")
+_MovementComponent = NodePath("../FollowAndShootMovementComponent")
+
+[node name="GenericShootingComponent" type="Node" parent="Components" node_paths=PackedStringArray("_StatsComponent", "_MovementComponent")]
+script = ExtResource("5_xtjsy")
+_StatsComponent = NodePath("../StatsComponent")
+_MovementComponent = NodePath("../FollowAndShootMovementComponent")
+
+[node name="AnimatedSpriteComponent" type="Node2D" parent="Components"]
+script = ExtResource("6_v7wjf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Components/AnimatedSpriteComponent"]
+scale = Vector2(0.5, 0.5)
+sprite_frames = ExtResource("7_7lvug")
+animation = &"idle_left_down"
+
+[node name="FourDirectionMovementSystemExtra" type="Node" parent="Components" node_paths=PackedStringArray("_MovementComponent", "_AnimatedSpriteComponent", "_ShootingComponent")]
+script = ExtResource("8_niq8f")
+_MovementComponent = NodePath("../FollowAndShootMovementComponent")
+_AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
+_ShootingComponent = NodePath("../GenericShootingComponent")
+
+[node name="FollowAndShootMovementComponent" type="Node" parent="Components" node_paths=PackedStringArray("nav_agent", "_ShootingComponent")]
+script = ExtResource("9_t87yi")
+nav_agent = NodePath("../../NavigationAgent2D")
+_ShootingComponent = NodePath("../GenericShootingComponent")
+
+[node name="HealthBarComponent" parent="Components" node_paths=PackedStringArray("_StatsComponent") instance=ExtResource("10_bh6gw")]
+_StatsComponent = NodePath("../StatsComponent")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_va406")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+radius = 60.0

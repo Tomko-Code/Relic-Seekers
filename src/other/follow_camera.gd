@@ -40,7 +40,6 @@ func initialize(_use_zones: bool = true, _interpolate_distance_from_mouse: bool 
 	
 	$CursorLayer/Cursor.position = get_viewport_rect().size / 2
 
-
 func _draw():
 	if draw_zones:
 		draw_arc(last_offset, near_zone, PI*2, 0, 100, Color(1, 0, 0), 1)
@@ -48,6 +47,11 @@ func _draw():
 		draw_arc(Vector2.ZERO, intermediate_zone, PI*2, 0, 100, Color(0, 0, 1), 1)
 		draw_arc(Vector2.ZERO, inner_zone, PI*2, 0, 100, Color(0, 0, 1), 1)
 		draw_line(Camera.position, last_offset, Color(1,1,0), 1)
+
+func play_slow():
+	#$AnimationPlayer.play("SlowCameraEffect")
+	#print("play")
+	pass
 
 func _process(delta):
 	var mouse_pos = Cursor.get_global_mouse_position()
@@ -58,8 +62,6 @@ func _process(delta):
 		
 		offset = offset.normalized() * max(0, offset.length() - near_zone)
 		offset = offset.normalized() * (offset.length() / intermediate_zone) * inner_zone
-		
-		
 		
 		if offset.length() < 1:
 			if interpolate_distance_from_mouse:

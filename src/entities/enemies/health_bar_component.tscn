@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://b001mo8qgm6le"]
+
+[ext_resource type="Script" path="res://src/entities/enemies/health_bar_component.gd" id="1_tgty3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gdwb7"]
+
+[node name="HealthBarComponent" type="Node2D"]
+script = ExtResource("1_tgty3")
+
+[node name="Container" type="PanelContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -31.0
+offset_top = -48.0
+offset_right = 31.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_gdwb7")
+
+[node name="ProgressBar" type="ProgressBar" parent="Container"]
+layout_mode = 2

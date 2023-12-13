@@ -16,4 +16,11 @@ func _on_pressed():
 	if GameManager.loaded_scenes["Game"].game_running:
 		pass
 	else:
-		GameManager.loaded_scenes["Game"].start_game()
+		GameManager.loaded_scenes["Game"].start_game(Constants.STARTING_OPTIONS.NORMAL)
+
+
+func _on_visibility_changed():
+	if GameManager.loaded_scenes["Game"].game_running:
+		text = "Continue ..."
+	else:
+		text = "Start"

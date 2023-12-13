@@ -1,7 +1,67 @@
-[gd_scene load_steps=3 format=3 uid="uid://jumgdbiwdj0i"]
+[gd_scene load_steps=6 format=3 uid="uid://jumgdbiwdj0i"]
 
 [ext_resource type="Script" path="res://src/other/follow_camera.gd" id="1_g4usv"]
 [ext_resource type="Texture2D" uid="uid://dayf0y6nyidev" path="res://icon.svg" id="2_dixgj"]
+
+[sub_resource type="Animation" id="Animation_7vbcn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position_smoothing_enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:position_smoothing_speed")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_3fahm"]
+resource_name = "SlowCameraEffect"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position_smoothing_enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:position_smoothing_speed")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 10.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_45wxa"]
+_data = {
+"RESET": SubResource("Animation_7vbcn"),
+"SlowCameraEffect": SubResource("Animation_3fahm")
+}
 
 [node name="FollowCamera" type="Node2D"]
 script = ExtResource("1_g4usv")
@@ -13,3 +73,10 @@ scale = Vector2(0.375, 0.375)
 texture = ExtResource("2_dixgj")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+process_callback = 0
+position_smoothing_speed = 1.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_45wxa")
+}
