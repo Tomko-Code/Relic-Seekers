@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://bhd25t8ptw1ot"]
+
+[ext_resource type="Texture2D" uid="uid://c0yngvodyaw2b" path="res://assets/art/keys/A-Key.png" id="1_mxanu"]
+[ext_resource type="Texture2D" uid="uid://bghaij8wuehkg" path="res://assets/art/keys/D-Key.png" id="2_vkhox"]
+[ext_resource type="Texture2D" uid="uid://cnta05dc6yhpt" path="res://assets/art/keys/S-Key.png" id="3_kvjin"]
+[ext_resource type="Texture2D" uid="uid://cyc8r3434hrnr" path="res://assets/art/keys/W-Key.png" id="4_311mm"]
+[ext_resource type="Texture2D" uid="uid://dxty3ut8bdoqm" path="res://assets/art/keys/Space-Key.png" id="5_y7fby"]
+[ext_resource type="FontFile" uid="uid://bpdjfdnl7p1vf" path="res://assets/fonts/yoster.ttf" id="6_4wowa"]
+
+[sub_resource type="Theme" id="Theme_t5s7l"]
+default_font = ExtResource("6_4wowa")
+default_font_size = 18
+
+[node name="Info" type="Node2D"]
+modulate = Color(0, 0.658824, 0.682353, 1)
+position = Vector2(581, 457)
+scale = Vector2(2, 2)
+
+[node name="A-key" type="Sprite2D" parent="."]
+position = Vector2(-34, 0)
+texture = ExtResource("1_mxanu")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="D-key" type="Sprite2D" parent="."]
+position = Vector2(34, 0)
+texture = ExtResource("2_vkhox")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="S-key" type="Sprite2D" parent="."]
+texture = ExtResource("3_kvjin")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="W-key" type="Sprite2D" parent="."]
+position = Vector2(0, -30)
+texture = ExtResource("4_311mm")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="Space-key" type="Sprite2D" parent="."]
+position = Vector2(173, -30)
+texture = ExtResource("5_y7fby")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 32)
+
+[node name="Info-Move" type="Label" parent="."]
+offset_left = -69.0
+offset_top = -73.0
+offset_right = 74.0
+offset_bottom = -47.0
+theme = SubResource("Theme_t5s7l")
+text = "To move press."
+metadata/_edit_use_anchors_ = true
+
+[node name="Info-Dash" type="Label" parent="."]
+offset_left = 97.5
+offset_top = -73.0
+offset_right = 240.5
+offset_bottom = -47.0
+theme = SubResource("Theme_t5s7l")
+text = "To Dash press."
+metadata/_edit_use_anchors_ = true

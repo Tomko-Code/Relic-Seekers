@@ -4,8 +4,10 @@
 [ext_resource type="TileSet" uid="uid://bkmo2rtall6mj" path="res://assets/tileset/floors-tileset.tres" id="2_tuq74"]
 [ext_resource type="TileSet" uid="uid://b2a0t26snnvc7" path="res://assets/tileset/walls-tileset.tres" id="3_mjex8"]
 
-[node name="Room" type="Node2D"]
+[node name="Room" type="Node2D" node_paths=PackedStringArray("floors", "walls")]
 script = ExtResource("1_m56lj")
+floors = NodePath("Floors")
+walls = NodePath("Walls")
 
 [node name="Gates" type="Node2D" parent="."]
 
@@ -23,4 +25,5 @@ layer_1/tile_data = PackedInt32Array()
 
 [node name="Walls" type="TileMap" parent="."]
 tile_set = ExtResource("3_mjex8")
+cell_quadrant_size = 32
 format = 2

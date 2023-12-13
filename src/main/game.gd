@@ -70,7 +70,6 @@ func start_game(start_option:Constants.STARTING_OPTIONS) -> void:
 		Constants.STARTING_OPTIONS.COMBAT:
 			combat_start()
 
-
 func load_player() -> void:
 	player = load("res://src/entities/player/player_entity.tscn").instantiate()
 	GameManager.player = player
@@ -86,12 +85,9 @@ func normal_start() -> void:
 	sanctuary_level.set_up()
 	
 	if GameData.data["prolg_complete"]:
-		var level:StartLevel = StartLevel.new()
-		level.set_up()
-		change_current_level(level)
-		change_active_to_current_level()
+		change_active_to_sanctuary_level()
 	else:
-		var level:PrologLevel = PrologLevel.new()
+		var level:StartLevel = StartLevel.new()
 		level.set_up()
 		change_current_level(level)
 		change_active_to_current_level()
