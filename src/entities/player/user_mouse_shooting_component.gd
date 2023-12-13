@@ -4,6 +4,8 @@ extends ShootingComponent
 @export var _PlayerStatsComponent: PlayerStatsComponent
 @export var _MovementComponent: MovementComponent
 
+signal on_shoot
+
 var shooting_frequency_current = 0
 
 func get_direction():
@@ -27,6 +29,7 @@ func shoot(direction_vector):
 		projectile.launch(result_vector.normalized())
 	else:
 		projectile.launch(direction_vector)
+	emit_signal("on_shoot")
 
 func _physics_process(delta):
 	if parent.paused:

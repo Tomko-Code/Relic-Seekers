@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://ceuj26gcgt1mt"]
+[gd_scene load_steps=14 format=3 uid="uid://ceuj26gcgt1mt"]
 
 [ext_resource type="Script" path="res://src/entities/enemies/mobs/test_mob_a.gd" id="1_wwkd7"]
 [ext_resource type="Script" path="res://src/entities/stats_component.gd" id="2_jown2"]
+[ext_resource type="Script" path="res://src/entities/entity_shadow_component.gd" id="2_qw00y"]
 [ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="3_8kqiq"]
 [ext_resource type="Script" path="res://src/systems/combat/combat_system.gd" id="4_j1sqd"]
 [ext_resource type="Script" path="res://src/entities/enemies/generic_shooting_component.gd" id="5_xtjsy"]
@@ -24,6 +25,10 @@ collision_mask = 2
 script = ExtResource("1_wwkd7")
 
 [node name="Components" type="Node2D" parent="."]
+
+[node name="EntityShadowComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("_AnimatedSpriteComponent")]
+script = ExtResource("2_qw00y")
+_AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
 
 [node name="StatsComponent" type="Node" parent="Components"]
 script = ExtResource("2_jown2")

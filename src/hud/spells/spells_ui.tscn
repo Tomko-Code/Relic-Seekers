@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dritma3ktfaep"]
+[gd_scene load_steps=6 format=3 uid="uid://dritma3ktfaep"]
 
 [ext_resource type="PackedScene" uid="uid://dm6v215fvufe4" path="res://src/hud/spells/spell_container.tscn" id="1_l7fwu"]
 [ext_resource type="Script" path="res://src/hud/spells/spells_ui.gd" id="1_vmlpn"]
+[ext_resource type="PackedScene" uid="uid://wgg1ib14st5f" path="res://src/hud/attack_speed_indicator.tscn" id="3_wcgkk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_emlgu"]
 
@@ -54,6 +55,9 @@ custom_minimum_size = Vector2(136, 136)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="AttackSpeedIndicator" parent="HBoxContainer/MarginContainer/VBoxContainer/CurrentSpell" instance=ExtResource("3_wcgkk")]
+layout_mode = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
 layout_mode = 2
