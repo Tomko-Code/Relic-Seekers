@@ -1,0 +1,49 @@
+[gd_scene load_steps=10 format=3 uid="uid://dh88fdheh74rx"]
+
+[ext_resource type="Script" path="res://src/entities/pickups/artifact_pickup.gd" id="1_foedn"]
+[ext_resource type="Script" path="res://src/systems/pickup_animation_system.gd" id="2_475dl"]
+[ext_resource type="Script" path="res://src/entities/entity_shadow_component.gd" id="3_fxu6p"]
+[ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="4_vxgub"]
+[ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="6_w0pqc"]
+[ext_resource type="PackedScene" uid="uid://bdlxq5bh2qqu2" path="res://src/entities/interactable/interactable_component.tscn" id="7_3idw7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e5mpf"]
+radius = 8.0
+
+[sub_resource type="InputEventKey" id="InputEventKey_m4yrq"]
+device = -1
+keycode = 70
+unicode = 102
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ynak"]
+
+[node name="ArtifactPickup" type="Node2D"]
+script = ExtResource("1_foedn")
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="PickupAnimationSystem" type="Node" parent="Components" node_paths=PackedStringArray("_AnimatedSpriteComponent")]
+script = ExtResource("2_475dl")
+is_floating = true
+_AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
+
+[node name="EntityShadowComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("_AnimatedSpriteComponent")]
+script = ExtResource("3_fxu6p")
+_AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
+
+[node name="AnimatedSpriteComponent" type="Node2D" parent="Components"]
+script = ExtResource("4_vxgub")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Components/AnimatedSpriteComponent"]
+
+[node name="HitboxComponent" type="Area2D" parent="Components"]
+collision_layer = 0
+script = ExtResource("6_w0pqc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/HitboxComponent"]
+shape = SubResource("CircleShape2D_e5mpf")
+
+[node name="InteractableComponent" parent="Components" instance=ExtResource("7_3idw7")]
+interaction_input = SubResource("InputEventKey_m4yrq")
+input_text = "F"
+shape = SubResource("CircleShape2D_4ynak")

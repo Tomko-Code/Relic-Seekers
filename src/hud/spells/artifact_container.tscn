@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://e5icryfedpra"]
+
+[ext_resource type="Script" path="res://src/hud/spells/artifact_container.gd" id="1_o3yfv"]
+[ext_resource type="FontFile" uid="uid://wxqcfc30ah8a" path="res://assets/fonts/HelvetiPixel.ttf" id="2_k0xix"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cr06f"]
+bg_color = Color(0.121569, 0.0196078, 0.0941176, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aojg7"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s0b8l"]
+bg_color = Color(0.6, 1, 0.6, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+anti_aliasing_size = 0.5
+
+[node name="ArtifactContainer" type="PanelContainer"]
+custom_minimum_size = Vector2(74, 74)
+theme_override_styles/panel = SubResource("StyleBoxFlat_cr06f")
+script = ExtResource("1_o3yfv")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Artifact" type="TextureRect" parent="MarginContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_aojg7")
+theme_override_styles/fill = SubResource("StyleBoxFlat_s0b8l")
+value = 50.0
+fill_mode = 3
+show_percentage = false
+
+[node name="Shortcut" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_k0xix")
+theme_override_font_sizes/font_size = 32
+text = "Q"

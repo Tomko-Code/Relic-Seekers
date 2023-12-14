@@ -27,5 +27,10 @@ func _on_bullet_enter_hitbox(_area):
 			_StatsComponent.change_health(bullet.damage)
 		
 		if bullet is BaseProjectile:
+			bullet = bullet as BaseProjectile
 			bullet.hit(get_entity())
 			_MovementComponent.recoil(bullet)
+			if bullet.is_friendly:
+				var artifact = GameData.save_file.player_inventory.active_artifact
+				if artifact:
+					artifact.add_charge(bullet.damage)

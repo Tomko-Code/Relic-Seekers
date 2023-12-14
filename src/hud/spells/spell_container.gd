@@ -1,6 +1,7 @@
 class_name SpellContainer
 extends PanelContainer
 
+@export var show_ammo: bool = true
 @export var shortcut:String = ""
 @export var ammo:String = ""
 
@@ -15,13 +16,14 @@ func update_selection():
 
 func update_spell():
 	if spell:
-		if spell.ammo >= 0:
+		if spell.ammo >= 0 and show_ammo:
 			$Ammo.text = str(spell.ammo)
 		else:
 			$Ammo.text = ""
 		$MarginContainer/Spell.texture = spell.frames.get_frame_texture("default", 0)
 	else:
-		$MarginContainer/Spell.texture = load("res://assets/art/sprites/spells/non_spell.tres")
+		#$MarginContainer/Spell.texture = load("res://assets/art/sprites/spells/non_spell.tres")
+		$MarginContainer/Spell.texture = null
 		$Shortcut.text = shortcut
 		$Ammo.text = ammo
 

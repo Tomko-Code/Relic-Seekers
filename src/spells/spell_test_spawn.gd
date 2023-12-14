@@ -6,4 +6,5 @@ func _ready():
 	var spell_pickup = SpellsHandler.create_spell_pickup(spell)
 	spell_pickup.position = position
 	get_parent().call_deferred("add_child", spell_pickup)
+	queue_free()
 	
