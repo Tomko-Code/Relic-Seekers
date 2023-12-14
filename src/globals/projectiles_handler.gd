@@ -23,7 +23,7 @@ func spawn_projectile(projectile_name, is_friendly: bool):
 			
 		
 		all_projectiles.append(projectile)
-		projectile.tree_exited.connect(clear_projectile.bind(projectile))
+		projectile.expired.connect(clear_projectile.bind(projectile))
 		return projectile
 	return null
 
@@ -34,3 +34,15 @@ func clear_all_projectiles():
 	for projectile in all_projectiles:
 		projectile.queue_free()
 	all_projectiles = []
+
+func attach_orbital(target: Node2D, bullet: BaseProjectile, radius: float, cycle_goal):
+	var attachment: OrbitalAttachment
+
+	if target.has_meta("OrbitalAttachment"):
+		attachment = target.get_meta("OrbitalAttachment", null)
+	else:
+		attachment = OrbitalAttachment.new()
+		target.call_deferred("add_child", attachment)
+		target.set_meta("OrbitalAttachment", attachment)
+	attachment.add_orbital(bullet, radius, cycle_goal)
+	
