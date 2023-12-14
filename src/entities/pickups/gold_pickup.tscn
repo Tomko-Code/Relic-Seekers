@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://v11uw5rg8gs0"]
+
+[ext_resource type="Script" path="res://src/entities/pickups/gold_pickup.gd" id="1_2tidk"]
+[ext_resource type="Script" path="res://src/systems/pickup_animation_system.gd" id="1_4qdb7"]
+[ext_resource type="Script" path="res://src/entities/entity_shadow_component.gd" id="2_qd6vi"]
+[ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="3_p42ty"]
+[ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="4_l8lgd"]
+[ext_resource type="Texture2D" uid="uid://bu03b6pa34u7a" path="res://assets/art/icons/gold.tres" id="5_iiq1q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8hb20"]
+radius = 8.0
+
+[node name="GoldPickup" type="Node2D" node_paths=PackedStringArray("_HitboxComponent")]
+script = ExtResource("1_2tidk")
+_HitboxComponent = NodePath("Components/HitboxComponent")
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="PickupAnimationSystem" type="Node" parent="Components" node_paths=PackedStringArray("_AnimatedSpriteComponent")]
+script = ExtResource("1_4qdb7")
+is_floating = true
+_AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
+
+[node name="EntityShadowComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("_AnimatedSpriteComponent")]
+script = ExtResource("2_qd6vi")
+_AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
+
+[node name="AnimatedSpriteComponent" type="Node2D" parent="Components"]
+script = ExtResource("3_p42ty")
+
+[node name="Sprite2D" type="Sprite2D" parent="Components/AnimatedSpriteComponent"]
+scale = Vector2(2, 2)
+texture = ExtResource("5_iiq1q")
+
+[node name="HitboxComponent" type="Area2D" parent="Components"]
+collision_layer = 0
+script = ExtResource("4_l8lgd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/HitboxComponent"]
+shape = SubResource("CircleShape2D_8hb20")

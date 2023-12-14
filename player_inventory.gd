@@ -6,8 +6,14 @@ signal emeralds_changed( value:int )
 
 signal spells_changed
 
-@export var gold:int = 0
-@export var emeralds:int = 0
+@export var gold:int = 0:
+	set(value):
+		gold = value
+		emit_signal("gold_changed")
+@export var emeralds:int = 0:
+	set(value):
+		emeralds = value
+		emit_signal("emeralds_changed")
 
 #@export var artefact_0
 #@export var artefact_1

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cb6qjvvcfe3g7"
-path="res://.godot/imported/heart+emerald+gold_16x16.png-0bc05137cd8713725b896ae1ac4edd9a.ctex"
+uid="uid://boaygnwpt2503"
+path="res://.godot/imported/32x32-tileset-swamp.png-860f77d0a01ce930c680e939cf912ce5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/sprites/heart+emerald+gold_16x16.png"
-dest_files=["res://.godot/imported/heart+emerald+gold_16x16.png-0bc05137cd8713725b896ae1ac4edd9a.ctex"]
+source_file="res://assets/art/tilemap/prolog/32x32-tileset-swamp.png"
+dest_files=["res://.godot/imported/32x32-tileset-swamp.png-860f77d0a01ce930c680e939cf912ce5.ctex"]
 
 [params]
 
