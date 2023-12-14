@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cvskuh70ekwob"]
+[gd_scene load_steps=8 format=3 uid="uid://cvskuh70ekwob"]
 
 [ext_resource type="PackedScene" uid="uid://bnrt7xcfjh5bx" path="res://src/zone/room.tscn" id="1_7y0kh"]
 [ext_resource type="Script" path="res://src/rooms/swamp_room.gd" id="2_6ipx5"]
@@ -6,6 +6,7 @@
 [ext_resource type="TileSet" uid="uid://cbtd8fjc7crdq" path="res://assets/tileset/path-tileset.tres" id="3_ftmwi"]
 [ext_resource type="PackedScene" uid="uid://bhd25t8ptw1ot" path="res://src/other/info.tscn" id="4_6k5q6"]
 [ext_resource type="PackedScene" uid="uid://cukeufucajf2q" path="res://src/zones/prolog/scroll.tscn" id="5_3jhw6"]
+[ext_resource type="PackedScene" uid="uid://dxhp7h4hyx847" path="res://src/zone/stone_teleport_swamp.tscn" id="7_u74yt"]
 
 [node name="SwampRoom" instance=ExtResource("1_7y0kh")]
 script = ExtResource("2_6ipx5")
@@ -30,3 +31,6 @@ scale = Vector2(1, 1)
 position = Vector2(542, 364)
 
 [node name="Scroll" parent="." index="7" instance=ExtResource("5_3jhw6")]
+
+[node name="StoneTeleport" parent="." index="8" instance=ExtResource("7_u74yt")]
+position = Vector2(544, -2080)

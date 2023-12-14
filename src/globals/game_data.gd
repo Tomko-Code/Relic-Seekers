@@ -17,6 +17,9 @@ var save_file:SaveFile
 
 # rooms data
 var rooms_data = {
+	#######################################
+	# Test Rooms
+	#######################################
 	"Start" : {
 		"shape" : [[1]],
 		"res" : load("res://src/rooms/start_room.tscn"),
@@ -34,12 +37,68 @@ var rooms_data = {
 			[Vector2(0,0), Vector2.DOWN]
 		]
 	},
+	#######################################
+	# Start Rooms
+	#######################################
 	"swamp_room" : {
 		# This is wrong but it's unique room
 		"shape" : [[1]],
 		"res" : load("res://src/rooms/swamp_room.tscn"),
-		"connections" : []
-	}
+		"connections" : [],
+		"has_teleport" : true,
+		"teleport_type" : TeleportData.TELEPORT_TYPES.STONE
+	},
+	#######################################
+	# Prolog Rooms
+	#######################################
+	"start_prolog_room" : {
+		"shape" : [[1]],
+		"res" : load("res://src/rooms/prolog/start_prolog_room.tscn"),
+		"connections" : [[Vector2(0,0), Vector2.RIGHT]],
+		"has_teleport" : true,
+		"teleport_type" : TeleportData.TELEPORT_TYPES.CIRCLE
+	},
+	"kill_prolog_room" : {
+		"shape" : [[1]],
+		"res" : load("res://src/rooms/prolog/kill_prolog_room.tscn"),
+		"connections" : [[Vector2(0,0), Vector2.UP],[Vector2(0,0), Vector2.RIGHT]],
+	},
+	"end_prolog_room" : {
+		"shape" : [[1]],
+		"res" : load("res://src/rooms/prolog/end_prolog_room.tscn"),
+		"connections" : [[Vector2(0,0), Vector2.UP]],
+		"has_teleport" : true,
+		"teleport_type" : TeleportData.TELEPORT_TYPES.STONE
+	},
+	"dash_prolog_room" : {
+		"shape" : [[1, 1]],
+		"res" : load("res://src/rooms/prolog/dash_prolog_room.tscn"),
+		"connections" : [[Vector2(0,0), Vector2.LEFT],[Vector2(1,0), Vector2.RIGHT]],
+	},
+	"teleport_prolog_room" : {
+		"shape" : [[1, 1]],
+		"res" : load("res://src/rooms/prolog/teleport_prolog_room.tscn"),
+		"connections" : [[Vector2(0,0), Vector2.LEFT],[Vector2(1,0), Vector2.DOWN]],
+		"has_teleport" : true,
+		"teleport_type" : TeleportData.TELEPORT_TYPES.CIRCLE
+	},
+	"trap_prolog_room" : {
+		"shape" : [[1], [1]],
+		"res" : load("res://src/rooms/prolog/trap_prolog_room.tscn"),
+		"connections" : [[Vector2(0,0), Vector2.LEFT],[Vector2(0,1), Vector2.DOWN]],
+	},
+	#######################################
+	# Sanctuary Rooms
+	#######################################
+	"sanctuary_room" : {
+		# This is "broken" room
+		"shape" : [[1]],
+		"res" : load("res://src/rooms/sanctuary_room.tscn"),
+		"connections" : [],
+	},
+	#######################################
+	# Proc Gen Rooms
+	#######################################
 }
 
 func load_save_file():

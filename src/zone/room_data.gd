@@ -22,6 +22,10 @@ var room_shape = []
 var connection_arry = []
 var closed_connection_arry = []
 
+# Teleports
+var has_teleport:bool = false
+var teleport:TeleportData = null
+
 # physical shape
 var spawned_room:Room = null
 
@@ -30,6 +34,14 @@ func set_up(_type:String) -> RoomData:
 	room_shape = GameData.rooms_data[_type]["shape"]
 	for conn in GameData.rooms_data[_type]["connections"]:
 		add_connection(conn[0], conn[1])
+	
+	# Teleport
+	if GameData.rooms_data[_type].has("has_teleport"):
+		has_teleport = GameData.rooms_data[_type]["has_teleport"]
+		teleport = TeleportData.new()
+	
+	if GameData.rooms_data[_type].has("teleport_type"):
+		teleport.type = GameData.rooms_data[_type]["teleport_type"]
 	
 	return self
 
@@ -52,10 +64,10 @@ func remove_connection():
 
 func connect_room(room:RoomData, conn:RoomConnectionData):
 	var opo_conn:RoomConnectionData = room.get_connection(conn.get_map_outside_cord(), -conn.direction)
-	
+	print("x")
 	if opo_conn == null:
 		return false
-	
+	print("x")
 	opo_conn.connected_room = self
 	conn.connected_room = room
 	
