@@ -17,7 +17,7 @@ unicode = 102
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ynak"]
 
-[node name="ArtifactPickup" type="Node2D"]
+[node name="ArtifactPickup" type="CharacterBody2D"]
 script = ExtResource("1_foedn")
 
 [node name="Components" type="Node2D" parent="."]

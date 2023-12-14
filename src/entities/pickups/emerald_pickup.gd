@@ -1,6 +1,6 @@
 class_name EmeraldPickup
 #scene class
-extends Node2D
+extends GenericPickup
 
 @export var _HitboxComponent: HitboxComponent
 

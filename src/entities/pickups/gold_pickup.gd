@@ -1,6 +1,6 @@
 class_name GoldPickup
 #scene class
-extends Node2D
+extends GenericPickup
 
 @export var _HitboxComponent: HitboxComponent
 
@@ -11,3 +11,4 @@ func on_player_entered(player):
 	player = player as PlayerEntity
 	GameData.save_file.player_inventory.gold += 1
 	queue_free()
+

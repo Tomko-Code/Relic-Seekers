@@ -1,5 +1,5 @@
 class_name SpellPickup
-extends Node2D
+extends CharacterBody2D
 
 var spell: Spell = null
 

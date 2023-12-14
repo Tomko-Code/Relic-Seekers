@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://v11uw5rg8gs0"]
+[gd_scene load_steps=10 format=3 uid="uid://v11uw5rg8gs0"]
 
 [ext_resource type="Script" path="res://src/entities/pickups/gold_pickup.gd" id="1_2tidk"]
 [ext_resource type="Script" path="res://src/systems/pickup_animation_system.gd" id="1_4qdb7"]
@@ -6,13 +6,18 @@
 [ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="3_p42ty"]
 [ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="4_l8lgd"]
 [ext_resource type="Texture2D" uid="uid://bu03b6pa34u7a" path="res://assets/art/icons/gold.tres" id="5_iiq1q"]
+[ext_resource type="Script" path="res://src/entities/pickups/pickup_repulsion_movement.gd" id="7_hdwbo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8hb20"]
 radius = 8.0
 
-[node name="GoldPickup" type="Node2D" node_paths=PackedStringArray("_HitboxComponent")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_jn4l4"]
+radius = 16.0
+
+[node name="GoldPickup" type="CharacterBody2D" node_paths=PackedStringArray("_HitboxComponent", "_PickupRepulsionMovement")]
 script = ExtResource("1_2tidk")
-_HitboxComponent = NodePath("Components/HitboxComponent")
+_HitboxComponent = NodePath("Components/PickupHitbox")
+_PickupRepulsionMovement = NodePath("Components/PickupRepulsionMovement")
 
 [node name="Components" type="Node2D" parent="."]
 
@@ -32,9 +37,21 @@ script = ExtResource("3_p42ty")
 scale = Vector2(2, 2)
 texture = ExtResource("5_iiq1q")
 
-[node name="HitboxComponent" type="Area2D" parent="Components"]
+[node name="PickupHitbox" type="Area2D" parent="Components"]
 collision_layer = 0
 script = ExtResource("4_l8lgd")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/HitboxComponent"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/PickupHitbox"]
 shape = SubResource("CircleShape2D_8hb20")
+
+[node name="RepulsionHitbox" type="Area2D" parent="Components"]
+collision_layer = 16
+collision_mask = 20
+script = ExtResource("4_l8lgd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/RepulsionHitbox"]
+shape = SubResource("CircleShape2D_jn4l4")
+
+[node name="PickupRepulsionMovement" type="Node" parent="Components" node_paths=PackedStringArray("_HitboxComponent")]
+script = ExtResource("7_hdwbo")
+_HitboxComponent = NodePath("../RepulsionHitbox")

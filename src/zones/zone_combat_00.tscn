@@ -30,10 +30,10 @@ position = Vector2(-431, 89)
 script = ExtResource("4_pfgsf")
 
 [node name="GoldPickup" parent="." index="6" instance=ExtResource("5_y5e4m")]
-position = Vector2(264, 165)
+position = Vector2(-226, -161)
 
 [node name="EmeraldPickup" parent="." index="7" instance=ExtResource("6_f85as")]
-position = Vector2(253, 112)
+position = Vector2(253, 171)
 
 [node name="TestArtifactSpawn" type="Marker2D" parent="." index="8"]
 position = Vector2(-445, -199)
@@ -44,3 +44,6 @@ artifact_name = "test_active_artifact"
 position = Vector2(-286, -236)
 script = ExtResource("7_drhp5")
 artifact_name = "test_passive_artifact"
+
+[node name="GoldPickup2" parent="." index="10" instance=ExtResource("5_y5e4m")]
+position = Vector2(-214, -161)
