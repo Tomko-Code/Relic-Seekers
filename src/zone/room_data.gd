@@ -22,6 +22,9 @@ var room_shape = []
 var connection_arry = []
 var closed_connection_arry = []
 
+# physical shape
+var spawned_room:Room = null
+
 func set_up(_type:String) -> RoomData:
 	type = _type
 	room_shape = GameData.rooms_data[_type]["shape"]
