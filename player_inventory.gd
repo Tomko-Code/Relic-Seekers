@@ -60,9 +60,9 @@ func add_spell(new_spell: Spell):
 func add_artifact(artifact: Artifact):
 	if artifact is ActiveArtifact:
 		var old_artifact = active_artifact
+		active_artifact = artifact
 		if old_artifact != null:
 			return old_artifact
-		active_artifact = artifact
 	
 	elif artifact is PassiveArtifact:
 		var old_artifact = passive_artifact
