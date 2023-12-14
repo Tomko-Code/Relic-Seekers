@@ -9,7 +9,7 @@ extends CharacterBody2D
 var pit_count:int = 0
 
 var paused:bool = false
-var draw_position:bool = false
+var draw_position:bool = true
 
 signal death
 signal health_changed
@@ -57,7 +57,6 @@ func _draw():
 	if draw_position:
 		var cord = (pit_hit_box.global_position/Constants.FLOOR_TILE_SIZE).floor()
 		draw_rect(Rect2(cord*Constants.FLOOR_TILE_SIZE-global_position,Constants.FLOOR_TILE_SIZE), Color(1, 1, 0.27843138575554), false, 2)
-
 
 func _on_pit_hit_box_body_exited(body):
 	pit_count -= 1

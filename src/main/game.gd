@@ -40,6 +40,7 @@ func deactivate_level(level:Level) -> void:
 func activate_level(level:Level) -> void:
 	add_child(level)
 	level.add_child(player)
+	active_level = level
 
 func change_active_to_current_level() -> void:
 	if level_state == LEVEL_STATES.SANCTUARY:
@@ -75,14 +76,15 @@ func load_player() -> void:
 	GameManager.player = player
 
 func combat_start() -> void:
-	pass
-	#load_zone("zone_combat_00", "res://src/zones/zone_combat_00.tscn")
-	#change_zone("zone_combat_00")
+	load_sanctuary()
+	
+	var level:CombatLevel = CombatLevel.new()
+	level.set_up()
+	change_current_level(level)
+	change_active_to_current_level()
 
 func normal_start() -> void:
-	# Load sanctuary
-	sanctuary_level = SanctuaryLevel.new()
-	sanctuary_level.set_up()
+	load_sanctuary()
 	
 	if GameData.data["prolg_complete"]:
 		change_active_to_sanctuary_level()
@@ -91,6 +93,10 @@ func normal_start() -> void:
 		level.set_up()
 		change_current_level(level)
 		change_active_to_current_level()
+
+func load_sanctuary():
+	sanctuary_level = SanctuaryLevel.new()
+	sanctuary_level.set_up()
 
 func _ready():
 	pass

@@ -9,7 +9,7 @@ var rooms = []
 var currnet_active_room:Room = null
 var default_room:Room = null
 
-func spawn_room(room_data:RoomData):
+func spawn_room(room_data:RoomData) -> Room:
 	if room_data.type == "":
 		print("Cant spawn room with no type")
 		return
@@ -34,9 +34,11 @@ func spawn_room(room_data:RoomData):
 		conn.position += conn.data.direction * (Constants.CHUNK_SIZE/4)
 		
 		room.add_child(conn)
+		room.data.spawned_room = room
 	
 	room.position = Constants.CHUNK_SIZE * room.data.cord
 	add_child(room)
+	return room
 
 # returns true or false wather if placed it will overlap space with already placed room
 func is_overlaping(room_data:RoomData, cord:Vector2):

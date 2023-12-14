@@ -19,7 +19,11 @@ var change_budiers:bool = true
 var minimum_distance:float = 192.0
 
 func look_for_open_space(starting_position:Vector2) -> Vector2:
+	starting_position -= (data.cord*5*Vector2(5,4))*Vector2(64,64)
+	
 	snail_start_cord = (starting_position/Constants.FLOOR_TILE_SIZE).floor()
+	#snail_start_cord += (data.cord*5*Vector2(5,4))
+	print(snail_start_cord)
 	var found:bool = false
 	var closet_best_cord:Vector2
 	var smallest_distance:float = -1
@@ -36,7 +40,8 @@ func look_for_open_space(starting_position:Vector2) -> Vector2:
 		
 		if correct_distance and not_pit and not_wall:
 			reset_snail()
-			return cord
+			print(cord + (data.cord*5*Vector2(5,4)))
+			return cord + (data.cord*5*Vector2(5,4))
 	
 	reset_snail()
 	return Vector2.ZERO
