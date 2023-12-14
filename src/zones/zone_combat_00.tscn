@@ -43,7 +43,7 @@ artifact_name = "test_active_artifact"
 [node name="TestArtifactSpawn2" type="Marker2D" parent="." index="9"]
 position = Vector2(-286, -236)
 script = ExtResource("7_drhp5")
-artifact_name = "golden_clock"
+artifact_name = "infinite_bag_of_goods"
 
 [node name="GoldPickup2" parent="." index="10" instance=ExtResource("5_y5e4m")]
 position = Vector2(-214, -161)

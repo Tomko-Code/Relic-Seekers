@@ -20,5 +20,7 @@ func collision(hitbox: Area2D):
 		push(direction, 150)
 
 func push(push_direction: Vector2, push_strength: float = 150):
+	if parent == null:
+		await ready
 	if not is_frozen:
 		parent.velocity += push_strength * push_direction.normalized()
