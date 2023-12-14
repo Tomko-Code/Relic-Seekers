@@ -57,7 +57,7 @@ script = ExtResource("3_t82yd")
 [node name="Sprite" type="AnimatedSprite2D" parent="Components/AnimatedSpriteComponent"]
 use_parent_material = true
 sprite_frames = ExtResource("5_0x5y7")
-animation = &"idle_up_right"
+animation = &"move_up"
 
 [node name="UserMouseShootingComponent" type="Node" parent="Components" node_paths=PackedStringArray("_PlayerStatsComponent", "_MovementComponent")]
 script = ExtResource("7_ls8cw")
