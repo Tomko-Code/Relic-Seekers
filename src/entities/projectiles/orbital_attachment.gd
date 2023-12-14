@@ -18,7 +18,6 @@ var layers = {
 }
 
 func add_orbital(bullet: BaseProjectile, _radius: float, _cycle_goal: float):
-	print(bullet)
 	var layer_key = "R:%sCG:%s" % [_radius, _cycle_goal]
 	bullet.set_meta("approach", 0)
 	bullet.expired.connect(cleanup_layer.bind(layer_key, bullet))
@@ -41,7 +40,6 @@ func cleanup_layer(layer_key: String, orbital):
 	var layer = layers[layer_key]
 	layers[layer_key].orbitals.erase(orbital)
 	if layers.is_empty():
-		print(layers)
 		get_parent().remove_meta("OrbitalAttachment")
 		queue_free()
 
@@ -52,6 +50,8 @@ func process_layer(layer: Dictionary, delta: float):
 		var desired_angle = (2*PI) * (float(index) / layer.orbitals.size()) +  (2*PI * (layer.cycle_progress/layer.cycle_goal))
 		var desired_angle_vecor = Vector2.from_angle(desired_angle).normalized()
 		var desired_position = desired_angle_vecor * layer.radius
+		if orbital.get_parent() == get_parent().get_parent():
+			desired_position += get_parent().position
 		var approach = orbital.get_meta("approach")
 		orbital.position = lerp(orbital.position, desired_position, clamp(approach/layer.approach_duration, delta, 1))
 		if approach != layer.approach_duration:

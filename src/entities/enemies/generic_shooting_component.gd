@@ -8,9 +8,9 @@ extends ShootingComponent
 
 var shooting_frequency_current = 0.0
 
+
 func get_direction():
 	return GameManager.player.position - parent.position
-
 
 func shoot(direction_vector):
 	var projectile = ProjectilesHandler.spawn_projectile(_StatsComponent.get_projectile_type(), false)
