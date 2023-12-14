@@ -5,6 +5,7 @@ var data:RoomData
 
 @export var floors:TileMap
 @export var walls:TileMap
+@export var Gates:Node2D
 
 # Snail Code
 var snail_start_cord:Vector2 = Vector2.ZERO

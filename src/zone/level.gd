@@ -32,7 +32,7 @@ func spawn_room(room_data:RoomData) -> Room:
 		conn.position += Constants.CHUNK_SIZE/2
 		
 		conn.position += conn.data.direction * (Constants.CHUNK_SIZE/4)
-		
+		conn.position += conn.data.direction * Vector2(32*3, 0)
 		room.add_child(conn)
 		room.data.spawned_room = room
 	

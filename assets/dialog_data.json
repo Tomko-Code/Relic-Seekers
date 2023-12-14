@@ -73,5 +73,52 @@
                 "string" : "Right ... "
             }
         ]
+    },
+    "first_stone_interaction" : 
+    {
+        "dialogs" : [
+            {
+                "who" : "Player",
+                "string" : "Hmmm ... "
+            },
+            {
+                "who" : "Player",
+                "string" : "It looks to be some teleporting stone."
+            },
+            {
+                "who" : "Player",
+                "string" : "I think i can make it work. It might be my only way in."
+            }
+        ]
+    },
+    "first_time_prolog" : 
+    {
+        "dialogs" : [
+            {
+                "who" : "Player",
+                "string" : "Looks like there is no teleporting stone out."
+            },
+            {
+                "who" : "Player",
+                "string" : "Guess that solves why nobody ever came back."
+            },
+            {
+                "who" : "Player",
+                "string" : "I do wonder where everyone is."
+            }
+        ]
+    },
+    "first_time_start" : 
+    {
+        "dialogs" : [
+            {
+                "who" : "Player",
+                "string" : "So i am finaly here. The ruins."
+            },
+            {
+                "who" : "Player",
+                "string" : "I should get moving up those staris."
+            }
+        ]
     }
 }

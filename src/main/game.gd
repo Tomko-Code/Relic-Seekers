@@ -1,4 +1,5 @@
 extends Node2D
+class_name Game
 
 @onready var HUD = get_node("HUD")
 
@@ -13,6 +14,8 @@ var current_level:Level = null
 var active_level:Level = null
 
 var player:PlayerEntity = null
+
+var type = PlayerEntity
 
 func change_current_level(level:Level) -> void:
 	# Check if level is alrady active
@@ -89,7 +92,7 @@ func normal_start() -> void:
 	if GameData.data["prolg_complete"]:
 		change_active_to_sanctuary_level()
 	else:
-		var level:StartLevel = StartLevel.new()
+		var level:PrologLevel = PrologLevel.new()
 		level.set_up()
 		change_current_level(level)
 		change_active_to_current_level()
