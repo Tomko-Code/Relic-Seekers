@@ -3,6 +3,7 @@ extends Node
 var gold_resource = load("res://src/entities/pickups/gold_pickup.tscn")
 var emerald_resource = load("res://src/entities/pickups/emerald_pickup.tscn")
 var artifact_resource = load("res://src/entities/pickups/artifact_pickup.tscn")
+var mana_orb_resource = load("res://src/entities/pickups/mana_orb_pickup.tscn")
 
 
 func create_gold_pickup():
@@ -10,6 +11,9 @@ func create_gold_pickup():
 
 func create_emerald_pickup():
 	return emerald_resource.instantiate()
+
+func create_mana_orb_pickup():
+	return mana_orb_resource.instantiate()
 
 func create_artifact_pickup(artifact: Artifact):
 	var artifact_pickup = artifact_resource.instantiate()

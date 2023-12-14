@@ -3,7 +3,7 @@ extends ActiveArtifact
 
 
 func _init():
-	max_charge = 0
+	max_charge = 10
 	
 func use():
 	var gold_spawns = randi_range(1,10)
