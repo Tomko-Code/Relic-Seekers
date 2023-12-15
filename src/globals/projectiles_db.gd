@@ -10,4 +10,12 @@ var projectiles: Dictionary = {
 	fireball = {
 		sprite = load("res://assets/sprites/projectiles/fireball_sprite.tres")
 	},
+	firefly = {
+		sprite = load("res://assets/sprites/projectiles/fireball_sprite.tres"),
+		speed = 100,
+		range = 100,
+		effects = [],
+		damage = 7.0,
+		can_bounce = false,
+	},
 }

@@ -1,5 +1,5 @@
 class_name SpellPickup
-extends Node2D
+extends CharacterBody2D
 
 var spell: Spell = null
 
@@ -8,7 +8,7 @@ func set_spell(_spell: Spell):
 	
 	var interactable = $Components/InteractableComponent as InteractibleComponent
 	$Components/AnimatedSpriteComponent/Sprite.sprite_frames = spell.frames
-	$Components/AnimatedSpriteComponent/Sprite.play("default")
+	#$Components/AnimatedSpriteComponent/Sprite.play("default")
 	
 	interactable.interaction_descryption = spell.get_description()
 	interactable.interaction_title = spell.get_title()

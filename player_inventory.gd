@@ -4,10 +4,19 @@ class_name PlayerInventory
 signal gold_changed( value:int )
 signal emeralds_changed( value:int )
 
+signal passive_artifact_changed
+signal active_artifact_changed
+
 signal spells_changed
 
-@export var gold:int = 0
-@export var emeralds:int = 0
+@export var gold:int = 0:
+	set(value):
+		gold = value
+		emit_signal("gold_changed")
+@export var emeralds:int = 0:
+	set(value):
+		emeralds = value
+		emit_signal("emeralds_changed")
 
 #@export var artefact_0
 #@export var artefact_1
@@ -15,6 +24,14 @@ signal spells_changed
 @export var current_spell_slot:int = 0
 @export var spells:Array[Spell] = [null,null,null,null,null]
 
+@export var active_artifact: ActiveArtifact = null:
+	set(value):
+		active_artifact = value
+		emit_signal("active_artifact_changed")
+@export var passive_artifact: PassiveArtifact = null:
+	set(value):
+		passive_artifact = value
+		emit_signal("passive_artifact_changed")
 
 func change_current_spell(value: int):
 	current_spell_slot = clampi(value, 0, 4)
@@ -39,4 +56,21 @@ func add_spell(new_spell: Spell):
 	spells[1] = new_spell
 	emit_signal("spells_changed")
 	return last_spell
+
+func add_artifact(artifact: Artifact):
+	if artifact is ActiveArtifact:
+		var old_artifact = active_artifact
+		active_artifact = artifact
+		if old_artifact != null:
+			return old_artifact
 	
+	elif artifact is PassiveArtifact:
+		var old_artifact = passive_artifact
+		if old_artifact != null:
+			old_artifact.disable()
+		passive_artifact = artifact
+		artifact.enable()
+		if old_artifact != null:
+			return old_artifact
+	
+	return null

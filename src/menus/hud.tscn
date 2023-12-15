@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfmmqeomv02jn"]
+[gd_scene load_steps=6 format=3 uid="uid://cfmmqeomv02jn"]
 
 [ext_resource type="PackedScene" uid="uid://b8pxblhi6pm8r" path="res://src/hud/player_health_display.tscn" id="1_gwtj2"]
 [ext_resource type="Script" path="res://src/menus/hud.gd" id="1_qpert"]
+[ext_resource type="PackedScene" uid="uid://dvoj7ynkb5115" path="res://src/hud/player_gold_emerald_display.tscn" id="2_fl5pr"]
 [ext_resource type="FontFile" uid="uid://bhqolxe327vw3" path="res://assets/fonts/Chava-Regular.ttf" id="3_aeurd"]
 [ext_resource type="PackedScene" uid="uid://dritma3ktfaep" path="res://src/hud/spells/spells_ui.tscn" id="4_bsckq"]
 
@@ -25,24 +26,30 @@ theme_override_constants/margin_top = 20
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer"]
 layout_mode = 2
 
+[node name="PlayerGoldEmeraldDisplay" parent="MarginContainer/MarginContainer/HBoxContainer" instance=ExtResource("2_fl5pr")]
+layout_mode = 2
+
 [node name="player_health_display" parent="MarginContainer/MarginContainer/HBoxContainer" instance=ExtResource("1_gwtj2")]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="Filler" type="MarginContainer" parent="MarginContainer/MarginContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="FPS" type="Label" parent="MarginContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
+size_flags_horizontal = 6
 theme_override_fonts/font = ExtResource("3_aeurd")
 theme_override_font_sizes/font_size = 25
 text = "60 fps"
 horizontal_alignment = 1
 
 [node name="Filler2" type="MarginContainer" parent="MarginContainer/MarginContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 

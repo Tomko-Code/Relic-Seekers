@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://bi65rl20ts4di"]
+[gd_scene load_steps=8 format=3 uid="uid://bi65rl20ts4di"]
 
 [ext_resource type="PackedScene" uid="uid://nt8opsk0xeca" path="res://src/zone/zone_sanctuary.tscn" id="1_drr57"]
 [ext_resource type="Script" path="res://src/zones/zone_combat_00.gd" id="2_6u8ot"]
 [ext_resource type="PackedScene" uid="uid://ceuj26gcgt1mt" path="res://src/entities/enemies/mobs/test_mob_a.tscn" id="3_l0l71"]
 [ext_resource type="Script" path="res://src/spells/spell_test_spawn.gd" id="4_pfgsf"]
+[ext_resource type="PackedScene" uid="uid://v11uw5rg8gs0" path="res://src/entities/pickups/gold_pickup.tscn" id="5_y5e4m"]
+[ext_resource type="PackedScene" uid="uid://gint4y1ev3el" path="res://src/entities/pickups/emerald_pickup.tscn" id="6_f85as"]
+[ext_resource type="Script" path="res://src/spells/test_artifact_spawn.gd" id="7_drhp5"]
 
 [node name="Combat" instance=ExtResource("1_drr57")]
 script = ExtResource("2_6u8ot")
@@ -25,3 +28,22 @@ position = Vector2(270, -121)
 [node name="SpellTestSpawn" type="Marker2D" parent="." index="5"]
 position = Vector2(-431, 89)
 script = ExtResource("4_pfgsf")
+
+[node name="GoldPickup" parent="." index="6" instance=ExtResource("5_y5e4m")]
+position = Vector2(-226, -161)
+
+[node name="EmeraldPickup" parent="." index="7" instance=ExtResource("6_f85as")]
+position = Vector2(253, 171)
+
+[node name="TestArtifactSpawn" type="Marker2D" parent="." index="8"]
+position = Vector2(-445, -199)
+script = ExtResource("7_drhp5")
+artifact_name = "test_active_artifact"
+
+[node name="TestArtifactSpawn2" type="Marker2D" parent="." index="9"]
+position = Vector2(-286, -236)
+script = ExtResource("7_drhp5")
+artifact_name = "jar_of_fireflies"
+
+[node name="GoldPickup2" parent="." index="10" instance=ExtResource("5_y5e4m")]
+position = Vector2(-214, -161)

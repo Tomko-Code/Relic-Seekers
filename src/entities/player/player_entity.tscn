@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://d2bsjmqg1fe1h"]
+[gd_scene load_steps=15 format=3 uid="uid://d2bsjmqg1fe1h"]
 
 [ext_resource type="Script" path="res://src/entities/player/player_entity.gd" id="1_7c5ui"]
 [ext_resource type="AudioStream" uid="uid://bq42j7hi8q3h5" path="res://assets/audio/sfx/516858__matrixxx__retro-drop-03.wav" id="2_v3sqh"]
 [ext_resource type="Script" path="res://src/entities/player/user_movement_component.gd" id="2_xekry"]
+[ext_resource type="Script" path="res://src/entities/entity_shadow_component.gd" id="3_7bjv5"]
 [ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="3_t82yd"]
 [ext_resource type="SpriteFrames" uid="uid://ch01odi3jhnmr" path="res://assets/sprites/player_tmp.tres" id="5_0x5y7"]
 [ext_resource type="Script" path="res://src/entities/player/user_mouse_shooting_component.gd" id="7_ls8cw"]
@@ -46,6 +47,10 @@ pitch_scale = 2.5
 bus = &"SFX"
 
 [node name="Components" type="Node2D" parent="."]
+
+[node name="EntityShadowComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("_AnimatedSpriteComponent")]
+script = ExtResource("3_7bjv5")
+_AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
 
 [node name="UserMovementComponent" type="Node" parent="Components" node_paths=PackedStringArray("_AnimatedSpriteComponent")]
 script = ExtResource("2_xekry")
