@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3 uid="uid://cf06ytl5e42vq"]
+
+[ext_resource type="Script" path="res://src/other/spawner_point/spawner_point.gd" id="1_mki81"]
+[ext_resource type="Shader" path="res://src/other/spawner_point/spawn_test.gdshader" id="2_i0675"]
+[ext_resource type="Texture2D" uid="uid://bpn183bgv7lmr" path="res://tmp/huh.png" id="3_jbpwx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i2a35"]
+shader = ExtResource("2_i0675")
+shader_parameter/cutoff = 1.0
+
+[sub_resource type="Animation" id="Animation_yjiij"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Huh:material:shader_parameter/cutoff")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_hwt4b"]
+resource_name = "hide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Huh:material:shader_parameter/cutoff")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_u7q1y"]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Huh:material:shader_parameter/cutoff")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h5av0"]
+_data = {
+"RESET": SubResource("Animation_yjiij"),
+"hide": SubResource("Animation_hwt4b"),
+"show": SubResource("Animation_u7q1y")
+}
+
+[node name="SpawnerPoint" type="Node2D"]
+script = ExtResource("1_mki81")
+
+[node name="Huh" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_i2a35")
+texture = ExtResource("3_jbpwx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h5av0")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
