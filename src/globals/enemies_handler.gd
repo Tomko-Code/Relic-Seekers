@@ -2,7 +2,7 @@ extends Node
 
 var all_enemies = []
 
-func spawn_enemy(enemy_name) -> Enemy:
+func spawn_enemy(enemy_name:String) -> Enemy:
 	if EnemiesDb.enemies.has(enemy_name):
 		var enemy: Enemy = EnemiesDb.enemies[enemy_name].resource.instantiate()
 		all_enemies.append(enemy)

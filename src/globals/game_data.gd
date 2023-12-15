@@ -113,12 +113,19 @@ var rooms_data = {
 			[Vector2(1,2), Vector2.DOWN],
 			[Vector2(1,0), Vector2.UP],
 		],
+		"has_teleport" : true,
+		"teleport_type" : TeleportData.TELEPORT_TYPES.CIRCLE
 	},
 	"left_combat_room" : {
 		# This is "broken" room
 		"shape" : [[1]],
 		"res" : load("res://src/rooms/combat/left_combat_room.tscn"),
 		"connections" : [[Vector2(0,0), Vector2.RIGHT]],
+		"waves" : [
+			[[1, 1, ["test_mob_a"]]],
+			[[1, 1, ["test_mob_a"]]],
+			[[1, 1, ["test_mob_a"]],[1, 1, ["test_mob_a"]]]
+		]
 	},
 	#######################################
 	# Proc Gen Rooms

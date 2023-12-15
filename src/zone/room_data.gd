@@ -29,6 +29,9 @@ var teleport:TeleportData = null
 # physical shape
 var spawned_room:Room = null
 
+var has_waves:bool = false
+var waves = []
+
 func set_up(_type:String) -> RoomData:
 	type = _type
 	room_shape = GameData.rooms_data[_type]["shape"]
@@ -42,6 +45,10 @@ func set_up(_type:String) -> RoomData:
 	
 	if GameData.rooms_data[_type].has("teleport_type"):
 		teleport.type = GameData.rooms_data[_type]["teleport_type"]
+	
+	if GameData.rooms_data[_type].has("waves"):
+		waves = GameData.rooms_data[_type]["waves"]
+		has_waves = true
 	
 	return self
 
@@ -64,10 +71,10 @@ func remove_connection():
 
 func connect_room(room:RoomData, conn:RoomConnectionData):
 	var opo_conn:RoomConnectionData = room.get_connection(conn.get_map_outside_cord(), -conn.direction)
-	print("x")
+	
 	if opo_conn == null:
 		return false
-	print("x")
+	
 	opo_conn.connected_room = self
 	conn.connected_room = room
 	
