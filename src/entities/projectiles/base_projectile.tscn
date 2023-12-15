@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://src/systems/movement/bullet_animation_system.gd" id="6_eakuu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_85nud"]
-radius = 17.0
+radius = 8.0
 
 [node name="BaseProjectile" type="CharacterBody2D" node_paths=PackedStringArray("_ProjectileMovementComponent")]
 z_index = 1

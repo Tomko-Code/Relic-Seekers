@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://bnifxi38iu3e7"]
+
+[ext_resource type="Texture2D" uid="uid://bf33ho71olkcc" path="res://assets/art/sprites/projectiles/spark_projectile.png" id="1_d7esx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nftql"]
+atlas = ExtResource("1_d7esx")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ec55e"]
+atlas = ExtResource("1_d7esx")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vthhw"]
+atlas = ExtResource("1_d7esx")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fswoq"]
+atlas = ExtResource("1_d7esx")
+region = Rect2(96, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nftql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ec55e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vthhw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fswoq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]

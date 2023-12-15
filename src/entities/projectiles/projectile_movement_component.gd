@@ -38,8 +38,6 @@ func _physics_process(delta):
 	if collision and can_bounce:
 		velocity = velocity.bounce(collision.get_normal())
 		direction = direction.bounce(collision.get_normal())
-		
-		parent.modulate = Color.RED
 
 		#velocity = velocity.slide(collision.get_normal())
 		collision = parent.move_and_collide(velocity * delta)

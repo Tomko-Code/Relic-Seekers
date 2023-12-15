@@ -59,13 +59,13 @@ theme_override_fonts/font = ExtResource("3_lc2w2")
 theme_override_font_sizes/font_size = 32
 text = "1"
 
-[node name="Ammo" type="Label" parent="."]
+[node name="Mana" type="Label" parent="."]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("3_lc2w2")
-theme_override_font_sizes/font_size = 32
-text = "50"
+theme_override_font_sizes/font_size = 24
+text = "100/100"
 
 [node name="Selection" type="Panel" parent="."]
 visible = false

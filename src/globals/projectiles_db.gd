@@ -8,7 +8,16 @@ var projectiles: Dictionary = {
 		sprite = load("res://assets/sprites/projectiles/test_projectile_b.tres")
 	},
 	fireball = {
-		sprite = load("res://assets/sprites/projectiles/fireball_sprite.tres")
+		sprite = load("res://assets/sprites/projectiles/fireball_sprite.tres"),
+		spawn_particles = Color.ORANGE_RED,
+		finish_particles = Color.ORANGE_RED,
+		trail_particles = Color.ORANGE_RED,
+	},
+	spark = {
+		sprite = load("res://assets/sprites/projectiles/spark_sprite.tres"),
+		spawn_particles = Color.DEEP_SKY_BLUE,
+		finish_particles = Color.DEEP_SKY_BLUE,
+		trail_particles = Color.DEEP_SKY_BLUE,
 	},
 	firefly = {
 		sprite = load("res://assets/sprites/projectiles/fireball_sprite.tres"),

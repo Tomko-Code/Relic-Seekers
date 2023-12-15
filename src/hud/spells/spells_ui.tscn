@@ -54,7 +54,7 @@ custom_minimum_size = Vector2(136, 136)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-show_ammo = false
+show_mana = false
 
 [node name="AttackSpeedIndicator" parent="HBoxContainer/MarginContainer/VBoxContainer/CurrentSpell" instance=ExtResource("3_wcgkk")]
 layout_mode = 2
