@@ -43,6 +43,7 @@ func deactivate_level(level:Level) -> void:
 func activate_level(level:Level) -> void:
 	add_child(level)
 	level.add_child(player)
+	level.emit_signal("level_activated")
 	active_level = level
 
 func change_active_to_current_level() -> void:
@@ -56,6 +57,10 @@ func change_active_to_current_level() -> void:
 func change_active_to_sanctuary_level() -> void:
 	if level_state == LEVEL_STATES.CURRENT:
 		deactivate_level(current_level)
+	
+	# TODO : replace this to sanctuary room
+	GameManager.player.position = Vector2(-160, 480)
+	# ######################
 	
 	activate_level(sanctuary_level)
 	
@@ -89,10 +94,10 @@ func combat_start() -> void:
 func normal_start() -> void:
 	load_sanctuary()
 	
-	if GameData.data["prolg_complete"]:
+	if GameData.save_file.prolog_complete:
 		change_active_to_sanctuary_level()
 	else:
-		var level:PrologLevel = PrologLevel.new()
+		var level:StartLevel = StartLevel.new()
 		level.set_up()
 		change_current_level(level)
 		change_active_to_current_level()

@@ -37,5 +37,5 @@ func set_up(args:Array = []) -> void:
 	print_number_map()
 	
 	# Set Player
-	GameManager.player.position = Vector2(550, 350)
-	#GameManager.dialog_box.play("first_time_prolog")
+	GameManager.player.position = Vector2(800, 640)
+	GameManager.dialog_box.play("first_time_prolog")

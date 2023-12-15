@@ -5,8 +5,9 @@ class_name StoneTeleportSwamp
 var first_interaction = true
 
 func _ready():
+	interactable_component.interaction_title = "Examin stone."
+	interactable_component.update_box()
 	GameManager.dialog_box.dialog_ended.connect(on_dialog_ended)
-	
 
 func _on_interactable_component_interacted():
 	if first_interaction:
@@ -21,3 +22,5 @@ func _on_interactable_component_interacted():
 func on_dialog_ended(value:String):
 	if value == "first_stone_interaction":
 		first_interaction = false
+		interactable_component.interaction_title = "Use teleporting stone."
+		interactable_component.update_box()
