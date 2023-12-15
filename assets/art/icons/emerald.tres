@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dnxy0ov5k2c7q"]
+
+[ext_resource type="Texture2D" uid="uid://cb6qjvvcfe3g7" path="res://assets/art/icons/heart+emerald+gold_16x16.png" id="1_nswb0"]
+
+[resource]
+atlas = ExtResource("1_nswb0")
+region = Rect2(0, 16, 16, 16)

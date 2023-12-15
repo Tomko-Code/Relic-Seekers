@@ -30,6 +30,8 @@ EnemiesHandler="*res://src/globals/enemies_handler.gd"
 SpellsDb="*res://src/globals/spells_db.gd"
 SpellsHandler="*res://src/globals/spells_handler.gd"
 SpellEffectsDb="*res://src/globals/spell_effects_db.gd"
+PickupsHandler="*res://src/globals/pickups_handler.gd"
+ArtifactsDb="*res://src/globals/artifacts_db.gd"
 
 [display]
 

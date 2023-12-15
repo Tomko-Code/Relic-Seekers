@@ -9,7 +9,10 @@ var spell_slots = []
 
 func _ready():
 	player_inventory.spells_changed.connect(update_spells)
+	player_inventory.passive_artifact_changed.connect(update_artifacts)
+	player_inventory.active_artifact_changed.connect(update_artifacts)
 	update_spells()
+	update_artifacts()
 
 func update_spells():
 	spell_slots = spells_container.get_children()
@@ -23,3 +26,11 @@ func update_spells():
 	spell_slots = spells_container.get_children()
 	for spell_slot in spell_slots:
 		spell_slot.update_selection()
+
+func update_artifacts():
+	var active_artifact_slot = artifacts_container.get_children()[0] as ArtifactContainer
+	var passive_artifact_slot = artifacts_container.get_children()[1] as ArtifactContainer
+	
+	active_artifact_slot.set_artifact(player_inventory.active_artifact)
+	passive_artifact_slot.set_artifact(player_inventory.passive_artifact)
+	

@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://m1bbrd37rfc"]
+
+[ext_resource type="Script" path="res://src/entities/pickups/mana_orb_pickup.gd" id="1_ntgmq"]
+[ext_resource type="Script" path="res://src/systems/pickup_animation_system.gd" id="2_mn50w"]
+[ext_resource type="Script" path="res://src/entities/entity_shadow_component.gd" id="3_5c8r6"]
+[ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="4_i4mtn"]
+[ext_resource type="Texture2D" uid="uid://dnxy0ov5k2c7q" path="res://assets/art/icons/emerald.tres" id="5_sdkgm"]
+[ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="6_oel6q"]
+[ext_resource type="Script" path="res://src/entities/pickups/pickup_repulsion_movement.gd" id="7_d2uub"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_puag7"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lum2c"]
+radius = 16.0
+
+[node name="ManaOrbPickup" type="CharacterBody2D" node_paths=PackedStringArray("_HitboxComponent", "_PickupRepulsionMovement")]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_ntgmq")
+_HitboxComponent = NodePath("Components/PickupHitbox")
+_PickupRepulsionMovement = NodePath("Components/PickupRepulsionMovement")
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="PickupAnimationSystem" type="Node" parent="Components" node_paths=PackedStringArray("_AnimatedSpriteComponent")]
+script = ExtResource("2_mn50w")
+is_floating = true
+_AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
+
+[node name="EntityShadowComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("_AnimatedSpriteComponent")]
+script = ExtResource("3_5c8r6")
+_AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
+
+[node name="AnimatedSpriteComponent" type="Node2D" parent="Components"]
+script = ExtResource("4_i4mtn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Components/AnimatedSpriteComponent"]
+modulate = Color(0, 0, 4, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("5_sdkgm")
+
+[node name="PickupHitbox" type="Area2D" parent="Components"]
+collision_layer = 0
+script = ExtResource("6_oel6q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/PickupHitbox"]
+shape = SubResource("CircleShape2D_puag7")
+
+[node name="RepulsionHitbox" type="Area2D" parent="Components"]
+collision_layer = 16
+collision_mask = 21
+script = ExtResource("6_oel6q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/RepulsionHitbox"]
+shape = SubResource("CircleShape2D_lum2c")
+
+[node name="PickupRepulsionMovement" type="Node" parent="Components" node_paths=PackedStringArray("_HitboxComponent")]
+script = ExtResource("7_d2uub")
+_HitboxComponent = NodePath("../RepulsionHitbox")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_puag7")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dritma3ktfaep"]
+[gd_scene load_steps=7 format=3 uid="uid://dritma3ktfaep"]
 
 [ext_resource type="PackedScene" uid="uid://dm6v215fvufe4" path="res://src/hud/spells/spell_container.tscn" id="1_l7fwu"]
 [ext_resource type="Script" path="res://src/hud/spells/spells_ui.gd" id="1_vmlpn"]
+[ext_resource type="PackedScene" uid="uid://e5icryfedpra" path="res://src/hud/spells/artifact_container.tscn" id="2_o8whr"]
 [ext_resource type="PackedScene" uid="uid://wgg1ib14st5f" path="res://src/hud/attack_speed_indicator.tscn" id="3_wcgkk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_emlgu"]
@@ -42,19 +43,18 @@ theme_override_constants/separation = 8
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="ArtifactSlotQ" parent="HBoxContainer/MarginContainer/VBoxContainer/ArtifactSlots" instance=ExtResource("1_l7fwu")]
+[node name="ArtifactSlotQ" parent="HBoxContainer/MarginContainer/VBoxContainer/ArtifactSlots" instance=ExtResource("2_o8whr")]
 layout_mode = 2
-shortcut = "Q"
 
-[node name="ArtifactSlotE" parent="HBoxContainer/MarginContainer/VBoxContainer/ArtifactSlots" instance=ExtResource("1_l7fwu")]
+[node name="ArtifactSlotE" parent="HBoxContainer/MarginContainer/VBoxContainer/ArtifactSlots" instance=ExtResource("2_o8whr")]
 layout_mode = 2
-shortcut = "E"
 
 [node name="CurrentSpell" parent="HBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_l7fwu")]
 custom_minimum_size = Vector2(136, 136)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+show_ammo = false
 
 [node name="AttackSpeedIndicator" parent="HBoxContainer/MarginContainer/VBoxContainer/CurrentSpell" instance=ExtResource("3_wcgkk")]
 layout_mode = 2

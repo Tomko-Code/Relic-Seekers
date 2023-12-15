@@ -55,3 +55,7 @@ func get_description():
 
 func get_title():
 	return full_name
+
+func add_mana(value: int):
+	ammo += value
+	emit_signal("ammo_changed")
