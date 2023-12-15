@@ -5,8 +5,11 @@ var GAME_STATE: GAME_STATES = GAME_STATES.MENU
 var current_scene = null
 
 var game_camera = load("res://src/other/FollowCamera.tscn").instantiate()
+
+# Stuff from game spageti
 var player: PlayerEntity = null
-var dialog_box:Dialog
+var dialog_box:Dialog = null
+var hud:HUD = null
 
 var loaded_scenes = {}
 

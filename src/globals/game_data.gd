@@ -17,14 +17,119 @@ var save_file:SaveFile
 
 # rooms data
 var rooms_data = {
+	#######################################
+	# Test Rooms
+	#######################################
 	"Start" : {
 		"shape" : [[1]],
-		"res" : preload("res://src/rooms/start_room.tscn")
+		"res" : load("res://src/rooms/start_room.tscn"),
+		"connections" : [
+			[Vector2(0,0), Vector2.UP]
+		]
 	},
 	"Normal1" : {
+		"shape" : [
+			[1]
+			#[1]
+		],
+		"res" : load("res://src/rooms/normal_room_0.tscn"),
+		"connections" : [
+			[Vector2(0,0), Vector2.DOWN]
+		]
+	},
+	#######################################
+	# Start Rooms
+	#######################################
+	"swamp_room" : {
+		# This is wrong but it's unique room
 		"shape" : [[1]],
-		"res" : preload("res://src/rooms/test_room_0.tscn")
-	}
+		"res" : load("res://src/rooms/swamp_room.tscn"),
+		"connections" : [],
+		"has_teleport" : true,
+		"teleport_type" : TeleportData.TELEPORT_TYPES.STONE
+	},
+	#######################################
+	# Prolog Rooms
+	#######################################
+	"start_prolog_room" : {
+		"shape" : [[1]],
+		"res" : load("res://src/rooms/prolog/start_prolog_room.tscn"),
+		"connections" : [[Vector2(0,0), Vector2.RIGHT]],
+		"has_teleport" : true,
+		"teleport_type" : TeleportData.TELEPORT_TYPES.CIRCLE
+	},
+	"kill_prolog_room" : {
+		"shape" : [[1]],
+		"res" : load("res://src/rooms/prolog/kill_prolog_room.tscn"),
+		"connections" : [[Vector2(0,0), Vector2.UP],[Vector2(0,0), Vector2.RIGHT]],
+	},
+	"end_prolog_room" : {
+		"shape" : [[1]],
+		"res" : load("res://src/rooms/prolog/end_prolog_room.tscn"),
+		"connections" : [[Vector2(0,0), Vector2.UP]],
+		"has_teleport" : true,
+		"teleport_type" : TeleportData.TELEPORT_TYPES.STONE
+	},
+	"dash_prolog_room" : {
+		"shape" : [[1, 1]],
+		"res" : load("res://src/rooms/prolog/dash_prolog_room.tscn"),
+		"connections" : [[Vector2(0,0), Vector2.LEFT],[Vector2(1,0), Vector2.RIGHT]],
+	},
+	"teleport_prolog_room" : {
+		"shape" : [[1, 1]],
+		"res" : load("res://src/rooms/prolog/teleport_prolog_room.tscn"),
+		"connections" : [[Vector2(0,0), Vector2.LEFT],[Vector2(1,0), Vector2.DOWN]],
+		"has_teleport" : true,
+		"teleport_type" : TeleportData.TELEPORT_TYPES.CIRCLE
+	},
+	"trap_prolog_room" : {
+		"shape" : [[1], [1]],
+		"res" : load("res://src/rooms/prolog/trap_prolog_room.tscn"),
+		"connections" : [[Vector2(0,0), Vector2.LEFT],[Vector2(0,1), Vector2.DOWN]],
+	},
+	#######################################
+	# Sanctuary Rooms
+	#######################################
+	"sanctuary_room" : {
+		# This is "broken" room
+		"shape" : [[1]],
+		"res" : load("res://src/rooms/sanctuary_room.tscn"),
+		"connections" : [],
+	},
+	#######################################
+	# Combat Rooms
+	#######################################
+	"main_combat_room" : {
+		# This is "broken" room
+		"shape" : [
+			[1, 1, 1],
+			[1, 1, 1],
+			[1, 1, 1]
+		],
+		"res" : load("res://src/rooms/combat/main_combat_room.tscn"),
+		"connections" : [
+			[Vector2(0,1), Vector2.LEFT],
+			[Vector2(2,1), Vector2.RIGHT],
+			[Vector2(1,2), Vector2.DOWN],
+			[Vector2(1,0), Vector2.UP],
+		],
+		"has_teleport" : true,
+		"teleport_type" : TeleportData.TELEPORT_TYPES.CIRCLE
+	},
+	"left_combat_room" : {
+		# This is "broken" room
+		"shape" : [[1]],
+		"res" : load("res://src/rooms/combat/left_combat_room.tscn"),
+		"connections" : [[Vector2(0,0), Vector2.RIGHT]],
+		"waves" : [
+			[[1, 1, ["test_mob_a"]]]
+			#[[1, 1, ["test_mob_a"]]],
+			#[[1, 1, ["test_mob_a"]],[1, 1, ["test_mob_a"]]]
+		]
+	},
+	#######################################
+	# Proc Gen Rooms
+	#######################################
 }
 
 func load_save_file():

@@ -1,19 +1,23 @@
 extends Node2D
 class_name Level
 
+signal level_activated
+
 var room_connection_res = preload("res://src/zone/room_connection.tscn")
 
 var map = []
 var unspawned_rooms = []
 var rooms = []
-var currnet_active_room = null
+var currnet_active_room:Room = null
+var default_room:Room = null
 
-func _ready():
-	pass
-
-func spawn_room(room_data:RoomData):
+func spawn_room(room_data:RoomData) -> Room:
 	if room_data.type == "":
 		print("Cant spawn room with no type")
+		return
+	
+	if not GameData.rooms_data.has(room_data.type):
+		print("Room type does not exist : " + room_data.type)
 		return
 	
 	var room:Room = GameData.rooms_data[room_data.type]["res"].instantiate()
@@ -30,11 +34,27 @@ func spawn_room(room_data:RoomData):
 		conn.position += Constants.CHUNK_SIZE/2
 		
 		conn.position += conn.data.direction * (Constants.CHUNK_SIZE/4)
-		
+		conn.position += conn.data.direction * Vector2(32*3, 0)
 		room.add_child(conn)
+		room.data.spawned_room = room
 	
 	room.position = Constants.CHUNK_SIZE * room.data.cord
 	add_child(room)
+	return room
+
+# returns true or false wather if placed it will overlap space with already placed room
+func is_overlaping(room_data:RoomData, cord:Vector2):
+	for y in range(room_data.room_shape.size()):
+		for x in range(room_data.room_shape[0].size()):
+			var map_spot:bool = map[cord.y + y][cord.x + x] != null
+			var room_spot:bool = room_data.room_shape[y][x] == 1
+			if map_spot and room_spot:
+				return true
+	
+	return false
+
+func get_cord_center_position(cord:Vector2) -> Vector2:
+	return (cord * Constants.CHUNK_SIZE) + Constants.CHUNK_SIZE/2
 
 func place_room(room_data:RoomData, cord:Vector2):
 	room_data.cord = cord
@@ -77,3 +97,7 @@ func create_2Darray(size: Vector2i, filler: Variant = 0) -> Array:
 		array[y].fill(filler)
 	
 	return array
+
+#### Virtual
+func set_up(args:Array = []) -> void:
+	pass

@@ -52,6 +52,9 @@ func play(dialog_name:String) -> void:
 	
 	show()
 	
+	# Hide hud
+	GameManager.hud.hide()
+	
 	emit_signal("dialog_started", current_dialog_name)
 
 func _on_button_dialog_intearct_pressed() -> void:
@@ -97,6 +100,7 @@ func _close_dialog() -> void:
 		GameManager.player.paused = false
 	
 	hide()
+	GameManager.hud.show()
 	GameData.data["dialog"][current_dialog_name] = true
 
 func _input(event) -> void:

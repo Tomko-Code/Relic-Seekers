@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqi8q2ch652th"]
+
+[ext_resource type="Script" path="res://src/zone/stone_teleport_prolog.gd" id="1_y6a4g"]
+[ext_resource type="PackedScene" uid="uid://bdlxq5bh2qqu2" path="res://src/entities/interactable/interactable_component.tscn" id="2_mxaqk"]
+[ext_resource type="Texture2D" uid="uid://dt3qdpradqlxh" path="res://assets/art/sprites/teleports/stone_teleport.png" id="3_7la87"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_y8wqn"]
+device = -1
+keycode = 88
+unicode = 120
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_otk7v"]
+radius = 67.59
+
+[node name="StoneTeleportProlog" type="Node2D" node_paths=PackedStringArray("interactable_component")]
+script = ExtResource("1_y6a4g")
+interactable_component = NodePath("Components/InteractableComponent")
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="InteractableComponent" parent="Components" instance=ExtResource("2_mxaqk")]
+interaction_input = SubResource("InputEventKey_y8wqn")
+interaction_descryption = ""
+interaction_title = "Use teleporting stone."
+input_text = "X"
+shape = SubResource("CircleShape2D_otk7v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_7la87")
+
+[connection signal="interacted" from="Components/InteractableComponent" to="." method="_on_interactable_component_interacted"]

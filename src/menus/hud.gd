@@ -1,8 +1,11 @@
 extends CanvasLayer
+class_name HUD
 
 @export var fps_lable:Label
 
 func _ready():
+	GameManager.hud = self
+	
 	fps_lable.visible = Settings.get_setting("show_fps")
 	Settings.setting_changed.connect(on_settings_changed)
 

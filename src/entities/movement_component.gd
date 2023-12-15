@@ -9,10 +9,6 @@ var direction := Vector2.ZERO
 var is_idle := true
 var is_rotable := false
 
-
-func _physics_process(delta):
-	pass
-
 func get_direction():
 	return direction
 
