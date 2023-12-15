@@ -17,4 +17,4 @@ func get_direction():
 	return direction
 
 func recoil(bullet: BaseProjectile):
-	parent.velocity += 500.0 * bullet.damage * bullet.launch_direction.normalized() / 2
+	parent.velocity += 100.0 * bullet.damage * bullet.launch_direction.normalized() / 2

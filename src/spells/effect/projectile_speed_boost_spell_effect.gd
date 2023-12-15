@@ -1,5 +1,5 @@
 class_name ProjectileSpeedBoostSpellEffect
-extends SpellEffect
+extends ProjectileSpellEffect
 
 @export var tier: int
 @export var speed_multipliers = [1.25, 1.5, 1.75, 2]

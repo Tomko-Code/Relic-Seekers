@@ -70,7 +70,6 @@ func change_camera_parent(target_node: Node) -> void:
 		game_camera.get_parent().remove_child(game_camera)
 	target_node.add_child(game_camera)
 
-
 func get_entity_component(entity, class_type):
 	var components = []
 	for component in entity.get_node("Components").get_children():
@@ -78,6 +77,16 @@ func get_entity_component(entity, class_type):
 			components.append(component)
 	return components
 
+func get_random_from_weighed_array(arr):
+	var total = 0
+	for entry in arr:
+		total += entry[1]
+	var selection = randi() % total
+	for entry in arr:
+		selection -= entry[1]
+		if selection < 0:
+			return entry[0]
+		
 # just for quick test proly should be inside Menu !
 # states maby not needed here !
 func _input(event):

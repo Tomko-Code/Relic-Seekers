@@ -22,6 +22,8 @@ func _on_bullet_enter_hitbox(_area):
 	if _area is HitboxComponent:
 		var hitbox: HitboxComponent = _area
 		var bullet = hitbox.get_entity()
+		if bullet is BaseProjectile and get_entity() in bullet.already_hit:
+			return
 		
 		if _StatsComponent and bullet is BaseProjectile:
 			_StatsComponent.change_health(bullet.damage)

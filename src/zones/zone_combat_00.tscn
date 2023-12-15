@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bi65rl20ts4di"]
+[gd_scene load_steps=7 format=3 uid="uid://bi65rl20ts4di"]
 
 [ext_resource type="PackedScene" uid="uid://nt8opsk0xeca" path="res://src/zone/zone_sanctuary.tscn" id="1_drr57"]
 [ext_resource type="Script" path="res://src/zones/zone_combat_00.gd" id="2_6u8ot"]
-[ext_resource type="PackedScene" uid="uid://ceuj26gcgt1mt" path="res://src/entities/enemies/mobs/test_mob_a.tscn" id="3_l0l71"]
 [ext_resource type="Script" path="res://src/spells/spell_test_spawn.gd" id="4_pfgsf"]
 [ext_resource type="PackedScene" uid="uid://v11uw5rg8gs0" path="res://src/entities/pickups/gold_pickup.tscn" id="5_y5e4m"]
 [ext_resource type="PackedScene" uid="uid://gint4y1ev3el" path="res://src/entities/pickups/emerald_pickup.tscn" id="6_f85as"]
@@ -22,28 +21,55 @@ layer_1/tile_data = PackedInt32Array(-131055, 65538, 4, -131054, 65538, 4, -1310
 [node name="Walls" parent="." index="3"]
 layer_0/tile_data = PackedInt32Array(-65538, 458752, 2, -65537, 458752, 2, -131072, 458752, 2, 131072, 458752, 0, 196607, 458752, 0, 196606, 458752, 0, 131069, 524288, 1, 65533, 524288, 1, 196605, 262144, 2, -3, 524288, 1, -65539, 262144, 3, -131075, 0, 1, -131074, 0, 1, -131073, 0, 1, -196608, 0, 1, 196608, 0, 1, 262143, 0, 1, 262142, 0, 1, 262141, 0, 1, 262140, 0, 1, 196604, 0, 1, 131068, 0, 1, 65532, 0, 1, -4, 0, 1, -65540, 0, 1, -131076, 0, 1, -196612, 0, 1, -196611, 0, 1, -196610, 0, 1, -196609, 0, 1, -262144, 0, 1, 131073, 196608, 2, 65537, 393216, 0, -131071, 196608, 3, -65535, 393216, 2, 196609, 0, 1, 196610, 524288, 1, 131074, 524288, 1, 65538, 524288, 0, -65534, 524288, 2, -131070, 524288, 1, -196606, 524288, 1, -196607, 0, 1, -262143, 0, 1, -262142, 262144, 3, -262141, 458752, 2, -262140, 458752, 2, -262139, 458752, 2, -262138, 458752, 2, -262137, 458752, 2, -262136, 458752, 2, -262135, 458752, 2, 262146, 262144, 2, 262145, 0, 1, 262144, 0, 1, 327679, 0, 1, 327678, 0, 1, 327677, 0, 1, 327676, 0, 1, 327675, 0, 1, 262139, 0, 1, 196603, 0, 1, 131067, 0, 1, 65531, 0, 1, -5, 0, 1, -65541, 0, 1, -131077, 0, 1, -196613, 0, 1, -196614, 0, 1, -131078, 0, 1, -65542, 0, 1, -6, 0, 1, 65530, 0, 1, 131066, 0, 1, 196602, 0, 1, 262138, 0, 1, 327674, 0, 1, 327673, 393216, 1, 262137, 393216, 1, 196601, 393216, 1, 131065, 393216, 1, 65529, 393216, 1, -7, 393216, 1, -65543, 393216, 1, -131079, 393216, 1, -196615, 393216, 1, 262147, 458752, 0, 262148, 458752, 0, 262149, 458752, 0, 262151, 458752, 0, 262152, 458752, 0, 262153, 458752, 0, -262134, 196608, 3, -196598, 393216, 1, -131062, 393216, 1, -65526, 393216, 1, 65546, 393216, 1, 131082, 393216, 1, 196618, 393216, 1, 262154, 196608, 2, 327690, 0, 1, 327689, 0, 1, 327688, 0, 1, 327687, 0, 1, 327685, 0, 1, 327684, 0, 1, 327683, 0, 1, 327682, 0, 1, 327681, 0, 1, 327680, 0, 1, 393215, 0, 1, 393214, 0, 1, 393213, 0, 1, 393212, 0, 1, 393211, 0, 1, 393210, 0, 1, 393209, 393216, 1, -262133, 0, 1, -196597, 0, 1, -131061, 0, 1, -65525, 0, 1, 65547, 0, 1, 131083, 0, 1, 196619, 0, 1, 262155, 0, 1, 327691, 0, 1, -262151, 393216, 1, -262150, 0, 1, -262149, 0, 1, -262148, 0, 1, -262147, 0, 1, -262146, 0, 1, -262145, 0, 1, -327680, 0, 1, -327679, 0, 1, -327678, 0, 1, -327677, 0, 1, -327676, 0, 1, -327675, 0, 1, -327674, 0, 1, -327673, 0, 1, -327672, 0, 1, -327671, 0, 1, -327670, 0, 1, -327669, 0, 1, 393228, 524288, 2, 393227, 458752, 2, 393226, 458752, 2, 393225, 458752, 2, 393224, 458752, 2, 393220, 458752, 2, 393219, 458752, 2, 393218, 458752, 2, 393217, 458752, 2, 393216, 458752, 2, 458751, 458752, 2, 458750, 458752, 2, 458749, 458752, 2, 458748, 458752, 2, 458747, 458752, 2, 458746, 458752, 2, 458745, 393216, 2, -327668, 524288, 1, -262132, 524288, 1, -196596, 524288, 1, -131060, 524288, 1, -65524, 524288, 1, 65548, 524288, 1, 131084, 524288, 1, 196620, 524288, 1, 262156, 524288, 1, 327692, 524288, 1, -327687, 393216, 0, -327686, 458752, 0, -327685, 458752, 0, -327684, 458752, 0, -327683, 458752, 0, -327682, 458752, 0, -327681, 458752, 0, -393216, 458752, 0, -393215, 458752, 0, -393214, 458752, 0, -393213, 458752, 0, -393212, 458752, 0, -393211, 458752, 0, -393210, 458752, 0, -393209, 458752, 0, -393208, 458752, 0, -393207, 458752, 0, -393206, 458752, 0, -393205, 458752, 0, -393204, 524288, 0, 393221, 458752, 2, 393222, 458752, 2, 393223, 458752, 2, 327686, 0, 1, 262150, 458752, 0, 12, 524288, 1, 11, 0, 1, 10, 393216, 1, 65535, 0, 0)
 
-[node name="TestMobA" parent="." index="4" instance=ExtResource("3_l0l71")]
-position = Vector2(270, -121)
-
-[node name="SpellTestSpawn" type="Marker2D" parent="." index="5"]
-position = Vector2(-431, 89)
-script = ExtResource("4_pfgsf")
-
-[node name="GoldPickup" parent="." index="6" instance=ExtResource("5_y5e4m")]
+[node name="GoldPickup" parent="." index="4" instance=ExtResource("5_y5e4m")]
 position = Vector2(-226, -161)
 
-[node name="EmeraldPickup" parent="." index="7" instance=ExtResource("6_f85as")]
+[node name="EmeraldPickup" parent="." index="5" instance=ExtResource("6_f85as")]
 position = Vector2(253, 171)
 
-[node name="TestArtifactSpawn" type="Marker2D" parent="." index="8"]
-position = Vector2(-445, -199)
+[node name="TestArtifactSpawn" type="Marker2D" parent="." index="6"]
+position = Vector2(-599, -282)
 script = ExtResource("7_drhp5")
-artifact_name = "test_active_artifact"
+artifact_name = "golden_clock"
 
-[node name="TestArtifactSpawn2" type="Marker2D" parent="." index="9"]
-position = Vector2(-286, -236)
+[node name="TestArtifactSpawn2" type="Marker2D" parent="." index="7"]
+position = Vector2(-542, -282)
+script = ExtResource("7_drhp5")
+artifact_name = "infinite_bag_of_goods"
+
+[node name="TestArtifactSpawn3" type="Marker2D" parent="." index="8"]
+position = Vector2(-469, -280)
+script = ExtResource("7_drhp5")
+artifact_name = "mana_in_bottle"
+
+[node name="TestArtifactSpawn4" type="Marker2D" parent="." index="9"]
+position = Vector2(-402, -279)
 script = ExtResource("7_drhp5")
 artifact_name = "jar_of_fireflies"
 
 [node name="GoldPickup2" parent="." index="10" instance=ExtResource("5_y5e4m")]
 position = Vector2(-214, -161)
+
+[node name="SpellTestSpawn" type="Marker2D" parent="." index="11"]
+position = Vector2(-612, 39)
+script = ExtResource("4_pfgsf")
+spell_name = "fireball"
+
+[node name="SpellTestSpawn2" type="Marker2D" parent="." index="12"]
+position = Vector2(-608, 105)
+script = ExtResource("4_pfgsf")
+spell_name = "spark"
+
+[node name="SpellTestSpawn3" type="Marker2D" parent="." index="13"]
+position = Vector2(-610, 169)
+script = ExtResource("4_pfgsf")
+spell_name = "icicle"
+
+[node name="SpellTestSpawn4" type="Marker2D" parent="." index="14"]
+position = Vector2(56, 169)
+script = ExtResource("4_pfgsf")
+spell_name = "test_spell"
+random_spell = true
+
+[node name="Marker2D" type="Marker2D" parent="." index="15"]
+position = Vector2(-428, 393)

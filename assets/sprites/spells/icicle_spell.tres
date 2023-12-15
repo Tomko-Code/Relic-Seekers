@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://o870fvpmhr1q"]
+
+[ext_resource type="Texture2D" uid="uid://cnrbc5fjay0f2" path="res://assets/art/sprites/spells/icicle_spell_sprite.png" id="1_d7bfi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2tjwp"]
+atlas = ExtResource("1_d7bfi")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhihj"]
+atlas = ExtResource("1_d7bfi")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8qcf"]
+atlas = ExtResource("1_d7bfi")
+region = Rect2(64, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2tjwp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhihj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8qcf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
