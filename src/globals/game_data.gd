@@ -97,6 +97,30 @@ var rooms_data = {
 		"connections" : [],
 	},
 	#######################################
+	# Combat Rooms
+	#######################################
+	"main_combat_room" : {
+		# This is "broken" room
+		"shape" : [
+			[1, 1, 1],
+			[1, 1, 1],
+			[1, 1, 1]
+		],
+		"res" : load("res://src/rooms/combat/main_combat_room.tscn"),
+		"connections" : [
+			[Vector2(0,1), Vector2.LEFT],
+			[Vector2(2,1), Vector2.RIGHT],
+			[Vector2(1,2), Vector2.DOWN],
+			[Vector2(1,0), Vector2.UP],
+		],
+	},
+	"left_combat_room" : {
+		# This is "broken" room
+		"shape" : [[1]],
+		"res" : load("res://src/rooms/combat/left_combat_room.tscn"),
+		"connections" : [[Vector2(0,0), Vector2.RIGHT]],
+	},
+	#######################################
 	# Proc Gen Rooms
 	#######################################
 }
