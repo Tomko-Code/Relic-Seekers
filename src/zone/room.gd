@@ -11,6 +11,9 @@ var data:RoomData
 
 var spawn_point_res = preload("res://src/other/spawner_point/spawner_point.tscn")
 
+# Doors
+var room_closed:bool = false : set = set_room_closed
+
 # Enemies
 var enemies_cleard:bool = true
 var enemy_count:int = 0 : set = set_enemy_count
@@ -28,16 +31,31 @@ var change_budiers:bool = true
 
 var minimum_distance:float = 192.0
 
+func set_room_closed(value:bool) -> void:
+	if room_closed == value:
+		return
+	
+	room_closed = value
+	
+	for conn in data.closed_connection_arry:
+		if room_closed == true:
+			conn.closed = true
+		else:
+			conn.closed = false
+
 func set_enemy_count(value:int):
 	enemy_count = value
 	if enemy_count > 0:
-		# close room or do nothing
-		pass
+		if room_closed == false:
+			room_closed = true
+		
 	else:
 		if data.has_waves:
 			spawn_next_wave()
-		else:
-			pass
+			
+			if data.has_waves == false:
+				if room_closed == true:
+					room_closed = false
 		# open room or spawn next wave
 
 func look_for_open_space(starting_position:Vector2) -> Vector2:

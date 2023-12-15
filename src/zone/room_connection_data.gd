@@ -1,8 +1,13 @@
 extends RefCounted
 class_name RoomConnectionData
 
+signal connection_closed
+signal connection_opened
+
 var connected_room:RoomData = null
 var parent_room:RoomData = null
+
+var closed:bool = false : set = set_closed
 
 # cord inside room
 var inside_cord:Vector2 = Vector2.ZERO
@@ -26,3 +31,13 @@ func room_connected() -> bool:
 		return true
 	
 	return false
+
+func set_closed(value:bool) -> void:
+	if closed == value:
+		return
+	
+	closed = value
+	if closed:
+		emit_signal("connection_closed")
+	else:
+		emit_signal("connection_opened")
