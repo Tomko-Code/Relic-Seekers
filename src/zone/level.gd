@@ -1,6 +1,8 @@
 extends Node2D
 class_name Level
 
+signal level_activated
+
 var room_connection_res = preload("res://src/zone/room_connection.tscn")
 
 var map = []
