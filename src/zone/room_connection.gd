@@ -3,9 +3,25 @@ class_name RoomConnection
 
 var data:RoomConnectionData = null
 
+func _ready():
+	data.connection_opened.connect(on_opend)
+	data.connection_closed.connect(on_closed)
+
 func tp(body):
+	if data.closed:
+		return
+	
 	body.global_position += data.direction * 800
+	var active_level:Level = GameManager.loaded_scenes["Game"].active_level 
+	active_level.currnet_active_room = data.connected_room.spawned_room
+	active_level.currnet_active_room.on_player_enter()
 
 func _on_area_2d_body_entered(body):
 	GameManager.game_camera.play_slow()
 	call_deferred("tp",body)
+
+func on_opend() -> void:
+	$Sprite2D.modulate = Color.WHITE
+
+func on_closed() -> void:
+	$Sprite2D.modulate = Color.RED

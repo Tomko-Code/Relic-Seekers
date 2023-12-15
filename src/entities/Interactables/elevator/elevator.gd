@@ -25,5 +25,11 @@ func _on_animation_player_animation_finished(anim_name):
 	GameManager.change_camera_parent(GameManager.player)
 	GameManager.player.z_index = 1
 	GameManager.player.paused = false
-	GameManager.loaded_scenes["Game"].change_zone("zone_sanctuary_00", 0)
-	GameManager.player.global_position = Vector2.ZERO
+	
+	var level:PrologLevel = PrologLevel.new()
+	level.set_up()
+	
+	await get_tree().process_frame
+	GameManager.loaded_scenes["Game"].change_current_level(level)
+	GameManager.loaded_scenes["Game"].change_active_to_current_level()
+	GameManager.player.position = Vector2.ZERO
