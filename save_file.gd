@@ -10,3 +10,4 @@ class_name SaveFile
 # Game
 @export var active_run:bool = false
 @export var prolog_complete:bool = false
+@export var current_level:int = 0

@@ -147,7 +147,7 @@ layout_mode = 2
 [node name="Who" type="Label" parent="Control/HBoxContainer/StringContainer/Margin/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_gdrbr")
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 24
 text = "Who"
 
 [node name="Margin" type="MarginContainer" parent="Control/HBoxContainer/StringContainer/Margin/VBoxContainer"]
@@ -158,14 +158,14 @@ theme_override_constants/margin_top = 10
 [node name="String" type="Label" parent="Control/HBoxContainer/StringContainer/Margin/VBoxContainer/Margin"]
 layout_mode = 2
 text = "rer"
-visible_characters = 0
-visible_ratio = 0.0
+visible_characters = 3
 
 [node name="ButtonDialogIntearct" type="Button" parent="Control/HBoxContainer/StringContainer/Margin/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 focus_mode = 0
 theme_override_fonts/font = ExtResource("3_gdrbr")
+theme_override_font_sizes/font_size = 24
 text = "Interaction"
 flat = true
 
