@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://cn6f34ddodl0d"]
+
+[ext_resource type="Texture2D" uid="uid://d3eirhml8bdsv" path="res://assets/art/sprites/projectiles/heal_projectile.png" id="1_4kvyi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0n8rv"]
+atlas = ExtResource("1_4kvyi")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2epe"]
+atlas = ExtResource("1_4kvyi")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8t6b"]
+atlas = ExtResource("1_4kvyi")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvswv"]
+atlas = ExtResource("1_4kvyi")
+region = Rect2(96, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0n8rv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2epe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f8t6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvswv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]

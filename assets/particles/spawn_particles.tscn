@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://5djqf0ew6mt7"]
+
+[ext_resource type="Script" path="res://assets/particles/despawn_particles.gd" id="1_6ulvr"]
+
+[sub_resource type="Gradient" id="Gradient_1euw2"]
+colors = PackedColorArray(0.788235, 0.788235, 0.788235, 1, 1, 1, 1, 1)
+
+[node name="SpawnParticles" type="CPUParticles2D"]
+emitting = false
+lifetime = 0.25
+one_shot = true
+lifetime_randomness = 0.5
+emission_shape = 1
+emission_sphere_radius = 16.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 80.0
+initial_velocity_max = 80.0
+scale_amount_min = 3.0
+scale_amount_max = 4.0
+color = Color(0.992157, 0.156863, 0.113725, 1)
+color_initial_ramp = SubResource("Gradient_1euw2")
+script = ExtResource("1_6ulvr")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

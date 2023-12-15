@@ -13,14 +13,7 @@ func spawn_projectile(projectile_name, is_friendly: bool):
 		sprite.sprite_frames = ProjectilesDb.projectiles[projectile_name].sprite
 		
 		projectile.type = projectile_name
-		projectile.is_friendly = is_friendly
-		
-		var hitbox: HitboxComponent = projectile.get_node("Components/HitboxComponent")
-		if is_friendly:
-			hitbox.set_collision_layer(friendly_layer)
-		else:
-			hitbox.set_collision_layer(hostile_layer)
-			
+		set_projectile_layer(projectile, is_friendly)
 		
 		all_projectiles.append(projectile)
 		projectile.expired.connect(clear_projectile.bind(projectile))
@@ -34,6 +27,14 @@ func clear_all_projectiles():
 	for projectile in all_projectiles:
 		projectile.queue_free()
 	all_projectiles = []
+
+func set_projectile_layer(projectile: BaseProjectile, is_friendly: bool):
+	projectile.is_friendly = is_friendly
+	var hitbox: HitboxComponent = projectile.get_node("Components/HitboxComponent")
+	if is_friendly:
+		hitbox.set_collision_layer(friendly_layer)
+	else:
+		hitbox.set_collision_layer(hostile_layer)
 
 func attach_orbital(target: Node2D, bullet: BaseProjectile, radius: float, cycle_goal):
 	var attachment: OrbitalAttachment

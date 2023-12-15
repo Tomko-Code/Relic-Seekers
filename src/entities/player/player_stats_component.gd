@@ -53,7 +53,7 @@ func change_health(value):
 	value = round(value)
 	if is_invulnerable and value > 0: 
 		return
-	current_health -= value
+	current_health = clamp(current_health - value, 0, max_health)
 	
 	if value > 0:
 		make_invulnerable()

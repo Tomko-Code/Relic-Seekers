@@ -1,26 +1,94 @@
 extends Node
 
+
+func _init():
+	spells.default_spell = spells.fireball
+	spells.default_spell.max_mana = -1
+	
+	spells.test_spell = spells.heal
+
+var random_pool = [
+	["fireball", 1],
+	["icicle", 1],
+	["heal", 1],
+	["spark", 1],
+]
+
 var spells = {
-	default_spell = {
+	default_spell = null,
+	test_spell = null,
+	fireball = {
 		type= "default_spell",
 		full_name = "Fireball",
 		projectile_type = "fireball",
-		description = "This the default fireball spell",
-		projectile_data = {},
+		description = "Create a ball of fire",
+		projectile_data = {
+			damage = 5,
+			speed = 400,
+			range = 100,
+			effects = [HomingEffect.new()]
+		},
 		frames = load("res://assets/sprites/spells/fireball_spell.tres"),
 		effects = [],
-		ammo = -1,
+		max_mana = 100,
+		shoot_frequency = 0.1,
+	},
+	spark = {
+		type = "spark",
+		full_name = "Spark",
+		projectile_type = "spark",
+		description = "Launch an electric spark",
+		projectile_data = { 
+			effects = [
+				DeviateMovementDirection.new().init(deg_to_rad(30.0)),
+				BounceEffect.new(),
+			], 
+			damage = 5,
+			speed = 500,
+			range = 100,
+		},
+		frames = load("res://assets/sprites/spells/spark_spell.tres"),
+		effects = [
+			SparkSpellEffect.new()
+		],
+		max_mana = 50,
 		shoot_frequency = 0.5,
 	},
-	test_spell = {
-		type= "test_spell",
-		full_name = "Test Spark",
-		projectile_type = "test_projectile_b",
-		description = "Test spark spell",
-		projectile_data = { can_bounce = true, effects = [ProjectileSpeedBoostSpellEffect.new().init(2),], damage = 0.5, },
-		frames = load("res://assets/sprites/spells/spell_a.tres"),
-		effects = [SparkSpellEffect.new()],
-		ammo = 50,
+	icicle = {
+		type = "icicle",
+		full_name = "Icicle",
+		projectile_type = "icicle",
+		description = "Launch ice projectile",
+		projectile_data = { 
+			effects = [
+				PierceEffect.new(),
+			], 
+			damage = 8,
+			speed = 700,
+			range = 100,
+		},
+		frames = load("res://assets/sprites/spells/icicle_spell.tres"),
+		effects = [],
+		max_mana = 50,
+		shoot_frequency = 0.5,
+	},
+	heal = {
+		type = "heal",
+		full_name = "Heal",
+		projectile_type = "heal",
+		description = "Launch a healing projectile that flies towards player",
+		projectile_data = { 
+			effects = [
+				ForceHostileFffect.new(),
+				HomingEffect.new(),
+			],
+			damage = -1,
+			speed = 700,
+			range = 100,
+		},
+		frames = load("res://assets/sprites/spells/heal_spell.tres"),
+		effects = [],
+		max_mana = 100,
 		shoot_frequency = 0.5,
 	}
 }

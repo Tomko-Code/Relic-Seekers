@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://djvms0uuxav8r"]
+
+[ext_resource type="Texture2D" uid="uid://brwul15trnpxr" path="res://assets/art/sprites/spells/spark_spell_sprite.png" id="1_kagaf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mrok"]
+atlas = ExtResource("1_kagaf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vq3af"]
+atlas = ExtResource("1_kagaf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_us4ii"]
+atlas = ExtResource("1_kagaf")
+region = Rect2(64, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mrok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vq3af")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_us4ii")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
