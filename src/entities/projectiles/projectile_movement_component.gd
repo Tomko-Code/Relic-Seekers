@@ -6,6 +6,8 @@ var distance_traveled_duration: float = 0
 var range: float = 0
 var can_bounce = false
 
+@export var _EntityShadowComponent: EntityShadowComponent
+
 func _ready():
 	speed = parent.speed
 	range = parent.range
@@ -30,6 +32,11 @@ func launch(_direction_vector = Vector2(1,1), _speed = 500, _range = 100):
 
 func _physics_process(delta):
 	distance_traveled_duration += delta
+	
+	if _EntityShadowComponent:
+		_EntityShadowComponent.height = 9 - (10 * (distance_traveled_duration/(range/60)))
+		_EntityShadowComponent.queue_redraw()
+	
 	if distance_traveled_duration > range / 60:
 		parent.expire()
 	velocity = direction.normalized() * speed

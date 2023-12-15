@@ -25,6 +25,11 @@ var projectiles: Dictionary = {
 		range = 100,
 		effects = [],
 		damage = 7.0,
-		can_bounce = false,
 	},
+	icicle = {
+		sprite = load("res://assets/sprites/projectiles/icicle_sprite.tres"),
+		spawn_particles = Color.DARK_BLUE,
+		finish_particles = Color.DARK_BLUE,
+		trail_particles = Color.DARK_BLUE,
+	}
 }

@@ -8,6 +8,9 @@ var effects: Array = []
 var damage: float = 1
 var can_bounce: bool = false
 
+var is_piercing: bool = false
+var already_hit: Array = []
+
 var is_friendly: bool = false
 var launch_direction: Vector2 = Vector2.ZERO
 
@@ -96,4 +99,7 @@ func expire():
 
 func hit(target):
 	emit_signal("on_hit")
-	expire()
+	if not is_piercing:
+		expire()
+	else:
+		already_hit.append(target)
