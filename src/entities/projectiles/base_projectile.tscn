@@ -23,10 +23,6 @@ _ProjectileMovementComponent = NodePath("Components/ProjectileMovementComponent"
 script = ExtResource("6_2kiut")
 _AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
 
-[node name="ProjectileMovementComponent" type="Node" parent="Components" node_paths=PackedStringArray("_EntityShadowComponent")]
-script = ExtResource("2_3v5n6")
-_EntityShadowComponent = NodePath("../EntityShadowComponent")
-
 [node name="AnimatedSpriteComponent" type="Node2D" parent="Components"]
 script = ExtResource("3_y2vy7")
 
@@ -44,6 +40,10 @@ script = ExtResource("5_impmo")
 
 [node name="Hitbox" type="CollisionShape2D" parent="Components/HitboxComponent"]
 shape = SubResource("CircleShape2D_85nud")
+
+[node name="ProjectileMovementComponent" type="Node" parent="Components" node_paths=PackedStringArray("_EntityShadowComponent")]
+script = ExtResource("2_3v5n6")
+_EntityShadowComponent = NodePath("../EntityShadowComponent")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_85nud")

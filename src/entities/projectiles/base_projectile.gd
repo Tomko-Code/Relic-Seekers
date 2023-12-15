@@ -9,6 +9,8 @@ var damage: float = 1
 var can_bounce: bool = false
 
 var is_piercing: bool = false
+
+var was_launched: bool = false
 var already_hit: Array = []
 
 var is_friendly: bool = false
@@ -80,10 +82,12 @@ func launch(direction_vector: Vector2):
 		_ProjectileMovementComponent.launch(direction_vector, speed, range)
 	if not is_node_ready():
 		await ready
-		if spawn_particles != null:
+		if spawn_particles != null and not was_launched:
 			spawn_particles.position = position
 			get_parent().call_deferred("add_child", spawn_particles)
 			spawn_particles.run()
+	was_launched = true
+	
 
 func update_trail_direction():
 	if _ProjectileMovementComponent:

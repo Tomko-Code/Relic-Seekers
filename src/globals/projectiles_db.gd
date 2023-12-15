@@ -31,5 +31,11 @@ var projectiles: Dictionary = {
 		spawn_particles = Color.DARK_BLUE,
 		finish_particles = Color.DARK_BLUE,
 		trail_particles = Color.DARK_BLUE,
+	},
+	heal = {
+		sprite = load("res://assets/sprites/projectiles/heal_sprite.tres"),
+		spawn_particles = Color.DARK_GREEN,
+		finish_particles = Color.DARK_GREEN,
+		trail_particles = Color.DARK_GREEN,
 	}
 }

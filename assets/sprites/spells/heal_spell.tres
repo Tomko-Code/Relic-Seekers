@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://bepvx571cpbwl"]
+
+[ext_resource type="Texture2D" uid="uid://uide6a258l56" path="res://assets/art/sprites/spells/heal_spell_sprite.png" id="1_nucjh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dbcbk"]
+atlas = ExtResource("1_nucjh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20jxi"]
+atlas = ExtResource("1_nucjh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ouota"]
+atlas = ExtResource("1_nucjh")
+region = Rect2(64, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dbcbk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20jxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ouota")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]

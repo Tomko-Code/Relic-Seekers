@@ -5,7 +5,7 @@ func _init():
 	spells.default_spell = spells.fireball
 	spells.default_spell.max_mana = -1
 	
-	spells.test_spell = spells.icicle
+	spells.test_spell = spells.heal
 
 var spells = {
 	default_spell = null,
@@ -19,6 +19,7 @@ var spells = {
 			damage = 5,
 			speed = 400,
 			range = 100,
+			effects = [HomingEffect.new()]
 		},
 		frames = load("res://assets/sprites/spells/fireball_spell.tres"),
 		effects = [],
@@ -62,6 +63,25 @@ var spells = {
 		frames = load("res://assets/sprites/spells/icicle_spell.tres"),
 		effects = [],
 		max_mana = 50,
+		shoot_frequency = 0.5,
+	},
+	heal = {
+		type = "heal",
+		full_name = "Heal",
+		projectile_type = "heal",
+		description = "Launch a healing projectile that flies towards player",
+		projectile_data = { 
+			effects = [
+				ForceHostileFffect.new(),
+				HomingEffect.new(),
+			],
+			damage = -1,
+			speed = 700,
+			range = 100,
+		},
+		frames = load("res://assets/sprites/spells/heal_spell.tres"),
+		effects = [],
+		max_mana = 100,
 		shoot_frequency = 0.5,
 	}
 }
