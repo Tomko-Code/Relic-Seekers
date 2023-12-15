@@ -1,5 +1,5 @@
 class_name DeviateMovementDirection
-extends SpellEffect
+extends ProjectileSpellEffect
 
 @export var deviation: float
 

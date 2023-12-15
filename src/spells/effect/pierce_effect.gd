@@ -1,5 +1,5 @@
 class_name PierceEffect
-extends SpellEffect
+extends ProjectileSpellEffect
 
 
 func apply_on_projectile(projectile: BaseProjectile):

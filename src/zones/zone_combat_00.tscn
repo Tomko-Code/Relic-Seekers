@@ -69,6 +69,7 @@ spell_name = "icicle"
 position = Vector2(56, 169)
 script = ExtResource("4_pfgsf")
 spell_name = "test_spell"
+random_spell = true
 
 [node name="Marker2D" type="Marker2D" parent="." index="15"]
 position = Vector2(-428, 393)

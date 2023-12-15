@@ -7,6 +7,13 @@ func _init():
 	
 	spells.test_spell = spells.heal
 
+var random_pool = [
+	["fireball", 1],
+	["icicle", 1],
+	["heal", 1],
+	["spark", 1],
+]
+
 var spells = {
 	default_spell = null,
 	test_spell = null,
