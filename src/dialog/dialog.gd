@@ -19,7 +19,7 @@ var play_speed:float = 0.05
 var time:float
 
 var portrets = {
-	"Player" : preload("res://assets/art/portrets/player_portret.png"),
+	"Player" : preload("res://assets/art/portrets/alarion_portret.png"),
 	"Alarion" : preload("res://assets/art/portrets/alarion_portret.png"),
 	"Thaladon" : preload("res://assets/art/portrets/thaladon_portret.png")
 }
