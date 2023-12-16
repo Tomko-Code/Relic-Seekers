@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://csoh788jc3krg"]
+
+[ext_resource type="Texture2D" uid="uid://nkg405krgklq" path="res://assets/art/sprites/projectiles/hostile_projectile.png" id="1_tasno"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1woa"]
+atlas = ExtResource("1_tasno")
+region = Rect2(0, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1woa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

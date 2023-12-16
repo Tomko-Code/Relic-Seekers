@@ -28,3 +28,9 @@ func pickup_spell():
 		new_pickup.position = position
 		get_parent().call_deferred("add_child", new_pickup)
 	queue_free()
+
+func get_description():
+	return spell.get_description()
+
+func get_title():
+	return spell.get_title()

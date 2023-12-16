@@ -24,3 +24,9 @@ func pickup_artifact():
 		new_pickup.position = position
 		get_parent().call_deferred("add_child", new_pickup)
 	queue_free()
+
+func get_description():
+	return artifact.get_description()
+
+func get_title():
+	return artifact.get_title()

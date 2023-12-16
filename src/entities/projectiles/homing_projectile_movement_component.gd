@@ -10,6 +10,7 @@ func _physics_process(delta):
 	
 	if distance_traveled_duration > range / 60:
 		parent.expire()
+		return
 	
 	var destination = parent.position + parent.launch_direction
 	parent = parent as BaseProjectile
@@ -18,9 +19,11 @@ func _physics_process(delta):
 	else:
 		var enemy = EnemiesHandler.get_enemy_closest_to(parent)
 		if enemy != null and is_instance_valid(enemy):
-			destination = enemy.position
+			var target_destination = enemy.global_position
+			if (target_destination - parent.global_position).length() < 200:
+				destination = target_destination
 	
-	direction = (destination -parent.position).normalized()
+	direction = (destination - parent.global_position).normalized()
 	velocity = direction.normalized() * speed
 	
 	var collision = parent.move_and_collide(velocity * delta)

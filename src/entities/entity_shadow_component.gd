@@ -24,7 +24,7 @@ func _draw():
 			if texture_size.y > pos.y:
 				pos.y = texture_size.y
 			if texture_size.x > x_val:
-				x_val = texture_size
+				x_val = texture_size.x
 	x_val /= 6
 	pos.x = 0
 	pos.y = (pos.y / 2) + height

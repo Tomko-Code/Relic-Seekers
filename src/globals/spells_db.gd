@@ -26,12 +26,12 @@ var spells = {
 			damage = 5,
 			speed = 400,
 			range = 100,
-			effects = [HomingEffect.new()]
+			effects = []
 		},
 		frames = load("res://assets/sprites/spells/fireball_spell.tres"),
 		effects = [],
 		max_mana = 100,
-		shoot_frequency = 0.1,
+		shoot_frequency = 0.5,
 	},
 	spark = {
 		type = "spark",

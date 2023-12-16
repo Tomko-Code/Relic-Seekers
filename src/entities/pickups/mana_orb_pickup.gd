@@ -14,3 +14,9 @@ func on_player_entered(player):
 		if current_spell != SpellsHandler.default_spell:
 			current_spell.add_mana(20)
 			queue_free()
+
+func get_description():
+	return "Mana Orb"
+
+func get_title():
+	return "Restore spell mana"

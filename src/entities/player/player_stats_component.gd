@@ -11,6 +11,8 @@ var flash_current_duration = 0
 var is_flashing = false
 var cur_flash = true
 
+signal invulnerability_end
+
 @export var _AnimatedSpriteComponent: AnimatedSpriteComponent
 
 var current_spell: Spell = GameData.save_file.player_inventory.get_current_spell()
@@ -91,3 +93,4 @@ func _physics_process(delta):
 			is_flashing = false
 			invulnerable_current_duration = 0
 			_AnimatedSpriteComponent.material = null
+			emit_signal("invulnerability_end")

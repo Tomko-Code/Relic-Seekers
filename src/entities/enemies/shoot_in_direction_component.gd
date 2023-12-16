@@ -1,4 +1,4 @@
-class_name GenericShootingComponent
+class_name ShootInDirectionComponent
 extends ShootingComponent
 
 #@onready var parent: CharacterBody2D = get_parent().get_parent()
@@ -7,16 +7,16 @@ extends ShootingComponent
 @export var _MovementComponent: MovementComponent
 
 var shooting_frequency_current = 0.0
-
+@export var shooting_direction = Vector2.RIGHT
 
 func get_direction():
-	return GameManager.player.global_position - parent.global_position
+	return shooting_direction
 
 func shoot(direction_vector):
 	var projectile = ProjectilesHandler.spawn_projectile(_StatsComponent.get_projectile_type(), false)
 	if not projectile:
 		push_error("FAILED TO SPAWN PROJECTILE")
-	projectile.position = parent.position
+	projectile.position = parent.position + (direction_vector.normalized()*32)
 	
 	projectile.initialize(_StatsComponent.get_projectile_data())
 	
@@ -34,23 +34,6 @@ func shoot(direction_vector):
 
 
 func _physics_process(delta):
-	var player = GameManager.player
-	if not player:
-		return
-		
-	var space_rid = parent.get_world_2d().space
-	var space_state = PhysicsServer2D.space_get_direct_state(space_rid)
-	
-	
-	var query = PhysicsRayQueryParameters2D.create(parent.global_position, player.global_position)
-	query.collision_mask = 2
-	var result = space_state.intersect_ray(query)
-	
-	if result:
-		is_shooting = false
-	else:
-		is_shooting = true
-	
 	if is_shooting and shooting_frequency_current == 0:
 		shoot(get_direction())
 	

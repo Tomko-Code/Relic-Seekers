@@ -1,0 +1,59 @@
+[gd_scene load_steps=10 format=3 uid="uid://ckm7fyfhty7w3"]
+
+[ext_resource type="Script" path="res://src/entities/pickups/purchasable_wrapper.gd" id="1_bv3mw"]
+[ext_resource type="Script" path="res://src/entities/entity_shadow_component.gd" id="2_tbq6r"]
+[ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="3_jgq54"]
+[ext_resource type="Texture2D" uid="uid://bu03b6pa34u7a" path="res://assets/art/icons/gold.tres" id="4_684e2"]
+[ext_resource type="Script" path="res://src/systems/pickup_animation_system.gd" id="4_n4g2y"]
+[ext_resource type="PackedScene" uid="uid://bdlxq5bh2qqu2" path="res://src/entities/interactable/interactable_component.tscn" id="5_nx5wm"]
+[ext_resource type="Theme" uid="uid://byoo2gb70drio" path="res://assets/themes/interactable.tres" id="7_1xadq"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_3n1mr"]
+device = -1
+keycode = 70
+unicode = 102
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eyyp1"]
+radius = 16.0
+
+[node name="PurchasableWrapper" type="Node2D" node_paths=PackedStringArray("cost_label", "_InteractibleComponent", "_AnimatedSpriteComponent", "_EntityShadowComponent", "placeholder_sprite")]
+script = ExtResource("1_bv3mw")
+cost_label = NodePath("Cost")
+_InteractibleComponent = NodePath("InteractableComponent")
+_AnimatedSpriteComponent = NodePath("Components/AnimatedSpriteComponent")
+_EntityShadowComponent = NodePath("Components/EntityShadowComponent")
+placeholder_sprite = NodePath("Components/AnimatedSpriteComponent/Sprite2D")
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="EntityShadowComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("_AnimatedSpriteComponent")]
+script = ExtResource("2_tbq6r")
+_AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
+
+[node name="AnimatedSpriteComponent" type="Node2D" parent="Components"]
+script = ExtResource("3_jgq54")
+
+[node name="Sprite2D" type="Sprite2D" parent="Components/AnimatedSpriteComponent"]
+texture = ExtResource("4_684e2")
+
+[node name="PickupAnimationSystem" type="Node" parent="Components" node_paths=PackedStringArray("_AnimatedSpriteComponent")]
+script = ExtResource("4_n4g2y")
+is_floating = true
+_AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
+
+[node name="InteractableComponent" parent="." instance=ExtResource("5_nx5wm")]
+interaction_input = SubResource("InputEventKey_3n1mr")
+input_text = "F"
+shape = SubResource("CircleShape2D_eyyp1")
+
+[node name="Cost" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme = ExtResource("7_1xadq")
+
+[connection signal="interacted" from="InteractableComponent" to="." method="on_interacted"]

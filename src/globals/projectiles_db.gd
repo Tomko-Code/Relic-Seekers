@@ -37,5 +37,12 @@ var projectiles: Dictionary = {
 		spawn_particles = Color.DARK_GREEN,
 		finish_particles = Color.DARK_GREEN,
 		trail_particles = Color.DARK_GREEN,
-	}
+	},
+	hostile_projectile = {
+		sprite = load("res://assets/sprites/projectiles/hostile_projectile_sprite.tres"),
+		spawn_particles = Color.DIM_GRAY,
+		finish_particles = Color.DIM_GRAY,
+		trail_particles = Color.DIM_GRAY,
+	},
+	
 }

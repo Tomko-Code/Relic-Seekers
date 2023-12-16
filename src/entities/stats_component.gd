@@ -9,19 +9,22 @@ extends Node
 @export var shoot_damage: int = 1
 @export var shoot_frequency: float = 1
 
-@export var projectile_type: String
+@export var projectile_type: String = "hostile_projectile"
 
 @export var max_health: float = 10
 var current_health: float = max_health
 
 func get_projectile_data():
-	return {
+	var p_data = {
 		type = projectile_type,
 		speed = shoot_speed,
 		range = shoot_range,
 		damage = shoot_damage,
 		effects = get_shoot_effects()
 	}
+	if ProjectilesDb.projectiles.has(projectile_type):
+		p_data.merge(ProjectilesDb.projectiles[projectile_type])
+	return p_data
 
 func get_projectile_type():
 	return projectile_type
