@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b001mo8qgm6le"]
+[gd_scene load_steps=5 format=3 uid="uid://b001mo8qgm6le"]
 
 [ext_resource type="Script" path="res://src/entities/enemies/health_bar_component.gd" id="1_tgty3"]
+[ext_resource type="Texture2D" uid="uid://dx0iro2ur10pt" path="res://assets/art/icons/empty_heart.tres" id="2_bbjye"]
+[ext_resource type="Texture2D" uid="uid://di6h3mqc3bfpf" path="res://assets/art/icons/full_heart.tres" id="3_5jebv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gdwb7"]
 
@@ -13,13 +15,20 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -31.0
-offset_top = -48.0
-offset_right = 31.0
-offset_bottom = -21.0
+offset_left = -8.0
+offset_top = -45.0
+offset_right = 8.0
+offset_bottom = -29.0
 grow_horizontal = 2
 grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxEmpty_gdwb7")
 
-[node name="ProgressBar" type="ProgressBar" parent="Container"]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Container"]
+custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
+value = 50.0
+nine_patch_stretch = true
+texture_under = ExtResource("2_bbjye")
+texture_progress = ExtResource("3_5jebv")

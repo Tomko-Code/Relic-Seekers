@@ -12,4 +12,4 @@ func _on_timer_timeout():
 	update_health()
 	
 func update_health():
-	$Container/ProgressBar.value = (_StatsComponent.current_health / _StatsComponent.max_health) * 100
+	$Container/TextureProgressBar.value = (_StatsComponent.current_health / _StatsComponent.max_health) * 100
