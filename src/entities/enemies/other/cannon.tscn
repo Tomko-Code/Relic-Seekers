@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://cd5io7jujipyr"]
+
+[ext_resource type="Script" path="res://src/entities/enemies/other/cannon.gd" id="1_d10of"]
+[ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="2_e8w6a"]
+[ext_resource type="SpriteFrames" uid="uid://c1jl3wq1ybw5l" path="res://assets/sprites/mobs/cannon_sprite.tres" id="3_02e8s"]
+[ext_resource type="Script" path="res://src/entities/stats_component.gd" id="4_tpbo7"]
+[ext_resource type="Script" path="res://src/entities/enemies/shoot_in_direction_component.gd" id="5_avonw"]
+[ext_resource type="Script" path="res://src/systems/movement/four_direction_animation_system.gd" id="6_3fc4h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mgiix"]
+size = Vector2(48, 48)
+
+[node name="Cannon" type="CharacterBody2D" node_paths=PackedStringArray("_ShootInDirectionComponent")]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_d10of")
+_ShootInDirectionComponent = NodePath("Components/ShootInDirectionComponent")
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="AnimatedSpriteComponent" type="Node2D" parent="Components"]
+script = ExtResource("2_e8w6a")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Components/AnimatedSpriteComponent"]
+sprite_frames = ExtResource("3_02e8s")
+animation = &"idle_right"
+
+[node name="StatsComponent" type="Node" parent="Components"]
+script = ExtResource("4_tpbo7")
+
+[node name="ShootInDirectionComponent" type="Node" parent="Components" node_paths=PackedStringArray("_StatsComponent")]
+script = ExtResource("5_avonw")
+_StatsComponent = NodePath("../StatsComponent")
+
+[node name="FourDirectionAnimationSystem" type="Node" parent="Components" node_paths=PackedStringArray("_ShootingComponent", "_AnimatedSpriteComponent")]
+script = ExtResource("6_3fc4h")
+_ShootingComponent = NodePath("../ShootInDirectionComponent")
+_AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mgiix")

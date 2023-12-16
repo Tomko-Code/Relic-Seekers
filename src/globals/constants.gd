@@ -15,6 +15,13 @@ enum all_directions {
 	RIGHT_DOWN
 }
 
+enum cross_directions {
+	RIGHT = 0,
+	UP = 2,
+	LEFT = 4,
+	DOWN = 6,
+}
+
 enum collision_layers {
 	PLAYER = 1,
 	STATIC,

@@ -9,7 +9,7 @@ extends Node
 @export var shoot_damage: int = 1
 @export var shoot_frequency: float = 1
 
-@export var projectile_type: String
+@export var projectile_type: String = "hostile_projectile"
 
 @export var max_health: float = 10
 var current_health: float = max_health

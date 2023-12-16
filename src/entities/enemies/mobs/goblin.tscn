@@ -31,7 +31,6 @@ _AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
 
 [node name="StatsComponent" type="Node" parent="Components"]
 script = ExtResource("3_36ssj")
-projectile_type = "hostile_projectile"
 
 [node name="HitboxComponent" type="Area2D" parent="Components"]
 collision_layer = 4
@@ -57,11 +56,10 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = ExtResource("7_pb4we")
 animation = &"idle_left_down"
 
-[node name="FourDirectionMovementSystemExtra" type="Node" parent="Components" node_paths=PackedStringArray("_MovementComponent", "_AnimatedSpriteComponent", "_ShootingComponent")]
+[node name="FourDirectionMovementSystemExtra" type="Node" parent="Components" node_paths=PackedStringArray("_MovementComponent", "_AnimatedSpriteComponent")]
 script = ExtResource("8_6t6lx")
 _MovementComponent = NodePath("../FollowMovementComponent")
 _AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
-_ShootingComponent = NodePath("")
 
 [node name="HealthBarComponent" parent="Components" node_paths=PackedStringArray("_StatsComponent") instance=ExtResource("9_xi8oq")]
 _StatsComponent = NodePath("../StatsComponent")

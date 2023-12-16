@@ -29,7 +29,6 @@ _AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
 
 [node name="StatsComponent" type="Node" parent="Components"]
 script = ExtResource("3_o1gym")
-projectile_type = "hostile_projectile"
 
 [node name="HitboxComponent" type="Area2D" parent="Components"]
 collision_layer = 4
