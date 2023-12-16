@@ -1,15 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://d2bsjmqg1fe1h"]
+[gd_scene load_steps=14 format=3 uid="uid://drodh04swkwc0"]
 
-[ext_resource type="Script" path="res://src/entities/player/player_entity.gd" id="1_7c5ui"]
-[ext_resource type="AudioStream" uid="uid://bq42j7hi8q3h5" path="res://assets/audio/sfx/516858__matrixxx__retro-drop-03.wav" id="2_v3sqh"]
-[ext_resource type="Script" path="res://src/entities/player/user_movement_component.gd" id="2_xekry"]
-[ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="3_t82yd"]
-[ext_resource type="SpriteFrames" uid="uid://ch01odi3jhnmr" path="res://assets/sprites/player_tmp.tres" id="5_0x5y7"]
-[ext_resource type="Script" path="res://src/entities/player/user_mouse_shooting_component.gd" id="7_ls8cw"]
-[ext_resource type="Script" path="res://src/entities/player/player_stats_component.gd" id="8_y5dsv"]
-[ext_resource type="Script" path="res://src/systems/movement/four_direction_animation_system_extra.gd" id="9_b4i7k"]
-[ext_resource type="Script" path="res://src/systems/combat/combat_system.gd" id="10_tlm1e"]
-[ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="10_vk5ky"]
+[ext_resource type="Script" path="res://src/entities/player/player_entity.gd" id="1_k7x4s"]
+[ext_resource type="AudioStream" uid="uid://bq42j7hi8q3h5" path="res://assets/audio/sfx/516858__matrixxx__retro-drop-03.wav" id="2_2xnm8"]
+[ext_resource type="Script" path="res://src/entities/player/user_movement_component.gd" id="3_grivu"]
+[ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="4_6fr37"]
+[ext_resource type="SpriteFrames" uid="uid://ch01odi3jhnmr" path="res://assets/sprites/player_tmp.tres" id="5_e2jqa"]
+[ext_resource type="Script" path="res://src/entities/player/user_mouse_shooting_component.gd" id="6_qdtvo"]
+[ext_resource type="Script" path="res://src/entities/player/player_stats_component.gd" id="7_tw7ps"]
+[ext_resource type="Script" path="res://src/systems/movement/four_direction_animation_system_extra.gd" id="8_xny8l"]
+[ext_resource type="Script" path="res://src/systems/combat/combat_system.gd" id="9_mi762"]
+[ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="10_crqmy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eip8d"]
 size = Vector2(48, 48)
@@ -23,7 +23,7 @@ size = Vector2(32, 32)
 [node name="PlayerEntity" type="CharacterBody2D" node_paths=PackedStringArray("_UserMovementComponent", "_AnimatedSpriteComponent", "_PlayerStatsComponent", "pit_hit_box")]
 z_index = 1
 collision_mask = 2
-script = ExtResource("1_7c5ui")
+script = ExtResource("1_k7x4s")
 _UserMovementComponent = NodePath("Components/UserMovementComponent")
 _AnimatedSpriteComponent = NodePath("Components/AnimatedSpriteComponent")
 _PlayerStatsComponent = NodePath("Components/PlayerStatsComponent")
@@ -40,7 +40,7 @@ collision_mask = 256
 shape = SubResource("CircleShape2D_cn6ma")
 
 [node name="AudioPitFall" type="AudioStreamPlayer" parent="PitHitBox"]
-stream = ExtResource("2_v3sqh")
+stream = ExtResource("2_2xnm8")
 volume_db = -15.0
 pitch_scale = 2.5
 bus = &"SFX"
@@ -48,41 +48,41 @@ bus = &"SFX"
 [node name="Components" type="Node2D" parent="."]
 
 [node name="UserMovementComponent" type="Node" parent="Components" node_paths=PackedStringArray("_AnimatedSpriteComponent")]
-script = ExtResource("2_xekry")
+script = ExtResource("3_grivu")
 _AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
 
 [node name="AnimatedSpriteComponent" type="Node2D" parent="Components"]
-script = ExtResource("3_t82yd")
+script = ExtResource("4_6fr37")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="Components/AnimatedSpriteComponent"]
 use_parent_material = true
-sprite_frames = ExtResource("5_0x5y7")
-animation = &"new_animation"
+sprite_frames = ExtResource("5_e2jqa")
+animation = &"move_up"
 
 [node name="UserMouseShootingComponent" type="Node" parent="Components" node_paths=PackedStringArray("_PlayerStatsComponent", "_MovementComponent")]
-script = ExtResource("7_ls8cw")
+script = ExtResource("6_qdtvo")
 _PlayerStatsComponent = NodePath("../PlayerStatsComponent")
 _MovementComponent = NodePath("../UserMovementComponent")
 
 [node name="PlayerStatsComponent" type="Node" parent="Components" node_paths=PackedStringArray("_AnimatedSpriteComponent")]
-script = ExtResource("8_y5dsv")
+script = ExtResource("7_tw7ps")
 _AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
 
 [node name="FourDirectionMovementSystemExtra" type="Node" parent="Components" node_paths=PackedStringArray("_MovementComponent", "_AnimatedSpriteComponent", "_ShootingComponent")]
-script = ExtResource("9_b4i7k")
+script = ExtResource("8_xny8l")
 _MovementComponent = NodePath("../UserMovementComponent")
 _AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
 _ShootingComponent = NodePath("../UserMouseShootingComponent")
 
 [node name="CombatSystem" type="Node" parent="Components" node_paths=PackedStringArray("_HitboxComponent", "_StatsComponent", "_MovementComponent")]
-script = ExtResource("10_tlm1e")
+script = ExtResource("9_mi762")
 _HitboxComponent = NodePath("../HitboxComponent")
 _StatsComponent = NodePath("../PlayerStatsComponent")
 _MovementComponent = NodePath("../UserMovementComponent")
 
 [node name="HitboxComponent" type="Area2D" parent="Components"]
 collision_mask = 16
-script = ExtResource("10_vk5ky")
+script = ExtResource("10_crqmy")
 
 [node name="Hitbox" type="CollisionShape2D" parent="Components/HitboxComponent"]
 shape = SubResource("RectangleShape2D_kummr")
