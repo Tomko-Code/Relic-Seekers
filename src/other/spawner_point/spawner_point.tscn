@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/other/spawner_point/spawner_point.gd" id="1_mki81"]
 [ext_resource type="Shader" path="res://src/other/spawner_point/spawn_test.gdshader" id="2_i0675"]
-[ext_resource type="Texture2D" uid="uid://bpn183bgv7lmr" path="res://tmp/huh.png" id="3_jbpwx"]
+[ext_resource type="Texture2D" uid="uid://bpn183bgv7lmr" path="res://assets/sfx/spawn_sprite.png" id="3_jbpwx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i2a35"]
 shader = ExtResource("2_i0675")
