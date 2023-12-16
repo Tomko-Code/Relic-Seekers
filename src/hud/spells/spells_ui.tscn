@@ -20,7 +20,7 @@ offset_right = 1152.0
 offset_bottom = 204.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_emlgu")
 script = ExtResource("1_vmlpn")
-spells_container = NodePath("HBoxContainer/PanelContainer/MarginContainer/SpellSlots")
+spells_container = NodePath("PanelContainer/MarginContainer/SpellSlots")
 artifacts_container = NodePath("HBoxContainer/MarginContainer/VBoxContainer/ArtifactSlots")
 current_spell_slot = NodePath("HBoxContainer/MarginContainer/VBoxContainer/CurrentSpell")
 
@@ -59,40 +59,40 @@ show_mana = false
 [node name="AttackSpeedIndicator" parent="HBoxContainer/MarginContainer/VBoxContainer/CurrentSpell" instance=ExtResource("3_wcgkk")]
 layout_mode = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 8
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="SpellSlots" type="HBoxContainer" parent="HBoxContainer/PanelContainer/MarginContainer"]
+[node name="SpellSlots" type="HBoxContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 
-[node name="SpellSlot0" parent="HBoxContainer/PanelContainer/MarginContainer/SpellSlots" instance=ExtResource("1_l7fwu")]
+[node name="SpellSlot0" parent="PanelContainer/MarginContainer/SpellSlots" instance=ExtResource("1_l7fwu")]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_m6dft")
 shortcut = "1"
 
-[node name="SpellSlot1" parent="HBoxContainer/PanelContainer/MarginContainer/SpellSlots" instance=ExtResource("1_l7fwu")]
+[node name="SpellSlot1" parent="PanelContainer/MarginContainer/SpellSlots" instance=ExtResource("1_l7fwu")]
 layout_mode = 2
 shortcut = "2"
 
-[node name="SpellSlot2" parent="HBoxContainer/PanelContainer/MarginContainer/SpellSlots" instance=ExtResource("1_l7fwu")]
+[node name="SpellSlot2" parent="PanelContainer/MarginContainer/SpellSlots" instance=ExtResource("1_l7fwu")]
 layout_mode = 2
 shortcut = "3"
 
-[node name="SpellSlot3" parent="HBoxContainer/PanelContainer/MarginContainer/SpellSlots" instance=ExtResource("1_l7fwu")]
+[node name="SpellSlot3" parent="PanelContainer/MarginContainer/SpellSlots" instance=ExtResource("1_l7fwu")]
 layout_mode = 2
 shortcut = "4"
 
-[node name="SpellSlot4" parent="HBoxContainer/PanelContainer/MarginContainer/SpellSlots" instance=ExtResource("1_l7fwu")]
+[node name="SpellSlot4" parent="PanelContainer/MarginContainer/SpellSlots" instance=ExtResource("1_l7fwu")]
 layout_mode = 2
 shortcut = "5"
