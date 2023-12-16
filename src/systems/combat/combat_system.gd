@@ -1,7 +1,6 @@
 class_name CombatSystem
 extends Node
 
-
 @export var _HitboxComponent: HitboxComponent
 @export var _StatsComponent: StatsComponent
 @export var _MovementComponent: MovementComponent
@@ -21,18 +20,26 @@ func _on_bullet_enter_hitbox(_area):
 			return
 	if _area is HitboxComponent:
 		var hitbox: HitboxComponent = _area
-		var bullet = hitbox.get_entity()
-		if bullet is BaseProjectile and get_entity() in bullet.already_hit:
+		var entity = hitbox.get_entity()
+		if entity is BaseProjectile and get_entity() in entity.already_hit:
 			return
+			
+		if _StatsComponent and (entity is BaseProjectile or entity is DamageArea):
+			_StatsComponent.change_health(entity.damage)
+			_MovementComponent.recoil(entity)
 		
-		if _StatsComponent and bullet is BaseProjectile:
-			_StatsComponent.change_health(bullet.damage)
+		if _StatsComponent is PlayerStatsComponent and entity is DamageArea:
+			_StatsComponent.invulnerability_end.connect(re_check_area_damage)
 		
-		if bullet is BaseProjectile:
-			bullet = bullet as BaseProjectile
-			bullet.hit(get_entity())
-			_MovementComponent.recoil(bullet)
-			if bullet.is_friendly:
+		if entity is BaseProjectile:
+			entity = entity as BaseProjectile
+			entity.hit(get_entity())
+			if entity.is_friendly:
 				var artifact = GameData.save_file.player_inventory.active_artifact
 				if artifact:
-					artifact.add_charge(bullet.damage)
+					artifact.add_charge(entity.damage)
+
+func re_check_area_damage():
+	_StatsComponent.invulnerability_end.disconnect(re_check_area_damage)
+	for area in _HitboxComponent.get_overlapping_areas():
+		_on_bullet_enter_hitbox(area)

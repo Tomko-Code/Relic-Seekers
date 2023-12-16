@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://blv5sfddyxsl6"]
+
+[ext_resource type="Script" path="res://src/entities/projectiles/damage_area.gd" id="1_f2apv"]
+[ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="2_bkv7u"]
+[ext_resource type="Script" path="res://src/entities/stats_component.gd" id="3_mj2kb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7b1g1"]
+radius = 16.0
+
+[node name="DamageArea" type="CharacterBody2D" node_paths=PackedStringArray("stats", "hitbox")]
+script = ExtResource("1_f2apv")
+stats = NodePath("Components/StatsComponent")
+hitbox = NodePath("Components/HitboxComponent")
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="HitboxComponent" type="Area2D" parent="Components"]
+script = ExtResource("2_bkv7u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/HitboxComponent"]
+shape = SubResource("CircleShape2D_7b1g1")
+
+[node name="StatsComponent" type="Node" parent="Components"]
+script = ExtResource("3_mj2kb")
+max_health = 0.0

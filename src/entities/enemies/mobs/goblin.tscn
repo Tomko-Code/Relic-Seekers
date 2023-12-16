@@ -1,0 +1,91 @@
+[gd_scene load_steps=14 format=3 uid="uid://drjmi0qbkv2si"]
+
+[ext_resource type="Script" path="res://src/entities/enemies/mobs/goblin.gd" id="1_uk0wi"]
+[ext_resource type="Script" path="res://src/entities/entity_shadow_component.gd" id="2_rqcx7"]
+[ext_resource type="Script" path="res://src/entities/stats_component.gd" id="3_36ssj"]
+[ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="4_e0u06"]
+[ext_resource type="Script" path="res://src/systems/combat/combat_system.gd" id="5_vxiji"]
+[ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="6_hvmpo"]
+[ext_resource type="SpriteFrames" uid="uid://ch01odi3jhnmr" path="res://assets/sprites/player_tmp.tres" id="7_pb4we"]
+[ext_resource type="Script" path="res://src/systems/movement/four_direction_animation_system_extra.gd" id="8_6t6lx"]
+[ext_resource type="PackedScene" uid="uid://b001mo8qgm6le" path="res://src/entities/enemies/health_bar_component.tscn" id="9_xi8oq"]
+[ext_resource type="Script" path="res://src/entities/enemies/follow_movement_component.gd" id="10_03hl7"]
+[ext_resource type="PackedScene" uid="uid://blv5sfddyxsl6" path="res://src/entities/projectiles/damage_area.tscn" id="11_7dbxj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k3xfx"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6jtr7"]
+size = Vector2(32, 32)
+
+[node name="Goblin" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_uk0wi")
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="EntityShadowComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("_AnimatedSpriteComponent")]
+script = ExtResource("2_rqcx7")
+_AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
+
+[node name="StatsComponent" type="Node" parent="Components"]
+script = ExtResource("3_36ssj")
+projectile_type = "hostile_projectile"
+
+[node name="HitboxComponent" type="Area2D" parent="Components"]
+collision_layer = 4
+collision_mask = 8
+script = ExtResource("4_e0u06")
+
+[node name="Hitbox" type="CollisionShape2D" parent="Components/HitboxComponent"]
+visible = false
+shape = SubResource("RectangleShape2D_k3xfx")
+
+[node name="CombatSystem" type="Node" parent="Components" node_paths=PackedStringArray("_HitboxComponent", "_StatsComponent", "_MovementComponent")]
+script = ExtResource("5_vxiji")
+_HitboxComponent = NodePath("../HitboxComponent")
+_StatsComponent = NodePath("../StatsComponent")
+_MovementComponent = NodePath("../FollowMovementComponent")
+
+[node name="AnimatedSpriteComponent" type="Node2D" parent="Components"]
+script = ExtResource("6_hvmpo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Components/AnimatedSpriteComponent"]
+modulate = Color(0, 0.729412, 0.262745, 1)
+scale = Vector2(0.5, 0.5)
+sprite_frames = ExtResource("7_pb4we")
+animation = &"idle_left_down"
+
+[node name="FourDirectionMovementSystemExtra" type="Node" parent="Components" node_paths=PackedStringArray("_MovementComponent", "_AnimatedSpriteComponent", "_ShootingComponent")]
+script = ExtResource("8_6t6lx")
+_MovementComponent = NodePath("../FollowMovementComponent")
+_AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
+_ShootingComponent = NodePath("")
+
+[node name="HealthBarComponent" parent="Components" node_paths=PackedStringArray("_StatsComponent") instance=ExtResource("9_xi8oq")]
+_StatsComponent = NodePath("../StatsComponent")
+
+[node name="FollowMovementComponent" type="Node" parent="Components" node_paths=PackedStringArray("nav_agent")]
+script = ExtResource("10_03hl7")
+nav_agent = NodePath("../../NavigationAgent2D")
+
+[node name="DamageArea" parent="Components" node_paths=PackedStringArray("hitbox") instance=ExtResource("11_7dbxj")]
+hitbox = NodePath("../ContactDamageHitbox")
+
+[node name="ContactDamageHitbox" type="Area2D" parent="Components" node_paths=PackedStringArray("entity")]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("4_e0u06")
+entity = NodePath("../DamageArea")
+
+[node name="Hitbox" type="CollisionShape2D" parent="Components/ContactDamageHitbox"]
+visible = false
+shape = SubResource("RectangleShape2D_k3xfx")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_6jtr7")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+radius = 60.0
