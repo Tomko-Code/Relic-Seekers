@@ -22,16 +22,18 @@ func get_direction():
 	return direction
 
 func make_path():
-	if _ShootingComponent.is_shooting and false:
-		nav_agent.target_position = parent.position
+	if _ShootingComponent.is_shooting:
+		nav_agent.target_position = parent.global_position
 	else:
 		nav_agent.target_position = GameManager.player.global_position
 	
 
 func _physics_process(delta):
-	direction = Vector2.ZERO
-	direction = parent.to_local(nav_agent.get_next_path_position()).normalized()
-	
+	var next_position = nav_agent.get_next_path_position()
+	if (next_position - parent.global_position).length() < 4:
+		direction = Vector2.ZERO
+	else:
+		direction = parent.to_local(next_position).normalized()
 	
 	if direction == Vector2.ZERO:
 		is_idle = true

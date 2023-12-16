@@ -10,7 +10,7 @@ var shooting_frequency_current = 0.0
 
 
 func get_direction():
-	return GameManager.player.position - parent.position
+	return GameManager.player.global_position - parent.global_position
 
 func shoot(direction_vector):
 	var projectile = ProjectilesHandler.spawn_projectile(_StatsComponent.get_projectile_type(), false)
@@ -42,7 +42,7 @@ func _physics_process(delta):
 	var space_state = PhysicsServer2D.space_get_direct_state(space_rid)
 	
 	
-	var query = PhysicsRayQueryParameters2D.create(parent.position, player.position)
+	var query = PhysicsRayQueryParameters2D.create(parent.global_position, player.global_position)
 	query.collision_mask = 2
 	var result = space_state.intersect_ray(query)
 	
