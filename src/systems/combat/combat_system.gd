@@ -29,7 +29,9 @@ func _on_bullet_enter_hitbox(_area):
 			_MovementComponent.recoil(entity)
 		
 		if _StatsComponent is PlayerStatsComponent and entity is DamageArea:
-			_StatsComponent.invulnerability_end.connect(re_check_area_damage)
+			_StatsComponent = _StatsComponent as PlayerStatsComponent
+			if not _StatsComponent.invulnerability_end.is_connected(re_check_area_damage):
+				_StatsComponent.invulnerability_end.connect(re_check_area_damage)
 		
 		if entity is BaseProjectile:
 			entity = entity as BaseProjectile

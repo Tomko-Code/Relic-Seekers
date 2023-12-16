@@ -17,4 +17,4 @@ func recoil(entity: Node2D):
 		parent.velocity += 100.0 * entity.damage * entity.launch_direction.normalized() / 2
 	else:
 		var recoil_direction = (parent.global_position - entity.global_position).normalized()
-		parent.velocity += 100 * recoil_direction
+		parent.velocity += 200 * recoil_direction
