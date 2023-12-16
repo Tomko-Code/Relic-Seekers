@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://blc3na0tm1ve3"]
+[gd_scene load_steps=13 format=3 uid="uid://blc3na0tm1ve3"]
 
 [ext_resource type="Script" path="res://src/entities/Interactables/thaladon/thaladon.gd" id="1_217d3"]
 [ext_resource type="PackedScene" uid="uid://bdlxq5bh2qqu2" path="res://src/entities/interactable/interactable_component.tscn" id="1_gvcdu"]
-[ext_resource type="Texture2D" uid="uid://dgpyqrwvecnt7" path="res://assets/art/sprites/entities/thaladon/thaladon.png" id="2_thiqa"]
+[ext_resource type="Script" path="res://src/entities/entity_shadow_component.gd" id="2_4tsbg"]
+[ext_resource type="Texture2D" uid="uid://dgr68xynq4jrj" path="res://assets/art/sprites/npc/old_man.png" id="3_fy2ps"]
+[ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="4_q83h4"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_l3ux4"]
 device = -1
@@ -12,39 +14,50 @@ unicode = 120
 [sub_resource type="CircleShape2D" id="CircleShape2D_od20g"]
 radius = 194.44
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1q1ai"]
-atlas = ExtResource("2_thiqa")
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmkfo"]
+atlas = ExtResource("3_fy2ps")
 region = Rect2(0, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6uip2"]
-atlas = ExtResource("2_thiqa")
+[sub_resource type="AtlasTexture" id="AtlasTexture_4outs"]
+atlas = ExtResource("3_fy2ps")
 region = Rect2(48, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q1rkg"]
-atlas = ExtResource("2_thiqa")
+[sub_resource type="AtlasTexture" id="AtlasTexture_22l4w"]
+atlas = ExtResource("3_fy2ps")
 region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxfat"]
+atlas = ExtResource("3_fy2ps")
+region = Rect2(144, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p5g5f"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1q1ai")
+"texture": SubResource("AtlasTexture_mmkfo")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6uip2")
+"texture": SubResource("AtlasTexture_4outs")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_q1rkg")
+"texture": SubResource("AtlasTexture_22l4w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxfat")
 }],
 "loop": true,
 "name": &"Idle",
-"speed": 5.0
+"speed": 3.0
 }]
 
 [node name="thaladon" type="Node2D"]
 script = ExtResource("1_217d3")
 
 [node name="Components" type="Node2D" parent="."]
+
+[node name="ShadowComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("_AnimatedSpriteComponent")]
+script = ExtResource("2_4tsbg")
+_AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
 
 [node name="InteractableComponent" parent="Components" instance=ExtResource("1_gvcdu")]
 interaction_input = SubResource("InputEventKey_l3ux4")
@@ -54,11 +67,14 @@ input_text = "X"
 box_position = Vector2(0, 10)
 shape = SubResource("CircleShape2D_od20g")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSpriteComponent" type="Node2D" parent="Components"]
+script = ExtResource("4_q83h4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Components/AnimatedSpriteComponent"]
 sprite_frames = SubResource("SpriteFrames_p5g5f")
 animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.203555
+frame_progress = 0.932059
 
 [connection signal="focus_change" from="Components/InteractableComponent" to="." method="_on_interactable_component_focus_change"]
 [connection signal="interacted" from="Components/InteractableComponent" to="." method="_on_interactable_component_interacted"]
