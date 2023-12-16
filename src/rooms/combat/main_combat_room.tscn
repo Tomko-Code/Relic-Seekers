@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dq7dfu32hthvr"]
+[gd_scene load_steps=6 format=3 uid="uid://dq7dfu32hthvr"]
 
 [ext_resource type="PackedScene" uid="uid://bnrt7xcfjh5bx" path="res://src/zone/room.tscn" id="1_ig6x2"]
 [ext_resource type="Script" path="res://src/rooms/combat/main_combat_room.gd" id="2_qmh12"]
 [ext_resource type="PackedScene" uid="uid://cyflwsuyftab3" path="res://src/zone/CircleTeleport.tscn" id="3_g4oiu"]
 [ext_resource type="TileSet" uid="uid://cbtd8fjc7crdq" path="res://assets/tileset/path-tileset.tres" id="3_r3b8n"]
+[ext_resource type="Script" path="res://src/spells/spell_test_spawn.gd" id="5_7lwpr"]
 
 [node name="MainCombatRoom" instance=ExtResource("1_ig6x2")]
 script = ExtResource("2_qmh12")
@@ -22,3 +23,9 @@ layer_0/tile_data = PackedInt32Array(1900562, 524288, 1, 1966098, 524288, 1, 196
 
 [node name="Teleport" parent="." index="4" instance=ExtResource("3_g4oiu")]
 position = Vector2(1000, 1920)
+
+[node name="SpellTestSpawn" type="Marker2D" parent="." index="5"]
+position = Vector2(998, 1143)
+script = ExtResource("5_7lwpr")
+random_spell = true
+is_purchasable = true
