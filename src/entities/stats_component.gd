@@ -15,13 +15,16 @@ extends Node
 var current_health: float = max_health
 
 func get_projectile_data():
-	return {
+	var p_data = {
 		type = projectile_type,
 		speed = shoot_speed,
 		range = shoot_range,
 		damage = shoot_damage,
 		effects = get_shoot_effects()
 	}
+	if ProjectilesDb.projectiles.has(projectile_type):
+		p_data.merge(ProjectilesDb.projectiles[projectile_type])
+	return p_data
 
 func get_projectile_type():
 	return projectile_type
