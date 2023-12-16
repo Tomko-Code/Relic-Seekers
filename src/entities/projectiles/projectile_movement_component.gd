@@ -39,6 +39,8 @@ func _physics_process(delta):
 	
 	if distance_traveled_duration > range / 60:
 		parent.expire()
+		return
+	
 	velocity = direction.normalized() * speed
 	
 	var collision = parent.move_and_collide(velocity * delta)

@@ -10,6 +10,7 @@ func _physics_process(delta):
 	
 	if distance_traveled_duration > range / 60:
 		parent.expire()
+		return
 	
 	var destination = parent.position + parent.launch_direction
 	parent = parent as BaseProjectile
