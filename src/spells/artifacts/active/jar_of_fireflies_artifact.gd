@@ -3,9 +3,7 @@ extends ActiveArtifact
 
 
 func _init():
-	#frames = null
-	max_charge = 0
-	pass
+	max_charge = 200
 
 func use():
 	for x in range(5):

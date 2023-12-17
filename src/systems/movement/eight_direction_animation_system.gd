@@ -24,25 +24,38 @@ func get_direction_constant(vector: Vector2):
 				return x-1
 	return Constants.all_directions.RIGHT
 
-
 func _process(delta):
 	if _ShootingComponent:
 		match get_direction_constant(_ShootingComponent.get_direction()):
 			Constants.all_directions.RIGHT:
-				_AnimatedSpriteComponent.set_animation("move_right")
+				set_animation("right")
 			Constants.all_directions.RIGHT_UP:
-				_AnimatedSpriteComponent.set_animation("move_up_right")
+				set_animation("up_right")
 			Constants.all_directions.UP:
-				_AnimatedSpriteComponent.set_animation("move_up")
+				set_animation("up")
 			Constants.all_directions.LEFT_UP:
-				_AnimatedSpriteComponent.set_animation("move_left_up")
+				set_animation("left_up")
 			Constants.all_directions.LEFT:
-				_AnimatedSpriteComponent.set_animation("move_left")
+				set_animation("left")
 			Constants.all_directions.LEFT_DOWN:
-				_AnimatedSpriteComponent.set_animation("move_left_down")
+				set_animation("left_down")
 			Constants.all_directions.DOWN:
-				_AnimatedSpriteComponent.set_animation("move_down")
+				set_animation("down")
 			Constants.all_directions.RIGHT_DOWN:
-				_AnimatedSpriteComponent.set_animation("move_right_down")
+				set_animation("right_down")
 	if _MovementComponent.is_rotable:
 		_AnimatedSpriteComponent.rotation = _MovementComponent.get_direction().angle()
+
+
+func set_animation(animation: String):
+	var animation_direction = 1
+	var movment_direction = get_direction_constant(_ShootingComponent.get_direction())
+	var mouse_direction = get_direction_constant(_MovementComponent.get_direction())
+	
+	if abs(movment_direction - mouse_direction) in [3,4,5]:
+		animation_direction = -1
+	
+	if _MovementComponent.is_idle:
+		_AnimatedSpriteComponent.set_animation("idle_" + animation, animation_direction)
+	else:
+		_AnimatedSpriteComponent.set_animation("move_" + animation, animation_direction)

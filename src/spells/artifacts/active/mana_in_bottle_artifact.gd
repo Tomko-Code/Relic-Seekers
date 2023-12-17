@@ -3,7 +3,7 @@ extends ActiveArtifact
 
 
 func _init():
-	max_charge = 0
+	max_charge = 200
 	
 func use():	
 	var player = GameManager.player

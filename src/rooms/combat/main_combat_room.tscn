@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dq7dfu32hthvr"]
+[gd_scene load_steps=9 format=3 uid="uid://dq7dfu32hthvr"]
 
 [ext_resource type="PackedScene" uid="uid://bnrt7xcfjh5bx" path="res://src/zone/room.tscn" id="1_ig6x2"]
 [ext_resource type="Script" path="res://src/rooms/combat/main_combat_room.gd" id="2_qmh12"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://src/spells/spell_test_spawn.gd" id="5_7lwpr"]
 [ext_resource type="PackedScene" uid="uid://dfe20ml66djgu" path="res://src/entities/enemies/other/proximity_spike_trap.tscn" id="6_bti87"]
 [ext_resource type="PackedScene" uid="uid://cd5io7jujipyr" path="res://src/entities/enemies/other/cannon.tscn" id="6_um5of"]
-[ext_resource type="PackedScene" uid="uid://bprr7yihq8lko" path="res://src/entities/enemies/other/spike_trap.tscn" id="8_qfkbi"]
 [ext_resource type="PackedScene" uid="uid://lmlrrv4br5gi" path="res://src/entities/enemies/other/delayed_spike_trap.tscn" id="9_d2tr1"]
 
 [node name="MainCombatRoom" node_paths=PackedStringArray("teleport") instance=ExtResource("1_ig6x2")]
@@ -43,15 +42,20 @@ shooting_enabled = true
 position = Vector2(352, 2080)
 shooting_enabled = true
 
-[node name="ProximitySpikeTrap" parent="." index="8" instance=ExtResource("6_bti87")]
-position = Vector2(928, 1760)
+[node name="ProximitySpikeTrap2" parent="." index="8" instance=ExtResource("6_bti87")]
+position = Vector2(960, 3264)
 
-[node name="SpikeTrap" parent="." index="9" instance=ExtResource("8_qfkbi")]
-position = Vector2(544, 1760)
-active = true
+[node name="ProximitySpikeTrap3" parent="." index="9" instance=ExtResource("6_bti87")]
+position = Vector2(960, 3264)
 
-[node name="SpikeTrap2" parent="." index="10" instance=ExtResource("8_qfkbi")]
-position = Vector2(608, 1760)
+[node name="ProximitySpikeTrap4" parent="." index="10" instance=ExtResource("6_bti87")]
+position = Vector2(524, 1657)
 
-[node name="DelayedSpikeTrap" parent="." index="11" instance=ExtResource("9_d2tr1")]
-position = Vector2(864, 2080)
+[node name="ProximitySpikeTrap5" parent="." index="11" instance=ExtResource("6_bti87")]
+position = Vector2(688, 1635)
+
+[node name="ProximitySpikeTrap6" parent="." index="12" instance=ExtResource("6_bti87")]
+position = Vector2(898, 1643)
+
+[node name="DelayedSpikeTrap" parent="." index="13" instance=ExtResource("9_d2tr1")]
+position = Vector2(553, 1508)

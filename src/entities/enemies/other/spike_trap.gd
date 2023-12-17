@@ -1,8 +1,8 @@
 class_name SpikeTrap
 extends CharacterBody2D
 
-@export var damage_hitbox: HitboxComponent
-@export var sprite: AnimatedSprite2D
+@onready var damage_hitbox: HitboxComponent = $Components/DamageHitbox
+@onready var sprite: AnimatedSprite2D = $Components/AnimatedSpriteComponent/AnimatedSprite2D
 
 var switching: bool = false
 @export var active: bool = false :

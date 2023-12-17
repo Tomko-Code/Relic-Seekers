@@ -10,10 +10,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_53pi3"]
 size = Vector2(64, 64)
 
-[node name="SpikeTrap" type="CharacterBody2D" node_paths=PackedStringArray("damage_hitbox", "sprite")]
+[node name="SpikeTrap" type="CharacterBody2D"]
 script = ExtResource("1_bnqh4")
-damage_hitbox = NodePath("Components/HitboxComponent2")
-sprite = NodePath("Components/AnimatedSpriteComponent/AnimatedSprite2D")
 
 [node name="Components" type="Node2D" parent="."]
 
@@ -26,17 +24,17 @@ sprite_frames = ExtResource("3_fu5pd")
 [node name="DamageArea" type="Node2D" parent="Components" node_paths=PackedStringArray("stats", "hitbox")]
 script = ExtResource("3_dbdms")
 stats = NodePath("../StatsComponent")
-hitbox = NodePath("../HitboxComponent2")
+hitbox = NodePath("../DamageHitbox")
 
 [node name="StatsComponent" type="Node" parent="Components"]
 script = ExtResource("4_1jw4b")
 
-[node name="HitboxComponent2" type="Area2D" parent="Components" node_paths=PackedStringArray("entity")]
+[node name="DamageHitbox" type="Area2D" parent="Components" node_paths=PackedStringArray("entity")]
 collision_layer = 16
 collision_mask = 0
 monitorable = false
 script = ExtResource("2_vmfkc")
 entity = NodePath("../DamageArea")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/HitboxComponent2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/DamageHitbox"]
 shape = SubResource("RectangleShape2D_53pi3")

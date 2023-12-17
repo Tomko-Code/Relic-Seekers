@@ -1,3 +1,4 @@
+class_name ArtifactPickup
 extends CharacterBody2D
 
 var artifact: Artifact = null
