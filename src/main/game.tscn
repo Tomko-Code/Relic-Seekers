@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cbgrg2gkexspu"]
+[gd_scene load_steps=10 format=3 uid="uid://cbgrg2gkexspu"]
 
 [ext_resource type="Script" path="res://src/main/game.gd" id="1_3g1o0"]
 [ext_resource type="PackedScene" uid="uid://cfmmqeomv02jn" path="res://src/menus/hud.tscn" id="2_ob4nq"]
 [ext_resource type="PackedScene" uid="uid://bh3fyfhc3w8xt" path="res://src/dialog/dialog.tscn" id="3_yw5p0"]
+[ext_resource type="PackedScene" uid="uid://hcarbmby224x" path="res://src/zone/level_render/level_render.tscn" id="4_1l0ym"]
+[ext_resource type="Script" path="res://src/main/map.gd" id="4_xv8q3"]
 
 [sub_resource type="Animation" id="Animation_gy77t"]
 resource_name = "FadeIN"
@@ -78,3 +80,11 @@ grow_vertical = 2
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
 [node name="Dialog" parent="." instance=ExtResource("3_yw5p0")]
+
+[node name="Map" type="CanvasLayer" parent="." node_paths=PackedStringArray("level_render")]
+script = ExtResource("4_xv8q3")
+level_render = NodePath("level_render")
+
+[node name="level_render" parent="Map" instance=ExtResource("4_1l0ym")]
+
+[connection signal="level_change" from="." to="Map" method="_on_game_level_change"]

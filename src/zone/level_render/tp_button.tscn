@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqbi50n88mja2"]
+
+[ext_resource type="Texture2D" uid="uid://h5822ojp1xkc" path="res://assets/art/sprites/teleports/circle_teleport.png" id="1_xad0e"]
+[ext_resource type="Script" path="res://src/zone/level_render/tp_button.gd" id="2_csoev"]
+
+[node name="tp_button" type="TextureButton"]
+offset_right = 192.0
+offset_bottom = 192.0
+scale = Vector2(0.25, 0.25)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+texture_normal = ExtResource("1_xad0e")
+texture_pressed = ExtResource("1_xad0e")
+script = ExtResource("2_csoev")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

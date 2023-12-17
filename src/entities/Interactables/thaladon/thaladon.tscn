@@ -74,7 +74,7 @@ script = ExtResource("4_q83h4")
 sprite_frames = SubResource("SpriteFrames_p5g5f")
 animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.932059
+frame_progress = 0.299995
 
 [connection signal="focus_change" from="Components/InteractableComponent" to="." method="_on_interactable_component_focus_change"]
 [connection signal="interacted" from="Components/InteractableComponent" to="." method="_on_interactable_component_interacted"]

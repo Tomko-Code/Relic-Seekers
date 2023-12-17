@@ -26,6 +26,10 @@ var closed_connection_arry = []
 var has_teleport:bool = false
 var teleport:TeleportData = null
 
+# Meta
+var seen:bool = false
+var visited:bool = false
+
 # physical shape
 var spawned_room:Room = null
 

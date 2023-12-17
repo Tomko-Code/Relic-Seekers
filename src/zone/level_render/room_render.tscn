@@ -1,0 +1,121 @@
+[gd_scene load_steps=7 format=3 uid="uid://5pmv3htk308f"]
+
+[ext_resource type="Texture2D" uid="uid://h5822ojp1xkc" path="res://assets/art/sprites/teleports/circle_teleport.png" id="1_bgl1k"]
+[ext_resource type="Script" path="res://src/zone/level_render/room_render.gd" id="2_xqk5p"]
+
+[sub_resource type="Theme" id="Theme_odlur"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tcy7j"]
+bg_color = Color(0.117647, 0.117647, 0.227451, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i1e8n"]
+bg_color = Color(0.231373, 0.231373, 0.411765, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q1gd3"]
+
+[node name="room_render" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 56.0
+offset_right = 208.0
+offset_bottom = 136.0
+theme = SubResource("Theme_odlur")
+color = Color(0.447059, 0.447059, 0.447059, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 16.0
+offset_right = 248.0
+offset_bottom = 208.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_bgl1k")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="room" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 152.0
+offset_right = 208.0
+offset_bottom = 232.0
+
+[node name="Button" type="Button" parent="room"]
+custom_minimum_size = Vector2(160, 80)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_tcy7j")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i1e8n")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tcy7j")
+
+[node name="TextureRect2" type="TextureRect" parent="room/Button"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 16.0
+offset_right = 248.0
+offset_bottom = 208.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_bgl1k")
+
+[node name="ColorRect" type="ColorRect" parent="room"]
+visible = false
+layout_mode = 2
+
+[node name="room2" type="Control" parent="."]
+material = SubResource("ShaderMaterial_q1gd3")
+anchors_preset = 0
+offset_left = 320.0
+offset_top = 128.0
+offset_right = 400.0
+offset_bottom = 208.0
+script = ExtResource("2_xqk5p")
+
+[node name="ColorRect2" type="ColorRect" parent="room2"]
+visible = false
+layout_mode = 0
+offset_left = 40.0
+offset_right = 80.0
+offset_bottom = 40.0
+color = Color(0.596078, 1, 1, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="room2"]
+visible = false
+layout_mode = 0
+offset_top = 40.0
+offset_right = 40.0
+offset_bottom = 80.0
+color = Color(0.596078, 1, 1, 1)
+
+[node name="ColorRect" type="ColorRect" parent="room2"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.596078, 1, 1, 1)
+
+[node name="Camera2D" type="Camera2D" parent="room2"]
+position = Vector2(80, 48)
+zoom = Vector2(4, 4)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

@@ -2,12 +2,14 @@ extends Node2D
 class_name Room
 
 signal player_enterd
+signal player_exit
 
 var data:RoomData
 
 @export var floors:TileMap
 @export var walls:TileMap
 @export var Gates:Node2D
+@export var teleport:Node2D
 
 var spawn_point_res = preload("res://src/other/spawner_point/spawner_point.tscn")
 

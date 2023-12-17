@@ -38,4 +38,4 @@ func set_up(args:Array = []) -> void:
 	
 	# Set Player
 	GameManager.player.position = Vector2(800, 640)
-	GameManager.dialog_box.play("first_time_prolog")
+	#GameManager.dialog_box.play("first_time_prolog")
