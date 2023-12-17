@@ -4,7 +4,7 @@ extends ActiveArtifact
 
 func _init():
 	max_charge = 200
-	frames = load("res://src/spells/artifacts/active/golden_clock_artifact.gd")
+	frames = load("res://assets/sprites/artifacts/golden_clock.tres")
 
 func use():
 	var player_stats = GameManager.get_entity_component(GameManager.player, PlayerStatsComponent)[0] as PlayerStatsComponent

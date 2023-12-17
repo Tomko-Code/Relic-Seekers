@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://src/rooms/swamp_room.gd" id="2_6ipx5"]
 [ext_resource type="PackedScene" uid="uid://bjnhtnejhudku" path="res://src/zones/prolog/ruin.tscn" id="2_a657r"]
 [ext_resource type="TileSet" uid="uid://cbtd8fjc7crdq" path="res://assets/tileset/path-tileset.tres" id="3_ftmwi"]
-[ext_resource type="TileSet" path="res://assets/tileset/floors-tileset-swamp.tres" id="3_gg03l"]
+[ext_resource type="TileSet" uid="uid://c1dnk3j3yycb5" path="res://assets/tileset/floors-tileset-swamp.tres" id="3_gg03l"]
 [ext_resource type="PackedScene" uid="uid://bhd25t8ptw1ot" path="res://src/other/info.tscn" id="4_6k5q6"]
 [ext_resource type="PackedScene" uid="uid://cukeufucajf2q" path="res://src/zones/prolog/scroll.tscn" id="5_3jhw6"]
 [ext_resource type="PackedScene" uid="uid://dxhp7h4hyx847" path="res://src/zone/stone_teleport_swamp.tscn" id="7_u74yt"]
