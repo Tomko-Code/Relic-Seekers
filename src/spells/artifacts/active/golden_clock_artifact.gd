@@ -3,7 +3,7 @@ extends ActiveArtifact
 
 
 func _init():
-	max_charge = 10
+	max_charge = 200
 
 func use():
 	var player_stats = GameManager.get_entity_component(GameManager.player, PlayerStatsComponent)[0] as PlayerStatsComponent

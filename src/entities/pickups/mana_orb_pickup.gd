@@ -12,7 +12,7 @@ func on_player_entered(player):
 		player = player as PlayerEntity
 		var current_spell = GameData.save_file.player_inventory.get_current_spell() as Spell
 		if current_spell != SpellsHandler.default_spell:
-			current_spell.add_mana(20)
+			current_spell.change_mana(20)
 			queue_free()
 
 func get_description():
