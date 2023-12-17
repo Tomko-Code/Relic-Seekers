@@ -25,7 +25,7 @@ func get_enemy_closest_to(entity: Node2D):
 	var closest_distance = INF
 	for enemy in all_enemies:
 		if (enemy.position - entity.position).length() < closest_distance:
-			closest_distance = (enemy.position - entity.position)
+			closest_distance = (enemy.position - entity.position).length()
 			closest_enemy = enemy
 	return closest_enemy
 	

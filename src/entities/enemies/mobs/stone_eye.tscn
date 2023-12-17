@@ -19,6 +19,8 @@ size = Vector2(32, 32)
 size = Vector2(32, 32)
 
 [node name="StoneEye" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 6
 script = ExtResource("1_yoog5")
 
 [node name="Components" type="Node2D" parent="."]

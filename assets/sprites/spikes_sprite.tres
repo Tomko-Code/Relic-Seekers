@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://dtjv6358y738o"]
+
+[ext_resource type="Texture2D" uid="uid://dkvredw36300a" path="res://assets/art/sprites/spikes.png" id="1_7cdc5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivjbq"]
+atlas = ExtResource("1_7cdc5")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_685p4"]
+atlas = ExtResource("1_7cdc5")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jb7g2"]
+atlas = ExtResource("1_7cdc5")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fp68l"]
+atlas = ExtResource("1_7cdc5")
+region = Rect2(192, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivjbq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_685p4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jb7g2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fp68l")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]

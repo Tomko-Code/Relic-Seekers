@@ -93,7 +93,11 @@ func update_trail_direction():
 	if _ProjectileMovementComponent:
 		trail_particles.direction = -_ProjectileMovementComponent.get_direction().normalized()
 
+var is_expired = false
 func expire():
+	if is_expired:
+		return
+	is_expired = true
 	emit_signal("expired")
 	if finish_particles != null:
 		finish_particles.position = position
