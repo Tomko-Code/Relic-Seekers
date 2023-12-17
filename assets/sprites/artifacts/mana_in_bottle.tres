@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://b00fqjpcg6fs5"]
+
+[ext_resource type="Texture2D" uid="uid://daa42xfmyvpkd" path="res://assets/art/sprites/artifacts/mana_in_bottle.png" id="1_hm8in"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hm8in")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

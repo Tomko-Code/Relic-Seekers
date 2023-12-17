@@ -26,7 +26,7 @@ func create_spell(spell_name: String, effects_pool: String = ""):
 		if effect is DirectSpellEffect:
 			spell_data.effects = spell_data.get("effects", [])
 			for existing_effect in spell_data.effects:
-				if existing_effect.get_class() == effect.get_class():
+				if existing_effect.get_script() == effect.get_script():
 					effect = null
 					break
 			if effect != null:
@@ -35,7 +35,7 @@ func create_spell(spell_name: String, effects_pool: String = ""):
 		elif effect is ProjectileSpellEffect:
 			spell_data.projectile_data = spell_data.get("projectile_data", {effects = []})
 			for existing_effect in spell_data.projectile_data.effects:
-				if existing_effect.get_class() == effect.get_class():
+				if existing_effect.get_script() == effect.get_script():
 					effect = null
 					break
 			if effect != null:

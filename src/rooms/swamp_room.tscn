@@ -1,16 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://cvskuh70ekwob"]
+[gd_scene load_steps=13 format=3 uid="uid://cvskuh70ekwob"]
 
 [ext_resource type="PackedScene" uid="uid://bnrt7xcfjh5bx" path="res://src/zone/room.tscn" id="1_7y0kh"]
 [ext_resource type="Script" path="res://src/rooms/swamp_room.gd" id="2_6ipx5"]
 [ext_resource type="PackedScene" uid="uid://bjnhtnejhudku" path="res://src/zones/prolog/ruin.tscn" id="2_a657r"]
 [ext_resource type="TileSet" uid="uid://cbtd8fjc7crdq" path="res://assets/tileset/path-tileset.tres" id="3_ftmwi"]
-[ext_resource type="TileSet" uid="uid://dgpv1cl4wf43i" path="res://assets/tileset/floors-tileset-swamp.tres" id="3_gg03l"]
+[ext_resource type="TileSet" uid="uid://c1dnk3j3yycb5" path="res://assets/tileset/floors-tileset-swamp.tres" id="3_gg03l"]
 [ext_resource type="PackedScene" uid="uid://bhd25t8ptw1ot" path="res://src/other/info.tscn" id="4_6k5q6"]
 [ext_resource type="PackedScene" uid="uid://cukeufucajf2q" path="res://src/zones/prolog/scroll.tscn" id="5_3jhw6"]
 [ext_resource type="PackedScene" uid="uid://dxhp7h4hyx847" path="res://src/zone/stone_teleport_swamp.tscn" id="7_u74yt"]
-[ext_resource type="Texture2D" uid="uid://18vjyo3v1u8a" path="res://assets/art/prolog/boat.png" id="9_eqlsi"]
-[ext_resource type="Texture2D" uid="uid://djoojb55nbl7q" path="res://assets/art/prolog/enviemental_things.png" id="10_pp2xv"]
-[ext_resource type="PackedScene" uid="uid://d2bsjmqg1fe1h" path="res://src/entities/player/player_entity.tscn" id="11_wmiit"]
+[ext_resource type="Texture2D" path="res://assets/art/prolog/boat.png" id="9_eqlsi"]
+[ext_resource type="Texture2D" path="res://assets/art/prolog/enviemental_things.png" id="10_pp2xv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j0k6i"]
 texture = ExtResource("10_pp2xv")
@@ -53,7 +52,6 @@ scale = Vector2(1, 1)
 position = Vector2(542, 364)
 
 [node name="Scroll" parent="." index="7" instance=ExtResource("5_3jhw6")]
-visible = false
 
 [node name="StoneTeleport" parent="." index="8" instance=ExtResource("7_u74yt")]
 position = Vector2(544, -2080)
@@ -71,6 +69,3 @@ scale = Vector2(2, 2)
 tile_set = SubResource("TileSet_cdc44")
 format = 2
 layer_0/tile_data = PackedInt32Array(655338, 131073, 2, 983022, 131073, 2, 786416, 65537, 2, 1310716, 131073, 1, 983034, 65537, 2, 1048564, 65537, 2, 851957, 65537, 2, 917489, 131073, 2, 1114097, 131073, 2)
-
-[node name="PlayerEntity" parent="." index="10" instance=ExtResource("11_wmiit")]
-position = Vector2(549, 587)

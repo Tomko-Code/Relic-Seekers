@@ -20,7 +20,7 @@ var projectiles: Dictionary = {
 		trail_particles = Color.DEEP_SKY_BLUE,
 	},
 	firefly = {
-		sprite = load("res://assets/sprites/projectiles/fireball_sprite.tres"),
+		sprite = load("res://assets/sprites/projectiles/firefly.tres"),
 		speed = 100,
 		range = 100,
 		effects = [],

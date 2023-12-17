@@ -4,6 +4,7 @@ extends ActiveArtifact
 
 func _init():
 	max_charge = 200
+	frames = load("res://assets/sprites/artifacts/bag_of_infinite_goods.tres")
 	
 func use():
 	var gold_spawns = randi_range(1,10)
