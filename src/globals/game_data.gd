@@ -122,14 +122,23 @@ var rooms_data = {
 		"res" : load("res://src/rooms/combat/left_combat_room.tscn"),
 		"connections" : [[Vector2(0,0), Vector2.RIGHT]],
 		"waves" : [
-			[[20, 20, ["goblin"]]],
-			[[10, 10, ["stone_eye"]]]
+			[[100, 100, ["goblin"]]]
+			#[[1, 1, ["test_mob_a"]]],
 			#[[1, 1, ["test_mob_a"]],[1, 1, ["test_mob_a"]]]
 		]
 	},
 	#######################################
-	# Proc Gen Rooms
+	# Show
 	#######################################
+	"show_room" : {
+		# This is "broken" room
+		"shape" : [
+			[1, 1],
+			[1, 1]
+		],
+		"res" : load("res://src/rooms/special/show_room.tscn"),
+		"connections" : [],
+	}
 }
 
 func load_save_file():

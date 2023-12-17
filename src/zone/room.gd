@@ -2,12 +2,16 @@ extends Node2D
 class_name Room
 
 signal player_enterd
+signal player_exit
+signal enemies_clear
+signal status_change
 
 var data:RoomData
 
 @export var floors:TileMap
 @export var walls:TileMap
 @export var Gates:Node2D
+@export var teleport:Node2D
 
 var spawn_point_res = preload("res://src/other/spawner_point/spawner_point.tscn")
 
@@ -31,6 +35,11 @@ var change_budiers:bool = true
 
 var minimum_distance:float = 192.0
 
+# Meta
+var known:bool = false
+var seen:bool = false 
+var visited:bool = false
+
 func set_room_closed(value:bool) -> void:
 	if room_closed == value:
 		return
@@ -53,9 +62,10 @@ func set_enemy_count(value:int):
 		if data.has_waves:
 			spawn_next_wave()
 			
-			if data.has_waves == false:
-				if room_closed == true:
-					room_closed = false
+		if data.has_waves == false:
+			if room_closed == true:
+				room_closed = false
+				emit_signal("enemies_clear")
 		# open room or spawn next wave
 
 func look_for_open_space(starting_position:Vector2) -> Vector2:
@@ -166,23 +176,27 @@ func spawn_wave() -> void:
 		var spawn_amout = randi_range(part[0], part[1])
 		
 		for spawn in range(spawn_amout):
-			var cord:Vector2 = get_random_free_spot()
-			if cord == Vector2.INF:
-				continue
-			
-			var pos:Vector2 = cord * Constants.FLOOR_TILE_SIZE
-			
-			var enemy:Enemy = EnemiesHandler.spawn_enemy(part[2].pick_random())
-			enemy_count += 1
-			enemy.death.connect(on_enemy_death)
-			enemy.position = pos
-			
-			var spawn_point:SpawnerPoint = spawn_point_res.instantiate()
-			spawn_point.position = pos
-			spawn_point.enemy = enemy
-			spawn_point.room = self
-			
-			call_deferred("add_child", spawn_point)
+			spawn_enemy(part[2].pick_random())
+
+func spawn_enemy(enemy_type:String):
+	var cord:Vector2 = get_random_free_spot()
+	if cord == Vector2.INF:
+		return
+	
+	var pos:Vector2 = cord * Constants.FLOOR_TILE_SIZE
+	
+	var enemy:Enemy = EnemiesHandler.spawn_enemy(enemy_type)
+	enemy_count += 1
+	enemy.death.connect(on_enemy_death)
+	enemy.position = pos
+	
+	var spawn_point:SpawnerPoint = spawn_point_res.instantiate()
+	spawn_point.position = pos
+	spawn_point.enemy = enemy
+	spawn_point.room = self
+	
+	call_deferred("add_child", spawn_point)
+
 
 func on_enemy_death():
 	enemy_count -= 1
@@ -198,4 +212,17 @@ func on_player_enter() -> void:
 	if data.has_waves:
 		spawn_next_wave()
 	
+	#set_visited(true)
+	
+	for conn in data.closed_connection_arry:
+		var room_data:RoomData = conn.connected_room
+		var room:Room = room_data.spawned_room
+		room.known = true
+		room.emit_signal("status_change")
+	
+	visited = true
+	known = true
+	seen = true
+	
+	emit_signal("status_change")
 	emit_signal("player_enterd")

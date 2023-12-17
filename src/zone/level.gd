@@ -98,6 +98,13 @@ func create_2Darray(size: Vector2i, filler: Variant = 0) -> Array:
 	
 	return array
 
+func reveal_level():
+	for room in rooms:
+		room.visited = true
+		room.seen = true
+		room.known = true
+		room.emit_signal("status_change")
+
 #### Virtual
 func set_up(args:Array = []) -> void:
 	pass

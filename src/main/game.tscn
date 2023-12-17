@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cbgrg2gkexspu"]
+[gd_scene load_steps=11 format=3 uid="uid://cbgrg2gkexspu"]
 
 [ext_resource type="Script" path="res://src/main/game.gd" id="1_3g1o0"]
 [ext_resource type="PackedScene" uid="uid://cfmmqeomv02jn" path="res://src/menus/hud.tscn" id="2_ob4nq"]
 [ext_resource type="PackedScene" uid="uid://bh3fyfhc3w8xt" path="res://src/dialog/dialog.tscn" id="3_yw5p0"]
+[ext_resource type="PackedScene" uid="uid://hcarbmby224x" path="res://src/zone/level_render/level_render.tscn" id="4_1l0ym"]
+[ext_resource type="Script" path="res://src/main/map.gd" id="4_xv8q3"]
 
 [sub_resource type="Animation" id="Animation_gy77t"]
 resource_name = "FadeIN"
@@ -56,6 +58,9 @@ _data = {
 "RESET": SubResource("Animation_e0ttc")
 }
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_8351s"]
+viewport_path = NodePath("Map/CenterContainer/SubViewportContainer/SubViewport")
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_3g1o0")
 
@@ -78,3 +83,51 @@ grow_vertical = 2
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
 [node name="Dialog" parent="." instance=ExtResource("3_yw5p0")]
+
+[node name="Map" type="CanvasLayer" parent="." node_paths=PackedStringArray("level_render", "sub_view", "mini_map", "sub_view_container")]
+script = ExtResource("4_xv8q3")
+level_render = NodePath("CenterContainer/SubViewportContainer/SubViewport/level_render")
+sub_view = NodePath("CenterContainer/SubViewportContainer/SubViewport")
+mini_map = NodePath("MarginContainer/SpagetiMap")
+sub_view_container = NodePath("CenterContainer/SubViewportContainer")
+
+[node name="MarginContainer" type="MarginContainer" parent="Map"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -200.0
+offset_bottom = 200.0
+grow_horizontal = 0
+mouse_filter = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+
+[node name="SpagetiMap" type="TextureRect" parent="Map/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("ViewportTexture_8351s")
+
+[node name="CenterContainer" type="CenterContainer" parent="Map"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Map/CenterContainer"]
+visible = false
+custom_minimum_size = Vector2(190, 190)
+layout_mode = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Map/CenterContainer/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(190, 190)
+render_target_update_mode = 0
+
+[node name="level_render" parent="Map/CenterContainer/SubViewportContainer/SubViewport" instance=ExtResource("4_1l0ym")]
+position = Vector2(0, 0)
+
+[connection signal="level_change" from="." to="Map" method="_on_game_level_change"]

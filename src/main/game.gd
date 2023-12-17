@@ -1,6 +1,8 @@
 extends Node2D
 class_name Game
 
+signal level_change(level:Level)
+
 @onready var HUD = get_node("HUD")
 
 var game_running:bool = false
@@ -28,6 +30,8 @@ func change_current_level(level:Level) -> void:
 		clear_level(current_level)
 	
 	current_level = level
+	emit_signal("level_change", level)
+	
 	print("Current level change to : " + level.name)
 
 func clear_level(level:Level) -> void:
@@ -44,6 +48,7 @@ func activate_level(level:Level) -> void:
 	add_child(level)
 	level.add_child(player)
 	level.emit_signal("level_activated")
+	
 	active_level = level
 
 func change_active_to_current_level() -> void:

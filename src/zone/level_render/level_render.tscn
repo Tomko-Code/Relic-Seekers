@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://hcarbmby224x"]
+
+[ext_resource type="Script" path="res://src/zone/level_render/level_render.gd" id="1_2ieqg"]
+[ext_resource type="Texture2D" uid="uid://c2h0o4akv8fau" path="res://assets/art/UI/smoll_player.svg" id="2_7r0xn"]
+
+[node name="level_render" type="Node2D" node_paths=PackedStringArray("player_icon")]
+position = Vector2(100, 100)
+script = ExtResource("1_2ieqg")
+player_icon = NodePath("PlayerIcon")
+
+[node name="PlayerIcon" type="Sprite2D" parent="."]
+z_index = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_7r0xn")
+
+[node name="PlayerCameraIcon" type="Camera2D" parent="PlayerIcon"]

@@ -7,4 +7,8 @@ func _ready():
 	pass
 
 func _on_interactable_component_interacted():
-	print("Start new run")
+	var level:ShowLevel = ShowLevel.new()
+	var game:Game = GameManager.loaded_scenes["Game"]
+	level.set_up()
+	game.change_current_level(level)
+	game.change_active_to_current_level()
