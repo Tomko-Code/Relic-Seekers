@@ -122,8 +122,8 @@ var rooms_data = {
 		"res" : load("res://src/rooms/combat/left_combat_room.tscn"),
 		"connections" : [[Vector2(0,0), Vector2.RIGHT]],
 		"waves" : [
-			[[1, 1, ["goblin"]]]
-			#[[1, 1, ["test_mob_a"]]],
+			[[20, 20, ["goblin"]]],
+			[[10, 10, ["stone_eye"]]]
 			#[[1, 1, ["test_mob_a"]],[1, 1, ["test_mob_a"]]]
 		]
 	},
