@@ -1,8 +1,8 @@
 class_name ProximitySpikeTrap
 extends SpikeTrap
 
-@export var proximity_hitbox: HitboxComponent
-@export var timer: Timer
+@onready var proximity_hitbox: HitboxComponent = $Components/ProximityHitbox
+@onready var timer: Timer = $Timer
 
 func _ready():
 	proximity_hitbox.body_entered.connect(player_near)

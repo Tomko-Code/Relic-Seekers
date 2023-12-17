@@ -13,12 +13,8 @@ radius = 128.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s38ee"]
 size = Vector2(64, 64)
 
-[node name="ProximitySpikeTrap" type="CharacterBody2D" node_paths=PackedStringArray("proximity_hitbox", "timer", "damage_hitbox", "sprite")]
+[node name="ProximitySpikeTrap" type="CharacterBody2D"]
 script = ExtResource("1_iv4lg")
-proximity_hitbox = NodePath("Components/HitboxComponent")
-timer = NodePath("Timer")
-damage_hitbox = NodePath("Components/HitboxComponent2")
-sprite = NodePath("Components/AnimatedSpriteComponent/AnimatedSprite2D")
 
 [node name="Components" type="Node2D" parent="."]
 
@@ -28,29 +24,30 @@ script = ExtResource("1_326dk")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Components/AnimatedSpriteComponent"]
 sprite_frames = ExtResource("3_fu5pd")
 
-[node name="HitboxComponent" type="Area2D" parent="Components"]
+[node name="ProximityHitbox" type="Area2D" parent="Components"]
 collision_layer = 0
 script = ExtResource("2_vmfkc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/HitboxComponent"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/ProximityHitbox"]
+visible = false
 shape = SubResource("CircleShape2D_36bdm")
 
 [node name="DamageArea" type="Node2D" parent="Components" node_paths=PackedStringArray("stats", "hitbox")]
 script = ExtResource("3_dbdms")
 stats = NodePath("../StatsComponent")
-hitbox = NodePath("../HitboxComponent2")
+hitbox = NodePath("../DamageHitbox")
 
 [node name="StatsComponent" type="Node" parent="Components"]
 script = ExtResource("4_1jw4b")
 
-[node name="HitboxComponent2" type="Area2D" parent="Components" node_paths=PackedStringArray("entity")]
+[node name="DamageHitbox" type="Area2D" parent="Components" node_paths=PackedStringArray("entity")]
 collision_layer = 16
 collision_mask = 0
 monitorable = false
 script = ExtResource("2_vmfkc")
 entity = NodePath("../DamageArea")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/HitboxComponent2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/DamageHitbox"]
 shape = SubResource("RectangleShape2D_s38ee")
 
 [node name="Timer" type="Timer" parent="."]
