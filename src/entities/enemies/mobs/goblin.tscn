@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://drjmi0qbkv2si"]
+[gd_scene load_steps=16 format=3 uid="uid://drjmi0qbkv2si"]
 
 [ext_resource type="Script" path="res://src/entities/enemies/mobs/goblin.gd" id="1_uk0wi"]
 [ext_resource type="Script" path="res://src/entities/entity_shadow_component.gd" id="2_rqcx7"]
@@ -11,16 +11,20 @@
 [ext_resource type="PackedScene" uid="uid://b001mo8qgm6le" path="res://src/entities/enemies/health_bar_component.tscn" id="9_xi8oq"]
 [ext_resource type="Script" path="res://src/entities/enemies/follow_movement_component.gd" id="10_03hl7"]
 [ext_resource type="PackedScene" uid="uid://blv5sfddyxsl6" path="res://src/entities/projectiles/damage_area.tscn" id="11_7dbxj"]
+[ext_resource type="Script" path="res://src/systems/movement/entity_repulsion_system.gd" id="12_4t1kq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k3xfx"]
 size = Vector2(32, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vw706"]
+radius = 16.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6jtr7"]
 size = Vector2(32, 32)
 
 [node name="Goblin" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 6
+collision_mask = 258
 script = ExtResource("1_uk0wi")
 
 [node name="Components" type="Node2D" parent="."]
@@ -80,6 +84,18 @@ entity = NodePath("../DamageArea")
 [node name="Hitbox" type="CollisionShape2D" parent="Components/ContactDamageHitbox"]
 visible = false
 shape = SubResource("RectangleShape2D_k3xfx")
+
+[node name="EntityRepulsionSystem" type="Node" parent="Components" node_paths=PackedStringArray("_HitboxComponent")]
+script = ExtResource("12_4t1kq")
+_HitboxComponent = NodePath("../RepulsionHitbox")
+
+[node name="RepulsionHitbox" type="Area2D" parent="Components"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("4_e0u06")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/RepulsionHitbox"]
+shape = SubResource("CircleShape2D_vw706")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 visible = false

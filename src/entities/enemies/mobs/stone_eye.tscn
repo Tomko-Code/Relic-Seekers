@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c6paul1ifqilq"]
+[gd_scene load_steps=16 format=3 uid="uid://c6paul1ifqilq"]
 
 [ext_resource type="Script" path="res://src/entities/enemies/mobs/stone_eye.gd" id="1_yoog5"]
 [ext_resource type="Script" path="res://src/entities/entity_shadow_component.gd" id="2_qctfr"]
@@ -11,16 +11,20 @@
 [ext_resource type="Script" path="res://src/systems/movement/four_direction_animation_system_extra.gd" id="9_koa8s"]
 [ext_resource type="Script" path="res://src/entities/enemies/follow_and_shoot_movement_component.gd" id="10_807j2"]
 [ext_resource type="PackedScene" uid="uid://b001mo8qgm6le" path="res://src/entities/enemies/health_bar_component.tscn" id="11_0a858"]
+[ext_resource type="Script" path="res://src/systems/movement/entity_repulsion_system.gd" id="12_rqu1c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffpyv"]
 size = Vector2(32, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_np4ex"]
+radius = 16.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f8egp"]
 size = Vector2(32, 32)
 
 [node name="StoneEye" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 6
+collision_mask = 258
 script = ExtResource("1_yoog5")
 
 [node name="Components" type="Node2D" parent="."]
@@ -74,6 +78,18 @@ _ShootingComponent = NodePath("../GenericShootingComponent")
 
 [node name="HealthBarComponent" parent="Components" node_paths=PackedStringArray("_StatsComponent") instance=ExtResource("11_0a858")]
 _StatsComponent = NodePath("../StatsComponent")
+
+[node name="EntityRepulsionSystem" type="Node" parent="Components" node_paths=PackedStringArray("_HitboxComponent")]
+script = ExtResource("12_rqu1c")
+_HitboxComponent = NodePath("../RepulsionHitbox")
+
+[node name="RepulsionHitbox" type="Area2D" parent="Components"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("4_4v68h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/RepulsionHitbox"]
+shape = SubResource("CircleShape2D_np4ex")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 visible = false
