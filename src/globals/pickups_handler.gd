@@ -28,6 +28,10 @@ func create_artifact(artifact_name: String):
 		print("missing artifact name: %s" % artifact_name)
 		return null
 
+func create_random_artifact():
+	var artifact_name = GameManager.get_random_from_weighed_array(ArtifactsDb.random_pools["random"])
+	return create_artifact(artifact_name)
+
 func make_purchasable(object: Node2D, cost: int):
 	var wrapper = purchasable_wrapper_resource.instantiate()
 	wrapper.set_data(object, cost)
