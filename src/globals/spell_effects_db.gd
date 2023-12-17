@@ -16,7 +16,7 @@ var effects = {
 func ensure_unique(effect: SpellEffect, pool: Array):
 	var to_delete = []
 	for entry in pool:
-		if entry[0].get_class() == effect.get_class():
+		if entry[0].get_script() == effect.get_script():
 			to_delete.append(entry)
 	for entry in to_delete:
 		pool.erase(entry)

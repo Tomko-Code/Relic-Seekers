@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://b6xijdo6c3073"]
+
+[ext_resource type="Texture2D" path="res://assets/art/sprites/projectiles/fireflies_16x16.png" id="1_n7edn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvipu"]
+atlas = ExtResource("1_n7edn")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvipu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

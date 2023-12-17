@@ -16,6 +16,7 @@ func spawn_loot():
 	var spawn_mana_orb:bool = randi() % 20 == 0
 	var spawn_spell:bool = randi() % 25 == 0
 	var spawn_artifact:bool = randi() % 25 == 0
+	var spawn_heart:bool = randi() % 30 == 0
 	
 	
 	if spawn_gold:
@@ -38,14 +39,21 @@ func spawn_loot():
 		mana_orb_pickup.position = position + (random_direction * 10)
 		mana_orb_pickup.push(random_direction)
 		get_parent().call_deferred("add_child", mana_orb_pickup)
+		
+	if spawn_heart:
+		var heart_pickup = PickupsHandler.create_heart_pickup() as HeartPickup
+		var random_direction = Vector2.from_angle(PI*2 * randf()).normalized()
+		heart_pickup.position = position + (random_direction * 10)
+		heart_pickup.push(random_direction)
+		get_parent().call_deferred("add_child", heart_pickup)
 	
-	if spawn_artifact:
+	if spawn_spell:
 		var spell = SpellsHandler.create_random_spell()
 		var spell_pickup = SpellsHandler.create_spell_pickup(spell) as SpellPickup
 		spell_pickup.position = position
 		get_parent().call_deferred("add_child", spell_pickup)
 	
-	if spawn_spell:
+	if spawn_artifact:
 		var artifact = PickupsHandler.create_random_artifact()
 		var artifact_pickup = PickupsHandler.create_artifact_pickup(artifact) as ArtifactPickup
 		artifact_pickup.position = position

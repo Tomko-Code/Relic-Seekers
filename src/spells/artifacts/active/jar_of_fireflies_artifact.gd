@@ -4,6 +4,7 @@ extends ActiveArtifact
 
 func _init():
 	max_charge = 200
+	frames = load("res://assets/sprites/artifacts/jar_of_fireflies.tres")
 
 func use():
 	for x in range(5):
