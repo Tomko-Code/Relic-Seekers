@@ -4,6 +4,8 @@ class_name Room
 signal player_enterd
 signal player_exit
 
+signal status_change
+
 var data:RoomData
 
 @export var floors:TileMap
@@ -32,6 +34,11 @@ var snail_end:Vector2 = Vector2(0,0)
 var change_budiers:bool = true
 
 var minimum_distance:float = 192.0
+
+# Meta
+var known:bool = false
+var seen:bool = false 
+var visited:bool = false
 
 func set_room_closed(value:bool) -> void:
 	if room_closed == value:
@@ -200,4 +207,17 @@ func on_player_enter() -> void:
 	if data.has_waves:
 		spawn_next_wave()
 	
+	#set_visited(true)
+	
+	for conn in data.closed_connection_arry:
+		var room_data:RoomData = conn.connected_room
+		var room:Room = room_data.spawned_room
+		room.known = true
+		room.emit_signal("status_change")
+	
+	visited = true
+	known = true
+	seen = true
+	
+	emit_signal("status_change")
 	emit_signal("player_enterd")

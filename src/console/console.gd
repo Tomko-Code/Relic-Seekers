@@ -16,3 +16,8 @@ func _on_text_edit_text_changed():
 	if text_input.text.ends_with("\n"):
 		ConsoleHandler.process_command(text_input.text.rstrip("\n"))
 		text_input.clear()
+
+
+func _on_button_pressed():
+	GameManager.loaded_scenes["Game"].current_level.reveal_level()
+	

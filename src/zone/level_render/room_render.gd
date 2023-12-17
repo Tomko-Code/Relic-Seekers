@@ -11,24 +11,30 @@ var tp_button_res = preload("res://src/zone/level_render/tp_button.tscn")
 var room:Room = null
 var color:Color = Color("3b3b69")
 
+var tp_button:TextureButton = null
+
+var player_in:bool = false
+
 func _ready():
 	pass
 
 func set_up():
 	room.player_enterd.connect(player_enter)
 	room.player_exit.connect(player_exit)
+	room.status_change.connect(status_change)
+	
 	#position = room.data.cord * room_size
 	position = (room.position/16)
 	
+	status_change()
+		
 	if room.data.has_teleport:
-		var tp_button:TextureButton = tp_button_res.instantiate()
+		tp_button = tp_button_res.instantiate()
 		
 		if room.has_node("Teleport"):
 			tp_button.position = room.get_node("Teleport").position/16
 			tp_button.position -= Vector2(24, 24)
 			tp_button.pressed.connect(on_tp)
-		
-		
 		
 		add_child(tp_button)
 	
@@ -64,18 +70,41 @@ func _draw():
 	if room != null:
 		draw_room()
 
+func status_change():
+	if room.known:
+		show()
+	else:
+		hide()
+	
+	if room.seen:
+		if player_in:
+			color = Color(0.20794501900673, 0.44472229480743, 0.76496165990829)
+		else:
+			color = Color("3b3b69")
+	else:
+		color = Color(0.09803921729326, 0.09803921729326, 0.09803921729326)
+	
+	if tp_button != null:
+		if !(room.known and room.seen and room.visited):
+			tp_button.disabled = true
+			tp_button.hide()
+		else:
+			tp_button.disabled = false
+			tp_button.show()
+
 func player_enter():
+	player_in = true
 	color = Color(0.20794501900673, 0.44472229480743, 0.76496165990829)
 	queue_redraw()
 
 func player_exit():
+	player_in = false
 	color = Color("3b3b69")
 	queue_redraw()
 
 func draw_room():
 	var data:RoomData = room.data
 	var room_shape_size:Vector2 = data.get_room_size()
-	
 	
 	for y in room_shape_size.y:
 		for x in room_shape_size.x:

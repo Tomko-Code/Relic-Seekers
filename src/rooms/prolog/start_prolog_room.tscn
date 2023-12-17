@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dx38esghg3rgr"]
+[gd_scene load_steps=5 format=3 uid="uid://dx38esghg3rgr"]
 
 [ext_resource type="PackedScene" uid="uid://bnrt7xcfjh5bx" path="res://src/zone/room.tscn" id="1_r7el7"]
 [ext_resource type="Script" path="res://src/rooms/normal_room_0.gd" id="2_us68n"]
 [ext_resource type="PackedScene" uid="uid://cyflwsuyftab3" path="res://src/zone/CircleTeleport.tscn" id="3_1dirh"]
+[ext_resource type="PackedScene" uid="uid://cd5io7jujipyr" path="res://src/entities/enemies/other/cannon.tscn" id="4_pcx4r"]
 
 [node name="StartPrologRoom" node_paths=PackedStringArray("teleport") instance=ExtResource("1_r7el7")]
 script = ExtResource("2_us68n")
@@ -16,3 +17,7 @@ layer_0/tile_data = PackedInt32Array(0, 262144, 3, 65536, 524288, 1, 131072, 524
 
 [node name="Teleport" parent="." index="3" instance=ExtResource("3_1dirh")]
 position = Vector2(800, 640)
+
+[node name="Cannon" parent="." index="4" instance=ExtResource("4_pcx4r")]
+position = Vector2(392, 384)
+shooting_enabled = true

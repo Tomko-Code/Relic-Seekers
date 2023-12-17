@@ -17,9 +17,6 @@ func render_level(level:Level) -> void:
 	# draw rooms
 	for room in current_level.rooms:
 		draw_room(room)
-		
-	
-	# draw connections
 
 func draw_room(room:Room) -> void:
 	var render:RoomRender = RoomRender.new()
