@@ -102,7 +102,7 @@ func normal_start() -> void:
 	if GameData.save_file.prolog_complete:
 		change_active_to_sanctuary_level()
 	else:
-		var level:PrologLevel = PrologLevel.new()
+		var level:StartLevel = StartLevel.new()
 		level.set_up()
 		change_current_level(level)
 		change_active_to_current_level()

@@ -128,8 +128,17 @@ var rooms_data = {
 		]
 	},
 	#######################################
-	# Proc Gen Rooms
+	# Show
 	#######################################
+	"show_room" : {
+		# This is "broken" room
+		"shape" : [
+			[1, 1],
+			[1, 1]
+		],
+		"res" : load("res://src/rooms/special/show_room.tscn"),
+		"connections" : [],
+	}
 }
 
 func load_save_file():
