@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://lmlrrv4br5gi"]
+
+[ext_resource type="Script" path="res://src/entities/enemies/other/delayed_spike_trap.gd" id="1_utycr"]
+[ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="2_m6whm"]
+[ext_resource type="SpriteFrames" uid="uid://dq70ko1ydsphm" path="res://assets/sprites/spikes_sprite.tres" id="3_b8qrx"]
+[ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="4_gyk0l"]
+[ext_resource type="Script" path="res://src/entities/projectiles/damage_area.gd" id="5_4go6d"]
+[ext_resource type="Script" path="res://src/entities/stats_component.gd" id="6_nvllg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s38ee"]
+size = Vector2(64, 64)
+
+[node name="DelayedSpikeTrap" type="CharacterBody2D" node_paths=PackedStringArray("proximity_hitbox", "timer", "damage_hitbox", "sprite")]
+script = ExtResource("1_utycr")
+proximity_hitbox = NodePath("Components/HitboxComponent")
+timer = NodePath("Timer")
+damage_hitbox = NodePath("Components/HitboxComponent2")
+sprite = NodePath("Components/AnimatedSpriteComponent/AnimatedSprite2D")
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="AnimatedSpriteComponent" type="Node2D" parent="Components"]
+script = ExtResource("2_m6whm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Components/AnimatedSpriteComponent"]
+sprite_frames = ExtResource("3_b8qrx")
+
+[node name="HitboxComponent" type="Area2D" parent="Components"]
+collision_layer = 0
+script = ExtResource("4_gyk0l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/HitboxComponent"]
+shape = SubResource("RectangleShape2D_s38ee")
+
+[node name="DamageArea" type="Node2D" parent="Components" node_paths=PackedStringArray("stats", "hitbox")]
+script = ExtResource("5_4go6d")
+stats = NodePath("../StatsComponent")
+hitbox = NodePath("../HitboxComponent2")
+
+[node name="StatsComponent" type="Node" parent="Components"]
+script = ExtResource("6_nvllg")
+
+[node name="HitboxComponent2" type="Area2D" parent="Components" node_paths=PackedStringArray("entity")]
+collision_layer = 16
+collision_mask = 0
+monitorable = false
+script = ExtResource("4_gyk0l")
+entity = NodePath("../DamageArea")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/HitboxComponent2"]
+shape = SubResource("RectangleShape2D_s38ee")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true

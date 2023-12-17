@@ -8,10 +8,10 @@ func _init():
 	spells.test_spell = spells.heal
 
 var random_pool = [
-	["fireball", 1],
-	["icicle", 1],
+	["fireball", 2],
+	["icicle", 3],
 	["heal", 1],
-	["spark", 1],
+	["spark", 3],
 ]
 
 var spells = {
@@ -26,12 +26,12 @@ var spells = {
 			damage = 5,
 			speed = 400,
 			range = 100,
-			effects = []
+			effects = [HomingEffect.new()]
 		},
 		frames = load("res://assets/sprites/spells/fireball_spell.tres"),
 		effects = [],
 		max_mana = 100,
-		shoot_frequency = 0.5,
+		shoot_frequency = 0.1,
 	},
 	spark = {
 		type = "spark",
