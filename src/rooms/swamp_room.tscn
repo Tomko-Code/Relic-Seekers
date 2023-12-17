@@ -52,7 +52,6 @@ scale = Vector2(1, 1)
 position = Vector2(542, 364)
 
 [node name="Scroll" parent="." index="7" instance=ExtResource("5_3jhw6")]
-visible = false
 
 [node name="StoneTeleport" parent="." index="8" instance=ExtResource("7_u74yt")]
 position = Vector2(544, -2080)
