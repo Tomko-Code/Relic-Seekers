@@ -1,3 +1,4 @@
+class_name FollowCamera
 extends Node2D
 
 #TODO: support multiple zones, with different, inner/far_near zones
@@ -48,6 +49,15 @@ func _draw():
 		draw_arc(Vector2.ZERO, inner_zone, PI*2, 0, 100, Color(0, 0, 1), 1)
 		draw_line(Camera.position, last_offset, Color(1,1,0), 1)
 
+var frozen_position: Vector2 = Vector2.ZERO
+
+func freeze_position():
+	frozen_position = get_parent().global_position + position
+
+func unfreeze_position():
+	global_position = frozen_position
+	frozen_position = Vector2.ZERO
+
 func play_slow():
 	#$AnimationPlayer.play("SlowCameraEffect")
 	#print("play")
@@ -56,6 +66,8 @@ func play_slow():
 func _process(delta):
 	var mouse_pos = Cursor.get_global_mouse_position()
 	var screen_center = get_viewport_rect().size / 2
+	
+	position = position.lerp(Vector2.ZERO, speed * 2 * delta)
 	
 	if use_zones:
 		var offset = mouse_pos - screen_center

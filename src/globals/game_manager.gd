@@ -4,7 +4,7 @@ enum GAME_STATES {MENU, GAME, TRANSITION}
 var GAME_STATE: GAME_STATES = GAME_STATES.MENU
 var current_scene = null
 
-var game_camera = load("res://src/other/FollowCamera.tscn").instantiate()
+var game_camera: FollowCamera = load("res://src/other/FollowCamera.tscn").instantiate()
 
 # Stuff from game spageti
 var player: PlayerEntity = null
