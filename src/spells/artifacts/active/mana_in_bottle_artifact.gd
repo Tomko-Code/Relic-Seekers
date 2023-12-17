@@ -4,6 +4,7 @@ extends ActiveArtifact
 
 func _init():
 	max_charge = 200
+	frames = load("res://assets/sprites/artifacts/mana_in_bottle.tres")
 	
 func use():	
 	var player = GameManager.player
