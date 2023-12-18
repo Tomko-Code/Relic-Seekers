@@ -9,6 +9,9 @@ var cost: int = 1
 var object: Node2D
 @export var placeholder_sprite: Sprite2D
 
+signal bought
+
+
 func set_data(_object: Node2D, _cost: int):
 	cost_label.text = str(_cost)
 	cost = _cost
@@ -39,6 +42,12 @@ func set_data(_object: Node2D, _cost: int):
 	
 	_InteractibleComponent.update_box()
 
+func delete():
+	if object is GenericPickup:
+		object = object as GenericPickup
+		object.delete()
+	queue_free()
+
 func on_interacted():
 	if GameData.save_file.player_inventory.gold >= cost:
 		GameData.save_file.player_inventory.gold -= cost
@@ -46,7 +55,10 @@ func on_interacted():
 		
 		if object is GenericPickup:
 			object.pause_despawn()
+			var random_direction = Vector2.from_angle(PI*2 * randf()).normalized()
+			object.push(random_direction, 400)
 		
+		emit_signal("bought")
 		get_parent().call_deferred("add_child", object)
 		queue_free()
 		
