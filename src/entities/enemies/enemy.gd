@@ -18,7 +18,7 @@ func play_sfx(audio_player: AudioStreamPlayer):
 		audio_player.call_deferred("play")
 
 func spawn_loot():
-	var spawn_gold:bool = randi() % 3 == 0
+	var spawn_gold:bool = randi() % 2 == 0
 	var spawn_emerald:bool = randi() % 16 == 0
 	var spawn_mana_orb:bool = randi() % 20 == 0
 	var spawn_spell:bool = randi() % 25 == 0
@@ -27,11 +27,12 @@ func spawn_loot():
 	
 	
 	if spawn_gold:
-		var gold_pickup = PickupsHandler.create_gold_pickup() as GoldPickup
-		var random_direction = Vector2.from_angle(PI*2 * randf()).normalized()
-		gold_pickup.position = position + (random_direction * 10)
-		gold_pickup.push(random_direction)
-		get_parent().call_deferred("add_child", gold_pickup)
+		for x in randi_range(1,4):
+			var gold_pickup = PickupsHandler.create_gold_pickup() as GoldPickup
+			var random_direction = Vector2.from_angle(PI*2 * randf()).normalized()
+			gold_pickup.position = position + (random_direction * 10)
+			gold_pickup.push(random_direction)
+			get_parent().call_deferred("add_child", gold_pickup)
 		
 	if spawn_emerald:
 		var emerald_pickup = PickupsHandler.create_emerald_pickup() as EmeraldPickup
