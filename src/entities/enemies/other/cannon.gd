@@ -1,7 +1,14 @@
 class_name Cannon
 extends Enemy
 
-@export var _ShootInDirectionComponent: ShootInDirectionComponent
+@onready var stats: StatsComponent = $Components/StatsComponent
+@onready var _ShootInDirectionComponent: ShootInDirectionComponent = $Components/ShootInDirectionComponent
+@export var shooting_frequency: float = 1.0 :
+	set(value):
+		shooting_frequency = value
+		if not _ShootInDirectionComponent:
+			await ready
+		stats.shoot_frequency = value
 
 @export var shooting_direction: Constants.cross_directions:
 	set(value):
