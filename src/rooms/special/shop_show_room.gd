@@ -16,7 +16,7 @@ func _ready():
 
 func restock_interaction():
 	if GameData.save_file.player_inventory.emeralds >= 1:
-		GameData.save_file.player_inventory.emeralds - 1
+		GameData.save_file.player_inventory.emeralds -= 1
 		restock_shop()
 
 func restock_shop():
