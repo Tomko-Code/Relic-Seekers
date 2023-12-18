@@ -16,6 +16,16 @@ func _ready():
 	timer.timeout.connect(pickup_unlock.bind(timer))
 	add_child(timer)
 	timer.start(1.0)
+	
+	var despawn_timer = Timer.new()
+	timer.autostart = true
+	timer.wait_time = 60
+	timer.one_shot = true
+	timer.timeout.connect(queue_free)
+	add_child(despawn_timer)
+
+func delete():
+	queue_free()
 
 func pickup_unlock(timer: Timer):
 	timer.queue_free()
