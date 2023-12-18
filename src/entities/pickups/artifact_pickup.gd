@@ -1,5 +1,5 @@
 class_name ArtifactPickup
-extends CharacterBody2D
+extends GenericPickup
 
 var artifact: Artifact = null
 

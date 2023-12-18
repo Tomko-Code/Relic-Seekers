@@ -9,6 +9,8 @@ extends CharacterBody2D
 		is_frozen = value
 		_PickupRepulsionMovement.is_frozen = value
 
+var despawn_timer = Timer.new()
+
 func _ready():
 	_PickupRepulsionMovement.is_frozen = is_frozen
 	var timer = Timer.new()
@@ -17,12 +19,14 @@ func _ready():
 	add_child(timer)
 	timer.start(1.0)
 	
-	var despawn_timer = Timer.new()
-	timer.autostart = true
-	timer.wait_time = 60
-	timer.one_shot = true
-	timer.timeout.connect(queue_free)
+	despawn_timer.autostart = true
+	despawn_timer.wait_time = 60
+	despawn_timer.one_shot = true
+	despawn_timer.timeout.connect(delete)
 	add_child(despawn_timer)
+
+func pause_despawn():
+	despawn_timer.paused = !despawn_timer.paused
 
 func delete():
 	queue_free()

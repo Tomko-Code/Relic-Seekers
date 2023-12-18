@@ -14,6 +14,9 @@ func set_data(_object: Node2D, _cost: int):
 	cost = _cost
 	object = _object
 	
+	if object is GenericPickup:
+		object.pause_despawn()
+	
 	if object.get_parent() != null:
 		object.get_parent().call_deferred("remove_child", object)
 	if object.has_method("get_title"):
@@ -40,6 +43,10 @@ func on_interacted():
 	if GameData.save_file.player_inventory.gold >= cost:
 		GameData.save_file.player_inventory.gold -= cost
 		object.position = position
+		
+		if object is GenericPickup:
+			object.pause_despawn()
+		
 		get_parent().call_deferred("add_child", object)
 		queue_free()
 		
