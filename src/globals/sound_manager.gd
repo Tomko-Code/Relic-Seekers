@@ -8,6 +8,7 @@ var sfx_sounds = {
 	"mana_orb_sfx" = load("res://assets/audio/sfx/mana_orb_sfx.wav"),
 	"emerald_sfx" = load("res://assets/audio/sfx/emerald_sfx.wav"),
 	"heart_sfx" = load("res://assets/audio/sfx/heart_sfx.wav"),
+	"pickup_sfx" = load("res://assets/audio/sfx/spell_arty_sfx.wav"),
 }
 
 var sfx_limit = 8
