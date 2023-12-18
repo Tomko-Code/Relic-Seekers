@@ -19,6 +19,16 @@ var player:PlayerEntity = null
 
 var type = PlayerEntity
 
+func on_player_death():
+	change_active_to_sanctuary_level()
+	print("se")
+	GameData.save_file.player_inventory = PlayerInventory.new()
+	GameData.save_file.max_health = 6
+	GameData.save_file.current_health = GameData.save_file.max_health
+	GameManager.player.position = Vector2(300,300)
+	$Map/CenterContainer/SubViewportContainer/SubViewport/level_render.clear_render()
+	#load_player()
+
 func change_current_level(level:Level) -> void:
 	# Check if level is alrady active
 	if current_level == level:
@@ -86,6 +96,7 @@ func start_game(start_option:Constants.STARTING_OPTIONS) -> void:
 
 func load_player() -> void:
 	player = load("res://src/entities/player/player_entity.tscn").instantiate()
+	player.death.connect(on_player_death)
 	GameManager.player = player
 
 func combat_start() -> void:
