@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://bhd25t8ptw1ot" path="res://src/other/info.tscn" id="4_6k5q6"]
 [ext_resource type="PackedScene" uid="uid://cukeufucajf2q" path="res://src/zones/prolog/scroll.tscn" id="5_3jhw6"]
 [ext_resource type="PackedScene" uid="uid://dxhp7h4hyx847" path="res://src/zone/stone_teleport_swamp.tscn" id="7_u74yt"]
-[ext_resource type="Texture2D" path="res://assets/art/prolog/boat.png" id="9_eqlsi"]
-[ext_resource type="Texture2D" path="res://assets/art/prolog/enviemental_things.png" id="10_pp2xv"]
+[ext_resource type="Texture2D" uid="uid://18vjyo3v1u8a" path="res://assets/art/prolog/boat.png" id="9_eqlsi"]
+[ext_resource type="Texture2D" uid="uid://djoojb55nbl7q" path="res://assets/art/prolog/enviemental_things.png" id="10_pp2xv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j0k6i"]
 texture = ExtResource("10_pp2xv")

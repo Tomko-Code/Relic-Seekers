@@ -11,6 +11,7 @@ var full_name: String = "None"
 var projectile_type: String = "test_projectile_b"
 var description: String = "Stub test Spell"
 
+var innate_effects: Array = []
 #/ dmg/ range/ speed/ flags
 @export var projectile_data: Dictionary = {}
 var frames: SpriteFrames = load("res://assets/sprites/spells/spell_a.tres")
@@ -23,6 +24,11 @@ var is_friendly = true
 
 func spawn_projectile():
 	var projectile: BaseProjectile
+	
+	for effect in effects:
+		effect = effect as DirectSpellEffect
+		effect.use(self)
+	
 	if mana != 0:
 		projectile = ProjectilesHandler.spawn_projectile(projectile_type, is_friendly)
 		
@@ -37,7 +43,8 @@ func spawn_projectile():
 	elif mana == 0:
 		return null
 		emit_signal("out_of_mana")
-		
+	
+	SoundManager.play_sfx("shoot_sfx")
 	return projectile
 	
 func set_data(spell_data: Dictionary):
@@ -47,15 +54,47 @@ func set_data(spell_data: Dictionary):
 		projectile_data.merge(ProjectilesDb.projectiles[projectile_type])
 	if max_mana >= 0:
 		mana = max_mana
+	for effect in innate_effects:
+		add_effect(effect)
+
+func has_effect(effect: SpellEffect, exact_match:bool = false):
+	if effect is DirectSpellEffect:
+		for existing_effect in effects:
+			if existing_effect.get_script() == effect.get_script():
+				return true
+	elif effect is ProjectileSpellEffect:
+		for existing_effect in projectile_data.get("effects", []):
+			if existing_effect.get_script() == effect.get_script():
+				return true
+	return false
+
+func add_effect(effect: SpellEffect, force: bool = false):
+	if not force and has_effect(effect):
+		return
+	if effect is DirectSpellEffect:
+		effect.apply_on_spell(self)
+		effects.append(effect)
+	elif effect is ProjectileSpellEffect:
+		projectile_data.effects = projectile_data.get("effects", [])
+		projectile_data.effects.append(effect)
+
+func is_innate(effect: SpellEffect):
+	for innate_effect in innate_effects:
+		if innate_effect.get_script() == effect.get_script():
+			return true
+	return false
 
 func get_description():
 	var full_description = description + "\n[center]**Modifiers**[/center]\n"
 	for effect in effects:
-		full_description += effect.get_description() + "\n[center]---------[/center]\n"
+		if not is_innate(effect):
+			full_description += effect.get_description() + "\n[center]---------[/center]\n"
 	if projectile_data.has("effects"):
 		for effect in projectile_data["effects"]:
-			full_description += effect.get_description() + "\n[center]---------[/center]\n"
+			if not is_innate(effect):
+				full_description += effect.get_description() + "\n[center]---------[/center]\n"
 	full_description = full_description.trim_suffix("\n[center]---------[/center]\n")
+	full_description = full_description.trim_suffix("\n[center]**Modifiers**[/center]\n")
 	return full_description
 
 func get_title():

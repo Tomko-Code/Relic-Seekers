@@ -27,6 +27,8 @@ func pickup_spell():
 		var new_pickup = SpellsHandler.create_spell_pickup(ret_spell)
 		new_pickup.position = position
 		get_parent().call_deferred("add_child", new_pickup)
+	
+	SoundManager.play_sfx("pickup_sfx")
 	queue_free()
 
 func get_description():

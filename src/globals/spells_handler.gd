@@ -21,27 +21,11 @@ func create_spell(spell_name: String, effects_pool: String = ""):
 	var effects = []
 	if effects_pool:
 		effects = SpellEffectsDb.random_effects_from_pool(effects_pool)
-		
-	for effect in effects:
-		if effect is DirectSpellEffect:
-			spell_data.effects = spell_data.get("effects", [])
-			for existing_effect in spell_data.effects:
-				if existing_effect.get_script() == effect.get_script():
-					effect = null
-					break
-			if effect != null:
-				spell_data.effects.append(effect)
-			
-		elif effect is ProjectileSpellEffect:
-			spell_data.projectile_data = spell_data.get("projectile_data", {effects = []})
-			for existing_effect in spell_data.projectile_data.effects:
-				if existing_effect.get_script() == effect.get_script():
-					effect = null
-					break
-			if effect != null:
-				spell_data.projectile_data.effects.append(effect)
 	
 	spell.set_data(spell_data)
+	
+	for effect in effects:
+		spell.add_effect(effect)
 	
 	return spell
 

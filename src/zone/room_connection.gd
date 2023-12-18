@@ -11,7 +11,10 @@ func tp(body):
 	if data.closed:
 		return
 	
+	GameManager.game_camera.freeze_position()
 	body.global_position += data.direction * 800
+	GameManager.game_camera.unfreeze_position()
+	
 	var active_level:Level = GameManager.loaded_scenes["Game"].active_level 
 	active_level.currnet_active_room.emit_signal("player_exit")
 	
