@@ -22,10 +22,7 @@ position = Vector2(352, 2048)
 position = Vector2(1248, 2048)
 shooting_direction = 4
 
-[node name="Camera2D" type="Camera2D" parent="." index="5"]
-position = Vector2(800, 1056)
-
-[node name="Node2D3" type="Node2D" parent="." index="6"]
+[node name="Node2D3" type="Node2D" parent="." index="5"]
 position = Vector2(192, 192)
 
 [node name="SpikeTrap" parent="Node2D3" index="0" groups=["spikes_a"] instance=ExtResource("4_dv6we")]
@@ -55,7 +52,7 @@ position = Vector2(800, 1136)
 [node name="SpikeTrap10" parent="Node2D3" index="8" groups=["spikes_a"] instance=ExtResource("4_dv6we")]
 position = Vector2(864, 1136)
 
-[node name="Node2D" type="Node2D" parent="." index="7"]
+[node name="Node2D" type="Node2D" parent="." index="6"]
 
 [node name="SpikeTrap" parent="Node2D" index="0" groups=["spikes_a"] instance=ExtResource("4_dv6we")]
 position = Vector2(736, 1008)
@@ -84,7 +81,7 @@ position = Vector2(800, 1136)
 [node name="SpikeTrap10" parent="Node2D" index="8" groups=["spikes_a"] instance=ExtResource("4_dv6we")]
 position = Vector2(864, 1136)
 
-[node name="Node2D2" type="Node2D" parent="." index="8"]
+[node name="Node2D2" type="Node2D" parent="." index="7"]
 
 [node name="SpikeTrap2" parent="Node2D2" index="0" groups=["spikes_b"] instance=ExtResource("4_dv6we")]
 position = Vector2(672, 1008)
@@ -113,7 +110,7 @@ position = Vector2(608, 1008)
 [node name="SpikeTrap10" parent="Node2D2" index="8" groups=["spikes_b"] instance=ExtResource("4_dv6we")]
 position = Vector2(544, 1008)
 
-[node name="Node2D4" type="Node2D" parent="." index="9"]
+[node name="Node2D4" type="Node2D" parent="." index="8"]
 position = Vector2(384, 0)
 
 [node name="SpikeTrap" parent="Node2D4" index="0" groups=["spikes_a"] instance=ExtResource("4_dv6we")]
@@ -143,7 +140,7 @@ position = Vector2(800, 1136)
 [node name="SpikeTrap10" parent="Node2D4" index="8" groups=["spikes_a"] instance=ExtResource("4_dv6we")]
 position = Vector2(864, 1136)
 
-[node name="Node2D5" type="Node2D" parent="." index="10"]
+[node name="Node2D5" type="Node2D" parent="." index="9"]
 position = Vector2(384, 384)
 
 [node name="SpikeTrap" parent="Node2D5" index="0" groups=["spikes_a"] instance=ExtResource("4_dv6we")]
@@ -173,7 +170,7 @@ position = Vector2(800, 1136)
 [node name="SpikeTrap10" parent="Node2D5" index="8" groups=["spikes_a"] instance=ExtResource("4_dv6we")]
 position = Vector2(864, 1136)
 
-[node name="Node2D6" type="Node2D" parent="." index="11"]
+[node name="Node2D6" type="Node2D" parent="." index="10"]
 position = Vector2(192, 576)
 
 [node name="SpikeTrap" parent="Node2D6" index="0" groups=["spikes_a"] instance=ExtResource("4_dv6we")]
@@ -203,7 +200,7 @@ position = Vector2(800, 1136)
 [node name="SpikeTrap10" parent="Node2D6" index="8" groups=["spikes_a"] instance=ExtResource("4_dv6we")]
 position = Vector2(864, 1136)
 
-[node name="Node2D7" type="Node2D" parent="." index="12"]
+[node name="Node2D7" type="Node2D" parent="." index="11"]
 position = Vector2(0, 384)
 
 [node name="SpikeTrap" parent="Node2D7" index="0" groups=["spikes_a"] instance=ExtResource("4_dv6we")]
@@ -233,7 +230,7 @@ position = Vector2(800, 1136)
 [node name="SpikeTrap10" parent="Node2D7" index="8" groups=["spikes_a"] instance=ExtResource("4_dv6we")]
 position = Vector2(864, 1136)
 
-[node name="Node2D8" type="Node2D" parent="." index="13"]
+[node name="Node2D8" type="Node2D" parent="." index="12"]
 position = Vector2(-192, 576)
 
 [node name="SpikeTrap" parent="Node2D8" index="0" groups=["spikes_a"] instance=ExtResource("4_dv6we")]
@@ -263,7 +260,7 @@ position = Vector2(800, 1136)
 [node name="SpikeTrap10" parent="Node2D8" index="8" groups=["spikes_a"] instance=ExtResource("4_dv6we")]
 position = Vector2(864, 1136)
 
-[node name="Node2D9" type="Node2D" parent="." index="14"]
+[node name="Node2D9" type="Node2D" parent="." index="13"]
 position = Vector2(-192, 192)
 
 [node name="SpikeTrap" parent="Node2D9" index="0" groups=["spikes_a"] instance=ExtResource("4_dv6we")]
@@ -293,7 +290,7 @@ position = Vector2(800, 1136)
 [node name="SpikeTrap10" parent="Node2D9" index="8" groups=["spikes_a"] instance=ExtResource("4_dv6we")]
 position = Vector2(864, 1136)
 
-[node name="Node2D10" type="Node2D" parent="." index="15"]
+[node name="Node2D10" type="Node2D" parent="." index="14"]
 position = Vector2(-384, 384)
 
 [node name="SpikeTrap" parent="Node2D10" index="0" groups=["spikes_a"] instance=ExtResource("4_dv6we")]
@@ -323,7 +320,7 @@ position = Vector2(800, 1136)
 [node name="SpikeTrap10" parent="Node2D10" index="8" groups=["spikes_a"] instance=ExtResource("4_dv6we")]
 position = Vector2(864, 1136)
 
-[node name="Node2D11" type="Node2D" parent="." index="16"]
+[node name="Node2D11" type="Node2D" parent="." index="15"]
 position = Vector2(-384, 0)
 
 [node name="SpikeTrap" parent="Node2D11" index="0" groups=["spikes_a"] instance=ExtResource("4_dv6we")]
@@ -353,7 +350,7 @@ position = Vector2(800, 1136)
 [node name="SpikeTrap10" parent="Node2D11" index="8" groups=["spikes_a"] instance=ExtResource("4_dv6we")]
 position = Vector2(864, 1136)
 
-[node name="Node2D12" type="Node2D" parent="." index="17"]
+[node name="Node2D12" type="Node2D" parent="." index="16"]
 position = Vector2(384, 768)
 
 [node name="SpikeTrap" parent="Node2D12" index="0" groups=["spikes_a"] instance=ExtResource("4_dv6we")]
@@ -383,7 +380,7 @@ position = Vector2(800, 1136)
 [node name="SpikeTrap10" parent="Node2D12" index="8" groups=["spikes_a"] instance=ExtResource("4_dv6we")]
 position = Vector2(864, 1136)
 
-[node name="Node2D13" type="Node2D" parent="." index="18"]
+[node name="Node2D13" type="Node2D" parent="." index="17"]
 position = Vector2(0, 768)
 
 [node name="SpikeTrap" parent="Node2D13" index="0" groups=["spikes_a"] instance=ExtResource("4_dv6we")]
@@ -413,7 +410,7 @@ position = Vector2(800, 1136)
 [node name="SpikeTrap10" parent="Node2D13" index="8" groups=["spikes_a"] instance=ExtResource("4_dv6we")]
 position = Vector2(864, 1136)
 
-[node name="Node2D14" type="Node2D" parent="." index="19"]
+[node name="Node2D14" type="Node2D" parent="." index="18"]
 position = Vector2(-384, 768)
 
 [node name="SpikeTrap" parent="Node2D14" index="0" groups=["spikes_a"] instance=ExtResource("4_dv6we")]
@@ -443,14 +440,14 @@ position = Vector2(800, 1136)
 [node name="SpikeTrap10" parent="Node2D14" index="8" groups=["spikes_a"] instance=ExtResource("4_dv6we")]
 position = Vector2(864, 1136)
 
-[node name="Cannon3" parent="." index="20" instance=ExtResource("4_cwi6c")]
+[node name="Cannon3" parent="." index="19" instance=ExtResource("4_cwi6c")]
 position = Vector2(352, 1984)
 
-[node name="Cannon4" parent="." index="21" instance=ExtResource("4_cwi6c")]
+[node name="Cannon4" parent="." index="20" instance=ExtResource("4_cwi6c")]
 position = Vector2(1248, 1984)
 shooting_direction = 4
 
-[node name="Node2D15" type="Node2D" parent="." index="22"]
+[node name="Node2D15" type="Node2D" parent="." index="21"]
 position = Vector2(-192, 192)
 
 [node name="SpikeTrap2" parent="Node2D15" index="0" groups=["spikes_b"] instance=ExtResource("4_dv6we")]
@@ -480,7 +477,7 @@ position = Vector2(608, 1008)
 [node name="SpikeTrap10" parent="Node2D15" index="8" groups=["spikes_b"] instance=ExtResource("4_dv6we")]
 position = Vector2(544, 1008)
 
-[node name="Node2D16" type="Node2D" parent="." index="23"]
+[node name="Node2D16" type="Node2D" parent="." index="22"]
 position = Vector2(192, 192)
 
 [node name="SpikeTrap2" parent="Node2D16" index="0" groups=["spikes_b"] instance=ExtResource("4_dv6we")]
@@ -510,7 +507,7 @@ position = Vector2(608, 1008)
 [node name="SpikeTrap10" parent="Node2D16" index="8" groups=["spikes_b"] instance=ExtResource("4_dv6we")]
 position = Vector2(544, 1008)
 
-[node name="Node2D17" type="Node2D" parent="." index="24"]
+[node name="Node2D17" type="Node2D" parent="." index="23"]
 position = Vector2(384, 0)
 
 [node name="SpikeTrap2" parent="Node2D17" index="0" groups=["spikes_b"] instance=ExtResource("4_dv6we")]
@@ -540,7 +537,7 @@ position = Vector2(608, 1008)
 [node name="SpikeTrap10" parent="Node2D17" index="8" groups=["spikes_b"] instance=ExtResource("4_dv6we")]
 position = Vector2(544, 1008)
 
-[node name="Node2D18" type="Node2D" parent="." index="25"]
+[node name="Node2D18" type="Node2D" parent="." index="24"]
 position = Vector2(576, 192)
 
 [node name="SpikeTrap2" parent="Node2D18" index="0" groups=["spikes_b"] instance=ExtResource("4_dv6we")]
@@ -570,7 +567,7 @@ position = Vector2(608, 1008)
 [node name="SpikeTrap10" parent="Node2D18" index="8" groups=["spikes_b"] instance=ExtResource("4_dv6we")]
 position = Vector2(544, 1008)
 
-[node name="Node2D19" type="Node2D" parent="." index="26"]
+[node name="Node2D19" type="Node2D" parent="." index="25"]
 position = Vector2(0, 384)
 
 [node name="SpikeTrap2" parent="Node2D19" index="0" groups=["spikes_b"] instance=ExtResource("4_dv6we")]
@@ -600,7 +597,7 @@ position = Vector2(608, 1008)
 [node name="SpikeTrap10" parent="Node2D19" index="8" groups=["spikes_b"] instance=ExtResource("4_dv6we")]
 position = Vector2(544, 1008)
 
-[node name="Node2D20" type="Node2D" parent="." index="27"]
+[node name="Node2D20" type="Node2D" parent="." index="26"]
 position = Vector2(384, 384)
 
 [node name="SpikeTrap2" parent="Node2D20" index="0" groups=["spikes_b"] instance=ExtResource("4_dv6we")]
@@ -630,7 +627,7 @@ position = Vector2(608, 1008)
 [node name="SpikeTrap10" parent="Node2D20" index="8" groups=["spikes_b"] instance=ExtResource("4_dv6we")]
 position = Vector2(544, 1008)
 
-[node name="Node2D21" type="Node2D" parent="." index="28"]
+[node name="Node2D21" type="Node2D" parent="." index="27"]
 position = Vector2(192, 576)
 
 [node name="SpikeTrap2" parent="Node2D21" index="0" groups=["spikes_b"] instance=ExtResource("4_dv6we")]
@@ -660,7 +657,7 @@ position = Vector2(608, 1008)
 [node name="SpikeTrap10" parent="Node2D21" index="8" groups=["spikes_b"] instance=ExtResource("4_dv6we")]
 position = Vector2(544, 1008)
 
-[node name="Node2D22" type="Node2D" parent="." index="29"]
+[node name="Node2D22" type="Node2D" parent="." index="28"]
 position = Vector2(576, 576)
 
 [node name="SpikeTrap2" parent="Node2D22" index="0" groups=["spikes_b"] instance=ExtResource("4_dv6we")]
@@ -690,7 +687,7 @@ position = Vector2(608, 1008)
 [node name="SpikeTrap10" parent="Node2D22" index="8" groups=["spikes_b"] instance=ExtResource("4_dv6we")]
 position = Vector2(544, 1008)
 
-[node name="Node2D23" type="Node2D" parent="." index="30"]
+[node name="Node2D23" type="Node2D" parent="." index="29"]
 position = Vector2(384, 768)
 
 [node name="SpikeTrap2" parent="Node2D23" index="0" groups=["spikes_b"] instance=ExtResource("4_dv6we")]
@@ -720,7 +717,7 @@ position = Vector2(608, 1008)
 [node name="SpikeTrap10" parent="Node2D23" index="8" groups=["spikes_b"] instance=ExtResource("4_dv6we")]
 position = Vector2(544, 1008)
 
-[node name="Node2D24" type="Node2D" parent="." index="31"]
+[node name="Node2D24" type="Node2D" parent="." index="30"]
 position = Vector2(0, 768)
 
 [node name="SpikeTrap2" parent="Node2D24" index="0" groups=["spikes_b"] instance=ExtResource("4_dv6we")]
@@ -750,7 +747,7 @@ position = Vector2(608, 1008)
 [node name="SpikeTrap10" parent="Node2D24" index="8" groups=["spikes_b"] instance=ExtResource("4_dv6we")]
 position = Vector2(544, 1008)
 
-[node name="Node2D25" type="Node2D" parent="." index="32"]
+[node name="Node2D25" type="Node2D" parent="." index="31"]
 position = Vector2(-192, 576)
 
 [node name="SpikeTrap2" parent="Node2D25" index="0" groups=["spikes_b"] instance=ExtResource("4_dv6we")]
