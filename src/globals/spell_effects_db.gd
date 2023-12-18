@@ -32,9 +32,8 @@ func random_effects_from_pool(effects_pool):
 	var random = randi() % 4
 	var pool = effects[effects_pool].duplicate(true) as Array
 	var ret_effects = []
-	for x in random:
-		while not pool.is_empty():
-			var effect = GameManager.get_random_from_weighed_array(pool)
-			ensure_unique(effect, pool)
-			ret_effects.append(effect)
+	while not pool.is_empty() and ret_effects.size() != random:
+		var effect = GameManager.get_random_from_weighed_array(pool)
+		ensure_unique(effect, pool)
+		ret_effects.append(effect)
 	return ret_effects

@@ -21,9 +21,8 @@ var spells = {
 		type= "default_spell",
 		full_name = "Fireball",
 		projectile_type = "fireball",
-		description = "Create a ball of fire",
+		description = "Launch a ball of fire",
 		innate_effects = [
-			#HomingEffect.new()
 			],
 		projectile_data = {
 			damage = 5,
@@ -39,7 +38,7 @@ var spells = {
 		type = "spark",
 		full_name = "Spark",
 		projectile_type = "spark",
-		description = "Launch an electric spark",
+		description = "Launch 4 electric sparks that bounce on collision and move chaotically",
 		innate_effects = [
 			SparkSpellEffect.new(), 
 			DeviateMovementDirection.new().init(deg_to_rad(30.0)), 
@@ -58,7 +57,7 @@ var spells = {
 		type = "icicle",
 		full_name = "Icicle",
 		projectile_type = "icicle",
-		description = "Launch ice projectile",
+		description = "Launch a piercing ice projectile",
 		innate_effects = [
 			PierceEffect.new(),
 		],
@@ -86,7 +85,7 @@ var spells = {
 			range = 100,
 		},
 		frames = load("res://assets/sprites/spells/heal_spell.tres"),
-		max_mana = 100,
+		max_mana = 1,
 		shoot_frequency = 0.5,
 	}
 }

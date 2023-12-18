@@ -21,5 +21,5 @@ func lauch_side_projectiles(projectile: BaseProjectile):
 		new_projectile.effects = projectile.effects
 		new_projectile.position = projectile.position
 		new_projectile.initialize(projectile.get_projectile_data())
-		new_projectile.launch(projectile.launch_direction.rotated(deg_to_rad(randi_range(-15,15))))
+		new_projectile.launch(projectile.launch_direction.rotated(deg_to_rad(randi_range(-20,20))))
 		projectile.get_parent().call_deferred("add_child", new_projectile)

@@ -9,7 +9,7 @@ func init(value: int):
 	return self
 
 func apply_on_spell(spell: Spell):
-	pass
+	spell.shoot_frequency /= attack_spped_multiplier[tier]
 
 func get_description():
 	return "Rapid Fire: Spell attack speed increased by factor of %.1f" % attack_spped_multiplier[tier]

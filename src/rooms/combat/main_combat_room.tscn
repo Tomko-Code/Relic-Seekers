@@ -37,11 +37,9 @@ is_purchasable = true
 
 [node name="Cannon" parent="." index="6" instance=ExtResource("6_um5of")]
 position = Vector2(352, 1760)
-shooting_enabled = true
 
 [node name="Cannon2" parent="." index="7" instance=ExtResource("6_um5of")]
 position = Vector2(352, 2080)
-shooting_enabled = true
 
 [node name="ProximitySpikeTrap2" parent="." index="8" instance=ExtResource("6_bti87")]
 position = Vector2(960, 3264)
@@ -63,5 +61,3 @@ position = Vector2(553, 1508)
 
 [node name="GoldPickup" parent="." index="14" instance=ExtResource("9_eojwo")]
 position = Vector2(583, 1777)
-can_pickup = false
-is_frozen = false

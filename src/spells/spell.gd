@@ -23,7 +23,6 @@ var shoot_frequency: float = 0.5
 var is_friendly = true
 
 func spawn_projectile():
-	SoundManager.play_sfx("shoot_sfx")
 	var projectile: BaseProjectile
 	
 	for effect in effects:
@@ -44,7 +43,8 @@ func spawn_projectile():
 	elif mana == 0:
 		return null
 		emit_signal("out_of_mana")
-		
+	
+	SoundManager.play_sfx("shoot_sfx")
 	return projectile
 	
 func set_data(spell_data: Dictionary):
@@ -78,14 +78,23 @@ func add_effect(effect: SpellEffect, force: bool = false):
 		projectile_data.effects = projectile_data.get("effects", [])
 		projectile_data.effects.append(effect)
 
+func is_innate(effect: SpellEffect):
+	for innate_effect in innate_effects:
+		if innate_effect.get_script() == effect.get_script():
+			return true
+	return false
+
 func get_description():
 	var full_description = description + "\n[center]**Modifiers**[/center]\n"
 	for effect in effects:
-		full_description += effect.get_description() + "\n[center]---------[/center]\n"
+		if not is_innate(effect):
+			full_description += effect.get_description() + "\n[center]---------[/center]\n"
 	if projectile_data.has("effects"):
 		for effect in projectile_data["effects"]:
-			full_description += effect.get_description() + "\n[center]---------[/center]\n"
+			if not is_innate(effect):
+				full_description += effect.get_description() + "\n[center]---------[/center]\n"
 	full_description = full_description.trim_suffix("\n[center]---------[/center]\n")
+	full_description = full_description.trim_suffix("\n[center]**Modifiers**[/center]\n")
 	return full_description
 
 func get_title():

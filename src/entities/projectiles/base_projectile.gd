@@ -28,6 +28,12 @@ var projectile_data: Dictionary
 
 @export var _ProjectileMovementComponent: ProjectileMovementComponent
 
+func _ready():
+	await get_tree().process_frame
+	$Components/HitboxComponent.monitorable = true
+	$Components/HitboxComponent.monitoring = true
+	
+
 func get_projectile_data():
 	if projectile_data:
 		return projectile_data
