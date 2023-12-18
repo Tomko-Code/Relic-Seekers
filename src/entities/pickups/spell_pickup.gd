@@ -1,5 +1,5 @@
 class_name SpellPickup
-extends CharacterBody2D
+extends GenericPickup
 
 var spell: Spell = null
 
@@ -32,7 +32,8 @@ func pickup_spell():
 	queue_free()
 
 func delete():
-	spell.queue_free()
+	if spell != null:
+		spell.queue_free()
 	queue_free()
 
 func get_description():
