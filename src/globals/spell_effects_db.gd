@@ -7,8 +7,15 @@ var effects = {
 		[ProjectileSpeedBoostSpellEffect.new().init(1),1],
 		[ProjectileSpeedBoostSpellEffect.new().init(2),1],
 		[ProjectileSpeedBoostSpellEffect.new().init(3),1],
+		[RapidFireSpellEffect.new().init(0),1],
+		[RapidFireSpellEffect.new().init(1),1],
+		[RapidFireSpellEffect.new().init(2),1],
+		[RapidFireSpellEffect.new().init(3),1],
 		[BounceEffect.new(), 1],
 		[PierceEffect.new(), 1],
+		[ExtraProjectilesEffect.new().init(0), 1],
+		[ExtraProjectilesEffect.new().init(1), 1],
+		[ExtraProjectilesEffect.new().init(2), 1],
 	]
 }
 
@@ -20,7 +27,6 @@ func ensure_unique(effect: SpellEffect, pool: Array):
 			to_delete.append(entry)
 	for entry in to_delete:
 		pool.erase(entry)
-
 
 func random_effects_from_pool(effects_pool):
 	var random = randi() % 4

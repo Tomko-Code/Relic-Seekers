@@ -26,16 +26,16 @@ func update_passive_artifact():
 	$Shortcut.visible = false
 
 func update_active_artifact():
+	$ProgressBar.visible = true
+	$Shortcut.visible = true
 	$MarginContainer/Artifact.texture = artifact.frames.get_frame_texture("default", 0)
 	artifact = artifact as ActiveArtifact
-	$ProgressBar.value = artifact.current_charge
 	$ProgressBar.max_value = artifact.max_charge
+	$ProgressBar.value = artifact.current_charge
 	if artifact.can_use():
 		$Shortcut.add_theme_color_override("font_color", Color.DARK_GREEN)
 	else:
 		$Shortcut.add_theme_color_override("font_color", Color.DARK_RED)
-	$ProgressBar.visible = true
-	$Shortcut.visible = true
 
 func set_artifact(_artifact: Artifact):
 	if artifact != null and artifact is ActiveArtifact:

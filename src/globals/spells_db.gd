@@ -22,35 +22,35 @@ var spells = {
 		full_name = "Fireball",
 		projectile_type = "fireball",
 		description = "Create a ball of fire",
+		innate_effects = [
+			#HomingEffect.new()
+			],
 		projectile_data = {
 			damage = 5,
 			speed = 400,
 			range = 100,
-			effects = [HomingEffect.new()]
 		},
 		frames = load("res://assets/sprites/spells/fireball_spell.tres"),
-		effects = [],
 		max_mana = 100,
-		shoot_frequency = 0.1,
+		shoot_frequency = 0.5,
+		#shoot_frequency = 0.1,
 	},
 	spark = {
 		type = "spark",
 		full_name = "Spark",
 		projectile_type = "spark",
 		description = "Launch an electric spark",
+		innate_effects = [
+			SparkSpellEffect.new(), 
+			DeviateMovementDirection.new().init(deg_to_rad(30.0)), 
+			BounceEffect.new()
+		],
 		projectile_data = { 
-			effects = [
-				DeviateMovementDirection.new().init(deg_to_rad(30.0)),
-				BounceEffect.new(),
-			], 
 			damage = 5,
 			speed = 500,
 			range = 100,
 		},
 		frames = load("res://assets/sprites/spells/spark_spell.tres"),
-		effects = [
-			SparkSpellEffect.new()
-		],
 		max_mana = 50,
 		shoot_frequency = 0.5,
 	},
@@ -59,16 +59,15 @@ var spells = {
 		full_name = "Icicle",
 		projectile_type = "icicle",
 		description = "Launch ice projectile",
+		innate_effects = [
+			PierceEffect.new(),
+		],
 		projectile_data = { 
-			effects = [
-				PierceEffect.new(),
-			], 
 			damage = 8,
 			speed = 700,
 			range = 100,
 		},
 		frames = load("res://assets/sprites/spells/icicle_spell.tres"),
-		effects = [],
 		max_mana = 50,
 		shoot_frequency = 0.5,
 	},
@@ -77,17 +76,16 @@ var spells = {
 		full_name = "Heal",
 		projectile_type = "heal",
 		description = "Launch a healing projectile that flies towards player",
+		innate_effects = [
+			ForceHostileFffect.new(),
+			HomingEffect.new(),
+		],
 		projectile_data = { 
-			effects = [
-				ForceHostileFffect.new(),
-				HomingEffect.new(),
-			],
 			damage = -1,
 			speed = 700,
 			range = 100,
 		},
 		frames = load("res://assets/sprites/spells/heal_spell.tres"),
-		effects = [],
 		max_mana = 100,
 		shoot_frequency = 0.5,
 	}
