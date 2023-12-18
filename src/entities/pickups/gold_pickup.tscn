@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://v11uw5rg8gs0"]
+[gd_scene load_steps=11 format=3 uid="uid://v11uw5rg8gs0"]
 
 [ext_resource type="Script" path="res://src/entities/pickups/gold_pickup.gd" id="1_2tidk"]
 [ext_resource type="Script" path="res://src/systems/pickup_animation_system.gd" id="1_4qdb7"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="4_l8lgd"]
 [ext_resource type="Texture2D" uid="uid://bu03b6pa34u7a" path="res://assets/art/icons/gold.tres" id="5_iiq1q"]
 [ext_resource type="Script" path="res://src/entities/pickups/pickup_repulsion_movement.gd" id="7_hdwbo"]
+[ext_resource type="AudioStream" uid="uid://b2ydxve0kxj24" path="res://assets/audio/sfx/gold_sfx.wav" id="8_a46m1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8hb20"]
 radius = 8.0
@@ -63,3 +64,7 @@ _HitboxComponent = NodePath("../RepulsionHitbox")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource("CircleShape2D_8hb20")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_a46m1")
+bus = &"SFX"

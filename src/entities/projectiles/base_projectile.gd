@@ -76,6 +76,8 @@ func re_apply_effects():
 		effect.apply_on_projectile(self)
 
 func launch(direction_vector: Vector2):
+	#if not was_launched:
+	#	SoundManager.play_sfx("spawn_sound")
 	launch_direction = direction_vector
 	emit_signal("launched")
 	if _ProjectileMovementComponent:
@@ -106,6 +108,7 @@ func expire():
 	queue_free()
 
 func hit(target):
+	SoundManager.play_sfx("hit_sfx")
 	emit_signal("on_hit")
 	if not is_piercing:
 		expire()

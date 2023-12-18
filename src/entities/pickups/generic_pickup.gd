@@ -15,7 +15,7 @@ func _ready():
 	timer.one_shot = true
 	timer.timeout.connect(pickup_unlock.bind(timer))
 	add_child(timer)
-	timer.start(2.0)
+	timer.start(1.0)
 
 func pickup_unlock(timer: Timer):
 	timer.queue_free()

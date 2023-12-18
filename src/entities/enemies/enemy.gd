@@ -7,8 +7,15 @@ signal death
 
 func call_death():
 	emit_signal("death")
+	SoundManager.play_sfx("death_sfx")
 	spawn_loot()
 	queue_free()
+
+func play_sfx(audio_player: AudioStreamPlayer):
+		audio_player.finished.connect(audio_player.queue_free)
+		remove_child(audio_player)
+		get_parent().call_deferred("add_child", audio_player)
+		audio_player.call_deferred("play")
 
 func spawn_loot():
 	var spawn_gold:bool = randi() % 5 == 0

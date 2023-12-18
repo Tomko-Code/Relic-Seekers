@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dq7dfu32hthvr"]
+[gd_scene load_steps=10 format=3 uid="uid://dq7dfu32hthvr"]
 
 [ext_resource type="PackedScene" uid="uid://bnrt7xcfjh5bx" path="res://src/zone/room.tscn" id="1_ig6x2"]
 [ext_resource type="Script" path="res://src/rooms/combat/main_combat_room.gd" id="2_qmh12"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dfe20ml66djgu" path="res://src/entities/enemies/other/proximity_spike_trap.tscn" id="6_bti87"]
 [ext_resource type="PackedScene" uid="uid://cd5io7jujipyr" path="res://src/entities/enemies/other/cannon.tscn" id="6_um5of"]
 [ext_resource type="PackedScene" uid="uid://lmlrrv4br5gi" path="res://src/entities/enemies/other/delayed_spike_trap.tscn" id="9_d2tr1"]
+[ext_resource type="PackedScene" uid="uid://v11uw5rg8gs0" path="res://src/entities/pickups/gold_pickup.tscn" id="9_eojwo"]
 
 [node name="MainCombatRoom" node_paths=PackedStringArray("teleport") instance=ExtResource("1_ig6x2")]
 script = ExtResource("2_qmh12")
@@ -59,3 +60,8 @@ position = Vector2(898, 1643)
 
 [node name="DelayedSpikeTrap" parent="." index="13" instance=ExtResource("9_d2tr1")]
 position = Vector2(553, 1508)
+
+[node name="GoldPickup" parent="." index="14" instance=ExtResource("9_eojwo")]
+position = Vector2(583, 1777)
+can_pickup = false
+is_frozen = false

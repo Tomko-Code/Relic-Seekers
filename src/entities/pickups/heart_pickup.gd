@@ -11,6 +11,8 @@ func _ready():
 func on_player_entered(player):
 	if can_pickup:
 		player = player as PlayerEntity
-		player._PlayerStatsComponent.change_health(-1)
-		queue_free()
+		if player._PlayerStatsComponent.current_health < player._PlayerStatsComponent.max_health:
+			player._PlayerStatsComponent.change_health(-1)
+			SoundManager.play_sfx("heart_sfx")
+			queue_free()
 

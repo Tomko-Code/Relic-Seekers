@@ -12,4 +12,5 @@ func on_player_entered(player):
 	if can_pickup:
 		player = player as PlayerEntity
 		GameData.save_file.player_inventory.emeralds += 1
+		SoundManager.play_sfx("emerald_sfx")
 		queue_free()

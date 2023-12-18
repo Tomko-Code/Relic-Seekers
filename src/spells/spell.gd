@@ -22,6 +22,7 @@ var shoot_frequency: float = 0.5
 var is_friendly = true
 
 func spawn_projectile():
+	SoundManager.play_sfx("shoot_sfx")
 	var projectile: BaseProjectile
 	if mana != 0:
 		projectile = ProjectilesHandler.spawn_projectile(projectile_type, is_friendly)
