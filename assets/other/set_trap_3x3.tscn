@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxk6cq6s82hxo"]
+
+[ext_resource type="Script" path="res://src/rooms/prolog/set_trap.gd" id="1_tb42e"]
+[ext_resource type="PackedScene" uid="uid://bprr7yihq8lko" path="res://src/entities/enemies/other/spike_trap.tscn" id="2_7aj0p"]
+
+[node name="SetTrap" type="Node2D" node_paths=PackedStringArray("traps")]
+script = ExtResource("1_tb42e")
+trap = true
+traps = NodePath("Traps")
+
+[node name="Traps" type="Node2D" parent="."]
+
+[node name="SpikeTrap" parent="Traps" instance=ExtResource("2_7aj0p")]
+
+[node name="SpikeTrap2" parent="Traps" instance=ExtResource("2_7aj0p")]
+position = Vector2(64, 0)
+
+[node name="SpikeTrap3" parent="Traps" instance=ExtResource("2_7aj0p")]
+position = Vector2(128, 0)
+
+[node name="SpikeTrap4" parent="Traps" instance=ExtResource("2_7aj0p")]
+position = Vector2(0, 64)
+
+[node name="SpikeTrap5" parent="Traps" instance=ExtResource("2_7aj0p")]
+position = Vector2(64, 64)
+
+[node name="SpikeTrap6" parent="Traps" instance=ExtResource("2_7aj0p")]
+position = Vector2(128, 64)
+
+[node name="SpikeTrap7" parent="Traps" instance=ExtResource("2_7aj0p")]
+position = Vector2(0, 128)
+
+[node name="SpikeTrap8" parent="Traps" instance=ExtResource("2_7aj0p")]
+position = Vector2(64, 128)
+
+[node name="SpikeTrap9" parent="Traps" instance=ExtResource("2_7aj0p")]
+position = Vector2(128, 128)

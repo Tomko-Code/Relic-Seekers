@@ -20,5 +20,6 @@ func start_wave():
 	wave += 1
 
 func _on_timer_timeout():
+	print($"..".enemy_count)
 	start_wave()
 	

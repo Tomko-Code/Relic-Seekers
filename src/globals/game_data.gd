@@ -62,6 +62,9 @@ var rooms_data = {
 		"shape" : [[1]],
 		"res" : load("res://src/rooms/prolog/kill_prolog_room.tscn"),
 		"connections" : [[Vector2(0,0), Vector2.UP],[Vector2(0,0), Vector2.RIGHT]],
+		"waves" : [
+			[[2, 2, ["goblin"]]]
+		]
 	},
 	"end_prolog_room" : {
 		"shape" : [[1]],
