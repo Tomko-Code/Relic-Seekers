@@ -140,7 +140,15 @@ var rooms_data = {
 			[1, 1]
 		],
 		"res" : load("res://src/rooms/special/show_room.tscn"),
-		"connections" : [],
+		"connections" : [[Vector2(0,1), Vector2.LEFT]],
+	},
+	"shop_show_room" : {
+		# This is "broken" room
+		"shape" : [
+			[1]
+		],
+		"res" : load("res://src/rooms/special/shop_show_room.tscn"),
+		"connections" : [[Vector2(0,0), Vector2.RIGHT]],
 	}
 }
 

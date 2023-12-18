@@ -1,5 +1,4 @@
-extends Node2D
-
+extends Room
 
 var current_duration = 0.0
 var cycle_duration = 0.75
