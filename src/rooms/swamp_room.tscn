@@ -45,7 +45,7 @@ layer_0/tile_data = PackedInt32Array(327691, 0, 1, 131083, 196608, 0, 65544, 589
 position = Vector2(64, -640)
 
 [node name="Info" parent="." index="5" instance=ExtResource("4_6k5q6")]
-position = Vector2(464, 312)
+position = Vector2(457, 311)
 scale = Vector2(1, 1)
 
 [node name="Marker2D" type="Marker2D" parent="." index="6"]

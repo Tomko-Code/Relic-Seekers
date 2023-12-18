@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://bhd25t8ptw1ot"]
 
-[ext_resource type="Texture2D" uid="uid://c0yngvodyaw2b" path="res://assets/art/keys/A-Key.png" id="1_mxanu"]
-[ext_resource type="Texture2D" uid="uid://bghaij8wuehkg" path="res://assets/art/keys/D-Key.png" id="2_vkhox"]
-[ext_resource type="Texture2D" uid="uid://cnta05dc6yhpt" path="res://assets/art/keys/S-Key.png" id="3_kvjin"]
-[ext_resource type="Texture2D" uid="uid://cyc8r3434hrnr" path="res://assets/art/keys/W-Key.png" id="4_311mm"]
-[ext_resource type="Texture2D" uid="uid://dxty3ut8bdoqm" path="res://assets/art/keys/Space-Key.png" id="5_y7fby"]
+[ext_resource type="Texture2D" uid="uid://c4kuik1ffv782" path="res://assets/art/keys/A.png" id="1_ld3yh"]
+[ext_resource type="Texture2D" uid="uid://dmc45xq6ix2lx" path="res://assets/art/keys/D.png" id="2_wy7o6"]
+[ext_resource type="Texture2D" uid="uid://bap6lrs1xveyf" path="res://assets/art/keys/S.png" id="3_oms1p"]
+[ext_resource type="Texture2D" uid="uid://bjfbqycgcoy0n" path="res://assets/art/keys/W.png" id="4_18baw"]
+[ext_resource type="Texture2D" uid="uid://yk12tk0urkgo" path="res://assets/art/keys/SPACE.png" id="5_gfj3i"]
 [ext_resource type="FontFile" uid="uid://bpdjfdnl7p1vf" path="res://assets/fonts/yoster.ttf" id="6_4wowa"]
 
 [sub_resource type="Theme" id="Theme_t5s7l"]
@@ -13,52 +13,58 @@ default_font_size = 18
 
 [node name="Info" type="Node2D"]
 modulate = Color(0, 0.658824, 0.682353, 1)
-position = Vector2(581, 457)
 scale = Vector2(2, 2)
 
 [node name="A-key" type="Sprite2D" parent="."]
-position = Vector2(-34, 0)
-texture = ExtResource("1_mxanu")
-region_enabled = true
+position = Vector2(-27, -6)
+scale = Vector2(2, 2)
+texture = ExtResource("1_ld3yh")
 region_rect = Rect2(0, 0, 32, 32)
 
 [node name="D-key" type="Sprite2D" parent="."]
-position = Vector2(34, 0)
-texture = ExtResource("2_vkhox")
-region_enabled = true
+position = Vector2(41, -6)
+scale = Vector2(2, 2)
+texture = ExtResource("2_wy7o6")
 region_rect = Rect2(0, 0, 32, 32)
 
 [node name="S-key" type="Sprite2D" parent="."]
-texture = ExtResource("3_kvjin")
-region_enabled = true
+position = Vector2(7, -6)
+scale = Vector2(2, 2)
+texture = ExtResource("3_oms1p")
 region_rect = Rect2(0, 0, 32, 32)
 
 [node name="W-key" type="Sprite2D" parent="."]
-position = Vector2(0, -30)
-texture = ExtResource("4_311mm")
-region_enabled = true
+position = Vector2(7, -36)
+scale = Vector2(2, 2)
+texture = ExtResource("4_18baw")
 region_rect = Rect2(0, 0, 32, 32)
 
 [node name="Space-key" type="Sprite2D" parent="."]
-position = Vector2(173, -30)
-texture = ExtResource("5_y7fby")
-region_enabled = true
+position = Vector2(164, -16)
+scale = Vector2(2, 2)
+texture = ExtResource("5_gfj3i")
 region_rect = Rect2(0, 0, 64, 32)
 
 [node name="Info-Move" type="Label" parent="."]
-offset_left = -69.0
-offset_top = -73.0
-offset_right = 74.0
-offset_bottom = -47.0
+offset_left = -68.0
+offset_top = -76.0
+offset_right = 75.0
+offset_bottom = -50.0
 theme = SubResource("Theme_t5s7l")
+theme_override_font_sizes/font_size = 12
 text = "To move press."
+horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Info-Dash" type="Label" parent="."]
-offset_left = 97.5
-offset_top = -73.0
-offset_right = 240.5
-offset_bottom = -47.0
+offset_left = 92.0
+offset_top = -76.0
+offset_right = 235.0
+offset_bottom = -50.0
 theme = SubResource("Theme_t5s7l")
+theme_override_font_sizes/font_size = 12
 text = "To Dash press."
+horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_use_anchors_ = true

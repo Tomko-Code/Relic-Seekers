@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnpi4s6tsss4o"]
+[gd_scene load_steps=7 format=3 uid="uid://dnpi4s6tsss4o"]
 
 [ext_resource type="PackedScene" uid="uid://bnrt7xcfjh5bx" path="res://src/zone/room.tscn" id="1_guypc"]
 [ext_resource type="Script" path="res://src/rooms/normal_room_0.gd" id="2_gwtgn"]
 [ext_resource type="Texture2D" uid="uid://h5822ojp1xkc" path="res://assets/art/sprites/teleports/circle_teleport.png" id="3_j3a4r"]
+[ext_resource type="Texture2D" uid="uid://cka12yvq2l27k" path="res://assets/art/keys/TAB.png" id="4_sm07s"]
+[ext_resource type="FontFile" uid="uid://bpdjfdnl7p1vf" path="res://assets/fonts/yoster.ttf" id="5_cmp6t"]
+
+[sub_resource type="Theme" id="Theme_oi0tq"]
+default_font = ExtResource("5_cmp6t")
+default_font_size = 18
 
 [node name="TeleportPrologRoom" instance=ExtResource("1_guypc")]
 script = ExtResource("2_gwtgn")
@@ -17,3 +23,25 @@ layer_0/tile_data = PackedInt32Array(0, 262144, 3, 65536, 524288, 1, 131072, 524
 [node name="Teleport" type="Sprite2D" parent="." index="3"]
 position = Vector2(2592, 640)
 texture = ExtResource("3_j3a4r")
+
+[node name="Space-key" type="Sprite2D" parent="." index="4"]
+modulate = Color(0, 0.658824, 0.682353, 1)
+position = Vector2(602, 511)
+scale = Vector2(2, 2)
+texture = ExtResource("4_sm07s")
+region_rect = Rect2(0, 0, 64, 32)
+
+[node name="Info-Map" type="Label" parent="." index="5"]
+modulate = Color(0, 0.658824, 0.682353, 1)
+offset_left = 338.0
+offset_top = 391.0
+offset_right = 876.0
+offset_bottom = 472.0
+theme = SubResource("Theme_oi0tq")
+theme_override_font_sizes/font_size = 24
+text = "You can use TAB to spwap
+betwene Map and MiniMap.
+Teleport by pressing telepots on the Map"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
