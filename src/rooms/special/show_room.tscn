@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://brd00b1be7ls6"]
+[gd_scene load_steps=6 format=3 uid="uid://brd00b1be7ls6"]
 
 [ext_resource type="PackedScene" uid="uid://bnrt7xcfjh5bx" path="res://src/zone/room.tscn" id="1_t0fyi"]
 [ext_resource type="Script" path="res://src/rooms/special/special_spawner.gd" id="2_db2sj"]
 [ext_resource type="PackedScene" uid="uid://lmlrrv4br5gi" path="res://src/entities/enemies/other/delayed_spike_trap.tscn" id="2_wee7n"]
 [ext_resource type="FontFile" uid="uid://bpdjfdnl7p1vf" path="res://assets/fonts/yoster.ttf" id="3_n05e8"]
+[ext_resource type="PackedScene" uid="uid://dxe2hjd6i4hj4" path="res://src/entities/Interactables/next_wave_button.tscn" id="5_reg4m"]
 
 [node name="ShowRoom" instance=ExtResource("1_t0fyi")]
 
@@ -78,5 +79,8 @@ position = Vector2(920, 1368)
 
 [node name="DelayedSpikeTrap6" parent="SRight" index="5" instance=ExtResource("2_wee7n")]
 position = Vector2(1000, 1368)
+
+[node name="NextWaveButton" parent="." index="6" instance=ExtResource("5_reg4m")]
+position = Vector2(1568, 1312)
 
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
