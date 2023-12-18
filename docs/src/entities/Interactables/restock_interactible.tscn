@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dtsmyiv4frm0u"]
+[gd_scene load_steps=10 format=3 uid="uid://dtsmyiv4frm0u"]
 
 [ext_resource type="PackedScene" uid="uid://bdlxq5bh2qqu2" path="res://src/entities/interactable/interactable_component.tscn" id="1_hvcgx"]
 [ext_resource type="Script" path="res://docs/src/entities/Interactables/restock_interactible.gd" id="1_pfvxy"]
@@ -9,8 +9,11 @@
 
 [sub_resource type="InputEventKey" id="InputEventKey_dtu7g"]
 device = -1
-keycode = 70
-unicode = 102
+keycode = 88
+unicode = 120
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yp4ui"]
+radius = 32.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_goaa2"]
 atlas = ExtResource("3_60on3")
@@ -26,6 +29,7 @@ interaction_input = SubResource("InputEventKey_dtu7g")
 interaction_descryption = ""
 interaction_title = "Restock Shop"
 input_text = "X"
+shape = SubResource("CircleShape2D_yp4ui")
 
 [node name="AnimatedSpriteComponent" type="Node2D" parent="Comopnents"]
 script = ExtResource("2_ojlyt")

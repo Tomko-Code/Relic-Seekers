@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbha7in1jxyy"]
+[gd_scene load_steps=5 format=3 uid="uid://cbha7in1jxyy"]
 
 [ext_resource type="PackedScene" uid="uid://bnrt7xcfjh5bx" path="res://src/zone/room.tscn" id="1_loeo5"]
 [ext_resource type="Script" path="res://src/rooms/special/shop_show_room.gd" id="2_e2mr3"]
 [ext_resource type="PackedScene" uid="uid://dtsmyiv4frm0u" path="res://docs/src/entities/Interactables/restock_interactible.tscn" id="3_y84w3"]
+[ext_resource type="Script" path="res://src/rooms/special/shop_marker.gd" id="4_2wbx3"]
 
 [node name="ShopShowRoom" instance=ExtResource("1_loeo5")]
 script = ExtResource("2_e2mr3")
@@ -17,16 +18,21 @@ layer_0/tile_data = PackedInt32Array(0, 262144, 3, 65536, 524288, 1, 131072, 524
 position = Vector2(552, 416)
 
 [node name="ShopMarker" type="Marker2D" parent="." index="4" groups=["ShopMarker"]]
-position = Vector2(704, 448)
+position = Vector2(642, 450)
+script = ExtResource("4_2wbx3")
 
 [node name="ShopMarker2" type="Marker2D" parent="." index="5" groups=["ShopMarker"]]
-position = Vector2(768, 448)
+position = Vector2(770, 450)
+script = ExtResource("4_2wbx3")
 
 [node name="ShopMarker3" type="Marker2D" parent="." index="6" groups=["ShopMarker"]]
-position = Vector2(832, 448)
+position = Vector2(898, 450)
+script = ExtResource("4_2wbx3")
 
 [node name="ShopMarker4" type="Marker2D" parent="." index="7" groups=["ShopMarker"]]
-position = Vector2(896, 448)
+position = Vector2(1026, 452)
+script = ExtResource("4_2wbx3")
 
 [node name="ShopMarker5" type="Marker2D" parent="." index="8" groups=["ShopMarker"]]
-position = Vector2(960, 448)
+position = Vector2(1152, 448)
+script = ExtResource("4_2wbx3")
