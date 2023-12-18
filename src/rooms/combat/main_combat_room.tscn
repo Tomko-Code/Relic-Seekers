@@ -37,6 +37,8 @@ is_purchasable = true
 
 [node name="Cannon" parent="." index="6" instance=ExtResource("6_um5of")]
 position = Vector2(352, 1760)
+shooting_frequency = 0.25
+shooting_enabled = true
 
 [node name="Cannon2" parent="." index="7" instance=ExtResource("6_um5of")]
 position = Vector2(352, 2080)
