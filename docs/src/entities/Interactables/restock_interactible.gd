@@ -5,4 +5,7 @@ extends Node2D
 signal interacted
 
 func _ready():
-	interactible.interacted.connect(emit_signal, "interacted")
+	interactible.interacted.connect(emit_interacted)
+
+func emit_interacted():
+	emit_signal("interacted")
