@@ -20,15 +20,19 @@ var player:PlayerEntity = null
 var type = PlayerEntity
 
 func on_player_death():
-	GameData.save_file.player_inventory = PlayerInventory.new()
+	GameData.save_file.player_inventory.reset()
 	GameData.save_file.max_health = 6
 	GameData.save_file.current_health = GameData.save_file.max_health
+	
+	GameManager.player._PlayerStatsComponent.max_health = GameData.save_file.max_health
+	GameManager.player._PlayerStatsComponent.current_health = GameData.save_file.max_health
+	GameManager.player.emit_signal("health_changed")
 	
 	#GameManager.player.queue_free()
 	#load_player()
 	
-	$Map/CenterContainer/SubViewportContainer/SubViewport/level_render.clear_render()
-	change_active_to_sanctuary_level()
+	#$Map/CenterContainer/SubViewportContainer/SubViewport/level_render.clear_render()
+	#change_active_to_sanctuary_level()
 
 func change_current_level(level:Level) -> void:
 	# Check if level is alrady active
