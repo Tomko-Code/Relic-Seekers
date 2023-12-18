@@ -22,11 +22,13 @@ func draw_room(room:Room) -> void:
 	var render:RoomRender = RoomRender.new()
 	render.room = room
 	render.set_up()
-	add_child(render)
+	$Rooms.add_child(render)
 
 func _process(delta):
 	if GameManager.player != null:
 		player_icon.position = GameManager.player.position/16
 
 func clear_render() -> void:
-	pass
+	for child in $Rooms.get_children():
+		child.hide()
+		child.queue_free()
