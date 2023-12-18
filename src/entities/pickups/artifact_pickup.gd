@@ -17,6 +17,9 @@ func set_artifact(_artifact: Artifact):
 	
 	interactable.update_box()
 
+func delete():
+	artifact.queue_free()
+	queue_free()
 
 func pickup_artifact():
 	var ret_artifact = GameData.save_file.player_inventory.add_artifact(artifact)

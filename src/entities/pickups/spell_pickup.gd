@@ -31,6 +31,10 @@ func pickup_spell():
 	SoundManager.play_sfx("pickup_sfx")
 	queue_free()
 
+func delete():
+	spell.queue_free()
+	queue_free()
+
 func get_description():
 	return spell.get_description()
 
