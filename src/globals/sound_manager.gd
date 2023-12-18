@@ -19,7 +19,7 @@ func play_sfx(sfx_name):
 		var audio_player = AudioStreamPlayer.new()
 		audio_player.stream = sfx_sounds[sfx_name]
 		
-		audio_player.bus = "Sfx"
+		audio_player.bus = "SFX"
 		audio_player.finished.connect(clear_sfx_object.bind(audio_player))
 		audio_player.finished.connect(audio_player.queue_free)
 		
