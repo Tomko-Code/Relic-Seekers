@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://dxe2hjd6i4hj4"]
+
+[ext_resource type="PackedScene" uid="uid://bdlxq5bh2qqu2" path="res://src/entities/interactable/interactable_component.tscn" id="1_rueyr"]
+[ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="2_y7b4c"]
+[ext_resource type="Texture2D" uid="uid://c1opxea5dmvag" path="res://assets/art/tilemap/320x320-tileset-ruin.png" id="3_v8ddp"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_f5wsd"]
+device = -1
+keycode = 88
+unicode = 120
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_phtly"]
+radius = 32.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3lrt3"]
+atlas = ExtResource("3_v8ddp")
+region = Rect2(320, 1280, 320, 320)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b0aji"]
+size = Vector2(32, 32)
+
+[node name="NextWaveButton" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="InteractableComponent" parent="Components" instance=ExtResource("1_rueyr")]
+interaction_input = SubResource("InputEventKey_f5wsd")
+interaction_descryption = ""
+interaction_title = "Start next wave"
+input_text = "X"
+shape = SubResource("CircleShape2D_phtly")
+
+[node name="AnimatedSpriteComponent" type="Node2D" parent="Components"]
+script = ExtResource("2_y7b4c")
+
+[node name="Sprite2D" type="Sprite2D" parent="Components/AnimatedSpriteComponent"]
+texture = SubResource("AtlasTexture_3lrt3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -27)
+shape = SubResource("RectangleShape2D_b0aji")
