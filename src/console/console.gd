@@ -21,3 +21,7 @@ func _on_text_edit_text_changed():
 func _on_button_pressed():
 	GameManager.loaded_scenes["Game"].current_level.reveal_level()
 	
+
+
+func _on_button_2_pressed_death():
+	GameManager.player.call_death()

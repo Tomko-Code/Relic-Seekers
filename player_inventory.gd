@@ -74,3 +74,23 @@ func add_artifact(artifact: Artifact):
 			return old_artifact
 	
 	return null
+
+func reset():
+	for spell in spells:
+		if spell != SpellsHandler.default_spell and spell != null:
+			spell.queue_free()
+	
+	spells = [SpellsHandler.default_spell, null, null, null, null]
+	current_spell_slot = 0
+	gold = 0
+	emeralds = 0
+	
+	if active_artifact != null:
+		active_artifact.queue_free()
+		active_artifact = null
+	if passive_artifact != null:
+		passive_artifact.queue_free()
+		passive_artifact = null
+	
+	emit_signal("spells_changed")
+	
