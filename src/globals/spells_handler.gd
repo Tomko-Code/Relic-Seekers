@@ -15,6 +15,11 @@ func create_spell_pickup(spell: Spell):
 
 func add_spell(spell: Spell):
 	all_spells.append(spell)
+	call_deferred("add_child", spell)
+	spell.tree_exiting.connect(remove_spell.bind(spell))
+
+func remove_spell(spell: Spell):
+	all_spells.erase(spell)
 
 func create_spell(spell_name: String, effects_pool: String = ""):
 	if not SpellsDb.spells.has(spell_name):

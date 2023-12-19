@@ -10,7 +10,7 @@ func init(value: int):
 	return self
 
 func apply_on_spell(spell: Spell):
-	spell.shoot_frequency /= attack_spped_multiplier[tier]
+	spell.cast_frequency /= attack_spped_multiplier[tier]
 
 func get_description():
 	return get_bbcode_texture() + color_text(" Rapid Fire x%.1f" % attack_spped_multiplier[tier])
