@@ -5,11 +5,12 @@ extends DirectSpellEffect
 @export var extra_projectile_counts = [1,2,3]
 
 func init(value: int):
+	texture = load("res://assets/art/icons/spell_effects/extra_projectiles.png")
 	tier = clampi(value, 0,2)
 	return self
 
 func get_description():
-	return "Extra Projectiles: Fires +%s extra projectile" % extra_projectile_counts[tier]
+	return get_bbcode_texture() + color_text(" Extra Projectiles +%s" % extra_projectile_counts[tier])
 
 func apply_on_projectile(projectile: BaseProjectile):
 	projectile.launched.connect(lauch_side_projectiles.bind(projectile))

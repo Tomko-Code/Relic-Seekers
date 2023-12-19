@@ -4,6 +4,11 @@ const FLOOR_TILE_SIZE:Vector2 = Vector2(64, 64)
 const WALL_TILE_SIZE:Vector2 = Vector2(320, 320)
 const CHUNK_SIZE:Vector2 = Vector2(WALL_TILE_SIZE.x * 5, WALL_TILE_SIZE.y * 4)
 
+enum spell_archetypes {
+	PROJECTILE,
+	ACTIVE,
+}
+
 enum all_directions {
 	RIGHT,
 	RIGHT_UP,

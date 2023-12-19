@@ -25,3 +25,11 @@ func _on_button_pressed():
 
 func _on_button_2_pressed_death():
 	GameManager.player.call_death()
+
+
+func _on_button_3_pressed():
+	GameData.save_file.player_inventory.gold += 50
+
+
+func _on_button_4_pressed():
+	GameData.save_file.player_inventory.emeralds += 50

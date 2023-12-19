@@ -38,6 +38,16 @@ text = "Reveal Map"
 layout_mode = 2
 text = "Death"
 
+[node name="Button3" type="Button" parent="Console/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "+50g"
+
+[node name="Button4" type="Button" parent="Console/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "+50e"
+
 [connection signal="text_changed" from="Console/TextEdit" to="." method="_on_text_edit_text_changed"]
 [connection signal="pressed" from="Console/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Console/VBoxContainer/HBoxContainer/Button2" to="." method="_on_button_2_pressed_death"]
+[connection signal="pressed" from="Console/VBoxContainer/HBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Console/VBoxContainer/HBoxContainer/Button4" to="." method="_on_button_4_pressed"]

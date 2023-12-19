@@ -19,8 +19,9 @@ radius = 16.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_duwmo"]
 radius = 32.0
 
-[node name="SpellPickup" type="CharacterBody2D" node_paths=PackedStringArray("_PickupRepulsionMovement")]
+[node name="SpellPickup" type="CharacterBody2D" node_paths=PackedStringArray("_AnimatedSpriteComponent", "_PickupRepulsionMovement")]
 script = ExtResource("1_cmxdu")
+_AnimatedSpriteComponent = NodePath("Components/AnimatedSpriteComponent")
 _PickupRepulsionMovement = NodePath("Components/PickupRepulsionMovement")
 
 [node name="Components" type="Node2D" parent="."]

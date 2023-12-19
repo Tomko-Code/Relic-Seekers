@@ -6,8 +6,6 @@ extends ShootingComponent
 
 signal on_shoot
 
-var shooting_frequency_current = 0
-
 func get_direction():
 	return parent.get_local_mouse_position().normalized()
 
@@ -34,18 +32,6 @@ func shoot(direction_vector):
 func _physics_process(delta):
 	if parent.paused:
 		return
-	
-	if Input.is_action_pressed("shoot_left_click"):
-		is_shooting = true
-	else:
-		is_shooting = false
 		
-	if is_shooting and shooting_frequency_current == 0:
+	if is_shooting and GameData.save_file.player_inventory.get_current_spell().can_cast():
 		shoot(get_direction())
-	
-	if is_shooting or shooting_frequency_current != 0:
-		shooting_frequency_current += delta
-	
-	if shooting_frequency_current >= _PlayerStatsComponent.get_shoot_frequency():
-		shooting_frequency_current = 0
-	
