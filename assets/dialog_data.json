@@ -96,15 +96,15 @@
         "dialogs" : [
             {
                 "who" : "Player",
-                "string" : "Looks like there is no teleporting stone out."
+                "string" : "Hmm... looks like there is no teleporting stone back."
             },
             {
                 "who" : "Player",
-                "string" : "Guess that solves why nobody ever came back."
+                "string" : "Guess that solves why nobody ever came back from expeditions."
             },
             {
                 "who" : "Player",
-                "string" : "I do wonder where everyone is."
+                "string" : "I do wonder where everyone is ... if they are still alive."
             }
         ]
     },
@@ -117,7 +117,7 @@
             },
             {
                 "who" : "Player",
-                "string" : "I should get moving up those staris."
+                "string" : "I should get moving."
             }
         ]
     }

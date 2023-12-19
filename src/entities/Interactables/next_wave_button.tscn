@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c6c35u5gnxb3u"]
+[gd_scene load_steps=9 format=3 uid="uid://dxe2hjd6i4hj4"]
 
 [ext_resource type="Script" path="res://src/entities/Interactables/next_wave_button.gd" id="1_gukvn"]
 [ext_resource type="PackedScene" uid="uid://bdlxq5bh2qqu2" path="res://src/entities/interactable/interactable_component.tscn" id="1_rueyr"]

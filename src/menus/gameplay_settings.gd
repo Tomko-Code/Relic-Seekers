@@ -11,7 +11,9 @@ var editable_actions = {
 	"move_up" : "Move UP",
 	"move_down" : "Move DOWN",
 	"move_right" : "Move RIGHT",
-	"move_left" : "Move LEFT"
+	"move_left" : "Move LEFT",
+	"map" : "Map/MiniMap",
+	"artifact_slot_q" : "Use LEFT Artefact"
 }
 
 func _ready():
