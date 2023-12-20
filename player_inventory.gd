@@ -35,12 +35,15 @@ signal spells_changed
 
 func change_current_spell(value: int):
 	current_spell_slot = clampi(value, 0, 4)
-	if not get_current_spell():
-		current_spell_slot = 0
+	#if not get_current_spell():
+	#	current_spell_slot = 0
 	emit_signal("spells_changed")
 
 func get_current_spell() -> Spell:
-	return spells[current_spell_slot]
+	var spell = spells[current_spell_slot]
+	if spell:
+		return spell
+	return spells[0]
 
 func add_spell(new_spell: Spell):
 	for spell_slot_id in range(1,5):
@@ -48,14 +51,18 @@ func add_spell(new_spell: Spell):
 			spells[spell_slot_id] = new_spell
 			emit_signal("spells_changed")
 			return null
-	
-	var last_spell = spells.back()
-	
-	for spell_slot_id in range(3,0,-1):
-		spells[spell_slot_id+1] = spells[spell_slot_id]
-	spells[1] = new_spell
-	emit_signal("spells_changed")
-	return last_spell
+	if current_spell_slot == 0:
+		var last_spell = spells.back()
+		for spell_slot_id in range(3,0,-1):
+			spells[spell_slot_id+1] = spells[spell_slot_id]
+		spells[1] = new_spell
+		emit_signal("spells_changed")
+		return last_spell
+	else:
+		var old_spell = spells[current_spell_slot]
+		spells[current_spell_slot] = new_spell
+		emit_signal("spells_changed")
+		return old_spell
 
 func add_artifact(artifact: Artifact):
 	if artifact is ActiveArtifact:
@@ -74,6 +81,15 @@ func add_artifact(artifact: Artifact):
 			return old_artifact
 	
 	return null
+
+func drop_spell() -> Spell:
+	if get_current_spell() == SpellsHandler.default_spell:
+		return null
+	else:
+		var spell = get_current_spell()
+		spells[current_spell_slot] = null
+		emit_signal("spells_changed")
+		return spell
 
 func reset():
 	for spell in spells:
