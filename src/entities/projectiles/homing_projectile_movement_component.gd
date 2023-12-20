@@ -17,7 +17,7 @@ func _physics_process(delta):
 	if not parent.is_friendly:
 		destination = GameManager.player.position
 	else:
-		var enemy = EnemiesHandler.get_enemy_closest_to(parent)
+		var enemy = EnemiesHandler.get_enemy_closest_to(parent, parent.already_hit)
 		if enemy != null and is_instance_valid(enemy):
 			var target_destination = enemy.global_position
 			if (target_destination - parent.global_position).length() < 200:
