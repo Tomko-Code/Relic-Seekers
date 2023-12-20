@@ -4,6 +4,7 @@ extends GenericPickup
 
 @export var _HitboxComponent: HitboxComponent
 
+
 func _ready():
 	_HitboxComponent.body_entered.connect(on_player_entered)
 	super._ready()

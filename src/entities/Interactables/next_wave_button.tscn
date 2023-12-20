@@ -44,4 +44,9 @@ texture = SubResource("AtlasTexture_3lrt3")
 position = Vector2(0, -27)
 shape = SubResource("RectangleShape2D_b0aji")
 
+[node name="AutoPickTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="interacted" from="Components/InteractableComponent" to="." method="_on_interactable_component_interacted"]
+[connection signal="timeout" from="AutoPickTimer" to="." method="_on_auto_pick_timer_timeout"]
