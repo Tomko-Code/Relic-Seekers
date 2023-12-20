@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://xwmjeqkmpwim"]
+[gd_scene load_steps=11 format=3 uid="uid://xwmjeqkmpwim"]
 
 [ext_resource type="Script" path="res://src/entities/pickups/heart_pickup.gd" id="1_n34jy"]
 [ext_resource type="Script" path="res://src/systems/pickup_animation_system.gd" id="2_vj44k"]
@@ -7,15 +7,16 @@
 [ext_resource type="Texture2D" uid="uid://di6h3mqc3bfpf" path="res://assets/art/icons/full_heart.tres" id="5_32rvg"]
 [ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="6_31bag"]
 [ext_resource type="Script" path="res://src/entities/pickups/pickup_repulsion_movement.gd" id="7_vjdld"]
+[ext_resource type="Script" path="res://src/systems/movement/entity_repulsion_system.gd" id="8_6sggi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8hb20"]
-radius = 8.0
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jn4l4"]
 radius = 16.0
 
 [node name="HeartPickup" type="CharacterBody2D" node_paths=PackedStringArray("_HitboxComponent", "_PickupRepulsionMovement")]
-collision_layer = 0
+collision_layer = 64
 collision_mask = 2
 script = ExtResource("1_n34jy")
 _HitboxComponent = NodePath("Components/PickupHitbox")
@@ -40,7 +41,6 @@ scale = Vector2(2, 2)
 texture = ExtResource("5_32rvg")
 
 [node name="PickupHitbox" type="Area2D" parent="Components"]
-visible = false
 collision_layer = 0
 script = ExtResource("6_31bag")
 
@@ -48,9 +48,8 @@ script = ExtResource("6_31bag")
 shape = SubResource("CircleShape2D_8hb20")
 
 [node name="RepulsionHitbox" type="Area2D" parent="Components"]
-visible = false
-collision_layer = 16
-collision_mask = 21
+collision_layer = 0
+collision_mask = 69
 script = ExtResource("6_31bag")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Components/RepulsionHitbox"]
@@ -60,6 +59,9 @@ shape = SubResource("CircleShape2D_jn4l4")
 script = ExtResource("7_vjdld")
 _HitboxComponent = NodePath("../RepulsionHitbox")
 
+[node name="EntityRepulsionSystem" type="Node" parent="Components" node_paths=PackedStringArray("_HitboxComponent")]
+script = ExtResource("8_6sggi")
+_HitboxComponent = NodePath("../RepulsionHitbox")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CircleShape2D_8hb20")

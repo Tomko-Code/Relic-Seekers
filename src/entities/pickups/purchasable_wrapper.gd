@@ -1,5 +1,5 @@
 class_name PurchasableWrapper
-extends Node2D
+extends StaticBody2D
 
 @export var cost_label: Label
 var cost: int = 1

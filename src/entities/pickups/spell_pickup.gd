@@ -9,6 +9,7 @@ func _ready():
 	if get_parent() == get_node("/root"):
 		set_spell(SpellsHandler.test_spell)
 		add_child(Camera2D.new())
+	super._ready()
 
 func set_spell(_spell: Spell):
 	spell = _spell

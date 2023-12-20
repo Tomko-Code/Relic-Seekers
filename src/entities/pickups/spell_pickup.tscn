@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://doo5nthidvht1"]
+[gd_scene load_steps=14 format=3 uid="uid://doo5nthidvht1"]
 
 [ext_resource type="Script" path="res://src/entities/pickups/spell_pickup.gd" id="1_cmxdu"]
 [ext_resource type="PackedScene" uid="uid://bdlxq5bh2qqu2" path="res://src/entities/interactable/interactable_component.tscn" id="2_uh565"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://src/systems/pickup_animation_system.gd" id="5_ypdvy"]
 [ext_resource type="Script" path="res://src/entities/pickups/pickup_repulsion_movement.gd" id="6_tkrps"]
 [ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="7_pgisl"]
+[ext_resource type="Script" path="res://src/systems/movement/entity_repulsion_system.gd" id="9_4ddjd"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_vubgw"]
 device = -1
@@ -20,7 +21,12 @@ radius = 16.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_duwmo"]
 radius = 32.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_msxdv"]
+radius = 32.0
+
 [node name="SpellPickup" type="CharacterBody2D" node_paths=PackedStringArray("_AnimatedSpriteComponent", "_PickupRepulsionMovement")]
+collision_layer = 64
+collision_mask = 2
 script = ExtResource("1_cmxdu")
 _AnimatedSpriteComponent = NodePath("Components/AnimatedSpriteComponent")
 _PickupRepulsionMovement = NodePath("Components/PickupRepulsionMovement")
@@ -51,12 +57,19 @@ _AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
 
 [node name="PickupRepulsionMovement" type="Node" parent="Components" node_paths=PackedStringArray("_HitboxComponent")]
 script = ExtResource("6_tkrps")
-_HitboxComponent = NodePath("../HitboxComponent")
+_HitboxComponent = NodePath("../RepulsionHitbox")
 
-[node name="HitboxComponent" type="Area2D" parent="Components"]
+[node name="RepulsionHitbox" type="Area2D" parent="Components"]
 collision_layer = 64
 collision_mask = 64
 script = ExtResource("7_pgisl")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/HitboxComponent"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/RepulsionHitbox"]
 shape = SubResource("CircleShape2D_duwmo")
+
+[node name="EntityRepulsionSystem" type="Node" parent="Components" node_paths=PackedStringArray("_HitboxComponent")]
+script = ExtResource("9_4ddjd")
+_HitboxComponent = NodePath("../RepulsionHitbox")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_msxdv")
