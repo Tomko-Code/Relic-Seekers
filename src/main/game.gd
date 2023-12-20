@@ -28,7 +28,9 @@ func on_player_death():
 	GameManager.player._PlayerStatsComponent.max_health = GameData.save_file.max_health
 	GameManager.player._PlayerStatsComponent.current_health = GameData.save_file.max_health
 	GameManager.player.emit_signal("health_changed")
-
+	
+	GameData.save_file.wave = 0
+	
 	call_deferred("change_active_to_sanctuary_level")
 	$Map/CenterContainer/SubViewportContainer/SubViewport/level_render.clear_render()
 

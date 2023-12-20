@@ -13,7 +13,8 @@ var editable_actions = {
 	"move_right" : "Move RIGHT",
 	"move_left" : "Move LEFT",
 	"map" : "Map/MiniMap",
-	"artifact_slot_q" : "Use LEFT Artefact"
+	"artifact_slot_q" : "Use LEFT Artefact",
+	"drop_spell" : "Drop selected spell"
 }
 
 func _ready():

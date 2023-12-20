@@ -1,20 +1,7 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://c52ccr70o1bi6"]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c52ccr70o1bi6"]
 
 [ext_resource type="Shader" path="res://assets/shaders/fall_out.gdshader" id="1_6yjr3"]
 
-[sub_resource type="Gradient" id="Gradient_h2bie"]
-offsets = PackedFloat32Array(0.75431, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_nhdpq"]
-gradient = SubResource("Gradient_h2bie")
-width = 190
-height = 190
-fill = 2
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0, 0)
-
 [resource]
 shader = ExtResource("1_6yjr3")
-shader_parameter/bg_color = Color(0.0313726, 0.345098, 0.490196, 1)
-shader_parameter/fall_texture = SubResource("GradientTexture2D_nhdpq")
+shader_parameter/bg_color = Color(0.0352941, 0.356863, 0.505882, 1)

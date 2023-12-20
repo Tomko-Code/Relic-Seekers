@@ -3,14 +3,16 @@ class_name Map
 
 @export var level_render:LevelRender = null
 @export var sub_view:SubViewport = null
-@export var mini_map:TextureRect = null
+@export var mini_map:Control = null
 @export var sub_view_container:SubViewportContainer = null 
+
 
 var map_open:bool = false
 
 func _ready():
 	GameManager.map = self
 	sub_view.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+	level_render.camera.zoom = Vector2(0.5, 0.5)
 
 func _on_game_level_change(level:Level):
 	# Biiiiiiiig Spaggggettttti
@@ -35,10 +37,11 @@ func _input(event):
 			sub_view.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 			mini_map.visible = true
 			map_open = false
-			
+			level_render.camera.zoom = Vector2(0.5, 0.5)
 			
 		else:
 			sub_view_container.custom_minimum_size = Vector2(1152, 648)
 			map_open = true
 			sub_view_container.visible = true
 			mini_map.visible = false
+			level_render.camera.zoom = Vector2(1, 1)

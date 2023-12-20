@@ -2,6 +2,7 @@ extends Node2D
 class_name LevelRender
 
 @export var player_icon:Sprite2D
+@export var camera:Camera2D
 
 var current_level:Level = null
 

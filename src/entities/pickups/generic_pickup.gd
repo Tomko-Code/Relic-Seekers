@@ -28,7 +28,7 @@ func _ready():
 
 func _process(delta):
 	if auto_pick:
-		position += global_position.direction_to(GameManager.player.global_position).normalized() * delta * 200
+		position += global_position.direction_to(GameManager.player.global_position).normalized() * delta * 300
 
 func pause_despawn():
 	despawn_timer.paused = !despawn_timer.paused
