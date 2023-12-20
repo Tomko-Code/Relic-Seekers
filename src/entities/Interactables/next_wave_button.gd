@@ -8,23 +8,33 @@ var spawn_list = ["goblin", "stone_eye"]
 var wave:int = 0
 
 func _ready():
+	lable.text = ""
 	room.enemies_clear.connect(start_timer)
+	timer.timeout.connect(clear_msg)
+	
+	wave = GameData.save_file.wave
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if not timer.is_stopped():
-		lable.text = "Wave : " + str(wave)
-	else:
-		lable.text = ""
-		
+	pass
+
+func _exit_tree():
+	GameData.save_file.wave = wave
+
+func clear_msg():
+	lable.text = ""
+
 func start_wave():
-	#FLOOR.MATH((B5/2)+(1)+((B5^3)/(B5*16)))
-	var fix_wave = wave+1
-	var mod1:int = fix_wave/2
-	var mod2:int = 1
-	var mod3:int = (fix_wave^3)/(fix_wave*16)
+	lable.text = "Wave : " + str(wave+1)
 	
-	for x in range(floor(mod1+mod2+mod3)):
+	#FLOOR.MATH((B5/2)+(1)+((B5^3)/(B5*16)))
+	var fix_wave:int = wave+1
+	var mod1:float = fix_wave/2
+	var mod2:int = 1
+	var mod3:float = (fix_wave^3)/(fix_wave*16)
+	var result:int = floor(mod1+mod2+mod3)
+	
+	for x in range(result):
 		$"..".spawn_enemy(spawn_list.pick_random())
 	
 	wave += 1
@@ -34,14 +44,15 @@ func _on_timer_timeout():
 	start_wave()
 
 func _on_interactable_component_interacted():
-	print(room.enemy_count)
-	if room.enemy_count == 0:
+	if room.enemy_count == 0 and $AutoPickTimer.is_stopped():
 		timer.start()
 		start_wave()
 
 func start_timer():
 	$AutoPickTimer.start()
+	lable.text = "Wave Ceared!"
 
 func _on_auto_pick_timer_timeout():
+	clear_msg()
 	for auto in get_tree().get_nodes_in_group("auto_pick"):
 		auto.auto_pick = true

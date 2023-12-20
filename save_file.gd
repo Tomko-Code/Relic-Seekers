@@ -11,3 +11,6 @@ class_name SaveFile
 @export var active_run:bool = false
 @export var prolog_complete:bool = false
 @export var current_level:int = 0
+
+# Show
+@export var wave:int = 0
