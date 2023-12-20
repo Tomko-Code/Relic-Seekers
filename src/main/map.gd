@@ -1,4 +1,5 @@
 extends CanvasLayer
+class_name Map
 
 @export var level_render:LevelRender = null
 @export var sub_view:SubViewport = null
@@ -8,6 +9,7 @@ extends CanvasLayer
 var map_open:bool = false
 
 func _ready():
+	GameManager.map = self
 	sub_view.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 
 func _on_game_level_change(level:Level):

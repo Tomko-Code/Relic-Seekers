@@ -36,6 +36,7 @@ _AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
 script = ExtResource("4_rf3gb")
 
 [node name="Sprite2D" type="Sprite2D" parent="Components/AnimatedSpriteComponent"]
+scale = Vector2(2, 2)
 texture = ExtResource("5_32rvg")
 
 [node name="PickupHitbox" type="Area2D" parent="Components"]

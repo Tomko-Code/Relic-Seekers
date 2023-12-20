@@ -65,6 +65,8 @@ func activate_level(level:Level) -> void:
 	active_level = level
 
 func change_active_to_current_level() -> void:
+	$Map.show()
+	
 	if level_state == LEVEL_STATES.SANCTUARY:
 		deactivate_level(sanctuary_level)
 	
@@ -73,6 +75,8 @@ func change_active_to_current_level() -> void:
 	level_state = LEVEL_STATES.CURRENT
 
 func change_active_to_sanctuary_level() -> void:
+	$Map.hide()
+	
 	if level_state == LEVEL_STATES.CURRENT:
 		deactivate_level(current_level)
 
