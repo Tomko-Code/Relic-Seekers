@@ -5,7 +5,8 @@ func _init():
 	spells.default_spell = spells.fireball.duplicate(true)
 	spells.default_spell.max_mana = -1
 	
-	spells.test_spell = spells.spark
+	spells.test_spell = spells.heal.duplicate(true)
+	spells.test_spell.max_mana = -1
 
 var random_pool = [
 	["fireball", 2],
@@ -80,14 +81,9 @@ var spells = {
 		projectile_type = "heal",
 		description = "Launch a healing projectile that\nflies towards player",
 		innate_effects = [
-			ForceHostileFffect.new(),
-			HomingEffect.new(),
+			HealEffect.new(),
 		],
-		projectile_data = { 
-			damage = -1,
-			speed = 700,
-			range = 100,
-		},
+		projectile_data = {},
 		frames = load("res://assets/sprites/spells/heal_spell.tres"),
 		max_mana = 1,
 		cast_frequency = 0.5,
