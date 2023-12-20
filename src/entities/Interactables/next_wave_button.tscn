@@ -11,7 +11,7 @@ keycode = 88
 unicode = 120
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_phtly"]
-radius = 32.0
+radius = 64.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3lrt3"]
 atlas = ExtResource("4_a33pd")
