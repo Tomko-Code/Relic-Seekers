@@ -2,11 +2,15 @@ extends Node
 
 var spell_pickup_resource = load("res://src/entities/pickups/spell_pickup.tscn")
 @onready var default_spell = create_spell("default_spell")
+@onready var test_spell = create_spell("test_spell")
 
 var all_spells: Array[Spell] = []
 
 func _ready():
 	GameData.save_file.player_inventory.spells[0] = default_spell
+	test_spell.add_effect(ExtraProjectilesEffect.new().init(2))
+	test_spell.add_effect(ExtraProjectilesEffect.new().init(2), true)
+	test_spell.add_effect(ExtraProjectilesEffect.new().init(2), true)
 
 func create_spell_pickup(spell: Spell):
 	var spell_pickup: SpellPickup = spell_pickup_resource.instantiate()

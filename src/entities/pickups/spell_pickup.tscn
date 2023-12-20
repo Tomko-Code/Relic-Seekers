@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://doo5nthidvht1"]
+[gd_scene load_steps=12 format=3 uid="uid://doo5nthidvht1"]
 
 [ext_resource type="Script" path="res://src/entities/pickups/spell_pickup.gd" id="1_cmxdu"]
 [ext_resource type="PackedScene" uid="uid://bdlxq5bh2qqu2" path="res://src/entities/interactable/interactable_component.tscn" id="2_uh565"]
 [ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="3_wy3x1"]
 [ext_resource type="Script" path="res://src/entities/entity_shadow_component.gd" id="4_xkv5c"]
+[ext_resource type="Script" path="res://src/entities/pickups/effect_count_indicator.gd" id="5_iakv5"]
 [ext_resource type="Script" path="res://src/systems/pickup_animation_system.gd" id="5_ypdvy"]
 [ext_resource type="Script" path="res://src/entities/pickups/pickup_repulsion_movement.gd" id="6_tkrps"]
 [ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="7_pgisl"]
@@ -39,6 +40,9 @@ _AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
 script = ExtResource("3_wy3x1")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="Components/AnimatedSpriteComponent"]
+
+[node name="EffectCountIndicator" type="Node2D" parent="Components/AnimatedSpriteComponent"]
+script = ExtResource("5_iakv5")
 
 [node name="PickupAnimationSystem" type="Node" parent="Components" node_paths=PackedStringArray("_AnimatedSpriteComponent")]
 script = ExtResource("5_ypdvy")

@@ -5,11 +5,17 @@ var spell: Spell = null
 
 @export var _AnimatedSpriteComponent: AnimatedSpriteComponent
 
+func _ready():
+	if get_parent() == get_node("/root"):
+		set_spell(SpellsHandler.test_spell)
+		add_child(Camera2D.new())
+
 func set_spell(_spell: Spell):
 	spell = _spell
 	
 	var interactable = $Components/InteractableComponent as InteractibleComponent
 	$Components/AnimatedSpriteComponent/Sprite.sprite_frames = spell.frames
+	$Components/AnimatedSpriteComponent/EffectCountIndicator.spell = spell
 	#$Components/AnimatedSpriteComponent/Sprite.play("default")
 	
 	interactable.interaction_descryption = spell.get_description()

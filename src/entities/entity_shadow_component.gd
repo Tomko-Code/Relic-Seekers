@@ -11,6 +11,8 @@ func _draw():
 		if sprite is AnimatedSprite2D:
 			sprite as AnimatedSprite2D
 			var frames = sprite.sprite_frames as SpriteFrames
+			if frames == null:
+				continue
 			var texture = frames.get_frame_texture(sprite.animation, sprite.frame)
 			var texture_size = texture.get_size() * sprite.scale
 			if texture_size.y > pos.y:

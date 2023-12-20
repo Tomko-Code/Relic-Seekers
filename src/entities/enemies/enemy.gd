@@ -4,12 +4,15 @@ extends CharacterBody2D
 signal health_changed
 signal death
 
+var is_dead: bool = false
 
 func call_death():
-	emit_signal("death")
-	SoundManager.play_sfx("death_sfx")
-	spawn_loot()
-	queue_free()
+	if not is_dead:
+		emit_signal("death")
+		SoundManager.play_sfx("death_sfx")
+		spawn_loot()
+		queue_free()
+		is_dead = true
 
 func play_sfx(audio_player: AudioStreamPlayer):
 		audio_player.finished.connect(audio_player.queue_free)

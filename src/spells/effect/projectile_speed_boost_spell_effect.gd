@@ -5,6 +5,7 @@ extends ProjectileSpellEffect
 @export var speed_multipliers = [1.25, 1.5, 1.75, 2]
 
 func init(value: int):
+	effect_type = Constants.effect_types.POSITIVE
 	texture = load("res://assets/art/icons/spell_effects/speed_boost.png")
 	tier = clampi(value, 0,3)
 	return self

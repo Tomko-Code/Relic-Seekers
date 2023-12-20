@@ -2,6 +2,7 @@ class_name HomingEffect
 extends ProjectileSpellEffect
 
 func _init():
+	effect_type = Constants.effect_types.POSITIVE
 	texture = load("res://assets/art/icons/spell_effects/homing.png")
 
 func apply_on_projectile(projectile: BaseProjectile):
