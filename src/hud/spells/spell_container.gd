@@ -5,6 +5,8 @@ extends PanelContainer
 @export var shortcut:String = ""
 @export var mana:String = ""
 
+@export var slot_index: int = -1
+
 var spell: Spell
 
 func _ready():
@@ -12,7 +14,7 @@ func _ready():
 	update_selection()
 
 func update_selection():
-	$Selection.visible = spell == GameData.save_file.player_inventory.get_current_spell()
+	$Selection.visible = spell == GameData.save_file.player_inventory.get_current_spell() or slot_index == GameData.save_file.player_inventory.current_spell_slot
 
 func update_spell():
 	if spell:
