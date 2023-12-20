@@ -9,7 +9,7 @@ extends CharacterBody2D
 var pit_count:int = 0
 
 var paused:bool = false
-var draw_position:bool = true
+var draw_position:bool = false
 
 signal death
 signal health_changed
