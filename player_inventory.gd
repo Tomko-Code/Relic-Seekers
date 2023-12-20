@@ -39,7 +39,7 @@ func change_current_spell(value: int):
 		current_spell_slot = 0
 	emit_signal("spells_changed")
 
-func get_current_spell():
+func get_current_spell() -> Spell:
 	return spells[current_spell_slot]
 
 func add_spell(new_spell: Spell):

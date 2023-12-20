@@ -18,7 +18,7 @@ func _ready():
 	timer.one_shot = true
 	timer.timeout.connect(pickup_unlock.bind(timer))
 	add_child(timer)
-	timer.start(1.0)
+	timer.start(0.5)
 	
 	despawn_timer.autostart = true
 	despawn_timer.wait_time = 60

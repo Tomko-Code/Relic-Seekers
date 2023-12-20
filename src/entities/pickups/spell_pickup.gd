@@ -3,17 +3,36 @@ extends GenericPickup
 
 var spell: Spell = null
 
+@export var _AnimatedSpriteComponent: AnimatedSpriteComponent
+
+func _ready():
+	if get_parent() == get_node("/root"):
+		set_spell(SpellsHandler.test_spell)
+		add_child(Camera2D.new())
+
 func set_spell(_spell: Spell):
 	spell = _spell
 	
 	var interactable = $Components/InteractableComponent as InteractibleComponent
 	$Components/AnimatedSpriteComponent/Sprite.sprite_frames = spell.frames
+	$Components/AnimatedSpriteComponent/EffectCountIndicator.spell = spell
 	#$Components/AnimatedSpriteComponent/Sprite.play("default")
 	
 	interactable.interaction_descryption = spell.get_description()
 	interactable.interaction_title = spell.get_title()
 	
 	interactable.interacted.connect(pickup_spell)
+	
+#	var effects = spell.get_effects(false) as Array
+#	for index in effects.size():
+#		var effect = effects[index]
+#		var sprite = Sprite2D.new()
+#		sprite.offset = Vector2.from_angle((PI*2.0)*(index as float/effects.size() as float) - PI/4).normalized() * 24
+#		sprite.texture = effect.texture
+#		if is_node_ready():
+#			_AnimatedSpriteComponent.call_deferred("add_child", sprite)
+#		else:
+#			_AnimatedSpriteComponent.add_child(sprite)
 	
 	interactable.update_box()
 

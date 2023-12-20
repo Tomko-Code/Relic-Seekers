@@ -5,7 +5,7 @@ func apply_on_projectile(projectile: BaseProjectile):
 	projectile.launched.connect(lauch_side_projectiles.bind(projectile))
 
 func get_description():
-	return "Spark Effect: Fires 1-4 additional projectiles"
+	return get_bbcode_texture() + color_text(" Spark Effect")
 
 func lauch_side_projectiles(projectile: BaseProjectile):
 	await projectile.ready
