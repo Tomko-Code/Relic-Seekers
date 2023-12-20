@@ -18,7 +18,12 @@ func _process(delta):
 		lable.text = ""
 		
 func start_wave():
-	for x in range(int(pow(wave, 2)/7)+1):
+	#FLOOR.MATH((B5/2)+(1)+((B5^3)/(B5*16)))
+	var mod1:int = wave/2
+	var mod2:int = 1
+	var mod3:int = (wave^3)/(wave*16)
+	
+	for x in range(floor(mod1+mod2+mod3)):
 		$"..".spawn_enemy(spawn_list.pick_random())
 	
 	wave += 1
