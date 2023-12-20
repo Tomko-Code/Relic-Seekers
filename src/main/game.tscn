@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cbgrg2gkexspu"]
+[gd_scene load_steps=12 format=3 uid="uid://cbgrg2gkexspu"]
 
 [ext_resource type="Script" path="res://src/main/game.gd" id="1_3g1o0"]
 [ext_resource type="PackedScene" uid="uid://cfmmqeomv02jn" path="res://src/menus/hud.tscn" id="2_ob4nq"]
@@ -58,6 +58,13 @@ _data = {
 "RESET": SubResource("Animation_e0ttc")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vn7mw"]
+bg_color = Color(0.164706, 0.219608, 0.423529, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_8351s"]
 viewport_path = NodePath("Map/CenterContainer/SubViewportContainer/SubViewport")
 
@@ -88,21 +95,33 @@ color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 script = ExtResource("4_xv8q3")
 level_render = NodePath("CenterContainer/SubViewportContainer/SubViewport/level_render")
 sub_view = NodePath("CenterContainer/SubViewportContainer/SubViewport")
-mini_map = NodePath("MarginContainer/SpagetiMap")
+mini_map = NodePath("MiniMapContainer/MiniMap")
 sub_view_container = NodePath("CenterContainer/SubViewportContainer")
 
-[node name="MarginContainer" type="MarginContainer" parent="Map"]
+[node name="MiniMapContainer" type="MarginContainer" parent="Map"]
+custom_minimum_size = Vector2(202, 202)
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -200.0
-offset_bottom = 200.0
+offset_left = -222.0
+offset_bottom = 222.0
 grow_horizontal = 0
-mouse_filter = 2
+theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
-[node name="SpagetiMap" type="TextureRect" parent="Map/MarginContainer"]
+[node name="MiniMap" type="CenterContainer" parent="Map/MiniMapContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="Panel" parent="Map/MiniMapContainer/MiniMap"]
+custom_minimum_size = Vector2(202, 202)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vn7mw")
+
+[node name="SpagetiMap" type="TextureRect" parent="Map/MiniMapContainer/MiniMap"]
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 mouse_filter = 2
 texture = SubResource("ViewportTexture_8351s")

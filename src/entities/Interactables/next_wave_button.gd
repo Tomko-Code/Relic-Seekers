@@ -19,9 +19,10 @@ func _process(delta):
 		
 func start_wave():
 	#FLOOR.MATH((B5/2)+(1)+((B5^3)/(B5*16)))
-	var mod1:int = wave/2
+	var fix_wave = wave+1
+	var mod1:int = fix_wave/2
 	var mod2:int = 1
-	var mod3:int = (wave^3)/(wave*16)
+	var mod3:int = (fix_wave^3)/(fix_wave*16)
 	
 	for x in range(floor(mod1+mod2+mod3)):
 		$"..".spawn_enemy(spawn_list.pick_random())
