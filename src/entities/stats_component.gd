@@ -8,11 +8,12 @@ extends Node
 @export var shoot_range: float = 100
 @export var shoot_damage: int = 1
 @export var shoot_frequency: float = 1
+@export var varible_shoot_frequency:bool = false
 
 @export var projectile_type: String = "hostile_projectile"
 
 @export var max_health: float = 10
-var current_health: float = max_health
+@onready var current_health: float = max_health
 
 func get_projectile_data():
 	var p_data = {
@@ -42,7 +43,10 @@ func get_shoot_damage():
 	return shoot_damage
 
 func get_shoot_frequency():
-	return shoot_frequency
+	if varible_shoot_frequency:
+		return shoot_frequency * randf_range(0.95, 1)
+	else:
+		return shoot_frequency
 
 func change_health(value: float):
 	current_health -= value

@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://m1bbrd37rfc"]
+[gd_scene load_steps=10 format=3 uid="uid://bfi0x1wxpjdrq"]
 
 [ext_resource type="Script" path="res://src/entities/pickups/mana_orb_pickup.gd" id="1_ntgmq"]
 [ext_resource type="Script" path="res://src/systems/pickup_animation_system.gd" id="2_mn50w"]
 [ext_resource type="Script" path="res://src/entities/entity_shadow_component.gd" id="3_5c8r6"]
 [ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="4_i4mtn"]
-[ext_resource type="Texture2D" uid="uid://dnxy0ov5k2c7q" path="res://assets/art/icons/emerald.tres" id="5_sdkgm"]
+[ext_resource type="Texture2D" path="res://assets/art/icons/emerald.tres" id="5_sdkgm"]
 [ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="6_oel6q"]
 [ext_resource type="Script" path="res://src/entities/pickups/pickup_repulsion_movement.gd" id="7_d2uub"]
 

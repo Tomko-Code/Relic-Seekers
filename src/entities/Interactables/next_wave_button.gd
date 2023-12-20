@@ -4,7 +4,7 @@ extends StaticBody2D
 @export var lable:Label = null
 @export var timer:Timer = null
 
-var spawn_list = ["goblin", "stone_eye", "test_mob_a"]
+var spawn_list = ["goblin", "stone_eye"]
 var wave:int = 0
 
 func _ready():
