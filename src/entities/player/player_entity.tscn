@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d2bsjmqg1fe1h"]
+[gd_scene load_steps=17 format=3 uid="uid://d2bsjmqg1fe1h"]
 
 [ext_resource type="Script" path="res://src/entities/player/player_entity.gd" id="1_7c5ui"]
 [ext_resource type="AudioStream" uid="uid://bq42j7hi8q3h5" path="res://assets/audio/sfx/516858__matrixxx__retro-drop-03.wav" id="2_v3sqh"]
@@ -11,6 +11,8 @@
 [ext_resource type="Script" path="res://src/systems/combat/combat_system.gd" id="10_tlm1e"]
 [ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="10_vk5ky"]
 [ext_resource type="Script" path="res://src/systems/movement/eight_direction_animation_system.gd" id="11_r5eho"]
+[ext_resource type="Script" path="res://src/entities/player/player_input_handler.gd" id="12_o057g"]
+[ext_resource type="Script" path="res://src/entities/player/player_casting_component.gd" id="13_to852"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eip8d"]
 size = Vector2(48, 48)
@@ -47,6 +49,12 @@ pitch_scale = 2.5
 bus = &"SFX"
 
 [node name="Components" type="Node2D" parent="."]
+
+[node name="PlayerInputHandler" type="Node2D" parent="Components" node_paths=PackedStringArray("_UserMouseShootingComponent", "_UserMovementComponent", "_PlayerCastingComponent")]
+script = ExtResource("12_o057g")
+_UserMouseShootingComponent = NodePath("../UserMouseShootingComponent")
+_UserMovementComponent = NodePath("../UserMovementComponent")
+_PlayerCastingComponent = NodePath("../PlayerCastingComponent")
 
 [node name="EntityShadowComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("_AnimatedSpriteComponent")]
 script = ExtResource("3_7bjv5")
@@ -91,6 +99,9 @@ script = ExtResource("11_r5eho")
 _MovementComponent = NodePath("../UserMovementComponent")
 _AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
 _ShootingComponent = NodePath("../UserMouseShootingComponent")
+
+[node name="PlayerCastingComponent" type="Node2D" parent="Components"]
+script = ExtResource("13_to852")
 
 [connection signal="health_changed" from="." to="." method="_on_health_changed"]
 [connection signal="body_entered" from="PitHitBox" to="." method="_on_pit_hit_box_body_entered"]

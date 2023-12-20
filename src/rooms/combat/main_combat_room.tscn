@@ -63,3 +63,8 @@ position = Vector2(553, 1508)
 
 [node name="GoldPickup" parent="." index="14" instance=ExtResource("9_eojwo")]
 position = Vector2(583, 1777)
+
+[node name="SpellTestSpawn2" type="Marker2D" parent="." index="15"]
+position = Vector2(418, 1876)
+script = ExtResource("5_7lwpr")
+spell_name = "test_spell"

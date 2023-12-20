@@ -157,6 +157,11 @@ func load_save_file():
 		save_file = ResourceLoader.load(save_path)
 	else:
 		save_file = SaveFile.new()
+	
+	for spell_id in range(1, 5):
+		var spell = save_file.player_inventory.spells[spell_id]
+		if spell != null:
+			SpellsHandler.add_spell(spell)
 
 func write_save_file():
 	ResourceSaver.save(save_file, save_path)

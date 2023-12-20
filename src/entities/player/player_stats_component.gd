@@ -28,23 +28,6 @@ func _ready():
 func update_current_spell():
 	current_spell = GameData.save_file.player_inventory.get_current_spell()
 
-func _input(event):
-	if event is InputEventKey:
-		if Input.is_action_just_pressed("spell_slot_0") and not event.is_echo():
-			GameData.save_file.player_inventory.change_current_spell(0)
-		elif Input.is_action_just_pressed("spell_slot_1") and not event.is_echo():
-			GameData.save_file.player_inventory.change_current_spell(1)
-		elif Input.is_action_just_pressed("spell_slot_2") and not event.is_echo():
-			GameData.save_file.player_inventory.change_current_spell(2)
-		elif Input.is_action_just_pressed("spell_slot_3") and not event.is_echo():
-			GameData.save_file.player_inventory.change_current_spell(3)
-		elif Input.is_action_just_pressed("spell_slot_4") and not event.is_echo():
-			GameData.save_file.player_inventory.change_current_spell(4)
-		elif Input.is_action_just_pressed("artifact_slot_q") and not event.is_echo():
-			var artifact = GameData.save_file.player_inventory.active_artifact
-			if artifact != null and artifact.can_use():
-				artifact.use()
-
 func get_shoot_frequency():
 	return current_spell.shoot_frequency
 

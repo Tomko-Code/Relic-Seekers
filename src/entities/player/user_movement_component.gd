@@ -14,6 +14,8 @@ var dash_max_duration = 0.12
 var dash_current_duration = 0
 var last_direction
 
+var input_direction: Vector2 = Vector2.ZERO
+
 signal dash_over
 
 @export var _AnimatedSpriteComponent: AnimatedSpriteComponent
@@ -22,7 +24,7 @@ func _ready():
 	speed = 500
 
 func _physics_process(delta):
-	direction = Vector2.ZERO
+	direction = input_direction
 	if parent.paused:
 		return
 	
@@ -46,27 +48,10 @@ func _physics_process(delta):
 				ghost.position = parent.position
 				parent.get_parent().call_deferred("add_child", ghost)
 	
-	if not is_dashing:
-		if Input.is_action_pressed("move_left"):
-			direction.x -= 1
-		if Input.is_action_pressed("move_right"):
-			direction.x += 1
-		if Input.is_action_pressed("move_up"):
-			direction.y -= 1
-		if Input.is_action_pressed("move_down"):
-			direction.y += 1
-	else:
+	if is_dashing:
 		direction = last_direction
 	
 	last_direction = direction
-	
-	if Input.is_action_pressed("dash") and direction != Vector2.ZERO and can_dash:
-		# TODO : big kek but for now it's fine
-		das_start_pos = $"../../PitHitBox/CollisionShape2D".global_position
-		
-		can_dash = false
-		is_dashing = true
-		
 	
 	if direction == Vector2.ZERO:
 		is_idle = true

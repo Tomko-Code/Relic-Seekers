@@ -28,4 +28,4 @@ func deviate_projectile(projectile: BaseProjectile, timer: Timer):
 		timer.queue_free()
 
 func get_description():
-	return "Projectiles deviate from their path by %.0f degrees" % rad_to_deg(deviation)
+	return get_bbcode_texture() + "Deviates by %.0f degrees" % rad_to_deg(deviation)
