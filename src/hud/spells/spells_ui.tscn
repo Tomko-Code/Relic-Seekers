@@ -80,19 +80,24 @@ size_flags_vertical = 4
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_m6dft")
 shortcut = "1"
+slot_index = 0
 
 [node name="SpellSlot1" parent="PanelContainer/MarginContainer/SpellSlots" instance=ExtResource("1_l7fwu")]
 layout_mode = 2
 shortcut = "2"
+slot_index = 1
 
 [node name="SpellSlot2" parent="PanelContainer/MarginContainer/SpellSlots" instance=ExtResource("1_l7fwu")]
 layout_mode = 2
 shortcut = "3"
+slot_index = 2
 
 [node name="SpellSlot3" parent="PanelContainer/MarginContainer/SpellSlots" instance=ExtResource("1_l7fwu")]
 layout_mode = 2
 shortcut = "4"
+slot_index = 3
 
 [node name="SpellSlot4" parent="PanelContainer/MarginContainer/SpellSlots" instance=ExtResource("1_l7fwu")]
 layout_mode = 2
 shortcut = "5"
+slot_index = 4

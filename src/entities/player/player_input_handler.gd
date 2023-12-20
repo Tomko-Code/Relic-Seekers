@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var parent = get_parent().get_parent()
+
 @export var _UserMouseShootingComponent: UserMouseShootingComponent
 @export var _UserMovementComponent: UserMovementComponent
 @export var _PlayerCastingComponent: PlayerCastingComponent
@@ -20,6 +22,12 @@ func _input(event):
 			var artifact = GameData.save_file.player_inventory.active_artifact
 			if artifact != null and artifact.can_use():
 				artifact.use()
+		elif Input.is_action_just_pressed("drop_spell") and not event.is_echo():
+			var spell = GameData.save_file.player_inventory.drop_spell()
+			if spell != null:
+				var spell_pickup = SpellsHandler.create_spell_pickup(spell)
+				spell_pickup.position = parent.position
+				parent.get_parent().call_deferred("add_child", spell_pickup)
 
 func _physics_process(delta):
 	_UserMouseShootingComponent.is_shooting = false
