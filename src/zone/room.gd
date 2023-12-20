@@ -65,6 +65,7 @@ func set_enemy_count(value:int):
 		if data.has_waves == false:
 			if room_closed == true:
 				room_closed = false
+				print(enemy_count)
 				emit_signal("enemies_clear")
 		# open room or spawn next wave
 
@@ -184,9 +185,9 @@ func spawn_enemy(enemy_type:String):
 		return
 	
 	var pos:Vector2 = cord * Constants.FLOOR_TILE_SIZE
-	
-	var enemy:Enemy = EnemiesHandler.spawn_enemy(enemy_type)
 	enemy_count += 1
+	var enemy:Enemy = EnemiesHandler.spawn_enemy(enemy_type)
+	
 	enemy.death.connect(on_enemy_death)
 	enemy.position = pos
 	

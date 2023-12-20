@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://src/entities/entity_shadow_component.gd" id="2_qd6vi"]
 [ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="3_p42ty"]
 [ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="4_l8lgd"]
-[ext_resource type="Texture2D" uid="uid://bu03b6pa34u7a" path="res://assets/art/icons/gold.tres" id="5_iiq1q"]
+[ext_resource type="Texture2D" path="res://assets/art/icons/gold.tres" id="5_iiq1q"]
 [ext_resource type="Script" path="res://src/entities/pickups/pickup_repulsion_movement.gd" id="7_hdwbo"]
 [ext_resource type="AudioStream" uid="uid://b2ydxve0kxj24" path="res://assets/audio/sfx/gold_sfx.wav" id="8_a46m1"]
 
@@ -15,7 +15,7 @@ radius = 8.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_jn4l4"]
 radius = 16.0
 
-[node name="GoldPickup" type="CharacterBody2D" node_paths=PackedStringArray("_HitboxComponent", "_PickupRepulsionMovement")]
+[node name="GoldPickup" type="CharacterBody2D" node_paths=PackedStringArray("_HitboxComponent", "_PickupRepulsionMovement") groups=["auto_pick"]]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_2tidk")

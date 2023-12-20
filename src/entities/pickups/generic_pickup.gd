@@ -2,6 +2,7 @@ class_name GenericPickup
 #scene class
 extends CharacterBody2D
 
+@export var auto_pick: bool = false
 @export var can_pickup: bool = false
 @export var _PickupRepulsionMovement: PickupRepulsionMovement
 @export var is_frozen: bool = false:
@@ -24,6 +25,10 @@ func _ready():
 	despawn_timer.one_shot = true
 	despawn_timer.timeout.connect(delete)
 	add_child(despawn_timer)
+
+func _process(delta):
+	if auto_pick:
+		position += global_position.direction_to(GameManager.player.global_position).normalized() * delta * 200
 
 func pause_despawn():
 	despawn_timer.paused = !despawn_timer.paused

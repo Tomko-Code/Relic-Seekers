@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://gint4y1ev3el"]
+[gd_scene load_steps=10 format=3 uid="uid://tyyed3rgehp3"]
 
 [ext_resource type="Script" path="res://src/entities/pickups/emerald_pickup.gd" id="1_tyvui"]
 [ext_resource type="Script" path="res://src/systems/pickup_animation_system.gd" id="2_0vd5f"]
 [ext_resource type="Script" path="res://src/entities/entity_shadow_component.gd" id="3_x2c7b"]
 [ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="4_co5gm"]
-[ext_resource type="Texture2D" uid="uid://dnxy0ov5k2c7q" path="res://assets/art/icons/emerald.tres" id="5_0ebbd"]
+[ext_resource type="Texture2D" path="res://assets/art/icons/emerald.tres" id="5_0ebbd"]
 [ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="6_qveea"]
 [ext_resource type="Script" path="res://src/entities/pickups/pickup_repulsion_movement.gd" id="7_yma2a"]
 
@@ -14,7 +14,7 @@ radius = 8.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_fvyck"]
 radius = 16.0
 
-[node name="EmeraldPickup" type="CharacterBody2D" node_paths=PackedStringArray("_HitboxComponent", "_PickupRepulsionMovement")]
+[node name="EmeraldPickup" type="CharacterBody2D" node_paths=PackedStringArray("_HitboxComponent", "_PickupRepulsionMovement") groups=["auto_pick"]]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_tyvui")

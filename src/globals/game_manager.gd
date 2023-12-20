@@ -10,6 +10,7 @@ var game_camera: FollowCamera = load("res://src/other/FollowCamera.tscn").instan
 var player: PlayerEntity = null
 var dialog_box:Dialog = null
 var hud:HUD = null
+var map:Map = null
 
 var loaded_scenes = {}
 
