@@ -22,7 +22,7 @@ func check_conditions(spell: Spell):
 func apply_on_projectile(projectile: BaseProjectile):
 	projectile.damage *= projectile_damage_modifiers_array[tier]
 	projectile.effect_chance_modifiers[Constants.entity_effects.BURNING] = burn_chance_modifiers_array[tier]
-	projectile.effect_damage_modifiers[Constants.entity_effects.BURNING] = burn_damage_modifiers_array[tier]
+	projectile.effect_damage_modifiers[Constants.entity_effects.BURNING] = burn_damage_modifiers_array[tier] / projectile_damage_modifiers_array[tier]
 
 func get_description():
 	return get_bbcode_texture() + color_text(" Master of Flames" + \
