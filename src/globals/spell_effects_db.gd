@@ -19,6 +19,32 @@ var effects = {
 	]
 }
 
+var conflicts_map = [
+#	[HomingEffect, ProjectileSpeedBoostSpellEffect]
+]
+
+func get_conflict_entries_for_effect(conflicts_arr: Array, effect: SpellEffect) -> Array:
+	var ret_arr = []
+	for entry in conflicts_arr:
+		if is_instance_of(effect, entry[0]) or is_instance_of(effect, entry[1]):
+			ret_arr.append(entry)
+	return ret_arr
+
+func effects_conflict(effect_a: SpellEffect, effect_b: SpellEffect) -> bool:
+	var conflicts_arr = get_conflict_entries_for_effect(conflicts_map, effect_a)
+	conflicts_arr = get_conflict_entries_for_effect(conflicts_arr, effect_b)
+	if conflicts_arr.is_empty():
+		return false
+	else:
+		return true
+
+func effect_conflicts_array(effect: SpellEffect, effects: Array):
+	var conflicts_arr = get_conflict_entries_for_effect(conflicts_map, effect)
+	for sec_effect in effects:
+		var sec_conflicts_arr = get_conflict_entries_for_effect(conflicts_arr, sec_effect)
+		if not sec_conflicts_arr.is_empty():
+			return true
+	return false
 
 func ensure_unique(effect: SpellEffect, pool: Array):
 	var to_delete = []

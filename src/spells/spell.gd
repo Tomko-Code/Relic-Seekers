@@ -91,7 +91,7 @@ func has_effect(effect: SpellEffect, exact_match:bool = false):
 	return false
 
 func add_effect(effect: SpellEffect, force: bool = false):
-	if not force and has_effect(effect):
+	if not force and has_effect(effect) and not effect.check_conditions(self):
 		return
 	if effect is DirectSpellEffect:
 		effect.apply_on_spell(self)

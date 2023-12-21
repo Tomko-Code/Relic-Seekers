@@ -49,6 +49,7 @@ var spells = {
 			BounceEffect.new()
 		],
 		projectile_data = { 
+			damage_type = Constants.damage_types.LIGHTNING,
 			damage = 5,
 			speed = 500,
 			range = 100,
@@ -67,6 +68,7 @@ var spells = {
 			PierceEffect.new(),
 		],
 		projectile_data = { 
+			damage_type = Constants.damage_types.ICE,
 			damage = 8,
 			speed = 700,
 			range = 100,
