@@ -22,7 +22,6 @@ func _on_button_pressed():
 	GameManager.loaded_scenes["Game"].current_level.reveal_level()
 	
 
-
 func _on_button_2_pressed_death():
 	GameManager.player.call_death()
 
@@ -33,3 +32,12 @@ func _on_button_3_pressed():
 
 func _on_button_4_pressed():
 	GameData.save_file.player_inventory.emeralds += 50
+
+
+func _on_button_5_pressed():
+	var spell = SpellsHandler.create_spell("test_spell")
+	var spell_pickup = SpellsHandler.create_spell_pickup(spell)
+	spell_pickup.position = GameManager.player.position
+	GameManager.player.get_parent().call_deferred("add_child", spell_pickup)
+	pass
+

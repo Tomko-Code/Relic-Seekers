@@ -4,9 +4,8 @@ extends Node
 func _init():
 	spells.default_spell = spells.fireball.duplicate(true)
 	spells.default_spell.max_mana = -1
-	
-	spells.test_spell = spells.heal.duplicate(true)
-	spells.test_spell.max_mana = -1
+	spells.test_spell = spells.fireball.duplicate(true)
+	spells.test_spell.projectile_data.effects = [MasterOfFlames.new().init(0)]
 
 var random_pool = [
 	["fireball", 2],
