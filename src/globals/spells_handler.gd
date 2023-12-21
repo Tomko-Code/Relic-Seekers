@@ -30,7 +30,7 @@ func create_spell(spell_name: String, effects_pool: String = ""):
 	
 	var effects = []
 	if effects_pool:
-		effects = SpellEffectsDb.random_effects_from_pool(effects_pool)
+		effects = SpellEffectsDb.random_effects_for_spell_from_pool(effects_pool, spell)
 	
 	spell.set_data(spell_data)
 	

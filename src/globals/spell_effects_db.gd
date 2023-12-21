@@ -64,6 +64,17 @@ func ensure_unique(effect: SpellEffect, pool: Array):
 			ret_arr.append(entry)
 	return ret_arr
 
+func random_effects_for_spell_from_pool(effects_pool, spell: Spell):
+	var random = randi() % 4
+	var pool = effects[effects_pool]
+	var ret_effects = []
+	while not pool.is_empty() and ret_effects.size() != random:
+		var effect = GameManager.get_random_from_weighed_array(pool) as SpellEffect
+		pool = ensure_unique(effect, pool)
+		if effect.check_conditions(spell):
+			ret_effects.append(effect)
+	return ret_effects
+
 func random_effects_from_pool(effects_pool):
 	var random = randi() % 4
 	var pool = effects[effects_pool]
