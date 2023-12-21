@@ -1,4 +1,5 @@
-extends Node2D
+class_name RestockInteractible
+extends StaticBody2D
 
 @onready var interactible = $Comopnents/InteractableComponent as InteractibleComponent
 

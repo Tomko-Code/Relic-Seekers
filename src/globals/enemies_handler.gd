@@ -6,7 +6,7 @@ func spawn_enemy(enemy_name:String) -> Enemy:
 	if EnemiesDb.enemies.has(enemy_name):
 		var enemy: Enemy = EnemiesDb.enemies[enemy_name].resource.instantiate()
 		all_enemies.append(enemy)
-		enemy.tree_exited.connect(clear_enemie.bind(enemy))
+		enemy.death.connect(clear_enemie.bind(enemy))
 		return enemy
 	else:
 		print("No enemy named: %s" % enemy_name)
@@ -20,12 +20,13 @@ func clear_all_enemies():
 		enemy.queue_free()
 	all_enemies = []
 
-func get_enemy_closest_to(entity: Node2D):
+func get_enemy_closest_to(entity: Node2D, excluded_enemies: Array):
 	var closest_enemy = null
 	var closest_distance = INF
+	print(all_enemies)
 	for enemy in all_enemies:
-		if (enemy.position - entity.position).length() < closest_distance:
-			closest_distance = (enemy.position - entity.position).length()
+		if (enemy.global_position - entity.global_position).length() < closest_distance and enemy not in excluded_enemies:
+			closest_distance = (enemy.global_position - entity.global_position).length()
 			closest_enemy = enemy
 	return closest_enemy
 	

@@ -26,7 +26,7 @@ func create_spell(spell_name: String, effects_pool: String = ""):
 	if not SpellsDb.spells.has(spell_name):
 		push_error("Nonexistent spell: %s" % spell_name)
 	var spell = Spell.new()
-	var spell_data = SpellsDb.spells[spell_name]
+	var spell_data = SpellsDb.spells[spell_name].duplicate(true)
 	
 	var effects = []
 	if effects_pool:

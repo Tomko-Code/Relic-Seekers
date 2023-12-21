@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ckm7fyfhty7w3"]
+[gd_scene load_steps=11 format=3 uid="uid://ckm7fyfhty7w3"]
 
 [ext_resource type="Script" path="res://src/entities/pickups/purchasable_wrapper.gd" id="1_bv3mw"]
 [ext_resource type="Script" path="res://src/entities/entity_shadow_component.gd" id="2_tbq6r"]
@@ -16,7 +16,12 @@ unicode = 102
 [sub_resource type="CircleShape2D" id="CircleShape2D_eyyp1"]
 radius = 16.0
 
-[node name="PurchasableWrapper" type="Node2D" node_paths=PackedStringArray("cost_label", "_InteractibleComponent", "_AnimatedSpriteComponent", "_EntityShadowComponent", "placeholder_sprite")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_8mdwm"]
+radius = 48.0
+
+[node name="PurchasableWrapper" type="StaticBody2D" node_paths=PackedStringArray("cost_label", "_InteractibleComponent", "_AnimatedSpriteComponent", "_EntityShadowComponent", "placeholder_sprite")]
+collision_layer = 64
+collision_mask = 0
 script = ExtResource("1_bv3mw")
 cost_label = NodePath("PanelContainer/Cost")
 _InteractibleComponent = NodePath("InteractableComponent")
@@ -68,5 +73,8 @@ texture = ExtResource("4_684e2")
 layout_mode = 2
 theme = ExtResource("7_1xadq")
 text = "123"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8mdwm")
 
 [connection signal="interacted" from="InteractableComponent" to="." method="on_interacted"]

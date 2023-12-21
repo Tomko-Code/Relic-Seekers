@@ -9,7 +9,7 @@ var acceleration = 10
 
 func _ready():
 	timer.autostart = true
-	timer.wait_time = 0.5
+	timer.wait_time = 0.1
 	timer.timeout.connect(make_path)
 	parent.call_deferred("add_child", timer)
 
