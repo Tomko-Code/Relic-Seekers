@@ -47,19 +47,18 @@ func effect_conflicts_array(effect: SpellEffect, effects: Array):
 	return false
 
 func ensure_unique(effect: SpellEffect, pool: Array):
-	var to_delete = []
+	var ret_arr = []
 	for entry in pool:
-		if entry[0].get_script() == effect.get_script():
-			to_delete.append(entry)
-	for entry in to_delete:
-		pool.erase(entry)
+		if entry[0].get_script() != effect.get_script():
+			ret_arr.append(entry)
+	return ret_arr
 
 func random_effects_from_pool(effects_pool):
 	var random = randi() % 4
-	var pool = effects[effects_pool].duplicate(true) as Array
+	var pool = effects[effects_pool]
 	var ret_effects = []
 	while not pool.is_empty() and ret_effects.size() != random:
 		var effect = GameManager.get_random_from_weighed_array(pool)
-		ensure_unique(effect, pool)
+		pool = ensure_unique(effect, pool)
 		ret_effects.append(effect)
 	return ret_effects
