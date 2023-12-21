@@ -36,6 +36,7 @@ func _on_button_4_pressed():
 
 func _on_button_5_pressed():
 	var spell = SpellsHandler.create_spell("test_spell")
+	spell.add_effect(MaxManaEffect.new().init(2))
 	var spell_pickup = SpellsHandler.create_spell_pickup(spell)
 	spell_pickup.position = GameManager.player.position
 	GameManager.player.get_parent().call_deferred("add_child", spell_pickup)

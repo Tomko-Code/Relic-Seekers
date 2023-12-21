@@ -33,6 +33,7 @@ var spells = {
 		},
 		frames = load("res://assets/sprites/spells/fireball_spell.tres"),
 		max_mana = 100,
+		mana_cost = 1,
 		cast_frequency = 0.5,
 		#shoot_frequency = 0.1,
 	},
@@ -54,7 +55,8 @@ var spells = {
 			range = 100,
 		},
 		frames = load("res://assets/sprites/spells/spark_spell.tres"),
-		max_mana = 50,
+		max_mana = 100,
+		mana_cost = 2,
 		cast_frequency = 0.5,
 	},
 	icicle = {
@@ -73,7 +75,8 @@ var spells = {
 			range = 100,
 		},
 		frames = load("res://assets/sprites/spells/icicle_spell.tres"),
-		max_mana = 50,
+		max_mana = 100,
+		mana_cost = 2,
 		cast_frequency = 0.5,
 	},
 	heal = {
@@ -87,7 +90,8 @@ var spells = {
 		],
 		projectile_data = {},
 		frames = load("res://assets/sprites/spells/heal_spell.tres"),
-		max_mana = 1,
+		max_mana = 100,
+		mana_cost = 50,
 		cast_frequency = 0.5,
 	}
 }

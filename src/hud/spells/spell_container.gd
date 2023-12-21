@@ -20,14 +20,17 @@ func update_spell():
 	if spell:
 		if spell.mana >= 0 and show_mana:
 			$Mana.text = "%.0f/%.0f" % [spell.mana, spell.max_mana]
+			$ManaCost.text = "%.2f" % spell.mana_cost
 		else:
 			$Mana.text = ""
+			$ManaCost.text = ""
 		$MarginContainer/Spell.texture = spell.frames.get_frame_texture("default", 0)
 	else:
 		#$MarginContainer/Spell.texture = load("res://assets/art/sprites/spells/non_spell.tres")
 		$MarginContainer/Spell.texture = null
 		$Shortcut.text = shortcut
 		$Mana.text = mana
+		$ManaCost.text = ""
 
 func set_spell(_spell: Spell):
 	if spell:

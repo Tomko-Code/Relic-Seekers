@@ -25,6 +25,6 @@ func apply_on_projectile(projectile: BaseProjectile):
 	projectile.effect_damage_modifiers[Constants.entity_effects.BURNING] = burn_damage_modifiers_array[tier]
 
 func get_description():
-	return get_bbcode_texture() + color_text(" Master of Flames") + \
+	return get_bbcode_texture() + color_text(" Master of Flames" + \
 		"\n -burn chance x%s\n -damage x%s\n -burn damage x%s" % \
-		[burn_chance_modifiers_array[tier], projectile_damage_modifiers_array[tier], burn_damage_modifiers_array[tier]]
+		[burn_chance_modifiers_array[tier], projectile_damage_modifiers_array[tier], burn_damage_modifiers_array[tier]])
