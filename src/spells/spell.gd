@@ -120,7 +120,7 @@ func get_description():
 	else:
 		return description
 
-func get_effects(include_innate: bool) -> Array[SpellEffect]:
+func get_effects(include_innate: bool) -> Array:
 	var all_effects = effects + projectile_data.get("effects", []) as Array[SpellEffect]
 	if not include_innate:
 		var ret_effects : Array[SpellEffect] = []
