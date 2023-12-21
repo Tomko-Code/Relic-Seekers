@@ -6,6 +6,7 @@ var speed: float = 100.0
 var range: float = 100
 var effects: Array = []
 var damage: float = 1
+var damage_type: Constants.damage_types = Constants.damage_types.MAGIC
 var can_bounce: bool = false
 
 var is_piercing: bool = false
@@ -16,9 +17,14 @@ var already_hit: Array = []
 var is_friendly: bool = false
 var launch_direction: Vector2 = Vector2.ZERO
 
+var entity_effects: Array = []
+
 var spawn_particles: CPUParticles2D = null
 var finish_particles: CPUParticles2D = null
 var trail_particles: CPUParticles2D = null
+
+var effect_chance_modifiers: Dictionary = {}
+var effect_damage_modifiers: Dictionary = {}
 
 signal launched
 signal expired
@@ -47,12 +53,15 @@ func get_projectile_data():
 		}
 
 func initialize(_projectile_data: Dictionary):
-	projectile_data = _projectile_data
-	speed = projectile_data.get("speed", speed)
-	range = projectile_data.get("range", range)
-	effects = projectile_data.get("effects", effects)
-	damage = projectile_data.get("damage", damage)
-	can_bounce = projectile_data.get("can_bounce", can_bounce)
+	projectile_data = _projectile_data.duplicate(true)
+	
+	for key in projectile_data.keys():
+		set(key, projectile_data[key])
+	#speed = projectile_data.get("speed", speed)
+	#range = projectile_data.get("range", range)
+	#effects = projectile_data.get("effects", effects)
+	#damage = projectile_data.get("damage", damage)
+	#can_bounce = projectile_data.get("can_bounce", can_bounce)
 	
 	if projectile_data.has("spawn_particles"):
 		if projectile_data.spawn_particles is Color:
@@ -95,7 +104,12 @@ func launch(direction_vector: Vector2):
 			get_parent().call_deferred("add_child", spawn_particles)
 			spawn_particles.run()
 	was_launched = true
-	
+
+func get_effect_chance_modifier(effect_type: Constants.entity_effects):
+	return effect_chance_modifiers.get(effect_type, 1.0)
+
+func get_effect_damage_modifier(effect_type: Constants.entity_effects):
+	return effect_damage_modifiers.get(effect_type, 1.0)
 
 func update_trail_direction():
 	if _ProjectileMovementComponent:

@@ -27,6 +27,7 @@ var spells = {
 		innate_effects = [
 			],
 		projectile_data = {
+			damage_type = Constants.damage_types.FIRE,
 			damage = 5,
 			speed = 400,
 			range = 100,
