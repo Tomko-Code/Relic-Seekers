@@ -6,7 +6,7 @@ extends DirectSpellEffect
 
 func init(value: int):
 	effect_type = Constants.effect_types.POSITIVE if value >= 2 else Constants.effect_types.NEGATIVE
-	texture = load("res://assets/art/icons/spell_effects/speed_boost.png")
+	texture = load("res://assets/art/icons/spell_effects/max_mana.png") if value >= 2 else load("res://assets/art/icons/spell_effects/max_mana_bad.png")
 	tier = clampi(value, 0,3)
 	return self
 

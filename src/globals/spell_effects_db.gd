@@ -16,6 +16,17 @@ var effects = {
 		[ExtraProjectilesEffect.new().init(0), 1],
 		[ExtraProjectilesEffect.new().init(1), 1],
 		[ExtraProjectilesEffect.new().init(2), 1],
+		[MaxManaEffect.new().init(0), 1],
+		[MaxManaEffect.new().init(1), 1],
+		[MaxManaEffect.new().init(2), 1],
+		[MaxManaEffect.new().init(3), 1],
+		[ManaCostEffect.new().init(0), 1],
+		[ManaCostEffect.new().init(1), 1],
+		[ManaCostEffect.new().init(2), 1],
+		[ManaCostEffect.new().init(3), 1],
+		[MasterOfFlames.new().init(1), 1],
+		[MasterOfFlames.new().init(2), 1],
+		[MasterOfFlames.new().init(3), 1],
 	]
 }
 
