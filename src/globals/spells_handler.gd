@@ -28,11 +28,11 @@ func create_spell(spell_name: String, effects_pool: String = ""):
 	var spell = Spell.new()
 	var spell_data = SpellsDb.spells[spell_name].duplicate(true)
 	
+	spell.set_data(spell_data)
+	
 	var effects = []
 	if effects_pool:
 		effects = SpellEffectsDb.random_effects_for_spell_from_pool(effects_pool, spell)
-	
-	spell.set_data(spell_data)
 	
 	for effect in effects:
 		spell.add_effect(effect)
