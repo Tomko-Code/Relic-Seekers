@@ -14,6 +14,8 @@ func spawn_projectile(projectile_name, is_friendly: bool):
 		sprite.sprite_frames = ProjectilesDb.projectiles[projectile_name].sprite
 		
 		projectile.type = projectile_name
+		projectile.projectile_data.type = projectile_name
+		
 		set_projectile_layer(projectile, is_friendly)
 		
 		all_projectiles.append(projectile)

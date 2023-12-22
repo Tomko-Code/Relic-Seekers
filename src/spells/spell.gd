@@ -31,7 +31,6 @@ func spawn_projectile():
 	
 	if lose_mana():
 		projectile = ProjectilesHandler.spawn_projectile(projectile_type, is_friendly)
-		
 		projectile.initialize(projectile_data)
 		for effect in effects:
 			effect = effect as SpellEffect
@@ -74,6 +73,7 @@ func set_data(spell_data: Dictionary):
 	for key in spell_data.keys():
 		set(key, spell_data[key])
 	if projectile_type:
+		projectile_data.type = projectile_type
 		projectile_data.merge(ProjectilesDb.projectiles[projectile_type])
 	if max_mana >= 0:
 		mana = max_mana

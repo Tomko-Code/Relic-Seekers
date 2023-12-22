@@ -8,10 +8,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_mtmi0"]
 radius = 16.0
 
-[node name="ExplosionArea" type="CharacterBody2D" node_paths=PackedStringArray("shape", "stats", "hitbox")]
+[node name="ExplosionArea" type="CharacterBody2D" node_paths=PackedStringArray("shape", "hitbox")]
 script = ExtResource("1_qj56b")
 shape = NodePath("Node2D/HitboxComponent/CollisionShape2D")
-stats = NodePath("")
 hitbox = NodePath("Node2D/HitboxComponent")
 
 [node name="Node2D" type="Node2D" parent="."]
