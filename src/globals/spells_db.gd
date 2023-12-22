@@ -4,9 +4,8 @@ extends Node
 func _init():
 	spells.default_spell = spells.fireball.duplicate(true)
 	spells.default_spell.max_mana = -1
-	
-	spells.test_spell = spells.heal.duplicate(true)
-	spells.test_spell.max_mana = -1
+	spells.test_spell = spells.fireball.duplicate(true)
+	spells.test_spell.projectile_data.effects = [MasterOfFlames.new().init(0)]
 
 var random_pool = [
 	["fireball", 2],
@@ -27,12 +26,14 @@ var spells = {
 		innate_effects = [
 			],
 		projectile_data = {
+			damage_type = Constants.damage_types.FIRE,
 			damage = 5,
 			speed = 400,
 			range = 100,
 		},
 		frames = load("res://assets/sprites/spells/fireball_spell.tres"),
 		max_mana = 100,
+		mana_cost = 1,
 		cast_frequency = 0.5,
 		#shoot_frequency = 0.1,
 	},
@@ -48,12 +49,14 @@ var spells = {
 			BounceEffect.new()
 		],
 		projectile_data = { 
+			damage_type = Constants.damage_types.LIGHTNING,
 			damage = 5,
 			speed = 500,
 			range = 100,
 		},
 		frames = load("res://assets/sprites/spells/spark_spell.tres"),
-		max_mana = 50,
+		max_mana = 100,
+		mana_cost = 2,
 		cast_frequency = 0.5,
 	},
 	icicle = {
@@ -61,17 +64,19 @@ var spells = {
 		archetype=Constants.spell_archetypes.PROJECTILE,
 		full_name = "Icicle",
 		projectile_type = "icicle",
-		description = "Launch a piercing ice projectile",
+		description = "Launch a +5 piercing ice projectile",
 		innate_effects = [
-			PierceEffect.new(),
+			PierceEffect.new().init(3),
 		],
 		projectile_data = { 
+			damage_type = Constants.damage_types.ICE,
 			damage = 8,
 			speed = 700,
 			range = 100,
 		},
 		frames = load("res://assets/sprites/spells/icicle_spell.tres"),
-		max_mana = 50,
+		max_mana = 100,
+		mana_cost = 2,
 		cast_frequency = 0.5,
 	},
 	heal = {
@@ -85,7 +90,8 @@ var spells = {
 		],
 		projectile_data = {},
 		frames = load("res://assets/sprites/spells/heal_spell.tres"),
-		max_mana = 1,
+		max_mana = 100,
+		mana_cost = 50,
 		cast_frequency = 0.5,
 	}
 }

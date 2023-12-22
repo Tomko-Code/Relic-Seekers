@@ -9,6 +9,7 @@ var type: String = "none"
 var archetype = Constants.spell_archetypes.PROJECTILE
 var max_mana: float = -1
 var mana:float = max_mana
+var mana_cost: float = 1
 var full_name: String = "None"
 var projectile_type: String = "test_projectile_b"
 var description: String = "Stub test Spell"
@@ -58,8 +59,8 @@ func can_cast():
 	return cast_frequency_current == cast_frequency
 
 func lose_mana() -> bool:
-	if mana > 0:
-		mana = clamp(mana - 1, 0, max_mana)
+	if mana > mana_cost:
+		mana = clamp(mana - mana_cost, 0, max_mana)
 		cast_frequency_current = 0
 		emit_signal("mana_changed")
 		return true
@@ -91,7 +92,7 @@ func has_effect(effect: SpellEffect, exact_match:bool = false):
 	return false
 
 func add_effect(effect: SpellEffect, force: bool = false):
-	if not force and has_effect(effect):
+	if not force and has_effect(effect) and not effect.check_conditions(self):
 		return
 	if effect is DirectSpellEffect:
 		effect.apply_on_spell(self)
@@ -119,7 +120,7 @@ func get_description():
 	else:
 		return description
 
-func get_effects(include_innate: bool) -> Array[SpellEffect]:
+func get_effects(include_innate: bool) -> Array:
 	var all_effects = effects + projectile_data.get("effects", []) as Array[SpellEffect]
 	if not include_innate:
 		var ret_effects : Array[SpellEffect] = []

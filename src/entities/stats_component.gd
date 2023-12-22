@@ -53,3 +53,5 @@ func change_health(value: float):
 	parent.emit_signal("health_changed")
 	if current_health <= 0:
 		parent.call_death()
+		
+	

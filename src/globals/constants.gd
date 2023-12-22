@@ -4,6 +4,23 @@ const FLOOR_TILE_SIZE:Vector2 = Vector2(64, 64)
 const WALL_TILE_SIZE:Vector2 = Vector2(320, 320)
 const CHUNK_SIZE:Vector2 = Vector2(WALL_TILE_SIZE.x * 5, WALL_TILE_SIZE.y * 4)
 
+enum damage_types {
+	MAGIC,
+	FIRE,
+	ICE,
+	LIGHTNING,
+	POISON,
+}
+
+enum entity_effects {
+	BURNING,
+}
+
+func damage_type_to_effect(damage_type: damage_types):
+	match damage_type:
+		damage_types.FIRE:
+			return entity_effects.BURNING
+
 enum effect_types {
 	POSITIVE,
 	NEGATIVE,

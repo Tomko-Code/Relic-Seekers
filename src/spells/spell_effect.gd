@@ -10,6 +10,12 @@ func color_text(text: String):
 func apply_on_projectile(projectile: BaseProjectile):
 	pass
 
+func matching_archetype(spell):
+	return true
+
+func check_conditions(spell: Spell):
+	return matching_archetype(spell) and not SpellEffectsDb.effect_conflicts_array(self, spell.get_effects(true))
+
 func get_description():
 	return "None:\nEmpty spell effect"
 
