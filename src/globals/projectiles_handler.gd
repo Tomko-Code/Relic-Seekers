@@ -1,6 +1,7 @@
 extends Node
 
 var base_projectile = load("res://src/entities/projectiles/base_projectile.tscn")
+var explosion_area_resource = load("res://src/entities/projectiles/explosion_area.tscn")
 var friendly_layer = 8
 var hostile_layer = 16
 
@@ -20,6 +21,12 @@ func spawn_projectile(projectile_name, is_friendly: bool):
 		return projectile
 	return null
 
+func spawn_projectile_explosion(projectile: BaseProjectile, damage_modifier: float):
+	var explosion_area = explosion_area_resource.instantiate() as ExplosionArea
+	explosion_area.from_projectile(projectile)
+	explosion_area.damage *= damage_modifier
+	return explosion_area
+	
 func clear_projectile(projectile):
 	all_projectiles.erase(projectile)
 	

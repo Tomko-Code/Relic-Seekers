@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5w6pywbj2tbq"]
+
+[ext_resource type="Script" path="res://src/entities/projectiles/explosion_area.gd" id="1_qj56b"]
+[ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="2_67m1u"]
+[ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="3_1k2yv"]
+[ext_resource type="Texture2D" uid="uid://da5qh0dkj4s2s" path="res://assets/art/sprites/projectiles/explosion.png" id="4_d6lok"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mtmi0"]
+radius = 16.0
+
+[node name="ExplosionArea" type="CharacterBody2D" node_paths=PackedStringArray("shape", "stats", "hitbox")]
+script = ExtResource("1_qj56b")
+shape = NodePath("Node2D/HitboxComponent/CollisionShape2D")
+stats = NodePath("")
+hitbox = NodePath("Node2D/HitboxComponent")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="HitboxComponent" type="Area2D" parent="Node2D"]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("2_67m1u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/HitboxComponent"]
+shape = SubResource("CircleShape2D_mtmi0")
+
+[node name="AnimatedSpriteComponent" type="Node2D" parent="Node2D"]
+script = ExtResource("3_1k2yv")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/AnimatedSpriteComponent"]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_d6lok")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+explosiveness = 0.9
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.0
+initial_velocity_max = 50.0
+scale_amount_min = 5.0
+scale_amount_max = 9.0
+color = Color(0.863038, 0.0578323, 0.0345424, 1)

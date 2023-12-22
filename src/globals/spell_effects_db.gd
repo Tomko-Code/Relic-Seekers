@@ -29,6 +29,9 @@ var effects = {
 		[MasterOfFlames.new().init(1), 1],
 		[MasterOfFlames.new().init(2), 1],
 		[MasterOfFlames.new().init(3), 1],
+		[ExplosiveEffect.new().init(0), 1],
+		[ExplosiveEffect.new().init(1), 1],
+		[ExplosiveEffect.new().init(2), 1],
 	]
 }
 

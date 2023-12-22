@@ -29,6 +29,9 @@ func activate():
 func active_callback():
 	damage_hitbox.monitorable = true
 	damage_hitbox.monitoring = true
+	for body in damage_hitbox.get_overlapping_bodies():
+		body.move_and_collide(Vector2(0.0001,0.0001))
+	
 	switching = false
 
 func deactivate():
