@@ -64,9 +64,9 @@ var spells = {
 		archetype=Constants.spell_archetypes.PROJECTILE,
 		full_name = "Icicle",
 		projectile_type = "icicle",
-		description = "Launch a piercing ice projectile",
+		description = "Launch a +5 piercing ice projectile",
 		innate_effects = [
-			PierceEffect.new(),
+			PierceEffect.new().init(3),
 		],
 		projectile_data = { 
 			damage_type = Constants.damage_types.ICE,

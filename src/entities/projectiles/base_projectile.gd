@@ -10,6 +10,7 @@ var damage_type: Constants.damage_types = Constants.damage_types.MAGIC
 var can_bounce: bool = false
 
 var is_piercing: bool = false
+var pierce_count = 0
 
 var was_launched: bool = false
 var already_hit: Array = []
@@ -134,3 +135,5 @@ func hit(target):
 		expire()
 	else:
 		already_hit.append(target)
+		if already_hit.size() > pierce_count:
+			expire()
