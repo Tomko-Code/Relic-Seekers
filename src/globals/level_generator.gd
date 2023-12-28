@@ -23,10 +23,10 @@ func generate(_level_preset:LevelGenerationPreset) -> Level:
 	
 	level.create_level(level_preset.level_size)
 	
-	# place start
+	# place start room
 	place_start()
 	
-	# add random rooom
+	# add random roooms
 	var try_cout = 0
 	while rooms.size() < level_preset.min_rooms:
 		try_cout += 1
@@ -46,19 +46,25 @@ func generate(_level_preset:LevelGenerationPreset) -> Level:
 		if room == null: # might be no more rooms with open connections
 			continue
 		
+		# TODO : fix room compile
+		# TODO : randomize room
+		# TODO : check if room fits in map
+		# TODO : change check if room overlaps other room
+		
 		if room.connection_arry.size() > 0:
-			var new_room:RoomData = RoomData.new().set_up("1x1_small", level)
+			var new_room:RoomData = pick_random_room()
 			
-			var open_connection = room.connection_arry.pick_random()
-			var room_cord = open_connection.get_map_outside_cord()
+			var open_connection:RoomConnectionData = room.connection_arry.pick_random()
+			var new_room_cord:Vector2 = open_connection.get_map_outside_cord()
 			
-			if level.is_overlaping(new_room, room_cord):
+			if level.is_overlaping(new_room, new_room_cord):
 				continue
 			
-			level.place_room(new_room, room_cord)
+			level.place_room(new_room, new_room_cord)
 			
 			# Connect new room
-			var test_conn = new_room.add_connection(room_cord - new_room.cord, -open_connection.direction)
+			var new_conn_cord:Vector2 = new_room_cord - open_connection.get_map_outside_cord()
+			var test_conn:RoomConnectionData = new_room.add_connection(new_conn_cord, -open_connection.direction)
 			new_room.connect_room(room, test_conn)
 			
 			add_random_connections_to_new_room(new_room)
@@ -126,6 +132,10 @@ func place_start() -> void:
 	add_random_connection(room_data)
 	rooms.append(room_data)
 	rooms_with_open_connections.append(room_data)
+
+func pick_random_room() -> RoomData:
+	var room = RoomData.new().set_up("1x1_small", level)
+	return room
 
 func add_more_connections() -> void:
 	var room_tmp = rooms.pick_random()
