@@ -108,10 +108,10 @@ func start_generator() -> void:
 		"1x2": {"rooms" : []},
 		"2x1": {"rooms" : []},
 		"2x2": {"rooms" : []},
-		"L1" : {"rooms" : []},
-		"L2" : {"rooms" : []},
-		"L3" : {"rooms" : []},
-		"L4" : {"rooms" : []}
+		"l1" : {"rooms" : []},
+		"l2" : {"rooms" : []},
+		"l3" : {"rooms" : []},
+		"l4" : {"rooms" : []}
 	}
 
 func compile_rooms() -> void:
@@ -123,8 +123,28 @@ func sort_rooms_by_shape(rooms_set:String) -> void:
 		var room_shape:Array = GameData.rooms_data[room_name]["shape"]
 		var room_size:Vector2 = Vector2(room_shape[0].size(), room_shape.size())
 		
-		if room_size.x == 1 and room_size.y == 1:
+		if room_size.x == 1 and room_size.y == 1: 
 			sorted_rooms["1x1"]["rooms"].append(room_name)
+			
+		elif room_size.x == 1 and room_size.y == 2: 
+			sorted_rooms["1x2"]["rooms"].append(room_name)
+			
+		elif room_size.x == 2 and room_size.y == 1: 
+			sorted_rooms["2x1"]["rooms"].append(room_name)
+			
+		elif room_size.x == 2 and room_size.y == 2:
+			if room_shape[1][1] == 0:
+				sorted_rooms["l1"]["rooms"].append(room_name)
+			elif room_shape[1][0] == 0:
+				sorted_rooms["l2"]["rooms"].append(room_name)
+			elif room_shape[0][0] == 0:
+				sorted_rooms["l3"]["rooms"].append(room_name)
+			elif room_shape[0][1] == 0:
+				sorted_rooms["l4"]["rooms"].append(room_name)
+			else:
+				sorted_rooms["2x2"]["rooms"].append(room_name)
+		
+		
 
 func place_start() -> void:
 	var room_data:RoomData = RoomData.new().set_up("start_room", level)
