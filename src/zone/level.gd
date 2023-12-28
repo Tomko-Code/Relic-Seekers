@@ -10,6 +10,7 @@ var unspawned_rooms = []
 var rooms = []
 var currnet_active_room:Room = null
 var default_room:Room = null
+var level_size:Vector2 = Vector2.ZERO
 
 func spawn_room(room_data:RoomData) -> Room:
 	if room_data.type == "":
@@ -63,9 +64,12 @@ func place_room(room_data:RoomData, cord:Vector2):
 			if room_data.room_shape[y][x] == 1:
 				map[cord.y + y][cord.x + x] = room_data
 	
+	room_data.generate_all_possible_connections(self)
+	
 	unspawned_rooms.append(room_data)
 
 func create_level(size: Vector2i):
+	level_size = size
 	map = create_2Darray(size, null)
 
 func print_map():
@@ -97,6 +101,18 @@ func create_2Darray(size: Vector2i, filler: Variant = 0) -> Array:
 		array[y].fill(filler)
 	
 	return array
+
+func cord_outside_map(cord:Vector2) -> bool:
+	var out_left:bool = cord.x < 0
+	var out_top:bool = cord.y < 0
+	var out_right:bool = cord.x >= level_size.x
+	var out_bottom:bool = cord.y >= level_size.y
+	
+	if (out_left or out_top or out_right or out_bottom):
+		return true
+	
+	return false
+
 
 func reveal_level():
 	for room in rooms:

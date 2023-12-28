@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxucs865j8v5e"]
+
+[ext_resource type="Script" path="res://src/pcg/selected_room.gd" id="1_8aa5l"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dxg3j"]
+outline_size = 3
+outline_color = Color(0.772549, 0.141176, 1, 1)
+
+[node name="SelectedRoom" type="VBoxContainer" node_paths=PackedStringArray("settings", "slect_button", "connection_list")]
+clip_contents = true
+theme_override_constants/separation = 0
+script = ExtResource("1_8aa5l")
+settings = NodePath("Settings")
+slect_button = NodePath("Button")
+connection_list = NodePath("Settings/VBoxContainer/HBoxContainer2/ConnectionList")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+focus_mode = 0
+text = "room"
+
+[node name="Settings" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Settings"]
+layout_mode = 2
+color = Color(0.00784314, 0.0862745, 0.156863, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings"]
+layout_mode = 2
+
+[node name="CanStart" type="HBoxContainer" parent="Settings/VBoxContainer"]
+layout_mode = 2
+
+[node name="CanBeStarter" type="CheckBox" parent="Settings/VBoxContainer/CanStart"]
+layout_mode = 2
+text = "Can Be Starter"
+
+[node name="HSeparator" type="HSeparator" parent="Settings/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="VBoxContainer" parent="Settings/VBoxContainer"]
+layout_mode = 2
+
+[node name="Connections" type="Label" parent="Settings/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Connections"
+label_settings = SubResource("LabelSettings_dxg3j")
+horizontal_alignment = 1
+
+[node name="ConnectionList" type="VBoxContainer" parent="Settings/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

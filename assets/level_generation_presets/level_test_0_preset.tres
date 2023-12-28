@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="LevelGenerationPreset" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/pcg/level_generation_preset.gd" id="1_olp4b"]
+
+[resource]
+script = ExtResource("1_olp4b")
+level_name = "level_test_0"
+level_size = Vector2(11, 11)
+min_rooms = 4
+max_rooms = 4
+start_position = Vector2(5, 10)
+random_start = false

@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://bc3ru20vvywys"]
+
+[ext_resource type="Script" path="res://src/pcg/set_option.gd" id="1_ribna"]
+
+[node name="SetOption" type="HBoxContainer" node_paths=PackedStringArray("set_name", "select_set")]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+script = ExtResource("1_ribna")
+set_name = NodePath("SetName")
+select_set = NodePath("SelectSet")
+
+[node name="SetName" type="Label" parent="."]
+layout_mode = 2
+text = "room"
+
+[node name="SelectSet" type="CheckButton" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+focus_mode = 0
+
+[connection signal="toggled" from="SelectSet" to="." method="_on_select_set_toggled"]

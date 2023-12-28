@@ -4,8 +4,8 @@ class_name CombatLevel
 func set_up(args:Array = []) -> void:
 	create_level(Vector2(10,10))
 	
-	var main_combat_room:RoomData = RoomData.new().set_up("main_combat_room")
-	var left_combat_room:RoomData = RoomData.new().set_up("left_combat_room")
+	var main_combat_room:RoomData = RoomData.new().set_up("main_combat_room", self)
+	var left_combat_room:RoomData = RoomData.new().set_up("left_combat_room", self)
 	
 	place_room(main_combat_room, Vector2(3,3))
 	place_room(left_combat_room, Vector2(2,4))

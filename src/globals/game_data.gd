@@ -20,13 +20,6 @@ var rooms_data = {
 	#######################################
 	# Test Rooms
 	#######################################
-	"Start" : {
-		"shape" : [[1]],
-		"res" : load("res://src/rooms/start_room.tscn"),
-		"connections" : [
-			[Vector2(0,0), Vector2.UP]
-		]
-	},
 	"Normal1" : {
 		"shape" : [
 			[1]
@@ -149,7 +142,47 @@ var rooms_data = {
 		],
 		"res" : load("res://src/rooms/special/shop_show_room.tscn"),
 		"connections" : [[Vector2(0,0), Vector2.RIGHT]],
+	},
+	#######################################
+	# Show
+	#######################################
+	"end_room" : {
+		"shape" : [[1]],
+		"res" : load("res://src/rooms/pcg/standard/end_room.tscn"),
+		"connections" : [],
+	},
+	"start_room" : {
+		"shape" : [[1]],
+		"res" : load("res://src/rooms/start_room.tscn"),
+		"connections" : [],
+	},
+	"1x1_small" : {
+		"shape" : [[1]],
+		"res" : load("res://src/rooms/pcg/standard/1x1_small.tscn"),
+		"connections" : [],
+	},
+	"1x1_small_red" : {
+		"shape" : [[1]],
+		"res" : load("res://src/rooms/pcg/standard/1x1_small.tscn"),
+		"connections" : [],
+	},
+	"1x1_small_coridor_up" : {
+		"shape" : [[1]],
+		"res" : load("res://src/rooms/pcg/standard/1x1_small.tscn"),
+		"connections" : [],
 	}
+}
+
+var room_sets = {
+	"pcg_test" : [
+		"end_room",
+		"start_room",
+		"1x1_small"
+	],
+	"pcg_test_2" : [
+		"1x1_small_red",
+		"1x1_small_coridor_up"
+	],
 }
 
 func load_save_file():

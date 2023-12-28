@@ -8,7 +8,7 @@ func set_up(args:Array = []) -> void:
 	### map
 	create_level(Vector2(1,1))
 	
-	var sanctuary_room:RoomData = RoomData.new().set_up("sanctuary_room")
+	var sanctuary_room:RoomData = RoomData.new().set_up("sanctuary_room", self)
 	place_room(sanctuary_room, Vector2(0,0))
 	
 	# Spawn map

@@ -198,7 +198,6 @@ func spawn_enemy(enemy_type:String):
 	
 	call_deferred("add_child", spawn_point)
 
-
 func on_enemy_death():
 	enemy_count -= 1
 

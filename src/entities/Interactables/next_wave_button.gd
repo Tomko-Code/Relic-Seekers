@@ -19,14 +19,14 @@ func _process(delta):
 	pass
 
 func _exit_tree():
-	GameData.save_file.wave = wave
+	pass
 
 func clear_msg():
 	lable.text = ""
 
 func start_wave():
 	lable.text = "Wave : " + str(wave+1)
-	
+	GameData.save_file.wave = wave
 	#FLOOR.MATH((B5/2)+(1)+((B5^3)/(B5*16)))
 	var fix_wave:int = wave+1
 	var mod1:float = fix_wave/2

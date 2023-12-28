@@ -4,6 +4,11 @@ class_name LevelRender
 @export var player_icon:Sprite2D
 @export var camera:Camera2D
 
+@export var render_player_icon:bool = true :
+	set(value):
+		render_player_icon = value
+		player_icon.visible = value
+
 var current_level:Level = null
 
 func _ready() -> void:
