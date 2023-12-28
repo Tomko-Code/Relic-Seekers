@@ -56,8 +56,8 @@ func set_up(_type:String, level:Level) -> RoomData:
 	return self
 
 func generate_all_possible_connections(level:Level) -> void:
-	for y in range(room_shape[0].size()):
-		for x in range(room_shape.size()):
+	for y in range(room_shape.size()):
+		for x in range(room_shape[0].size()):
 			if room_shape[y][x] == 1:
 				if !level.cord_outside_map(Vector2(x,y) + cord + Vector2.LEFT):
 					add_possible_connection(Vector2(x,y), Vector2.LEFT)

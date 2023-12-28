@@ -46,8 +46,6 @@ func generate(_level_preset:LevelGenerationPreset) -> Level:
 		if room == null: # might be no more rooms with open connections
 			continue
 		
-		# TODO : fix room compile
-		# TODO : randomize room
 		# TODO : check if room fits in map
 		# TODO : change check if room overlaps other room
 		
@@ -143,8 +141,6 @@ func sort_rooms_by_shape(rooms_set:String) -> void:
 				sorted_rooms["l4"]["rooms"].append(room_name)
 			else:
 				sorted_rooms["2x2"]["rooms"].append(room_name)
-		
-		
 
 func place_start() -> void:
 	var room_data:RoomData = RoomData.new().set_up("start_room", level)
@@ -153,9 +149,13 @@ func place_start() -> void:
 	rooms.append(room_data)
 	rooms_with_open_connections.append(room_data)
 
+func pick_random_set_of_rooms() -> Dictionary:
+	return sorted_rooms[sorted_rooms.keys().pick_random()]
+
 func pick_random_room() -> RoomData:
-	var room = RoomData.new().set_up("1x1_small", level)
-	return room
+	var set = pick_random_set_of_rooms()
+	var room_type = set["rooms"].pick_random()
+	return RoomData.new().set_up(room_type, level)
 
 func add_more_connections() -> void:
 	var room_tmp = rooms.pick_random()
