@@ -64,8 +64,6 @@ func place_room(room_data:RoomData, cord:Vector2):
 			if room_data.room_shape[y][x] == 1:
 				map[cord.y + y][cord.x + x] = room_data
 	
-	room_data.generate_all_possible_connections(self)
-	
 	unspawned_rooms.append(room_data)
 
 func create_level(size: Vector2i):

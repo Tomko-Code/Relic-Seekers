@@ -46,24 +46,28 @@ func generate(_level_preset:LevelGenerationPreset) -> Level:
 		if room == null: # might be no more rooms with open connections
 			continue
 		
-		# TODO : check if room fits in map
-		# TODO : change check if room overlaps other room
+		# TODO : rooms fits
+			# TODO : check if room fits in map
+			# TODO : change check if room overlaps other room
 		
 		if room.connection_arry.size() > 0:
 			var new_room:RoomData = pick_random_room()
 			
+			var new_room_inside_cord:Vector2 = Vector2.ZERO
 			var open_connection:RoomConnectionData = room.connection_arry.pick_random()
 			var new_room_cord:Vector2 = open_connection.get_map_outside_cord()
 			
-			if level.is_overlaping(new_room, new_room_cord):
+			var valid_connections = has_valid_placement(new_room, open_connection)
+			if valid_connections.is_empty():
 				continue
+			
+			var new_room_connection = valid_connections.pick_random()
+			new_room_cord -= new_room_connection.inside_cord
 			
 			level.place_room(new_room, new_room_cord)
 			
 			# Connect new room
-			var new_conn_cord:Vector2 = new_room_cord - open_connection.get_map_outside_cord()
-			var test_conn:RoomConnectionData = new_room.add_connection(new_conn_cord, -open_connection.direction)
-			new_room.connect_room(room, test_conn)
+			new_room.connect_room(room, new_room_connection)
 			
 			add_random_connections_to_new_room(new_room)
 			
@@ -156,6 +160,18 @@ func pick_random_room() -> RoomData:
 	var set = pick_random_set_of_rooms()
 	var room_type = set["rooms"].pick_random()
 	return RoomData.new().set_up(room_type, level)
+
+func has_valid_placement(new_room:RoomData, connection:RoomConnectionData) -> Array[RoomConnectionData]:
+	var result:Array[RoomConnectionData] = []
+	var match_direction:Vector2 = -connection.direction
+	
+	for possible_connection in new_room.all_possible_connections:
+		if match_direction == possible_connection.direction:
+			var cord = connection.get_map_outside_cord() - possible_connection.inside_cord
+			if not level.is_overlaping(new_room, cord):
+				result.append(possible_connection)
+	
+	return result
 
 func add_more_connections() -> void:
 	var room_tmp = rooms.pick_random()

@@ -19,9 +19,9 @@ var cord:Vector2 = Vector2.ZERO
 var room_shape:Array = []
 
 # Connections
-var connection_arry:Array = []
-var closed_connection_arry:Array = []
-var all_possible_connections:Array = []
+var connection_arry:Array[RoomConnectionData] = []
+var closed_connection_arry:Array[RoomConnectionData] = []
+var all_possible_connections:Array[RoomConnectionData] = []
 
 # Teleports
 var has_teleport:bool = false
@@ -53,23 +53,25 @@ func set_up(_type:String, level:Level) -> RoomData:
 		waves = GameData.rooms_data[_type]["waves"]
 		has_waves = true
 	
+	generate_all_possible_connections()
+	
 	return self
 
-func generate_all_possible_connections(level:Level) -> void:
+func generate_all_possible_connections() -> void:
 	for y in range(room_shape.size()):
 		for x in range(room_shape[0].size()):
 			if room_shape[y][x] == 1:
-				if !level.cord_outside_map(Vector2(x,y) + cord + Vector2.LEFT):
-					add_possible_connection(Vector2(x,y), Vector2.LEFT)
+				#if !level.cord_outside_map(Vector2(x,y) + cord + Vector2.LEFT):
+				add_possible_connection(Vector2(x,y), Vector2.LEFT)
 				
-				if !level.cord_outside_map(Vector2(x,y)  + cord + Vector2.RIGHT):
-					add_possible_connection(Vector2(x,y), Vector2.RIGHT)
+				#if !level.cord_outside_map(Vector2(x,y)  + cord + Vector2.RIGHT):
+				add_possible_connection(Vector2(x,y), Vector2.RIGHT)
 				
-				if !level.cord_outside_map(Vector2(x,y)  + cord + Vector2.UP):
-					add_possible_connection(Vector2(x,y), Vector2.UP)
+				#if !level.cord_outside_map(Vector2(x,y)  + cord + Vector2.UP):
+				add_possible_connection(Vector2(x,y), Vector2.UP)
 				
-				if !level.cord_outside_map(Vector2(x,y)  + cord + Vector2.DOWN):
-					add_possible_connection(Vector2(x,y), Vector2.DOWN)
+				#if !level.cord_outside_map(Vector2(x,y)  + cord + Vector2.DOWN):
+				add_possible_connection(Vector2(x,y), Vector2.DOWN)
 	
 	# LEGACY CODE FOR HAND MADE CONNECTIONS
 	for conn in GameData.rooms_data[type]["connections"]:
