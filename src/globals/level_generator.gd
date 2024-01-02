@@ -46,9 +46,12 @@ func generate(_level_preset:LevelGenerationPreset) -> Level:
 		if room == null: # might be no more rooms with open connections
 			continue
 		
-		# TODO : rooms fits
-			# TODO : check if room fits in map
-			# TODO : change check if room overlaps other room
+		# TODO :
+			# TODO : check if room fits on map
+			# TODO : trim bad connections
+			# TODO : improve random room slect
+			# TODO : add special rooms
+			# TODO : 
 		
 		if room.connection_arry.size() > 0:
 			var new_room:RoomData = pick_random_room()
@@ -161,6 +164,15 @@ func pick_random_room() -> RoomData:
 	var room_type = set["rooms"].pick_random()
 	return RoomData.new().set_up(room_type, level)
 
+func fits_on_the_map(room_data:RoomData, cord:Vector2) -> bool:
+	var fits_on_map:bool = true
+	for y in range(room_data.room_shape.size()):
+		for x in range(room_data.room_shape[0].size()):
+			if room_data.room_shape[y][x] == 1:
+				if level.cord_outside_map(cord + Vector2(x,y)):
+					return false
+	return true
+
 func has_valid_placement(new_room:RoomData, connection:RoomConnectionData) -> Array[RoomConnectionData]:
 	var result:Array[RoomConnectionData] = []
 	var match_direction:Vector2 = -connection.direction
@@ -168,6 +180,10 @@ func has_valid_placement(new_room:RoomData, connection:RoomConnectionData) -> Ar
 	for possible_connection in new_room.all_possible_connections:
 		if match_direction == possible_connection.direction:
 			var cord = connection.get_map_outside_cord() - possible_connection.inside_cord
+			
+			if !fits_on_the_map(new_room, cord):
+				continue
+			
 			if not level.is_overlaping(new_room, cord):
 				result.append(possible_connection)
 	

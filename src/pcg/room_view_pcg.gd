@@ -22,8 +22,9 @@ func _input(event):
 				$RoomView/Camera2D.zoom.y += 0.1
 		
 		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
-				$RoomView/Camera2D.zoom.x -= 0.1
-				$RoomView/Camera2D.zoom.y -= 0.1
+				if $RoomView/Camera2D.zoom.x - 0.1 > 0.1:
+					$RoomView/Camera2D.zoom.x -= 0.1
+					$RoomView/Camera2D.zoom.y -= 0.1
 		
 	if event is InputEventMouseMotion:
 		if mouse_drag:
