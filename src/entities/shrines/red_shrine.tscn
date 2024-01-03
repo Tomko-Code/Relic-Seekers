@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://boxe2uihy7622"]
+
+[ext_resource type="Script" path="res://src/entities/shrines/red_shrine.gd" id="1_sgv7q"]
+[ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="2_30u6n"]
+[ext_resource type="SpriteFrames" uid="uid://bmg5fv3ngdv0i" path="res://assets/sprites/other/red_shrine.tres" id="3_1yctr"]
+[ext_resource type="PackedScene" uid="uid://bdlxq5bh2qqu2" path="res://src/entities/interactable/interactable_component.tscn" id="4_kod2j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ftqmf"]
+size = Vector2(48, 48)
+
+[sub_resource type="InputEventKey" id="InputEventKey_svu02"]
+device = -1
+keycode = 70
+unicode = 102
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a286m"]
+radius = 32.0
+
+[node name="BlueShrine" type="StaticBody2D"]
+collision_layer = 66
+collision_mask = 0
+script = ExtResource("1_sgv7q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ftqmf")
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="AnimatedSpriteComponent" type="Node2D" parent="Components"]
+script = ExtResource("2_30u6n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Components/AnimatedSpriteComponent"]
+sprite_frames = ExtResource("3_1yctr")
+
+[node name="InteractableComponent" parent="Components" instance=ExtResource("4_kod2j")]
+interaction_input = SubResource("InputEventKey_svu02")
+input_text = "F"
+shape = SubResource("CircleShape2D_a286m")

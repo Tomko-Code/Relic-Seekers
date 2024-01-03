@@ -13,7 +13,7 @@ func init(value):
 	return self
 	
 func apply_on_projectile(projectile: BaseProjectile):
-	projectile.expired.connect(explode.bind(projectile), CONNECT_ONE_SHOT)
+	projectile.on_hit.connect(explode.bind(projectile))
 
 func explode(projectile: BaseProjectile):
 	var explosion = ProjectilesHandler.spawn_projectile_explosion(projectile, explosion_tiers[tier])

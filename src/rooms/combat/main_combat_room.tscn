@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dq7dfu32hthvr"]
+[gd_scene load_steps=13 format=3 uid="uid://dq7dfu32hthvr"]
 
 [ext_resource type="PackedScene" uid="uid://bnrt7xcfjh5bx" path="res://src/zone/room.tscn" id="1_ig6x2"]
 [ext_resource type="Script" path="res://src/rooms/combat/main_combat_room.gd" id="2_qmh12"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://lmlrrv4br5gi" path="res://src/entities/enemies/other/delayed_spike_trap.tscn" id="9_d2tr1"]
 [ext_resource type="PackedScene" uid="uid://v11uw5rg8gs0" path="res://src/entities/pickups/gold_pickup.tscn" id="9_eojwo"]
 [ext_resource type="PackedScene" uid="uid://bgspaj8eb85kd" path="res://src/entities/enemies/other/chest.tscn" id="10_t0dub"]
+[ext_resource type="PackedScene" uid="uid://4f13151paxdp" path="res://src/entities/shrines/blue_shrine.tscn" id="11_l8awo"]
+[ext_resource type="PackedScene" uid="uid://boxe2uihy7622" path="res://src/entities/shrines/red_shrine.tscn" id="12_gh6g6"]
 
 [node name="MainCombatRoom" node_paths=PackedStringArray("teleport") instance=ExtResource("1_ig6x2")]
 script = ExtResource("2_qmh12")
@@ -72,3 +74,9 @@ spell_name = "test_spell"
 
 [node name="Chest" parent="." index="16" instance=ExtResource("10_t0dub")]
 position = Vector2(672, 1888)
+
+[node name="BlueShrine" parent="." index="17" instance=ExtResource("11_l8awo")]
+position = Vector2(544, 2024)
+
+[node name="BlueShrine" parent="BlueShrine" index="2" instance=ExtResource("12_gh6g6")]
+position = Vector2(0, -200)

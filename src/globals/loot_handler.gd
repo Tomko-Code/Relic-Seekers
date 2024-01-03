@@ -11,7 +11,7 @@ var loot_tables = {
 		["artifact", 3, [1,1]],
 	],
 	standard_chest_loot = [
-		["gold", 50, [5,10]],
+		["gold", 100, [5,10]],
 	],
 }
 
