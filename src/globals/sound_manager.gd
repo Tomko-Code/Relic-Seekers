@@ -11,7 +11,7 @@ var sfx_sounds = {
 	"pickup_sfx" = load("res://assets/audio/sfx/spell_arty_sfx.wav"),
 }
 
-var sfx_limit = 8
+var sfx_limit = 4
 var sfx_queue = []
 
 func play_sfx(sfx_name):

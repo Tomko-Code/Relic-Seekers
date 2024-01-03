@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dq7dfu32hthvr"]
+[gd_scene load_steps=11 format=3 uid="uid://dq7dfu32hthvr"]
 
 [ext_resource type="PackedScene" uid="uid://bnrt7xcfjh5bx" path="res://src/zone/room.tscn" id="1_ig6x2"]
 [ext_resource type="Script" path="res://src/rooms/combat/main_combat_room.gd" id="2_qmh12"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cd5io7jujipyr" path="res://src/entities/enemies/other/cannon.tscn" id="6_um5of"]
 [ext_resource type="PackedScene" uid="uid://lmlrrv4br5gi" path="res://src/entities/enemies/other/delayed_spike_trap.tscn" id="9_d2tr1"]
 [ext_resource type="PackedScene" uid="uid://v11uw5rg8gs0" path="res://src/entities/pickups/gold_pickup.tscn" id="9_eojwo"]
+[ext_resource type="PackedScene" uid="uid://bgspaj8eb85kd" path="res://src/entities/enemies/other/chest.tscn" id="10_t0dub"]
 
 [node name="MainCombatRoom" node_paths=PackedStringArray("teleport") instance=ExtResource("1_ig6x2")]
 script = ExtResource("2_qmh12")
@@ -62,9 +63,12 @@ position = Vector2(800, 1696)
 position = Vector2(553, 1508)
 
 [node name="GoldPickup" parent="." index="14" instance=ExtResource("9_eojwo")]
-position = Vector2(583, 1777)
+position = Vector2(656, 1904)
 
 [node name="SpellTestSpawn2" type="Marker2D" parent="." index="15"]
 position = Vector2(418, 1876)
 script = ExtResource("5_7lwpr")
 spell_name = "test_spell"
+
+[node name="Chest" parent="." index="16" instance=ExtResource("10_t0dub")]
+position = Vector2(672, 1888)
