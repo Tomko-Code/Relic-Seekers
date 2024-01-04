@@ -19,7 +19,7 @@ func collision(hitbox: Area2D):
 		var direction = parent.position - hitbox.get_entity().position
 		push(direction, 150)
 
-func push(push_direction: Vector2, push_strength: float = 150):
+func push(push_direction: Vector2, push_strength: float = 50):
 	if parent == null:
 		await ready
 	if not is_frozen:

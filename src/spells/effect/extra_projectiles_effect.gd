@@ -1,5 +1,5 @@
 class_name ExtraProjectilesEffect
-extends DirectSpellEffect
+extends DirectProjectileSpellEffect
 
 @export var tier: int
 @export var extra_projectile_counts = [1,2,3]

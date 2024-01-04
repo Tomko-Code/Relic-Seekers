@@ -4,6 +4,7 @@ extends Node
 @export var _HitboxComponent: HitboxComponent
 @export var _StatsComponent: StatsComponent
 @export var _MovementComponent: MovementComponent
+@export var _EntityEffectsHandler: EntityEffectsHandler
 
 
 func _ready():
@@ -32,6 +33,9 @@ func _on_bullet_enter_hitbox(_area):
 			_StatsComponent = _StatsComponent as PlayerStatsComponent
 			if not _StatsComponent.invulnerability_end.is_connected(re_check_area_damage):
 				_StatsComponent.invulnerability_end.connect(re_check_area_damage)
+		
+		if _EntityEffectsHandler and entity is BaseProjectile:
+			_EntityEffectsHandler.process_projctile_hit(entity)
 		
 		if entity is BaseProjectile:
 			entity = entity as BaseProjectile

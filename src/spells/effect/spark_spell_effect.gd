@@ -1,5 +1,5 @@
 class_name SparkSpellEffect
-extends DirectSpellEffect
+extends DirectProjectileSpellEffect
 
 func apply_on_projectile(projectile: BaseProjectile):
 	projectile.launched.connect(lauch_side_projectiles.bind(projectile))

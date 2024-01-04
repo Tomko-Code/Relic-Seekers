@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dtsmyiv4frm0u"]
+[gd_scene load_steps=11 format=3 uid="uid://dtsmyiv4frm0u"]
 
 [ext_resource type="PackedScene" uid="uid://bdlxq5bh2qqu2" path="res://src/entities/interactable/interactable_component.tscn" id="1_hvcgx"]
 [ext_resource type="Script" path="res://docs/src/entities/Interactables/restock_interactible.gd" id="1_pfvxy"]
@@ -19,7 +19,12 @@ radius = 32.0
 atlas = ExtResource("3_60on3")
 region = Rect2(0, 0, 48, 48)
 
-[node name="RestockInteractible" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_8oge8"]
+radius = 48.0
+
+[node name="RestockInteractible" type="StaticBody2D"]
+collision_layer = 64
+collision_mask = 0
 script = ExtResource("1_pfvxy")
 
 [node name="Comopnents" type="Node2D" parent="."]
@@ -61,3 +66,6 @@ layout_mode = 2
 theme = ExtResource("4_rhtf4")
 text = "1
 "
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8oge8")
