@@ -79,15 +79,11 @@
         "dialogs" : [
             {
                 "who" : "Player",
-                "string" : "Hmmm ... "
+                "string": "Hmm... I wonder what this is. It looks like some kind of teleporting stone."
             },
             {
                 "who" : "Player",
-                "string" : "It looks to be some teleporting stone."
-            },
-            {
-                "who" : "Player",
-                "string" : "I think i can make it work. It might be my only way in."
+                "string": "I think I might be able to activate it and use it to get inside. It's worth a try."
             }
         ]
     },
