@@ -37,5 +37,7 @@ func set_up(args:Array = []) -> void:
 	print_number_map()
 	
 	# Set Player
+	custom_spawn = true
+	
 	GameManager.player.position = Vector2(800, 640)
 	GameManager.dialog_box.play("first_time_prolog")

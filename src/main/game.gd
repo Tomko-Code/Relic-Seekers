@@ -73,7 +73,9 @@ func change_active_to_current_level() -> void:
 		deactivate_level(sanctuary_level)
 	
 	activate_level(current_level)
-	player.position = current_level.player_spawn_pos
+	if current_level.custom_spawn == false:
+		player.position = current_level.player_spawn_pos
+	
 	level_state = LEVEL_STATES.CURRENT
 
 func change_active_to_sanctuary_level() -> void:
