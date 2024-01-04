@@ -58,12 +58,12 @@ func can_cast():
 	return cast_frequency_current == cast_frequency
 
 func lose_mana() -> bool:
-	if mana > mana_cost:
+	if mana >= mana_cost:
 		mana = clamp(mana - mana_cost, 0, max_mana)
 		cast_frequency_current = 0
 		emit_signal("mana_changed")
 		return true
-	elif mana == 0:
+	elif max_mana != -1:
 		emit_signal("out_of_mana")
 		return false
 	cast_frequency_current = 0
