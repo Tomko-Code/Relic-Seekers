@@ -90,7 +90,39 @@ func get_random_from_weighed_array(arr):
 		selection -= entry[1]
 		if selection < 0:
 			return entry[0]
-		
+
+var tooltip_layer: CanvasLayer = null
+var tooltip_node: Tooltip = null
+
+func attach_tooltip(node, text_callback: Callable, hover_both: bool = true):
+	if tooltip_node != null:
+		#root.move_child.call_deferred(tooltip_node, -1) # probably better in on_hover_show but whatever
+		pass
+	else:
+		var root = get_node("/root")
+		tooltip_layer = CanvasLayer.new()
+		tooltip_node = load("res://src/hud/tooltip.tscn").instantiate() as Tooltip
+		tooltip_layer.add_child(tooltip_node)
+		tooltip_node.name = "Tooltip"
+		root.add_child.call_deferred(tooltip_layer)
+	if node is CollisionObject2D or node is Control:
+		var callback = tooltip_node.on_hover_show.bind(node, text_callback, hover_both)
+		if not node.mouse_entered.is_connected(callback):
+			node.mouse_entered.connect(callback)
+
+
+func detach_tooltip(node):
+	if tooltip_node == null:
+		return
+	if node is CollisionObject2D or node is Control and node.mouse_entered.is_connected(tooltip_node.on_hover_show):
+		var flagged_connection = []
+		for con in node.mouse_entered.get_connections():
+			print(con.callable.get_object())
+			if con.callable.get_object() == tooltip_node:
+				flagged_connection.append(con.callable)
+		for callback in flagged_connection:
+			node.mouse_entered.disconnect(callback)
+	
 # just for quick test proly should be inside Menu !
 # states maby not needed here !
 func _input(event):

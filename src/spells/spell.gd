@@ -107,6 +107,9 @@ func is_innate(effect: SpellEffect):
 			return true
 	return false
 
+func get_tooltip():
+	return [get_title(), get_description()]
+
 func get_description():
 	var desc_effects = get_effects(false)
 	if desc_effects:

@@ -16,7 +16,7 @@ unicode = 102
 [sub_resource type="CircleShape2D" id="CircleShape2D_a286m"]
 radius = 32.0
 
-[node name="BlueShrine" type="StaticBody2D"]
+[node name="RedShrine" type="StaticBody2D"]
 collision_layer = 66
 collision_mask = 0
 script = ExtResource("1_sgv7q")
