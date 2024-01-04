@@ -21,5 +21,6 @@ func set_up(args:Array = []) -> void:
 	
 	spawn_room(shop_show_room)
 	
-	# Set Player
+	# Set Player & custom spawn
 	GameManager.player.position = get_cord_center_position((show_room.cord))
+	custom_spawn = true

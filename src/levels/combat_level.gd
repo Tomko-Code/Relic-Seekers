@@ -23,4 +23,5 @@ func set_up(args:Array = []) -> void:
 	spawn_room(left_combat_room)
 	
 	# Set Player
+	custom_spawn = true
 	GameManager.player.position = get_cord_center_position((main_combat_room.cord)+Vector2(0,1))
