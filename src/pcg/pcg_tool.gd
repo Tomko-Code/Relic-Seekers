@@ -176,9 +176,18 @@ func _on_level_name_text_changed(new_text:String) -> void:
 
 func _on_generate_pressed():
 	clear_level()
+	var time_start = Time.get_ticks_msec()
+	var try_count = 1
 	print("Generate level")
 	level = LevelGenerator.generate(level_preset)
+	while level == null:
+		level = LevelGenerator.generate(level_preset)
+		try_count += 1
 	print(level.rooms.size())
+	var time_now = Time.get_ticks_msec()
+	var time_elapsed = (time_now - time_start)
+	print("Time generated : " + str(time_elapsed/1000.0))
+	print("Try count : " + str(try_count))
 	$VBoxContainer/HBoxContainer/Level/Room/RoomView/LevelRender.render_level(level)
 	level.reveal_level()
 

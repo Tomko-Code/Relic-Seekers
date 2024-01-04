@@ -39,11 +39,15 @@ func generate(_level_preset:LevelGenerationPreset) -> Level:
 	var try_cout = 0
 	var boss_added = false
 	var end_added = false
+	var special_rooms_added = false
+	
 	var boss_room = RoomData.new().set_up("test_boss_room", level)
 	var end_room = RoomData.new().set_up("end_room", level)
 	
 	boss_room.is_boss = true
 	end_room.is_end = true
+	
+	var special_rooms:Array = GameData.special_rooms.duplicate(true)
 	
 	while true:
 		try_cout += 1
@@ -81,16 +85,22 @@ func generate(_level_preset:LevelGenerationPreset) -> Level:
 					boss_added = true
 					while not boss_room.all_possible_connections.is_empty():
 						add_random_connection(boss_room)
-						print("kek")
-					print(boss_room.connection_arry.size())
 		elif not end_added:
 			if add_room(boss_room, end_room, true):
 				end_added = true
 			else:
 				return null
-			print(boss_room.connection_arry.size())
-					
-		if end_added == true:
+		elif not special_rooms_added:
+			if room.connection_arry.size() > 0:
+				var new_room:RoomData = RoomData.new().set_up(special_rooms.pop_back(), level)
+				if add_room(room, new_room):
+					try_cout = 0
+					if special_rooms.is_empty():
+						special_rooms_added = true
+				else:
+					return null
+			
+		if special_rooms_added == true:
 			break
 	
 	# add boss room
@@ -237,13 +247,13 @@ func add_room(from:RoomData, new_room:RoomData, try_all_possible:bool = false) -
 		for conn in from.connection_arry:
 			open_connection = conn
 			valid_connections = has_valid_placement(new_room, open_connection)
-			print("valid_connections size : " + str(valid_connections.size()))
+			#print("valid_connections size : " + str(valid_connections.size()))
 			if not valid_connections.is_empty():
 				break
 	else:
 		open_connection = from.connection_arry.pick_random()
 		valid_connections = has_valid_placement(new_room, open_connection)
-		print("valid_connections size : " + str(valid_connections.size()))
+		#print("valid_connections size : " + str(valid_connections.size()))
 	
 	if valid_connections.is_empty():
 		return false

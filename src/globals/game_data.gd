@@ -174,6 +174,21 @@ var rooms_data = {
 		"res" : load("res://src/rooms/pcg/standard/2x2_standard.tscn")
 	},
 	#######################################
+	# Standard pcg special rooms
+	#######################################
+	"shop" : {
+		"shape" : [[1]],
+		"res" : load("res://src/rooms/special/shop_show_room.tscn"),
+		"icons" : {
+			"shop_icon" : {
+				"texture" : preload("res://icon.svg"),
+				"cord" : Vector2(0, 0),
+				"scale" : 0.5
+			}
+		},
+		"can_show_multiple_times" : false
+	},
+	#######################################
 	# Standard pcg set
 	#######################################
 	"1x2_standard" : {
@@ -214,7 +229,7 @@ var rooms_data = {
 	}
 }
 
-var room_sets = {
+var room_sets:Dictionary = {
 	"standard" : [
 		"1x1_small",
 		"1x2_standard",
@@ -226,6 +241,10 @@ var room_sets = {
 		"l4_standard",
 	],
 }
+
+var special_rooms:Array = [
+	"shop"
+]
 
 func load_save_file():
 	if ResourceLoader.exists(save_path):
