@@ -16,48 +16,44 @@
     {
         "dialogs" : [
             {
-                "who" : "Thaladon",
-                "string" : "Oh no ..."
+                "who": "Thaladon",
+                "string": "Oh no ..."
             },
             {
-                "who" : "Player",
-                "string" : "Oh no? I'm here to help."
+                "who": "Player",
+                "string": "Oh no? I'm here to help you."
             },
             {
-                "who" : "Thaladon",
-                "string" : "Help ? This elevator is a one way ticket, you are now as traped here, same as the rest of us !"
+                "who": "Thaladon",
+                "string": "Help? Teleporting stones you have used to get here are one-way tickets. You are traped with us."
             },
             {
-                "who" : "Player",
-                "string" : "And where is here ?"
+                "who": "Player",
+                "string": "And where is here ?"
             },
             {
-                "who" : "Thaladon",
-                "string" : "Based on text on walls, it's called sanctuary ..."
+                "who": "Thaladon",
+                "string": "According to the writings on the walls, this place is called sanctuary."
             },
             {
-                "who" : "Thaladon",
-                "string" : "Only way out is to activate elevator but ..."
+                "who": "Thaladon",
+                "string": "Our only hope out might be to get through this dungeon. Each floor is connected by another teleporting stone."
             },
             {
-                "who" : "Thaladon",
-                "string" : "Controll pannel is locked by keys ..."
+                "who": "Player",
+                "string": "You gulped. Dungeon? What kind of place is this?"
             },
             {
-                "who" : "Player",
-                "string" : "Where are the keys ?"
+                "who": "Thaladon",
+                "string": "A dangerous one. But I will cast a spell on you, so in case you die you will return here back in time."
             },
             {
-                "who" : "Thaladon",
-                "string" : "Hiden around undegrounds. I will cast spell on you, so if you die you will return here back in time."
+                "who": "Player",
+                "string": "If you can cast such a powerful spell, why don't you look for the exit yourself?"
             },
             {
-                "who" : "Player",
-                "string" : "If you have sutch powerful spell to safly explore undegrounds why not look for them your self ?"
-            },
-            {
-                "who" : "Thaladon",
-                "string" : "Of Course we have tride, but after so many deaths we lost hope. Maby you will do better."
+                "who": "Thaladon",
+                "string": "We've tried, but after many failed attempts, we lost hope. Maybe you'll have better luck."
             }
         ]
     },
@@ -66,7 +62,7 @@
         "dialogs" : [
             {
                 "who" : "Thaladon",
-                "string" : "What now ? Go and look for keys !"
+                "string" : "What now ? Go and look for the way out !"
             },
             {
                 "who" : "Player",
@@ -79,15 +75,11 @@
         "dialogs" : [
             {
                 "who" : "Player",
-                "string" : "Hmmm ... "
+                "string": "Hmm... I wonder what this is. It looks like some kind of teleporting stone."
             },
             {
                 "who" : "Player",
-                "string" : "It looks to be some teleporting stone."
-            },
-            {
-                "who" : "Player",
-                "string" : "I think i can make it work. It might be my only way in."
+                "string": "I think I might be able to activate it and use it to get inside. It's worth a try."
             }
         ]
     },
@@ -96,11 +88,11 @@
         "dialogs" : [
             {
                 "who" : "Player",
-                "string" : "Hmm... looks like there is no teleporting stone back."
+                "string" : "Hmm... no teleporting stone back."
             },
             {
                 "who" : "Player",
-                "string" : "Guess that solves why nobody ever came back from expeditions."
+                "string" : "Guess that explains why nobody ever came back."
             },
             {
                 "who" : "Player",
@@ -113,7 +105,7 @@
         "dialogs" : [
             {
                 "who" : "Player",
-                "string" : "So i am finaly here. The ruins."
+                "string" : "Can you believe it? I've finally made it to the ruins, but to my surprise, there's no sign of any expedition members. I wonder what happened to them."
             },
             {
                 "who" : "Player",

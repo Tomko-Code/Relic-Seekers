@@ -121,15 +121,15 @@ text = "Dear Alarion,
 
 As our trusted mage,
 we are tasking you with
-investigation of missing
-expedition. They were send
-to explore ancient  ruins,
-loaceted deep in swamps.
+the investigation of the missing
+expedition. They were sent
+to explore ancient ruins,
+located deep within the swamp.
 Find these ruins and missing
 expedition members.
 
 With respect,
-High Mage Concuil"
+High Mage Council"
 horizontal_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
