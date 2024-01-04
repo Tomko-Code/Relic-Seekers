@@ -89,8 +89,7 @@ var rooms_data = {
 	"sanctuary_room" : {
 		# This is "broken" room
 		"shape" : [[1]],
-		"res" : load("res://src/rooms/sanctuary_room.tscn"),
-		"connections" : [],
+		"res" : load("res://src/rooms/sanctuary_room.tscn")
 	},
 	#######################################
 	# Combat Rooms
@@ -149,82 +148,69 @@ var rooms_data = {
 	
 	"1x1_small" : {
 		"shape" : [[1]],
-		"res" : load("res://src/rooms/pcg/standard/1x1_small.tscn"),
-		"connections" : [],
+		"res" : load("res://src/rooms/pcg/standard/1x1_small.tscn")
 	},
 	"1x1_small_red" : {
 		"shape" : [[1]],
-		"res" : load("res://src/rooms/pcg/standard/1x1_small.tscn"),
-		"connections" : [],
+		"res" : load("res://src/rooms/pcg/standard/1x1_small.tscn")
 	},
 	"1x1_small_coridor_up" : {
 		"shape" : [[1]],
-		"res" : load("res://src/rooms/pcg/standard/1x1_small.tscn"),
-		"connections" : [],
+		"res" : load("res://src/rooms/pcg/standard/1x1_small.tscn")
 	},
 	#######################################
 	# Important pcg rooms
 	#######################################
 	"end_room" : {
 		"shape" : [[1]],
-		"res" : load("res://src/rooms/pcg/standard/end_room.tscn"),
-		"connections" : [],
+		"res" : load("res://src/rooms/pcg/standard/end_room.tscn")
 	},
 	"start_room" : {
 		"shape" : [[1]],
-		"res" : load("res://src/rooms/start_room.tscn"),
-		"connections" : [],
+		"res" : load("res://src/rooms/start_room.tscn")
 	},
 	"test_boss_room" : {
 		"shape" : [[1, 1],[1, 1]],
-		"res" : load("res://src/rooms/pcg/standard/2x2_standard.tscn"),
-		"connections" : [],
+		"res" : load("res://src/rooms/pcg/standard/2x2_standard.tscn")
 	},
 	#######################################
 	# Standard pcg set
 	#######################################
 	"1x2_standard" : {
 		"shape" : [[1],[1]],
-		"res" : load("res://src/rooms/pcg/standard/1x2_standard.tscn"),
-		"connections" : [],
+		"res" : load("res://src/rooms/pcg/standard/1x2_standard.tscn")
 	},
 	"2x1_standard" : {
 		"shape" : [[1, 1]],
-		"res" : load("res://src/rooms/pcg/standard/2x1_standard.tscn"),
-		"connections" : [],
+		"res" : load("res://src/rooms/pcg/standard/2x1_standard.tscn")
 	},
 	"2x2_standard" : {
 		"shape" : [[1, 1],[1, 1]],
-		"res" : load("res://src/rooms/pcg/standard/2x2_standard.tscn"),
-		"connections" : [],
+		"res" : load("res://src/rooms/pcg/standard/2x2_standard.tscn")
 	},
 	"l1_standard" : {
 		"shape" : [
 			[1, 1],
 			[1, 0]],
-		"res" : load("res://src/rooms/pcg/standard/l1_standard.tscn"),
-		"connections" : [],
+		"res" : load("res://src/rooms/pcg/standard/l1_standard.tscn")
 	},
 	"l2_standard" : {
 		"shape" : [
 			[1, 1],
 			[0, 1]],
-		"res" : load("res://src/rooms/pcg/standard/l2_standard.tscn"),
-		"connections" : [],
+		"res" : load("res://src/rooms/pcg/standard/l2_standard.tscn")
 	},
 	"l3_standard" : {
 		"shape" : [
 			[0, 1],
 			[1, 1]],
-		"res" : load("res://src/rooms/pcg/standard/l3_standard.tscn"),
-		"connections" : [],
+		"res" : load("res://src/rooms/pcg/standard/l3_standard.tscn")
 	},
 	"l4_standard" : {
 		"shape" : [
 			[1, 0],
 			[1, 1]],
-		"res" : load("res://src/rooms/pcg/standard/l4_standard.tscn"),
-		"connections" : [],
+		"res" : load("res://src/rooms/pcg/standard/l4_standard.tscn")
 	}
 }
 

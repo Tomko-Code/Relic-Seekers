@@ -82,8 +82,9 @@ func generate_all_possible_connections() -> void:
 				add_possible_connection(Vector2(x,y), Vector2.DOWN)
 	
 	# LEGACY CODE FOR HAND MADE CONNECTIONS
-	for conn in GameData.rooms_data[type]["connections"]:
-		add_connection(conn[0], conn[1])
+	if GameData.rooms_data[type].has("connections"):
+		for conn in GameData.rooms_data[type]["connections"]:
+			add_connection(conn[0], conn[1])
 
 func add_possible_connection(inside_cord:Vector2, direction:Vector2):
 	var new_connection:RoomConnectionData = RoomConnectionData.new()
