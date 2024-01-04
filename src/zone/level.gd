@@ -16,6 +16,7 @@ var player_spawn_pos:Vector2 = Vector2.ZERO
 
 var custom_spawn:bool = false
 
+
 func spawn_room(room_data:RoomData) -> Room:
 	if room_data.type == "":
 		print("Cant spawn room with no type")
