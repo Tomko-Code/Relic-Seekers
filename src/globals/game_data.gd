@@ -20,13 +20,6 @@ var rooms_data = {
 	#######################################
 	# Test Rooms
 	#######################################
-	"Start" : {
-		"shape" : [[1]],
-		"res" : load("res://src/rooms/start_room.tscn"),
-		"connections" : [
-			[Vector2(0,0), Vector2.UP]
-		]
-	},
 	"Normal1" : {
 		"shape" : [
 			[1]
@@ -149,7 +142,103 @@ var rooms_data = {
 		],
 		"res" : load("res://src/rooms/special/shop_show_room.tscn"),
 		"connections" : [[Vector2(0,0), Vector2.RIGHT]],
+	},
+	#######################################
+	# Show
+	#######################################
+	
+	"1x1_small" : {
+		"shape" : [[1]],
+		"res" : load("res://src/rooms/pcg/standard/1x1_small.tscn"),
+		"connections" : [],
+	},
+	"1x1_small_red" : {
+		"shape" : [[1]],
+		"res" : load("res://src/rooms/pcg/standard/1x1_small.tscn"),
+		"connections" : [],
+	},
+	"1x1_small_coridor_up" : {
+		"shape" : [[1]],
+		"res" : load("res://src/rooms/pcg/standard/1x1_small.tscn"),
+		"connections" : [],
+	},
+	#######################################
+	# Important pcg rooms
+	#######################################
+	"end_room" : {
+		"shape" : [[1]],
+		"res" : load("res://src/rooms/pcg/standard/end_room.tscn"),
+		"connections" : [],
+	},
+	"start_room" : {
+		"shape" : [[1]],
+		"res" : load("res://src/rooms/start_room.tscn"),
+		"connections" : [],
+	},
+	"test_boss_room" : {
+		"shape" : [[1, 1],[1, 1]],
+		"res" : load("res://src/rooms/pcg/standard/2x2_standard.tscn"),
+		"connections" : [],
+	},
+	#######################################
+	# Standard pcg set
+	#######################################
+	"1x2_standard" : {
+		"shape" : [[1],[1]],
+		"res" : load("res://src/rooms/pcg/standard/1x2_standard.tscn"),
+		"connections" : [],
+	},
+	"2x1_standard" : {
+		"shape" : [[1, 1]],
+		"res" : load("res://src/rooms/pcg/standard/2x1_standard.tscn"),
+		"connections" : [],
+	},
+	"2x2_standard" : {
+		"shape" : [[1, 1],[1, 1]],
+		"res" : load("res://src/rooms/pcg/standard/2x2_standard.tscn"),
+		"connections" : [],
+	},
+	"l1_standard" : {
+		"shape" : [
+			[1, 1],
+			[1, 0]],
+		"res" : load("res://src/rooms/pcg/standard/l1_standard.tscn"),
+		"connections" : [],
+	},
+	"l2_standard" : {
+		"shape" : [
+			[1, 1],
+			[0, 1]],
+		"res" : load("res://src/rooms/pcg/standard/l2_standard.tscn"),
+		"connections" : [],
+	},
+	"l3_standard" : {
+		"shape" : [
+			[0, 1],
+			[1, 1]],
+		"res" : load("res://src/rooms/pcg/standard/l3_standard.tscn"),
+		"connections" : [],
+	},
+	"l4_standard" : {
+		"shape" : [
+			[1, 0],
+			[1, 1]],
+		"res" : load("res://src/rooms/pcg/standard/l4_standard.tscn"),
+		"connections" : [],
 	}
+}
+
+var room_sets = {
+	"standard" : [
+		"1x1_small",
+		"1x2_standard",
+		"2x1_standard",
+		"2x2_standard",
+		"l1_standard",
+		"l2_standard",
+		"l3_standard",
+		"l4_standard",
+	],
 }
 
 func load_save_file():

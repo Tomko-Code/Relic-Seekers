@@ -4,8 +4,8 @@ class_name ShowLevel
 func set_up(args:Array = []) -> void:
 	create_level(Vector2(10,10))
 	
-	var show_room:RoomData = RoomData.new().set_up("show_room")
-	var shop_show_room:RoomData = RoomData.new().set_up("shop_show_room")
+	var show_room:RoomData = RoomData.new().set_up("show_room", self)
+	var shop_show_room:RoomData = RoomData.new().set_up("shop_show_room", self)
 	
 	place_room(show_room, Vector2(3,3))
 	place_room(shop_show_room, Vector2(2,4))

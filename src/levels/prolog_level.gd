@@ -4,12 +4,12 @@ class_name PrologLevel
 func set_up(args:Array = []) -> void:
 	create_level(Vector2(6,4))
 	
-	var start_prolog_room:RoomData = RoomData.new().set_up("start_prolog_room")
-	var dash_prolog_room:RoomData = RoomData.new().set_up("dash_prolog_room")
-	var trap_prolog_room:RoomData = RoomData.new().set_up("trap_prolog_room")
-	var kill_prolog_room:RoomData = RoomData.new().set_up("kill_prolog_room")
-	var teleport_prolog_room:RoomData = RoomData.new().set_up("teleport_prolog_room")
-	var end_prolog_room:RoomData = RoomData.new().set_up("end_prolog_room")
+	var start_prolog_room:RoomData = RoomData.new().set_up("start_prolog_room", self)
+	var dash_prolog_room:RoomData = RoomData.new().set_up("dash_prolog_room", self)
+	var trap_prolog_room:RoomData = RoomData.new().set_up("trap_prolog_room", self)
+	var kill_prolog_room:RoomData = RoomData.new().set_up("kill_prolog_room", self)
+	var teleport_prolog_room:RoomData = RoomData.new().set_up("teleport_prolog_room", self)
+	var end_prolog_room:RoomData = RoomData.new().set_up("end_prolog_room", self)
 	
 	place_room(start_prolog_room, Vector2(0,0))
 	place_room(dash_prolog_room, Vector2(1,0))

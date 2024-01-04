@@ -7,9 +7,11 @@ var border_size:int = 2
 var room_margine:Vector2 = Vector2(0, 20)
 
 var tp_button_res = preload("res://src/zone/level_render/tp_button.tscn")
-
+var entrence_sprite_res = preload("res://assets/other/entrence_e_icon.tscn")
 var room:Room = null
 var color:Color = Color("3b3b69")
+
+var unknow_color:Color = Color(0.09803921729326, 0.09803921729326, 0.09803921729326)
 
 var tp_button:TextureButton = null
 
@@ -23,11 +25,36 @@ func set_up():
 	room.player_exit.connect(player_exit)
 	room.status_change.connect(status_change)
 	
+	color = room.data.base_color
+	
 	#position = room.data.cord * room_size
 	position = (room.position/16)
 	
 	status_change()
+	
+	if room.data.is_start:
+		var entrence_sprite = entrence_sprite_res.instantiate()
+		entrence_sprite.position += (Constants.CHUNK_SIZE/16)/2
 		
+		add_child(entrence_sprite)
+	
+	if room.data.is_end:
+		var end_sprite = entrence_sprite_res.instantiate()
+		end_sprite.position += (Constants.CHUNK_SIZE/16)/2
+		end_sprite.text = "X"
+		
+		add_child(end_sprite)
+	
+	if room.data.is_boss:
+		var boss_sprite = Sprite2D.new()
+		boss_sprite.texture = load("res://assets/art/UI/skull.png")
+		boss_sprite.scale.x = 0.25
+		boss_sprite.scale.y = 0.25
+		boss_sprite.centered = true
+		boss_sprite.position += (Constants.CHUNK_SIZE/16)
+		
+		add_child(boss_sprite)
+	
 	if room.data.has_teleport:
 		tp_button = tp_button_res.instantiate()
 		
@@ -35,6 +62,7 @@ func set_up():
 			tp_button.position = room.get_node("Teleport").position/16
 			tp_button.position -= Vector2(24, 24)
 			tp_button.pressed.connect(on_tp)
+			
 		
 		add_child(tp_button)
 	
@@ -78,11 +106,11 @@ func status_change():
 	
 	if room.seen:
 		if player_in:
-			color = Color(0.20794501900673, 0.44472229480743, 0.76496165990829)
+			color = room.data.highlight_color
 		else:
-			color = Color("3b3b69")
+			color = room.data.base_color
 	else:
-		color = Color(0.09803921729326, 0.09803921729326, 0.09803921729326)
+		color = unknow_color
 	
 	if tp_button != null:
 		if !(room.known and room.seen and room.visited):
@@ -94,12 +122,12 @@ func status_change():
 
 func player_enter():
 	player_in = true
-	color = Color(0.20794501900673, 0.44472229480743, 0.76496165990829)
+	color = room.data.highlight_color
 	queue_redraw()
 
 func player_exit():
 	player_in = false
-	color = Color("3b3b69")
+	color = room.data.base_color
 	queue_redraw()
 
 func draw_room():

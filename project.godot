@@ -17,10 +17,12 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+Utility="*res://src/globals/utility.gd"
 Constants="*res://src/globals/constants.gd"
 GameData="*res://src/globals/game_data.gd"
 Settings="*res://src/globals/settings.gd"
 ResourceManager="*res://src/globals/resource_manager.gd"
+LevelGenerator="*res://src/globals/level_generator.gd"
 GameManager="*res://src/globals/game_manager.gd"
 ConsoleHandler="*res://src/console/console_handler.gd"
 ProjectilesDb="*res://src/globals/projectiles_db.gd"
@@ -151,6 +153,11 @@ drop_spell={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":90,"key_label":0,"unicode":122,"echo":false,"script":null)
 ]
 }
+LMB_pressed={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(101, 14),"global_position":Vector2(105, 57),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
 
 [layer_names]
 
@@ -171,3 +178,4 @@ drop_spell={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.105882, 0.0862745, 0.105882, 1)

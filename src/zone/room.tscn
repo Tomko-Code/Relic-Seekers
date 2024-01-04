@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bnrt7xcfjh5bx"]
 
 [ext_resource type="Script" path="res://src/zone/room.gd" id="1_m56lj"]
-[ext_resource type="TileSet" uid="uid://bkmo2rtall6mj" path="res://assets/tileset/floors-tileset.tres" id="2_tuq74"]
-[ext_resource type="TileSet" uid="uid://b2a0t26snnvc7" path="res://assets/tileset/walls-tileset.tres" id="3_mjex8"]
+[ext_resource type="TileSet" uid="uid://dm2xndon4kkfk" path="res://assets/tileset/show_room/show_room_tileset.tres" id="2_nb1v7"]
+[ext_resource type="TileSet" uid="uid://d2tr7ruwf8c7j" path="res://assets/tileset/show_room/show_room_walls_tileset.tres" id="3_olidx"]
 
 [node name="Room" type="Node2D" node_paths=PackedStringArray("floors", "walls", "Gates")]
 script = ExtResource("1_m56lj")
@@ -13,7 +13,7 @@ Gates = NodePath("Gates")
 [node name="Gates" type="Node2D" parent="."]
 
 [node name="Floors" type="TileMap" parent="."]
-tile_set = ExtResource("2_tuq74")
+tile_set = ExtResource("2_nb1v7")
 format = 2
 layer_0/name = "Floor"
 layer_1/name = "Pits"
@@ -25,6 +25,6 @@ layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array()
 
 [node name="Walls" type="TileMap" parent="."]
-tile_set = ExtResource("3_mjex8")
+tile_set = ExtResource("3_olidx")
 cell_quadrant_size = 32
 format = 2

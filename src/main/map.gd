@@ -45,3 +45,13 @@ func _input(event):
 			sub_view_container.visible = true
 			mini_map.visible = false
 			level_render.camera.zoom = Vector2(1, 1)
+
+func _process(delta):
+	if sub_view.render_target_update_mode != SubViewport.UPDATE_ALWAYS:
+		sub_view.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+
+func _on_visibility_changed():
+	pass
+
+func _on_sub_viewport_container_visibility_changed():
+	pass

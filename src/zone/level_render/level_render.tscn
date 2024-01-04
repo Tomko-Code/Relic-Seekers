@@ -3,11 +3,12 @@
 [ext_resource type="Script" path="res://src/zone/level_render/level_render.gd" id="1_2ieqg"]
 [ext_resource type="Texture2D" uid="uid://c2h0o4akv8fau" path="res://assets/art/UI/smoll_player.svg" id="2_7r0xn"]
 
-[node name="LevelRender" type="Node2D" node_paths=PackedStringArray("player_icon", "camera")]
+[node name="LevelRender" type="Node2D" node_paths=PackedStringArray("player_icon", "camera", "rooms")]
 position = Vector2(100, 100)
 script = ExtResource("1_2ieqg")
 player_icon = NodePath("PlayerIcon")
 camera = NodePath("PlayerIcon/PlayerCameraIcon")
+rooms = NodePath("Rooms")
 
 [node name="Rooms" type="Node2D" parent="."]
 

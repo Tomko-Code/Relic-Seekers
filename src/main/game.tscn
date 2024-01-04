@@ -150,3 +150,5 @@ render_target_update_mode = 0
 position = Vector2(0, 0)
 
 [connection signal="level_change" from="." to="Map" method="_on_game_level_change"]
+[connection signal="visibility_changed" from="Map" to="Map" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="Map/CenterContainer/SubViewportContainer" to="Map" method="_on_sub_viewport_container_visibility_changed"]

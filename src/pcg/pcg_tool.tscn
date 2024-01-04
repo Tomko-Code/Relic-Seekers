@@ -1,23 +1,330 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjiykb4m16l8n"]
+[gd_scene load_steps=7 format=3 uid="uid://cjiykb4m16l8n"]
 
 [ext_resource type="Script" path="res://src/pcg/pcg_tool.gd" id="1_4ahx3"]
+[ext_resource type="Texture2D" uid="uid://db2b2mk6p5vhl" path="res://assets/art/UI/menu/unchecked_menu.svg" id="2_waob6"]
+[ext_resource type="Script" path="res://src/pcg/room_view_pcg.gd" id="3_il4dp"]
+[ext_resource type="PackedScene" uid="uid://hcarbmby224x" path="res://src/zone/level_render/level_render.tscn" id="5_0l3si"]
+[ext_resource type="Texture2D" uid="uid://r6puxum6lyfb" path="res://assets/art/UI/skull.svg" id="5_08ab0"]
 
-[node name="PCG_Tool" type="Node2D"]
-script = ExtResource("1_4ahx3")
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qi7rt"]
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="PCGTool" type="Control" node_paths=PackedStringArray("file_menu", "level_name_edit", "generate_button", "print_value_map_button", "size_x_edit", "size_y_edit", "min_room_edit", "max_room_edit", "start_x_edit", "start_y_edit", "start_random", "all_set_list", "selected_room_list", "rooms")]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 2.0
-offset_right = 1150.0
-offset_bottom = 643.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4ahx3")
+file_menu = NodePath("VBoxContainer/MarginContainer/Menu/File")
+level_name_edit = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/LevelName/LevelName")
+generate_button = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Generate")
+print_value_map_button = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/PrintValueMap")
+size_x_edit = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/LevelSize/LevelSize/XSize/X")
+size_y_edit = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/LevelSize/LevelSize/YSize/Y")
+min_room_edit = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/RoomCount/LevelSize/MinRoom/MinRoom")
+max_room_edit = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/RoomCount/LevelSize/MaxRoom/MaxRoom")
+start_x_edit = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/StartCord/Cord/XSize/StartX")
+start_y_edit = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/StartCord/Cord/YSize/StartY")
+start_random = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/StartCord/RandomStart")
+all_set_list = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Rooms/TabContainer/Sets/All")
+selected_room_list = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Rooms/TabContainer/Selected")
+rooms = NodePath("VBoxContainer/HBoxContainer/Level/Room/RoomView/Rooms")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+color = Color(0.054902, 0.0745098, 0.12549, 1)
+
+[node name="Menu" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="File" type="MenuButton" parent="VBoxContainer/MarginContainer/Menu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "File"
+item_count = 3
+popup/item_0/text = "New"
+popup/item_0/id = 0
+popup/item_1/text = "Load"
+popup/item_1/id = 1
+popup/item_2/text = "Save"
+popup/item_2/id = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Settings" type="Panel" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer/HBoxContainer/Settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="MarginContainer"]
+[node name="Settings" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer"]
 layout_mode = 2
-size_flags_vertical = 8
+theme_override_constants/separation = 5
+
+[node name="Generate" type="Button" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings"]
+layout_mode = 2
+disabled = true
 text = "Generate"
 
-[connection signal="pressed" from="MarginContainer/Button" to="." method="_on_button_pressed"]
+[node name="PrintValueMap" type="Button" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings"]
+layout_mode = 2
+disabled = true
+text = "Print Value Map"
+
+[node name="StartRoom" type="LineEdit" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings"]
+visible = false
+layout_mode = 2
+placeholder_text = "Start Room"
+editable = false
+
+[node name="EndRoom" type="LineEdit" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings"]
+layout_mode = 2
+placeholder_text = "End Room"
+editable = false
+
+[node name="HSeparator4" type="HSeparator" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings"]
+layout_mode = 2
+
+[node name="LevelName" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/LevelName"]
+layout_mode = 2
+text = "Level name :"
+
+[node name="LevelName" type="LineEdit" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/LevelName"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 1
+editable = false
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings"]
+layout_mode = 2
+
+[node name="LevelSize" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/LevelSize"]
+layout_mode = 2
+text = "Level Size"
+horizontal_alignment = 1
+
+[node name="LevelSize" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/LevelSize"]
+layout_mode = 2
+
+[node name="XSize" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/LevelSize/LevelSize"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/LevelSize/LevelSize/XSize"]
+layout_mode = 2
+text = "X:"
+
+[node name="X" type="LineEdit" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/LevelSize/LevelSize/XSize"]
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="YSize" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/LevelSize/LevelSize"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/LevelSize/LevelSize/YSize"]
+layout_mode = 2
+text = "Y :"
+
+[node name="Y" type="LineEdit" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/LevelSize/LevelSize/YSize"]
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings"]
+layout_mode = 2
+
+[node name="RoomCount" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/RoomCount"]
+layout_mode = 2
+text = "Min/Max rooms count"
+horizontal_alignment = 1
+
+[node name="LevelSize" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/RoomCount"]
+layout_mode = 2
+
+[node name="MinRoom" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/RoomCount/LevelSize"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/RoomCount/LevelSize/MinRoom"]
+layout_mode = 2
+text = "Min:"
+
+[node name="MinRoom" type="LineEdit" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/RoomCount/LevelSize/MinRoom"]
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="MaxRoom" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/RoomCount/LevelSize"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/RoomCount/LevelSize/MaxRoom"]
+layout_mode = 2
+text = "Max :"
+
+[node name="MaxRoom" type="LineEdit" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/RoomCount/LevelSize/MaxRoom"]
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings"]
+layout_mode = 2
+
+[node name="StartCord" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/StartCord"]
+layout_mode = 2
+text = "Start Cord"
+horizontal_alignment = 1
+
+[node name="RandomStart" type="CheckBox" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/StartCord"]
+layout_mode = 2
+theme_override_icons/unchecked = ExtResource("2_waob6")
+disabled = true
+text = "Random Start"
+
+[node name="Cord" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/StartCord"]
+layout_mode = 2
+
+[node name="XSize" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/StartCord/Cord"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/StartCord/Cord/XSize"]
+layout_mode = 2
+text = "X:"
+
+[node name="StartX" type="LineEdit" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/StartCord/Cord/XSize"]
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="YSize" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/StartCord/Cord"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/StartCord/Cord/YSize"]
+layout_mode = 2
+text = "Y :"
+
+[node name="StartY" type="LineEdit" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/StartCord/Cord/YSize"]
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="Rooms" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Rooms"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Sets" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Rooms/TabContainer"]
+layout_mode = 2
+
+[node name="All" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Rooms/TabContainer/Sets"]
+layout_mode = 2
+
+[node name="Selected" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Rooms/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Level" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer/Level"]
+layout_mode = 2
+color = Color(0, 0.14902, 0.152941, 1)
+
+[node name="Room" type="SubViewportContainer" parent="VBoxContainer/HBoxContainer/Level"]
+layout_mode = 2
+stretch = true
+script = ExtResource("3_il4dp")
+
+[node name="RoomView" type="SubViewport" parent="VBoxContainer/HBoxContainer/Level/Room"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(748, 606)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="VBoxContainer/HBoxContainer/Level/Room/RoomView"]
+zoom = Vector2(0.5, 0.5)
+
+[node name="Rooms" type="Node2D" parent="VBoxContainer/HBoxContainer/Level/Room/RoomView"]
+
+[node name="LevelRender" parent="VBoxContainer/HBoxContainer/Level/Room/RoomView" instance=ExtResource("5_0l3si")]
+render_player_icon = false
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+title = "preset name"
+initial_position = 2
+
+[node name="LineEdit" type="LineEdit" parent="ConfirmationDialog"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 192.0
+offset_bottom = 51.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+modulate = Color(0, 0.858824, 0.737255, 1)
+self_modulate = Color(0.121569, 0.827451, 1, 1)
+material = SubResource("CanvasItemMaterial_qi7rt")
+layout_mode = 0
+offset_left = -304.0
+offset_top = 201.0
+offset_right = -48.0
+offset_bottom = 457.0
+texture = ExtResource("5_08ab0")
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Generate" to="." method="_on_generate_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/PrintValueMap" to="." method="_on_print_value_map_pressed"]
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/LevelName/LevelName" to="." method="_on_level_name_text_changed"]
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/LevelSize/LevelSize/XSize/X" to="." method="_on_x_text_changed"]
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/LevelSize/LevelSize/YSize/Y" to="." method="_on_y_text_changed"]
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/RoomCount/LevelSize/MinRoom/MinRoom" to="." method="_on_min_room_text_changed"]
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/RoomCount/LevelSize/MaxRoom/MaxRoom" to="." method="_on_max_room_text_changed"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/StartCord/RandomStart" to="." method="_on_random_start_toggled"]
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/StartCord/Cord/XSize/StartX" to="." method="_on_start_x_text_changed"]
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/StartCord/Cord/YSize/StartY" to="." method="_on_start_y_text_changed"]
+[connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]
+[connection signal="text_changed" from="ConfirmationDialog/LineEdit" to="." method="_on_line_edit_text_changed"]
