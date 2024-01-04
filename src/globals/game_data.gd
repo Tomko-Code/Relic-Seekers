@@ -146,16 +146,7 @@ var rooms_data = {
 	#######################################
 	# Show
 	#######################################
-	"end_room" : {
-		"shape" : [[1]],
-		"res" : load("res://src/rooms/pcg/standard/end_room.tscn"),
-		"connections" : [],
-	},
-	"start_room" : {
-		"shape" : [[1]],
-		"res" : load("res://src/rooms/start_room.tscn"),
-		"connections" : [],
-	},
+	
 	"1x1_small" : {
 		"shape" : [[1]],
 		"res" : load("res://src/rooms/pcg/standard/1x1_small.tscn"),
@@ -169,6 +160,24 @@ var rooms_data = {
 	"1x1_small_coridor_up" : {
 		"shape" : [[1]],
 		"res" : load("res://src/rooms/pcg/standard/1x1_small.tscn"),
+		"connections" : [],
+	},
+	#######################################
+	# Important pcg rooms
+	#######################################
+	"end_room" : {
+		"shape" : [[1]],
+		"res" : load("res://src/rooms/pcg/standard/end_room.tscn"),
+		"connections" : [],
+	},
+	"start_room" : {
+		"shape" : [[1]],
+		"res" : load("res://src/rooms/start_room.tscn"),
+		"connections" : [],
+	},
+	"test_boss_room" : {
+		"shape" : [[1, 1],[1, 1]],
+		"res" : load("res://src/rooms/pcg/standard/2x2_standard.tscn"),
 		"connections" : [],
 	},
 	#######################################
@@ -220,16 +229,8 @@ var rooms_data = {
 }
 
 var room_sets = {
-	"pcg_test" : [
-		"end_room",
-		"start_room",
-		"1x1_small"
-	],
-	"pcg_test_2" : [
-		"1x1_small_red",
-		"1x1_small_coridor_up"
-	],
 	"standard" : [
+		"1x1_small",
 		"1x2_standard",
 		"2x1_standard",
 		"2x2_standard",

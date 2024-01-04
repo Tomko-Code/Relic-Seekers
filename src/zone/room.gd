@@ -40,6 +40,13 @@ var known:bool = false
 var seen:bool = false 
 var visited:bool = false
 
+func _ready():
+	#player_exit.connect(on_player_exit)
+	
+	set_physics_process(false)
+	set_process(false)
+	#hide()
+
 func set_room_closed(value:bool) -> void:
 	if room_closed == value:
 		return
@@ -208,11 +215,18 @@ func spawn_next_wave() -> void:
 	else:
 		data.has_waves = false
 
+func on_player_exit() -> void:
+	set_physics_process(false)
+	set_process(false)
+	#hide()
+
 func on_player_enter() -> void:
 	if data.has_waves:
 		spawn_next_wave()
 	
-	#set_visited(true)
+	set_physics_process(true)
+	set_process(true)
+	#show()
 	
 	for conn in data.closed_connection_arry:
 		var room_data:RoomData = conn.connected_room

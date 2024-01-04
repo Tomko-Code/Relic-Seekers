@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://cjiykb4m16l8n"]
+[gd_scene load_steps=7 format=3 uid="uid://cjiykb4m16l8n"]
 
 [ext_resource type="Script" path="res://src/pcg/pcg_tool.gd" id="1_4ahx3"]
 [ext_resource type="Texture2D" uid="uid://db2b2mk6p5vhl" path="res://assets/art/UI/menu/unchecked_menu.svg" id="2_waob6"]
 [ext_resource type="Script" path="res://src/pcg/room_view_pcg.gd" id="3_il4dp"]
-[ext_resource type="PackedScene" uid="uid://bc3ru20vvywys" path="res://src/pcg/set_option.tscn" id="3_ljaib"]
 [ext_resource type="PackedScene" uid="uid://hcarbmby224x" path="res://src/zone/level_render/level_render.tscn" id="5_0l3si"]
+[ext_resource type="Texture2D" uid="uid://r6puxum6lyfb" path="res://assets/art/UI/skull.svg" id="5_08ab0"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qi7rt"]
 
 [node name="PCGTool" type="Control" node_paths=PackedStringArray("file_menu", "level_name_edit", "generate_button", "print_value_map_button", "size_x_edit", "size_y_edit", "min_room_edit", "max_room_edit", "start_x_edit", "start_y_edit", "start_random", "all_set_list", "selected_room_list", "rooms")]
 layout_mode = 3
@@ -25,7 +27,7 @@ max_room_edit = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Sett
 start_x_edit = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/StartCord/Cord/XSize/StartX")
 start_y_edit = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/StartCord/Cord/YSize/StartY")
 start_random = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/StartCord/RandomStart")
-all_set_list = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Rooms/TabContainer/ScrollContainer/All")
+all_set_list = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Rooms/TabContainer/Sets/All")
 selected_room_list = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Rooms/TabContainer/Selected")
 rooms = NodePath("VBoxContainer/HBoxContainer/Level/Room/RoomView/Rooms")
 
@@ -255,13 +257,10 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Rooms/TabContainer"]
+[node name="Sets" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Rooms/TabContainer"]
 layout_mode = 2
 
-[node name="All" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Rooms/TabContainer/ScrollContainer"]
-layout_mode = 2
-
-[node name="SetOption" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Rooms/TabContainer/ScrollContainer/All" instance=ExtResource("3_ljaib")]
+[node name="All" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Rooms/TabContainer/Sets"]
 layout_mode = 2
 
 [node name="Selected" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Rooms/TabContainer"]
@@ -304,6 +303,18 @@ offset_left = 8.0
 offset_top = 8.0
 offset_right = 192.0
 offset_bottom = 51.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+modulate = Color(0, 0.858824, 0.737255, 1)
+self_modulate = Color(0.121569, 0.827451, 1, 1)
+material = SubResource("CanvasItemMaterial_qi7rt")
+layout_mode = 0
+offset_left = -304.0
+offset_top = 201.0
+offset_right = -48.0
+offset_bottom = 457.0
+texture = ExtResource("5_08ab0")
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Generate" to="." method="_on_generate_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/PrintValueMap" to="." method="_on_print_value_map_pressed"]

@@ -1,6 +1,16 @@
 extends Resource
 class_name LevelGenerationPreset
 
+enum ROOM_RANOMIZE_SETTINGS { 
+	FULL_RANDOM, 
+	EQUAL_CHANCE_SHAPE, 
+	BY_ROOM_WEIGHT, 
+	BY_SHAPE_WEIGHT, 
+	BY_SHAPE_ROOM_WEIGHT
+}
+
+var room_randomize_setting = ROOM_RANOMIZE_SETTINGS.BY_SHAPE_ROOM_WEIGHT
+
 @export var level_name:String = "no_name"
 @export var level_size:Vector2 = Vector2(5,5)
 

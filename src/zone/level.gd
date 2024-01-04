@@ -12,6 +12,8 @@ var currnet_active_room:Room = null
 var default_room:Room = null
 var level_size:Vector2 = Vector2.ZERO
 
+var player_spawn_pos:Vector2 = Vector2.ZERO
+
 func spawn_room(room_data:RoomData) -> Room:
 	if room_data.type == "":
 		print("Cant spawn room with no type")

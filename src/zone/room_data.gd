@@ -37,6 +37,14 @@ var max_connections:int = -1
 var connection_count:int = 0
 var banned_connections:Array = []
 
+# Visual
+var base_color:Color = Color(0.23137255012989, 0.23137255012989, 0.41176471114159)
+var highlight_color:Color = Color(0.20794501900673, 0.44472229480743, 0.76496165990829)
+
+var is_start = false
+var is_boss = false
+var is_end = false
+
 func set_up(_type:String, level:Level) -> RoomData:
 	type = _type
 	room_shape = GameData.rooms_data[_type]["shape"]
@@ -93,7 +101,6 @@ func add_possible_connection(inside_cord:Vector2, direction:Vector2):
 	
 	if !(out_left or out_top or out_right or out_bottom):
 		if room_shape[outside_cord.y][outside_cord.x] == 1:
-			print("Connection is pointing to indide")
 			return
 	
 	all_possible_connections.append(new_connection)

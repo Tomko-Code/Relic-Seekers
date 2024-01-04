@@ -1,8 +1,9 @@
 extends Node
 
 
-func normalize_array(array : Array) -> void:
-	var minVal  = array.min()
-	var maxVal  = array.max()
-	#for i in range(0, array.size()):
-	#	array[i] = range_lerp(array[i], minVal, maxVal, 0.0, 1.0)
+func weight_array(array : Array) -> void:
+	var min_weight:float = array.min()
+	var total_weight:float = 0.0
+	
+	for weight in array:
+		total_weight += weight
