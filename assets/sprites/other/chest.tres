@@ -1,0 +1,30 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://yetpiiplt1v7"]
+
+[ext_resource type="Texture2D" uid="uid://dc5bmkft2dvrv" path="res://assets/art/sprites/entities/other/chest.png" id="1_lij6w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dexd"]
+atlas = ExtResource("1_lij6w")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yi35m"]
+atlas = ExtResource("1_lij6w")
+region = Rect2(48, 0, 48, 48)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0dexd")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yi35m")
+}],
+"loop": true,
+"name": &"opened",
+"speed": 5.0
+}]

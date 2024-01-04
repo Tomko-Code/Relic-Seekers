@@ -42,6 +42,7 @@ script = ExtResource("1_iyk2u")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
@@ -50,6 +51,7 @@ theme_override_constants/margin_bottom = 4
 [node name="Spell" type="TextureRect" parent="MarginContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+mouse_filter = 2
 stretch_mode = 5
 
 [node name="Shortcut" type="Label" parent="."]
@@ -80,4 +82,5 @@ text = "100/100"
 [node name="Selection" type="Panel" parent="."]
 visible = false
 layout_mode = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ta6j5")

@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://bm5keorw6upeg"]
+
+[ext_resource type="Texture2D" uid="uid://cyxpk1ikl1mo4" path="res://assets/art/sprites/entities/other/blue_shrine.png" id="1_omind"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wn325"]
+atlas = ExtResource("1_omind")
+region = Rect2(0, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wn325")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

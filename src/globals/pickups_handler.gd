@@ -6,7 +6,11 @@ var artifact_resource = load("res://src/entities/pickups/artifact_pickup.tscn")
 var mana_orb_resource = load("res://src/entities/pickups/mana_orb_pickup.tscn")
 var purchasable_wrapper_resource = load("res://src/entities/pickups/purchasable_wrapper.tscn")
 var heart_resource = load("res://src/entities/pickups/heart_pickup.tscn")
+var chest_resource = load("res://src/entities/enemies/other/chest.tscn")
 
+
+func create_chest(loot_callback: String):
+	var chest = chest_resource.instantiate() as Chest
 
 func create_gold_pickup():
 	return gold_resource.instantiate()

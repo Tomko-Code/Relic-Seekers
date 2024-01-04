@@ -18,3 +18,7 @@ func recoil(entity: Node2D):
 	else:
 		var recoil_direction = (parent.global_position - entity.global_position).normalized()
 		parent.velocity += 200 * recoil_direction
+
+func _physics_process(delta):
+	parent.velocity = parent.velocity.lerp(Vector2.ZERO.normalized() * speed, 10 * delta)
+	parent.move_and_slide()

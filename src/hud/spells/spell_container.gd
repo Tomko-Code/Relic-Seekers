@@ -18,6 +18,7 @@ func update_selection():
 
 func update_spell():
 	if spell:
+		GameManager.attach_tooltip(self, spell.get_tooltip, false)
 		if spell.mana >= 0 and show_mana:
 			$Mana.text = "%.0f/%.0f" % [spell.mana, spell.max_mana]
 			$ManaCost.text = "%.2f" % spell.mana_cost
@@ -26,6 +27,7 @@ func update_spell():
 			$ManaCost.text = ""
 		$MarginContainer/Spell.texture = spell.frames.get_frame_texture("default", 0)
 	else:
+		GameManager.detach_tooltip(self)
 		#$MarginContainer/Spell.texture = load("res://assets/art/sprites/spells/non_spell.tres")
 		$MarginContainer/Spell.texture = null
 		$Shortcut.text = shortcut

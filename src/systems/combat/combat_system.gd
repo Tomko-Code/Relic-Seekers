@@ -24,7 +24,9 @@ func _on_bullet_enter_hitbox(_area):
 		var entity = hitbox.get_entity()
 		if entity is BaseProjectile and get_entity() in entity.already_hit:
 			return
-			
+		if entity is ExplosionArea and get_entity() in entity.already_hit:
+			return
+		
 		if _StatsComponent and (entity is BaseProjectile or entity is DamageArea):
 			_StatsComponent.change_health(entity.damage)
 			_MovementComponent.recoil(entity)

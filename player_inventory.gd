@@ -39,11 +39,14 @@ func change_current_spell(value: int):
 	#	current_spell_slot = 0
 	emit_signal("spells_changed")
 
-func get_current_spell() -> Spell:
+func get_current_spell(include_default = true) -> Spell:
 	var spell = spells[current_spell_slot]
 	if spell:
 		return spell
-	return spells[0]
+	if include_default:
+		return spells[0]
+	else:
+		return null
 
 func add_spell(new_spell: Spell):
 	for spell_slot_id in range(1,5):

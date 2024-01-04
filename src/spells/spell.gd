@@ -31,7 +31,6 @@ func spawn_projectile():
 	
 	if lose_mana():
 		projectile = ProjectilesHandler.spawn_projectile(projectile_type, is_friendly)
-		
 		projectile.initialize(projectile_data)
 		for effect in effects:
 			effect = effect as SpellEffect
@@ -59,12 +58,12 @@ func can_cast():
 	return cast_frequency_current == cast_frequency
 
 func lose_mana() -> bool:
-	if mana > mana_cost:
+	if mana >= mana_cost:
 		mana = clamp(mana - mana_cost, 0, max_mana)
 		cast_frequency_current = 0
 		emit_signal("mana_changed")
 		return true
-	elif mana == 0:
+	elif max_mana != -1:
 		emit_signal("out_of_mana")
 		return false
 	cast_frequency_current = 0
@@ -74,6 +73,7 @@ func set_data(spell_data: Dictionary):
 	for key in spell_data.keys():
 		set(key, spell_data[key])
 	if projectile_type:
+		projectile_data.type = projectile_type
 		projectile_data.merge(ProjectilesDb.projectiles[projectile_type])
 	if max_mana >= 0:
 		mana = max_mana
@@ -106,6 +106,9 @@ func is_innate(effect: SpellEffect):
 		if innate_effect.get_script() == effect.get_script():
 			return true
 	return false
+
+func get_tooltip():
+	return [get_title(), get_description()]
 
 func get_description():
 	var desc_effects = get_effects(false)

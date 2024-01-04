@@ -1,0 +1,63 @@
+[gd_scene load_steps=12 format=3 uid="uid://bgspaj8eb85kd"]
+
+[ext_resource type="Script" path="res://src/entities/enemies/other/chest.gd" id="1_o7b6h"]
+[ext_resource type="PackedScene" uid="uid://bdlxq5bh2qqu2" path="res://src/entities/interactable/interactable_component.tscn" id="2_b2op8"]
+[ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="3_u22le"]
+[ext_resource type="SpriteFrames" uid="uid://yetpiiplt1v7" path="res://assets/sprites/other/chest.tres" id="4_oymoq"]
+[ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="5_b00d7"]
+[ext_resource type="Script" path="res://src/entities/movement_component.gd" id="6_sdicp"]
+[ext_resource type="Script" path="res://src/systems/movement/entity_repulsion_system.gd" id="7_m8kdu"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_8rbpe"]
+device = -1
+keycode = 70
+unicode = 102
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wht3r"]
+custom_solver_bias = 1.0
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_au14t"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dajpt"]
+radius = 32.0
+
+[node name="Chest" type="CharacterBody2D"]
+collision_layer = 64
+collision_mask = 258
+script = ExtResource("1_o7b6h")
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="InteractableComponent" parent="Components" instance=ExtResource("2_b2op8")]
+interaction_input = SubResource("InputEventKey_8rbpe")
+interaction_descryption = ""
+interaction_title = "Chest"
+input_text = "F"
+shape = SubResource("CircleShape2D_wht3r")
+
+[node name="AnimatedSpriteComponent" type="Node2D" parent="Components"]
+script = ExtResource("3_u22le")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Components/AnimatedSpriteComponent"]
+sprite_frames = ExtResource("4_oymoq")
+animation = &"closed"
+
+[node name="HitboxComponent" type="Area2D" parent="Components"]
+collision_layer = 0
+collision_mask = 65
+script = ExtResource("5_b00d7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/HitboxComponent"]
+shape = SubResource("CircleShape2D_au14t")
+
+[node name="MovementComponent" type="Node" parent="Components"]
+script = ExtResource("6_sdicp")
+
+[node name="EntityRepulsionSystem" type="Node" parent="Components" node_paths=PackedStringArray("_HitboxComponent")]
+script = ExtResource("7_m8kdu")
+_HitboxComponent = NodePath("../HitboxComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dajpt")

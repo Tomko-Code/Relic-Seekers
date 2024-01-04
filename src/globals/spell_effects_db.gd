@@ -29,12 +29,27 @@ var effects = {
 		[MasterOfFlames.new().init(1), 1],
 		[MasterOfFlames.new().init(2), 1],
 		[MasterOfFlames.new().init(3), 1],
+		[ExplosiveEffect.new().init(0), 1],
+		[ExplosiveEffect.new().init(1), 1],
+		[ExplosiveEffect.new().init(2), 1],
 	]
 }
 
 var conflicts_map = [
 #	[HomingEffect, ProjectileSpeedBoostSpellEffect]
 ]
+
+func _init():
+	var positive_effects = []
+	var negative_effects = []
+	for entry in effects.random:
+		var effect = entry[0] as SpellEffect
+		if effect.effect_type == Constants.effect_types.POSITIVE:
+			positive_effects.append(entry)
+		elif effect.effect_type == Constants.effect_types.NEGATIVE:
+			negative_effects.append(entry)
+	effects["negative"] = negative_effects
+	effects["positive"] = positive_effects
 
 func get_conflict_entries_for_effect(conflicts_arr: Array, effect: SpellEffect) -> Array:
 	var ret_arr = []
@@ -66,14 +81,14 @@ func ensure_unique(effect: SpellEffect, pool: Array):
 			ret_arr.append(entry)
 	return ret_arr
 
-func random_effects_for_spell_from_pool(effects_pool, spell: Spell):
-	var random = randi() % 4
+func random_effects_for_spell_from_pool(effects_pool, spell: Spell, effect_min: int, effect_max: int, no_repeats: bool):
+	var random = randi_range(effect_min, effect_max)
 	var pool = effects[effects_pool]
 	var ret_effects = []
 	while not pool.is_empty() and ret_effects.size() != random:
 		var effect = GameManager.get_random_from_weighed_array(pool) as SpellEffect
 		pool = ensure_unique(effect, pool)
-		if effect.check_conditions(spell):
+		if effect.check_conditions(spell) and not ( no_repeats and spell.has_effect(effect) ):
 			ret_effects.append(effect)
 	return ret_effects
 
