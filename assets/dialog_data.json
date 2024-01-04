@@ -88,11 +88,11 @@
         "dialogs" : [
             {
                 "who" : "Player",
-                "string" : "Hmm... looks like there is no teleporting stone back."
+                "string" : "Hmm... no teleporting stone back."
             },
             {
                 "who" : "Player",
-                "string" : "Guess that solves why nobody ever came back from expeditions."
+                "string" : "Guess that explains why nobody ever came back."
             },
             {
                 "who" : "Player",
