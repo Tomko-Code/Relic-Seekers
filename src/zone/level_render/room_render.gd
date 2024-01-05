@@ -32,6 +32,18 @@ func set_up():
 	
 	status_change()
 	
+	if GameData.rooms_data[room.data.type].has("icons"):
+		for icon in GameData.rooms_data[room.data.type]["icons"]:
+			var icon_dic = GameData.rooms_data[room.data.type]["icons"][icon]
+			var new_icon = Sprite2D.new()
+			new_icon.scale.x = icon_dic["scale"]
+			new_icon.scale.y = icon_dic["scale"]
+			new_icon.texture = icon_dic["texture"]
+			#print(str(icon["texture"]))
+			new_icon.position += (Constants.CHUNK_SIZE/16)/2 * (icon_dic["cord"] + Vector2.ONE)
+			
+			add_child(new_icon)
+	
 	if room.data.is_start:
 		var entrence_sprite = entrence_sprite_res.instantiate()
 		entrence_sprite.position += (Constants.CHUNK_SIZE/16)/2

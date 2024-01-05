@@ -39,11 +39,16 @@ func generate(_level_preset:LevelGenerationPreset) -> Level:
 	var try_cout = 0
 	var boss_added = false
 	var end_added = false
+	var special_rooms_added = false
+	
 	var boss_room = RoomData.new().set_up("test_boss_room", level)
 	var end_room = RoomData.new().set_up("end_room", level)
-	
+	boss_room.is_special = true
 	boss_room.is_boss = true
+	end_room.is_special = true
 	end_room.is_end = true
+	
+	var special_rooms:Dictionary = level_preset.special_rooms.duplicate(true)
 	
 	while true:
 		try_cout += 1
@@ -64,9 +69,7 @@ func generate(_level_preset:LevelGenerationPreset) -> Level:
 		
 		# TODO :
 			# TODO : trim bad connections
-			# TODO : add special rooms
-			# TODO : add end room
-			# TODO : add boss room
+		
 		if rooms.size() < level_preset.min_rooms:
 			if room.connection_arry.size() > 0:
 				#var new_room:RoomData = pick_random_room()
@@ -75,35 +78,48 @@ func generate(_level_preset:LevelGenerationPreset) -> Level:
 				if add_room(room, new_room):
 					try_cout = 0
 		elif not boss_added:
+			if room.distance_from_start <= 1:
+					continue
+			
 			if room.connection_arry.size() > 0:
 				if add_room(room, boss_room):
 					try_cout = 0
 					boss_added = true
 					while not boss_room.all_possible_connections.is_empty():
 						add_random_connection(boss_room)
-						print("kek")
-					print(boss_room.connection_arry.size())
 		elif not end_added:
 			if add_room(boss_room, end_room, true):
 				end_added = true
 			else:
+				print("Exit placment fail !")
 				return null
-			print(boss_room.connection_arry.size())
+		elif not special_rooms_added:
+			if room.connection_arry.size() > 0:
+				if special_rooms.is_empty():
+					special_rooms_added = true
+					continue
+				
+				var type = special_rooms.keys()[0]
+				var new_room:RoomData = RoomData.new().set_up(type, level)
+				new_room.is_special = true
+				
+				if room.is_special:
+					continue
+				
+				if add_room(room, new_room):
+					try_cout = 0
+					special_rooms[type]["count"] -= 1
 					
-		if end_added == true:
+					if special_rooms[type]["count"] == 0:
+						special_rooms.erase(type)
+					
+					if special_rooms.is_empty():
+						special_rooms_added = true
+			
+		if special_rooms_added == true:
 			break
-	
-	# add boss room
-	
-	
-	
-	# add special rooms
-	
-	# last set ups
-	
 	# Spawn physical level
 	spawn_level()
-	
 	
 	print("Generating ended.")
 	print("|-------------------|")
@@ -122,10 +138,10 @@ func start_generator() -> void:
 		"1x2": {"rooms" : [], "weight" : 20, "base_room_weight" : 20, "min_range" : 0.0, "max_range" : 0.0, "total_weight": 0},
 		"2x1": {"rooms" : [], "weight" : 20, "base_room_weight" : 20, "min_range" : 0.0, "max_range" : 0.0, "total_weight": 0},
 		"2x2": {"rooms" : [], "weight" : 25, "base_room_weight" : 25, "min_range" : 0.0, "max_range" : 0.0, "total_weight": 0},
-		"l1" : {"rooms" : [], "weight" : 15, "base_room_weight" : 15, "min_range" : 0.0, "max_range" : 0.0, "total_weight": 0},
-		"l2" : {"rooms" : [], "weight" : 15, "base_room_weight" : 15, "min_range" : 0.0, "max_range" : 0.0, "total_weight": 0},
-		"l3" : {"rooms" : [], "weight" : 15, "base_room_weight" : 15, "min_range" : 0.0, "max_range" : 0.0, "total_weight": 0},
-		"l4" : {"rooms" : [], "weight" : 15, "base_room_weight" : 15, "min_range" : 0.0, "max_range" : 0.0, "total_weight": 0}
+		"l1" : {"rooms" : [], "weight" : 10, "base_room_weight" : 15, "min_range" : 0.0, "max_range" : 0.0, "total_weight": 0},
+		"l2" : {"rooms" : [], "weight" : 10, "base_room_weight" : 15, "min_range" : 0.0, "max_range" : 0.0, "total_weight": 0},
+		"l3" : {"rooms" : [], "weight" : 10, "base_room_weight" : 15, "min_range" : 0.0, "max_range" : 0.0, "total_weight": 0},
+		"l4" : {"rooms" : [], "weight" : 10, "base_room_weight" : 15, "min_range" : 0.0, "max_range" : 0.0, "total_weight": 0}
 	}
 
 func compile_rooms() -> void:
@@ -135,7 +151,7 @@ func compile_rooms() -> void:
 		sort_rooms_by_shape(room_set)
 
 	for key in sorted_rooms:
-		total_weight_set += sorted_rooms[key]["weight"]
+		total_weight_set += level_preset.shape_weights[key]
 		
 		for room in sorted_rooms[key]["rooms"]:
 			var placemen_data:PlacementRoomData = PlacementRoomData.new()
@@ -169,7 +185,7 @@ func compile_rooms() -> void:
 		sorted_rooms[key]["max_range"] = max_range
 		
 		# Setthis is terrible code XD
-		weight_to_float = sorted_rooms[key]["weight"] / total_weight_set
+		weight_to_float = level_preset.shape_weights[key] / total_weight_set
 		sorted_rooms[key]["set_min_range"] = max_range_set
 		
 		max_range_set += weight_to_float
@@ -220,9 +236,13 @@ func sort_rooms_by_shape(rooms_set:String) -> void:
 func place_start() -> void:
 	var room_data:RoomData = RoomData.new().set_up("start_room", level)
 	room_data.is_start = true
+	if level_preset.random_start:
+		level_preset.start_position.x = randi_range(0, level_preset.level_size.x - 1)
+		level_preset.start_position.x = randi_range(0, level_preset.level_size.y - 1)
 	level.place_room(room_data, level_preset.start_position)
 	add_random_connection(room_data)
 	rooms.append(room_data)
+	room_data.is_special = true
 	rooms_with_open_connections.append(room_data)
 
 func add_room(from:RoomData, new_room:RoomData, try_all_possible:bool = false) -> bool:
@@ -237,22 +257,18 @@ func add_room(from:RoomData, new_room:RoomData, try_all_possible:bool = false) -
 		for conn in from.connection_arry:
 			open_connection = conn
 			valid_connections = has_valid_placement(new_room, open_connection)
-			print("valid_connections size : " + str(valid_connections.size()))
+			#print("valid_connections size : " + str(valid_connections.size()))
 			if not valid_connections.is_empty():
 				break
 	else:
 		open_connection = from.connection_arry.pick_random()
 		valid_connections = has_valid_placement(new_room, open_connection)
-		print("valid_connections size : " + str(valid_connections.size()))
+		#print("valid_connections size : " + str(valid_connections.size()))
 	
 	if valid_connections.is_empty():
 		return false
 	
 	var new_room_cord:Vector2 = open_connection.get_map_outside_cord()
-	
-	
-	
-	
 	
 	var new_room_connection = valid_connections.pick_random()
 	new_room_cord -= new_room_connection.inside_cord
@@ -261,11 +277,13 @@ func add_room(from:RoomData, new_room:RoomData, try_all_possible:bool = false) -
 			
 			# Connect new room
 	new_room.connect_room(from, new_room_connection)
-			
+	
 	add_random_connections_to_new_room(new_room)
-			
+	
 	rooms.append(new_room)
-			
+	
+	new_room.distance_from_start = from.distance_from_start + 1
+	
 	if new_room.connection_arry.size() > 0:
 		if !rooms_with_open_connections.has(new_room):
 			rooms_with_open_connections.append(new_room)

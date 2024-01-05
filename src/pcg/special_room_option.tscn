@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bm1gwys6kp624"]
+
+[ext_resource type="Script" path="res://src/pcg/special_room_option.gd" id="1_f4set"]
+[ext_resource type="Theme" uid="uid://yeqhvo4g7l6" path="res://assets/themes/main_menu_theme.tres" id="1_ic6j3"]
+
+[node name="SpecialRoomOption" type="HBoxContainer" node_paths=PackedStringArray("room_typ", "check_button", "count")]
+script = ExtResource("1_f4set")
+room_typ = NodePath("Type")
+check_button = NodePath("CheckButton")
+count = NodePath("Count")
+
+[node name="Type" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "room name"
+
+[node name="CheckButton" type="CheckBox" parent="."]
+layout_mode = 2
+theme = ExtResource("1_ic6j3")
+
+[node name="Count" type="SpinBox" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+prefix = "count"
+
+[connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="value_changed" from="Count" to="." method="_on_count_value_changed"]
