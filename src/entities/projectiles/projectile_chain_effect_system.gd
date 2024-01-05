@@ -11,11 +11,12 @@ func _ready():
 		if comp_arr:
 			_ProjectileMovementComponent = comp_arr[0]
 			await get_tree().process_frame
-			parent.on_hit.connect(full_send_it, CONNECT_ONE_SHOT)
+			parent.on_hit.connect(full_send_it)
 		else:
 			set_physics_process(false)
 
 func full_send_it():
+	parent.on_hit.disconnect(full_send_it)
 	while not parent.is_expired:
 		if redirect():
 			var trail = ProjectileTrail.new()

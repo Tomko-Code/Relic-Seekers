@@ -14,7 +14,7 @@ func update_artifact():
 			update_passive_artifact()
 		elif artifact is ActiveArtifact:
 			update_active_artifact()
-		GameManager.attach_tooltip(self, artifact.get_tooltip())
+		GameManager.attach_tooltip(self, artifact.get_tooltip)
 	else:
 		GameManager.detach_tooltip(self)
 		$MarginContainer/Artifact.texture = null
