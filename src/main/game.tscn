@@ -6,6 +6,16 @@
 [ext_resource type="PackedScene" uid="uid://hcarbmby224x" path="res://src/zone/level_render/level_render.tscn" id="4_1l0ym"]
 [ext_resource type="Script" path="res://src/main/map.gd" id="4_xv8q3"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vn7mw"]
+bg_color = Color(0.164706, 0.219608, 0.423529, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_8351s"]
+viewport_path = NodePath("Map/CenterContainer/SubViewportContainer/SubViewport")
+
 [sub_resource type="Animation" id="Animation_gy77t"]
 resource_name = "FadeIN"
 tracks/0/type = "value"
@@ -58,36 +68,8 @@ _data = {
 "RESET": SubResource("Animation_e0ttc")
 }
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vn7mw"]
-bg_color = Color(0.164706, 0.219608, 0.423529, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_8351s"]
-viewport_path = NodePath("Map/CenterContainer/SubViewportContainer/SubViewport")
-
 [node name="Game" type="Node2D"]
 script = ExtResource("1_3g1o0")
-
-[node name="Transition" type="CanvasLayer" parent="."]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Transition"]
-libraries = {
-"": SubResource("AnimationLibrary_qq42f")
-}
-
-[node name="ColorRect" type="ColorRect" parent="Transition"]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.0980392, 0.0980392, 0.0980392, 1)
-
-[node name="Dialog" parent="." instance=ExtResource("3_yw5p0")]
 
 [node name="Map" type="CanvasLayer" parent="." node_paths=PackedStringArray("level_render", "sub_view", "mini_map", "sub_view_container")]
 script = ExtResource("4_xv8q3")
@@ -149,6 +131,26 @@ position = Vector2(0, 0)
 
 [node name="HUD" parent="." instance=ExtResource("2_ob4nq")]
 layer = 2
+
+[node name="Dialog" parent="." instance=ExtResource("3_yw5p0")]
+layer = 3
+
+[node name="Transition" type="CanvasLayer" parent="."]
+layer = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Transition"]
+libraries = {
+"": SubResource("AnimationLibrary_qq42f")
+}
+
+[node name="ColorRect" type="ColorRect" parent="Transition"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
 [connection signal="level_change" from="." to="Map" method="_on_game_level_change"]
 [connection signal="visibility_changed" from="Map" to="Map" method="_on_visibility_changed"]

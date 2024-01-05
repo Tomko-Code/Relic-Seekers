@@ -103,7 +103,7 @@ func attach_tooltip(node, text_callback: Callable, hover_both: bool = true):
 		tooltip_layer = CanvasLayer.new()
 		tooltip_node = load("res://src/hud/tooltip.tscn").instantiate() as Tooltip
 		tooltip_layer.add_child(tooltip_node)
-		tooltip_layer.layer = 3
+		tooltip_layer.layer = 5
 		tooltip_node.name = "Tooltip"
 		root.add_child.call_deferred(tooltip_layer)
 	if node is CollisionObject2D or node is Control:
