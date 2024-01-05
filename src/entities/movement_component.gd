@@ -9,7 +9,7 @@ var direction := Vector2.ZERO
 var is_idle := true
 var is_rotable := false
 
-func get_direction():
+func get_direction() -> Vector2:
 	return direction
 
 func recoil(entity: Node2D):

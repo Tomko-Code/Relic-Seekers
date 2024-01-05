@@ -6,8 +6,13 @@ var _ProjectileMovementComponent: ProjectileMovementComponent = null
 
 func _ready():
 	if _ProjectileMovementComponent == null:
-		_ProjectileMovementComponent = GameManager.get_entity_component(parent, ProjectileMovementComponent)[0]
-
+		var comp_arr = GameManager.get_entity_component(parent, ProjectileMovementComponent)
+		if comp_arr:
+			_ProjectileMovementComponent = comp_arr[0]
+		else:
+			set_physics_process(false)
+			
+		
 func _physics_process(delta):
 	var destination = parent.position + parent.launch_direction
 	parent = parent as BaseProjectile
