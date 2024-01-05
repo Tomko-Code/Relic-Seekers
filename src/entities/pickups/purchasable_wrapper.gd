@@ -46,6 +46,8 @@ func delete():
 	if object is GenericPickup:
 		object = object as GenericPickup
 		object.delete()
+	else:
+		object.queue_free()
 	queue_free()
 
 func on_interacted():

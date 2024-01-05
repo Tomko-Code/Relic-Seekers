@@ -34,12 +34,13 @@ signal on_hit
 var projectile_data: Dictionary
 
 @export var _ProjectileMovementComponent: ProjectileMovementComponent
+@onready var _HitboxComponent: HitboxComponent = $Components/HitboxComponent
 
 func _ready():
 	await get_tree().process_frame
-	$Components/HitboxComponent.monitorable = true
-	$Components/HitboxComponent.monitoring = true
-	
+	_HitboxComponent.body_entered.connect(hit_body)
+	_HitboxComponent.monitorable = true
+	_HitboxComponent.monitoring = true
 
 func get_projectile_data():
 	if projectile_data:
@@ -128,12 +129,20 @@ func expire():
 		finish_particles.run()
 	queue_free()
 
+func hit_body(body):
+	print(body)
+	var comp_arr = GameManager.get_entity_component(body, CombatSystem)
+	if not comp_arr.is_empty():
+		for comp in comp_arr:
+			comp = comp as CombatSystem
+			comp.process_hit(self)
+
 func hit(target):
 	SoundManager.play_sfx("hit_sfx")
+	already_hit.append(target)
 	emit_signal("on_hit")
 	if not is_piercing:
 		expire()
 	else:
-		already_hit.append(target)
 		if already_hit.size() > pierce_count:
 			expire()

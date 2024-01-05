@@ -1,6 +1,8 @@
 class_name HomingProjectileMovementComponent
 extends ProjectileMovementComponent
 
+# OBSOLETE
+
 func _physics_process(delta):
 	distance_traveled_duration += delta
 	

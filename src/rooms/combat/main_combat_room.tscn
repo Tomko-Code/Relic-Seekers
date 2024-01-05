@@ -80,3 +80,6 @@ position = Vector2(544, 2024)
 
 [node name="BlueShrine" parent="BlueShrine" index="2" instance=ExtResource("12_gh6g6")]
 position = Vector2(0, -200)
+
+[node name="Marker2D" type="Marker2D" parent="." index="18"]
+position = Vector2(928, 1504)

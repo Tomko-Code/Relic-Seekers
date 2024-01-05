@@ -32,11 +32,14 @@ var effects = {
 		[ExplosiveEffect.new().init(0), 1],
 		[ExplosiveEffect.new().init(1), 1],
 		[ExplosiveEffect.new().init(2), 1],
+		[ChainEffect.new().init(0), 1],
+		[ChainEffect.new().init(1), 1],
 	]
 }
 
 var conflicts_map = [
-#	[HomingEffect, ProjectileSpeedBoostSpellEffect]
+	[ChainEffect, PierceEffect],
+	[ChainEffect, InstantMotionEffect]
 ]
 
 func _init():

@@ -6,6 +6,8 @@ var distance_traveled_duration: float = 0
 var range: float = 0
 var can_bounce = false
 
+signal before_motion
+
 @export var _EntityShadowComponent: EntityShadowComponent
 
 func _ready():
@@ -31,6 +33,7 @@ func launch(_direction_vector = Vector2(1,1), _speed = 500, _range = 100):
 	
 
 func _physics_process(delta):
+	before_motion.emit()
 	distance_traveled_duration += delta
 	
 	if _EntityShadowComponent:
@@ -44,11 +47,22 @@ func _physics_process(delta):
 	velocity = direction.normalized() * speed
 	
 	var collision = parent.move_and_collide(velocity * delta)
-	if collision and can_bounce:
-		velocity = velocity.bounce(collision.get_normal())
-		direction = direction.bounce(collision.get_normal())
+	
+	if collision:
+		var collider = collision.get_collider()
+		var comp_arr = GameManager.get_entity_component(collider, CombatSystem)
+		if not comp_arr.is_empty():
+			parent.add_collision_exception_with(collider)
+			for comp in comp_arr:
+				comp = comp as CombatSystem
+				comp.process_hit(parent)
+			
+		elif can_bounce:
+			velocity = velocity.bounce(collision.get_normal())
+			direction = direction.bounce(collision.get_normal())
+			parent.launch_direction = parent.launch_direction.bounce(collision.get_normal())
 
-		#velocity = velocity.slide(collision.get_normal())
-		collision = parent.move_and_collide(velocity * delta)
-	elif collision:
-		parent.expire()
+			#velocity = velocity.slide(collision.get_normal())
+			collision = parent.move_and_collide(velocity * delta)
+		else:
+			parent.expire()
