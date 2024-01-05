@@ -81,6 +81,17 @@ func generate_all_possible_connections() -> void:
 				#if !level.cord_outside_map(Vector2(x,y)  + cord + Vector2.DOWN):
 				add_possible_connection(Vector2(x,y), Vector2.DOWN)
 	
+	# remove closed
+	var remove_array:Array[RoomConnectionData]
+	if GameData.rooms_data[type].has("closed_connections"):
+		for close_conn in GameData.rooms_data[type]["closed_connections"]:
+			for pos_conn in all_possible_connections:
+				if pos_conn.direction == close_conn[1] and pos_conn.inside_cord == close_conn[0]:
+					remove_array.append(pos_conn)
+	
+	for remove_con in remove_array:
+		all_possible_connections.erase(remove_con)
+	
 	# LEGACY CODE FOR HAND MADE CONNECTIONS
 	if GameData.rooms_data[type].has("connections"):
 		for conn in GameData.rooms_data[type]["connections"]:
