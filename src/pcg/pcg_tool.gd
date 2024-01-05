@@ -212,6 +212,10 @@ func _on_level_name_text_changed(new_text:String) -> void:
 	level_preset.level_name = new_text
 
 func _on_generate_pressed():
+	if level_preset.room_sets.is_empty():
+		$ConfirmationDialogNeedSet.popup()
+		return
+	
 	clear_level()
 	var time_start = Time.get_ticks_msec()
 	var try_count = 1
@@ -278,7 +282,8 @@ func _on_start_y_text_changed(new_text):
 	level_preset.start_position.y = int(new_text)
 
 func _on_random_start_toggled(button_pressed):
-	level_preset.random_start = button_pressed
+	if level_preset != null:
+		level_preset.random_start = button_pressed
 
 func _on_min_room_text_changed(new_text):
 	if new_text == "":

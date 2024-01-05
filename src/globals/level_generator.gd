@@ -121,7 +121,6 @@ func generate(_level_preset:LevelGenerationPreset) -> Level:
 	# Spawn physical level
 	spawn_level()
 	
-	
 	print("Generating ended.")
 	print("|-------------------|")
 	return level
@@ -237,6 +236,9 @@ func sort_rooms_by_shape(rooms_set:String) -> void:
 func place_start() -> void:
 	var room_data:RoomData = RoomData.new().set_up("start_room", level)
 	room_data.is_start = true
+	if level_preset.random_start:
+		level_preset.start_position.x = randi_range(0, level_preset.level_size.x - 1)
+		level_preset.start_position.x = randi_range(0, level_preset.level_size.y - 1)
 	level.place_room(room_data, level_preset.start_position)
 	add_random_connection(room_data)
 	rooms.append(room_data)

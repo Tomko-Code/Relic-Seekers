@@ -399,6 +399,11 @@ offset_right = -48.0
 offset_bottom = 457.0
 texture = ExtResource("5_08ab0")
 
+[node name="ConfirmationDialogNeedSet" type="AcceptDialog" parent="."]
+title = "Generator fail !"
+initial_position = 2
+dialog_text = "Generator needs set of rooms to work !"
+
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/Generate" to="." method="_on_generate_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/PrintValueMap" to="." method="_on_print_value_map_pressed"]
 [connection signal="text_changed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/LevelName/LevelName" to="." method="_on_level_name_text_changed"]
