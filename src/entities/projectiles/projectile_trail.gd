@@ -1,6 +1,8 @@
 class_name ProjectileTrail
 extends AnimatedSprite2D
 
+var fade_duration: float = 0.2
+
 func set_frames(_frames: SpriteFrames):
 	var frames = _frames
 	play("default")

@@ -21,7 +21,6 @@ func process_entity(entity):
 		_MovementComponent = _MovementComponent as UserMovementComponent
 		if _MovementComponent.is_dashing:
 			return
-	
 	if entity is BaseProjectile and get_entity() in entity.already_hit:
 		return
 	if entity is ExplosionArea and get_entity() in entity.already_hit:

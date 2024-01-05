@@ -52,15 +52,17 @@ func _physics_process(delta):
 		var collider = collision.get_collider()
 		var comp_arr = GameManager.get_entity_component(collider, CombatSystem)
 		if not comp_arr.is_empty():
+			parent.add_collision_exception_with(collider)
 			for comp in comp_arr:
+				comp = comp as CombatSystem
 				comp.process_hit(parent)
 			
-		if can_bounce:
+		elif can_bounce:
 			velocity = velocity.bounce(collision.get_normal())
 			direction = direction.bounce(collision.get_normal())
 			parent.launch_direction = parent.launch_direction.bounce(collision.get_normal())
 
 			#velocity = velocity.slide(collision.get_normal())
 			collision = parent.move_and_collide(velocity * delta)
-		elif collision:
+		else:
 			parent.expire()

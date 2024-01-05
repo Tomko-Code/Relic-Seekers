@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dq7dfu32hthvr"]
+[gd_scene load_steps=13 format=3 uid="uid://dq7dfu32hthvr"]
 
 [ext_resource type="PackedScene" uid="uid://bnrt7xcfjh5bx" path="res://src/zone/room.tscn" id="1_ig6x2"]
 [ext_resource type="Script" path="res://src/rooms/combat/main_combat_room.gd" id="2_qmh12"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://bgspaj8eb85kd" path="res://src/entities/enemies/other/chest.tscn" id="10_t0dub"]
 [ext_resource type="PackedScene" uid="uid://4f13151paxdp" path="res://src/entities/shrines/blue_shrine.tscn" id="11_l8awo"]
 [ext_resource type="PackedScene" uid="uid://boxe2uihy7622" path="res://src/entities/shrines/red_shrine.tscn" id="12_gh6g6"]
-[ext_resource type="PackedScene" uid="uid://drjmi0qbkv2si" path="res://src/entities/enemies/mobs/goblin.tscn" id="13_bi4hr"]
 
 [node name="MainCombatRoom" node_paths=PackedStringArray("teleport") instance=ExtResource("1_ig6x2")]
 script = ExtResource("2_qmh12")
@@ -82,8 +81,5 @@ position = Vector2(544, 2024)
 [node name="BlueShrine" parent="BlueShrine" index="2" instance=ExtResource("12_gh6g6")]
 position = Vector2(0, -200)
 
-[node name="Goblin" parent="." index="18" instance=ExtResource("13_bi4hr")]
-position = Vector2(864, 1512)
-
-[node name="Goblin2" parent="." index="19" instance=ExtResource("13_bi4hr")]
-position = Vector2(928, 1512)
+[node name="Marker2D" type="Marker2D" parent="." index="18"]
+position = Vector2(928, 1504)
