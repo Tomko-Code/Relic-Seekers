@@ -16,7 +16,7 @@ func _ready():
 			
 func full_send_it():
 	while not parent.is_expired:
-		print(get_physics_process_delta_time())
+		
 		var trail = ProjectileTrail.new()
 		trail.frames = load("res://assets/sprites/other/trail/trail1.tres")
 		trail.play("default")
@@ -26,4 +26,4 @@ func full_send_it():
 			trail.modulate = parent.trail_particles.color
 		parent.get_parent().add_child.call_deferred(trail)
 		
-		_ProjectileMovementComponent._physics_process(get_physics_process_delta_time() * 2)
+		_ProjectileMovementComponent._physics_process(16 / (_ProjectileMovementComponent.speed))

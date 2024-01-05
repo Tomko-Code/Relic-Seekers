@@ -76,9 +76,10 @@ func change_camera_parent(target_node: Node) -> void:
 
 func get_entity_component(entity, class_type):
 	var components = []
-	for component in entity.get_node("Components").get_children():
-		if is_instance_of(component, class_type):
-			components.append(component)
+	if entity.has_node("Components"):
+		for component in entity.get_node("Components").get_children():
+			if is_instance_of(component, class_type):
+				components.append(component)
 	return components
 
 func get_random_from_weighed_array(arr):

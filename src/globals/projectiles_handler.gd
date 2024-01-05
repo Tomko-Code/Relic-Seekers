@@ -41,9 +41,13 @@ func set_projectile_layer(projectile: BaseProjectile, is_friendly: bool):
 	projectile.is_friendly = is_friendly
 	var hitbox: HitboxComponent = projectile.get_node("Components/HitboxComponent")
 	if is_friendly:
-		hitbox.set_collision_layer(friendly_layer)
+		#hitbox.set_collision_layer(friendly_layer)
+		projectile.set_collision_layer(friendly_layer)
+		projectile.set_collision_mask_value(3, 1)
 	else:
-		hitbox.set_collision_layer(hostile_layer)
+		#hitbox.set_collision_layer(hostile_layer)
+		projectile.set_collision_layer(hostile_layer)
+		projectile.set_collision_mask_value(1, 1)
 
 func attach_orbital(target: Node2D, bullet: BaseProjectile, radius: float, cycle_goal):
 	var attachment: OrbitalAttachment

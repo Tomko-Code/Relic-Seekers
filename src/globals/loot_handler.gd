@@ -35,7 +35,6 @@ func create_loot_from_loot_item(loot_item: Array) -> Array:
 	var loot_min = loot_item[2][0]
 	var loot_max = loot_item[2][1]
 	var spawn:bool = randf() <= (loot_chance / 100)
-	print(spawn)
 	if spawn:
 		var loot_count = randi_range(loot_min, loot_max)
 		for x in range(loot_count):
