@@ -41,9 +41,13 @@ var banned_connections:Array = []
 var base_color:Color = Color(0.23137255012989, 0.23137255012989, 0.41176471114159)
 var highlight_color:Color = Color(0.20794501900673, 0.44472229480743, 0.76496165990829)
 
+var is_special = false
+
 var is_start = false
 var is_boss = false
 var is_end = false
+
+var distance_from_start:int = 0
 
 func set_up(_type:String, level:Level) -> RoomData:
 	type = _type

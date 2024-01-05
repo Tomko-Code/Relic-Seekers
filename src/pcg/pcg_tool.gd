@@ -3,7 +3,7 @@ class_name PCGTool
 
 var set_option_res = preload("res://src/pcg/set_option.tscn")
 var room_selected_res = preload("res://src/pcg/selected_room.tscn")
-
+var room_special_option_res = preload("res://src/pcg/special_room_option.tscn")
 # Menu
 @export var file_menu:MenuButton
 
@@ -26,6 +26,19 @@ var room_selected_res = preload("res://src/pcg/selected_room.tscn")
 @export var selected_room_list:VBoxContainer
 
 @export var rooms:Node2D
+
+# Shape weights
+@export var s1x1_weight:SpinBox
+@export var s1x2_weight:SpinBox
+@export var s2x1_weight:SpinBox
+@export var s2x2_weight:SpinBox
+@export var sl1_weight:SpinBox
+@export var sl2_weight:SpinBox
+@export var sl3_weight:SpinBox
+@export var sl4_weight:SpinBox
+
+# Special room otions
+@export var special_rooms:Control
 
 # Level
 var is_level_preset_loaded:bool = false: 
@@ -50,7 +63,14 @@ var is_level_preset_loaded:bool = false:
 		start_y_edit.editable = value
 		start_random.disabled = !value
 		
-		
+		s1x1_weight.editable = value
+		s1x2_weight.editable = value
+		s2x1_weight.editable = value
+		s2x2_weight.editable = value
+		sl1_weight.editable = value
+		sl2_weight.editable = value
+		sl3_weight.editable = value
+		sl4_weight.editable = value
 
 var level:Level = null
 var level_preset:LevelGenerationPreset = null : set = set_level_preset
@@ -70,6 +90,11 @@ func _ready() -> void:
 		set_option.selected.connect(on_set_selected)
 		
 		all_set_list.add_child(set_option)
+		
+		for room in GameData.special_rooms:
+			var option:SpecialRoomOption = room_special_option_res.instantiate()
+			option.set_type(room)
+			special_rooms.add_child(option)
 
 func on_set_selected(value:String, pressed:bool):
 	
@@ -110,6 +135,15 @@ func set_level_preset(value:LevelGenerationPreset) -> void:
 	min_room_edit.text = str(level_preset.min_rooms)
 	min_room_edit.text = str(level_preset.max_rooms)
 	
+	s1x1_weight.value = level_preset.shape_weights["1x1"]
+	s1x2_weight.value = level_preset.shape_weights["1x2"]
+	s2x1_weight.value = level_preset.shape_weights["2x1"]
+	s2x2_weight.value = level_preset.shape_weights["2x2"]
+	sl1_weight.value = level_preset.shape_weights["l1"]
+	sl2_weight.value = level_preset.shape_weights["l2"]
+	sl3_weight.value = level_preset.shape_weights["l3"]
+	sl4_weight.value = level_preset.shape_weights["l4"]
+	
 	# Sets
 	for set_option in all_set_list.get_children():
 		set_option.level_preset = level_preset
@@ -118,6 +152,9 @@ func set_level_preset(value:LevelGenerationPreset) -> void:
 			set_option.select_set.button_pressed = true
 		else:
 			set_option.select_set.button_pressed = false
+	
+	for option in special_rooms.get_children():
+		option.set_level_gen_preset(level_preset)
 	
 	start_random.button_pressed = level_preset.random_start
 
@@ -260,3 +297,27 @@ func _on_max_room_text_changed(new_text):
 		return
 	
 	level_preset.max_rooms = int(new_text)
+
+func _on_1x1_weight_value_changed(value):
+	level_preset.shape_weights["1x1"] = int(value)
+
+func _on_1x2_weight_value_changed(value):
+	level_preset.shape_weights["1x2"] = int(value)
+
+func _on_2x1_weight_value_changed(value):
+	level_preset.shape_weights["2x1"] = int(value)
+
+func _on_2x2_weight_value_changed(value):
+	level_preset.shape_weights["2x2"] = int(value)
+
+func _on_l1_weight_value_changed(value):
+	level_preset.shape_weights["l1"] = int(value)
+
+func _on_l2_weight_value_changed(value):
+	level_preset.shape_weights["l2"] = int(value)
+
+func _on_l3_weight_value_changed(value):
+	level_preset.shape_weights["l3"] = int(value)
+
+func _on_l4_weight_value_changed(value):
+	level_preset.shape_weights["l4"] = int(value)

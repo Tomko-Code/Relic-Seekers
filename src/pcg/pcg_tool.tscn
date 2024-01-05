@@ -8,7 +8,7 @@
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qi7rt"]
 
-[node name="PCGTool" type="Control" node_paths=PackedStringArray("file_menu", "level_name_edit", "generate_button", "print_value_map_button", "size_x_edit", "size_y_edit", "min_room_edit", "max_room_edit", "start_x_edit", "start_y_edit", "start_random", "all_set_list", "selected_room_list", "rooms")]
+[node name="PCGTool" type="Control" node_paths=PackedStringArray("file_menu", "level_name_edit", "generate_button", "print_value_map_button", "size_x_edit", "size_y_edit", "min_room_edit", "max_room_edit", "start_x_edit", "start_y_edit", "start_random", "all_set_list", "selected_room_list", "rooms", "s1x1_weight", "s1x2_weight", "s2x1_weight", "s2x2_weight", "sl1_weight", "sl2_weight", "sl3_weight", "sl4_weight", "special_rooms")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,19 +17,28 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4ahx3")
 file_menu = NodePath("VBoxContainer/MarginContainer/Menu/File")
-level_name_edit = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/LevelName/LevelName")
-generate_button = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Generate")
-print_value_map_button = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/PrintValueMap")
-size_x_edit = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/LevelSize/LevelSize/XSize/X")
-size_y_edit = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/LevelSize/LevelSize/YSize/Y")
-min_room_edit = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/RoomCount/LevelSize/MinRoom/MinRoom")
-max_room_edit = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/RoomCount/LevelSize/MaxRoom/MaxRoom")
-start_x_edit = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/StartCord/Cord/XSize/StartX")
-start_y_edit = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/StartCord/Cord/YSize/StartY")
-start_random = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/StartCord/RandomStart")
+level_name_edit = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/LevelName/LevelName")
+generate_button = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/Generate")
+print_value_map_button = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/PrintValueMap")
+size_x_edit = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/LevelSize/LevelSize/XSize/X")
+size_y_edit = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/LevelSize/LevelSize/YSize/Y")
+min_room_edit = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/RoomCount/LevelSize/MinRoom/MinRoom")
+max_room_edit = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/RoomCount/LevelSize/MaxRoom/MaxRoom")
+start_x_edit = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/StartCord/Cord/XSize/StartX")
+start_y_edit = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/StartCord/Cord/YSize/StartY")
+start_random = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/StartCord/RandomStart")
 all_set_list = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Rooms/TabContainer/Sets/All")
-selected_room_list = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Rooms/TabContainer/Selected")
+selected_room_list = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Rooms/TabContainer/SpecialRooms/SpecialRooms")
 rooms = NodePath("VBoxContainer/HBoxContainer/Level/Room/RoomView/Rooms")
+s1x1_weight = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/RoomShapeWeight/1x1_weight")
+s1x2_weight = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/RoomShapeWeight/1x2_weight")
+s2x1_weight = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/RoomShapeWeight/2x1_weight")
+s2x2_weight = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/RoomShapeWeight/2x2_weight")
+sl1_weight = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/RoomShapeWeight/l1_weight")
+sl2_weight = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/RoomShapeWeight/l2_weight")
+sl3_weight = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/RoomShapeWeight/l3_weight")
+sl4_weight = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/RoomShapeWeight/l4_weight")
+special_rooms = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Rooms/TabContainer/SpecialRooms/SpecialRooms")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -82,172 +91,241 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Settings" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer"]
+[node name="Settings" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer"]
 layout_mode = 2
+
+[node name="Settings" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings"]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/separation = 5
 
-[node name="Generate" type="Button" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings"]
+[node name="Generate" type="Button" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings"]
 layout_mode = 2
 disabled = true
 text = "Generate"
 
-[node name="PrintValueMap" type="Button" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings"]
+[node name="PrintValueMap" type="Button" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings"]
 layout_mode = 2
 disabled = true
 text = "Print Value Map"
 
-[node name="StartRoom" type="LineEdit" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings"]
+[node name="StartRoom" type="LineEdit" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings"]
 visible = false
 layout_mode = 2
 placeholder_text = "Start Room"
 editable = false
 
-[node name="EndRoom" type="LineEdit" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings"]
+[node name="EndRoom" type="LineEdit" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings"]
 layout_mode = 2
 placeholder_text = "End Room"
 editable = false
 
-[node name="HSeparator4" type="HSeparator" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings"]
+[node name="HSeparator4" type="HSeparator" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings"]
 layout_mode = 2
 
-[node name="LevelName" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings"]
+[node name="LevelName" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/LevelName"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/LevelName"]
 layout_mode = 2
 text = "Level name :"
 
-[node name="LevelName" type="LineEdit" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/LevelName"]
+[node name="LevelName" type="LineEdit" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/LevelName"]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 1
 editable = false
 
-[node name="HSeparator3" type="HSeparator" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings"]
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings"]
 layout_mode = 2
 
-[node name="LevelSize" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings"]
+[node name="LevelSize" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/LevelSize"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/LevelSize"]
 layout_mode = 2
 text = "Level Size"
 horizontal_alignment = 1
 
-[node name="LevelSize" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/LevelSize"]
+[node name="LevelSize" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/LevelSize"]
 layout_mode = 2
 
-[node name="XSize" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/LevelSize/LevelSize"]
+[node name="XSize" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/LevelSize/LevelSize"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/LevelSize/LevelSize/XSize"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/LevelSize/LevelSize/XSize"]
 layout_mode = 2
 text = "X:"
 
-[node name="X" type="LineEdit" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/LevelSize/LevelSize/XSize"]
+[node name="X" type="LineEdit" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/LevelSize/LevelSize/XSize"]
 layout_mode = 2
 size_flags_horizontal = 3
 editable = false
 
-[node name="YSize" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/LevelSize/LevelSize"]
+[node name="YSize" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/LevelSize/LevelSize"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/LevelSize/LevelSize/YSize"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/LevelSize/LevelSize/YSize"]
 layout_mode = 2
 text = "Y :"
 
-[node name="Y" type="LineEdit" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/LevelSize/LevelSize/YSize"]
+[node name="Y" type="LineEdit" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/LevelSize/LevelSize/YSize"]
 layout_mode = 2
 size_flags_horizontal = 3
 editable = false
 
-[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings"]
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings"]
 layout_mode = 2
 
-[node name="RoomCount" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings"]
+[node name="RoomCount" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/RoomCount"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/RoomCount"]
 layout_mode = 2
 text = "Min/Max rooms count"
 horizontal_alignment = 1
 
-[node name="LevelSize" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/RoomCount"]
+[node name="LevelSize" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/RoomCount"]
 layout_mode = 2
 
-[node name="MinRoom" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/RoomCount/LevelSize"]
+[node name="MinRoom" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/RoomCount/LevelSize"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/RoomCount/LevelSize/MinRoom"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/RoomCount/LevelSize/MinRoom"]
 layout_mode = 2
 text = "Min:"
 
-[node name="MinRoom" type="LineEdit" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/RoomCount/LevelSize/MinRoom"]
+[node name="MinRoom" type="LineEdit" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/RoomCount/LevelSize/MinRoom"]
 layout_mode = 2
 size_flags_horizontal = 3
 editable = false
 
-[node name="MaxRoom" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/RoomCount/LevelSize"]
+[node name="MaxRoom" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/RoomCount/LevelSize"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/RoomCount/LevelSize/MaxRoom"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/RoomCount/LevelSize/MaxRoom"]
 layout_mode = 2
 text = "Max :"
 
-[node name="MaxRoom" type="LineEdit" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/RoomCount/LevelSize/MaxRoom"]
+[node name="MaxRoom" type="LineEdit" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/RoomCount/LevelSize/MaxRoom"]
 layout_mode = 2
 size_flags_horizontal = 3
 editable = false
 
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings"]
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings"]
 layout_mode = 2
 
-[node name="StartCord" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings"]
+[node name="StartCord" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/StartCord"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/StartCord"]
 layout_mode = 2
 text = "Start Cord"
 horizontal_alignment = 1
 
-[node name="RandomStart" type="CheckBox" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/StartCord"]
+[node name="RandomStart" type="CheckBox" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/StartCord"]
 layout_mode = 2
 theme_override_icons/unchecked = ExtResource("2_waob6")
 disabled = true
 text = "Random Start"
 
-[node name="Cord" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/StartCord"]
+[node name="Cord" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/StartCord"]
 layout_mode = 2
 
-[node name="XSize" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/StartCord/Cord"]
+[node name="XSize" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/StartCord/Cord"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/StartCord/Cord/XSize"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/StartCord/Cord/XSize"]
 layout_mode = 2
 text = "X:"
 
-[node name="StartX" type="LineEdit" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/StartCord/Cord/XSize"]
+[node name="StartX" type="LineEdit" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/StartCord/Cord/XSize"]
 layout_mode = 2
 size_flags_horizontal = 3
 editable = false
 
-[node name="YSize" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/StartCord/Cord"]
+[node name="YSize" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/StartCord/Cord"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/StartCord/Cord/YSize"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/StartCord/Cord/YSize"]
 layout_mode = 2
 text = "Y :"
 
-[node name="StartY" type="LineEdit" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/StartCord/Cord/YSize"]
+[node name="StartY" type="LineEdit" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/StartCord/Cord/YSize"]
 layout_mode = 2
 size_flags_horizontal = 3
 editable = false
+
+[node name="RoomShapeWeight" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/RoomShapeWeight"]
+layout_mode = 2
+text = "Room Shape Weight"
+horizontal_alignment = 1
+
+[node name="1x1_weight" type="SpinBox" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/RoomShapeWeight"]
+layout_mode = 2
+max_value = 150.0
+value = 150.0
+allow_greater = true
+editable = false
+prefix = "1x1 :"
+
+[node name="1x2_weight" type="SpinBox" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/RoomShapeWeight"]
+layout_mode = 2
+value = 20.0
+allow_greater = true
+editable = false
+prefix = "1x2 :"
+
+[node name="2x1_weight" type="SpinBox" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/RoomShapeWeight"]
+layout_mode = 2
+value = 20.0
+allow_greater = true
+editable = false
+prefix = "2x1 :"
+
+[node name="2x2_weight" type="SpinBox" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/RoomShapeWeight"]
+layout_mode = 2
+value = 25.0
+allow_greater = true
+editable = false
+prefix = "2x2 :"
+
+[node name="l1_weight" type="SpinBox" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/RoomShapeWeight"]
+layout_mode = 2
+value = 10.0
+allow_greater = true
+editable = false
+prefix = "l1    :"
+
+[node name="l2_weight" type="SpinBox" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/RoomShapeWeight"]
+layout_mode = 2
+value = 10.0
+allow_greater = true
+editable = false
+prefix = "l2    :"
+
+[node name="l3_weight" type="SpinBox" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/RoomShapeWeight"]
+layout_mode = 2
+value = 10.0
+allow_greater = true
+editable = false
+prefix = "l3    :"
+
+[node name="l4_weight" type="SpinBox" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/RoomShapeWeight"]
+layout_mode = 2
+value = 10.0
+allow_greater = true
+editable = false
+prefix = "l4    :"
 
 [node name="Rooms" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer"]
 visible = false
@@ -263,9 +341,14 @@ layout_mode = 2
 [node name="All" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Rooms/TabContainer/Sets"]
 layout_mode = 2
 
-[node name="Selected" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Rooms/TabContainer"]
+[node name="SpecialRooms" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Rooms/TabContainer"]
 visible = false
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
+
+[node name="SpecialRooms" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Rooms/TabContainer/SpecialRooms"]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Level" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -316,15 +399,23 @@ offset_right = -48.0
 offset_bottom = 457.0
 texture = ExtResource("5_08ab0")
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Generate" to="." method="_on_generate_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/PrintValueMap" to="." method="_on_print_value_map_pressed"]
-[connection signal="text_changed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/LevelName/LevelName" to="." method="_on_level_name_text_changed"]
-[connection signal="text_changed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/LevelSize/LevelSize/XSize/X" to="." method="_on_x_text_changed"]
-[connection signal="text_changed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/LevelSize/LevelSize/YSize/Y" to="." method="_on_y_text_changed"]
-[connection signal="text_changed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/RoomCount/LevelSize/MinRoom/MinRoom" to="." method="_on_min_room_text_changed"]
-[connection signal="text_changed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/RoomCount/LevelSize/MaxRoom/MaxRoom" to="." method="_on_max_room_text_changed"]
-[connection signal="toggled" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/StartCord/RandomStart" to="." method="_on_random_start_toggled"]
-[connection signal="text_changed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/StartCord/Cord/XSize/StartX" to="." method="_on_start_x_text_changed"]
-[connection signal="text_changed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/StartCord/Cord/YSize/StartY" to="." method="_on_start_y_text_changed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/Generate" to="." method="_on_generate_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/PrintValueMap" to="." method="_on_print_value_map_pressed"]
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/LevelName/LevelName" to="." method="_on_level_name_text_changed"]
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/LevelSize/LevelSize/XSize/X" to="." method="_on_x_text_changed"]
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/LevelSize/LevelSize/YSize/Y" to="." method="_on_y_text_changed"]
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/RoomCount/LevelSize/MinRoom/MinRoom" to="." method="_on_min_room_text_changed"]
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/RoomCount/LevelSize/MaxRoom/MaxRoom" to="." method="_on_max_room_text_changed"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/StartCord/RandomStart" to="." method="_on_random_start_toggled"]
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/StartCord/Cord/XSize/StartX" to="." method="_on_start_x_text_changed"]
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/StartCord/Cord/YSize/StartY" to="." method="_on_start_y_text_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/RoomShapeWeight/1x1_weight" to="." method="_on_1x1_weight_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/RoomShapeWeight/1x2_weight" to="." method="_on_1x2_weight_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/RoomShapeWeight/2x1_weight" to="." method="_on_2x1_weight_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/RoomShapeWeight/2x2_weight" to="." method="_on_2x2_weight_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/RoomShapeWeight/l1_weight" to="." method="_on_l1_weight_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/RoomShapeWeight/l2_weight" to="." method="_on_l2_weight_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/RoomShapeWeight/l3_weight" to="." method="_on_l3_weight_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/RoomShapeWeight/l4_weight" to="." method="_on_l4_weight_value_changed"]
 [connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]
 [connection signal="text_changed" from="ConfirmationDialog/LineEdit" to="." method="_on_line_edit_text_changed"]

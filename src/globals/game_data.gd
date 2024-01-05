@@ -186,7 +186,6 @@ var rooms_data = {
 				"scale" : 0.5
 			}
 		},
-		"can_show_multiple_times" : false
 	},
 	#######################################
 	# Standard pcg set
