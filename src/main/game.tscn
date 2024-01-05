@@ -71,8 +71,6 @@ viewport_path = NodePath("Map/CenterContainer/SubViewportContainer/SubViewport")
 [node name="Game" type="Node2D"]
 script = ExtResource("1_3g1o0")
 
-[node name="HUD" parent="." instance=ExtResource("2_ob4nq")]
-
 [node name="Transition" type="CanvasLayer" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Transition"]
@@ -148,6 +146,9 @@ render_target_update_mode = 0
 
 [node name="level_render" parent="Map/CenterContainer/SubViewportContainer/SubViewport" instance=ExtResource("4_1l0ym")]
 position = Vector2(0, 0)
+
+[node name="HUD" parent="." instance=ExtResource("2_ob4nq")]
+layer = 2
 
 [connection signal="level_change" from="." to="Map" method="_on_game_level_change"]
 [connection signal="visibility_changed" from="Map" to="Map" method="_on_visibility_changed"]
