@@ -5,7 +5,7 @@ func _init():
 	spells.default_spell = spells.fireball.duplicate(true)
 	spells.default_spell.max_mana = -1
 	spells.test_spell = spells.fireball.duplicate(true)
-	spells.default_spell.projectile_data.effects = [ExplosiveEffect.new().init(0)]
+	spells.default_spell.projectile_data.effects = [HomingEffect.new()]
 
 var random_pool = [
 	["fireball", 2],
