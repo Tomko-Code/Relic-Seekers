@@ -208,7 +208,7 @@ var rooms_data = {
 		"icons" : {
 			"shrine_icon" : {
 				"type" : "label",
-				"res" : preload("res://assets/other/shrine_icon.tscn"),
+				"res" : preload("res://assets/other/chest_icon.tscn"),
 			}
 		},
 		"waves" : [

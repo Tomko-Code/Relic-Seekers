@@ -5,8 +5,11 @@
 [ext_resource type="TileSet" uid="uid://d2tr7ruwf8c7j" path="res://assets/tileset/show_room/show_room_walls_tileset.tres" id="3_q5bfn"]
 [ext_resource type="PackedScene" uid="uid://bprr7yihq8lko" path="res://src/entities/enemies/other/spike_trap.tscn" id="4_edrfv"]
 
-[node name="ChestRoom" type="Node2D"]
+[node name="ChestRoom" type="Node2D" node_paths=PackedStringArray("floors", "walls", "Gates")]
 script = ExtResource("1_s6qq6")
+floors = NodePath("Floors")
+walls = NodePath("Walls")
+Gates = NodePath("Gates")
 
 [node name="Gates" type="Node2D" parent="."]
 
