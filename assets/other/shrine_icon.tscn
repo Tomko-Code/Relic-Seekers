@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://cht80ab5xj4u0"]
+
+[ext_resource type="FontFile" uid="uid://bpdjfdnl7p1vf" path="res://assets/fonts/yoster.ttf" id="1_u556y"]
+
+[node name="shrine_icon" type="Label"]
+modulate = Color(0.141176, 0.686275, 1, 1)
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = 15.0
+pivot_offset = Vector2(10, 18)
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_u556y")
+theme_override_font_sizes/font_size = 36
+text = "}"
+uppercase = true

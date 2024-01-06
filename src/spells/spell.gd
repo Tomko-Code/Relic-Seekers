@@ -140,3 +140,22 @@ func change_mana(value: int):
 	if mana >= 0:
 		mana = clamp(mana + value, 0, max_mana)
 		emit_signal("mana_changed")
+
+func get_gold_value():
+	var effects = get_effects(false)
+	var gold_value = 15
+	for effect in effects:
+		effect = effect as SpellEffect
+		if effect.effect_type == Constants.effect_types.POSITIVE:
+			var tier = effect.get("tier")
+			if tier != null:
+				gold_value += tier
+			else:
+				gold_value += 2
+		elif effect.effect_type == Constants.effect_types.NEGATIVE:
+			var tier = effect.get("tier")
+			if tier != null:
+				gold_value -= tier
+			else:
+				gold_value -= 2
+	return gold_value

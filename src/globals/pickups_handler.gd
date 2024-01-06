@@ -40,8 +40,14 @@ func create_random_artifact():
 	var artifact_name = GameManager.get_random_from_weighed_array(ArtifactsDb.random_pools["random"])
 	return create_artifact(artifact_name)
 
-func make_purchasable(object: Node2D, cost: int):
-	var wrapper = purchasable_wrapper_resource.instantiate()
-	wrapper.set_data(object, cost)
+func make_purchasable(object: Node2D, cost_override = null):
+	var wrapper: PurchasableWrapper = purchasable_wrapper_resource.instantiate()
+	if cost_override != null:
+		wrapper.set_data(object, cost_override)
+	else:
+		if object.has_method("get_gold_value"):
+			wrapper.set_data(object, object.get_gold_value())
+		else:
+			wrapper.set_data(object, 10)
 	return wrapper
 	

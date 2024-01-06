@@ -134,12 +134,12 @@ var rooms_data = {
 		"res" : load("res://src/rooms/special/show_room.tscn"),
 		"connections" : [[Vector2(0,1), Vector2.LEFT]],
 	},
-	"shop_show_room" : {
+	"shop_room" : {
 		# This is "broken" room
 		"shape" : [
 			[1]
 		],
-		"res" : load("res://src/rooms/special/shop_show_room.tscn"),
+		"res" : load("res://src/rooms/special/shop_room.tscn"),
 		"connections" : [[Vector2(0,0), Vector2.RIGHT]],
 	},
 	#######################################
@@ -178,12 +178,27 @@ var rooms_data = {
 	#######################################
 	"shop" : {
 		"shape" : [[1]],
-		"res" : load("res://src/rooms/special/shop_show_room.tscn"),
+		"res" : load("res://src/rooms/special/shop_room.tscn"),
 		"icons" : {
+			#"shop_icon" : {
+			#	"type" : "texture",
+			#	"texture" : preload("res://icon.svg"),
+			#	"cord" : Vector2(0, 0),
+			#	"scale" : 0.5
+			#}
 			"shop_icon" : {
-				"texture" : preload("res://icon.svg"),
-				"cord" : Vector2(0, 0),
-				"scale" : 0.5
+				"type" : "label",
+				"res" : preload("res://assets/other/shop_icon.tscn"),
+			}
+		},
+	},
+	"shrine_room" : {
+		"shape" : [[1]],
+		"res" : load("res://src/rooms/special/shrine_room.tscn"),
+		"icons" : {
+			"shrine_icon" : {
+				"type" : "label",
+				"res" : preload("res://assets/other/shrine_icon.tscn"),
 			}
 		},
 	},
@@ -242,7 +257,8 @@ var room_sets:Dictionary = {
 }
 
 var special_rooms:Array = [
-	"shop"
+	"shop",
+	"shrine_room"
 ]
 
 func load_save_file():

@@ -5,6 +5,12 @@ var spell: Spell = null
 
 @export var _AnimatedSpriteComponent: AnimatedSpriteComponent
 
+func get_gold_value():
+	if spell:
+		return spell.get_gold_value()
+	else:
+		return super.get_gold_value()
+
 func _ready():
 	if get_parent() == get_node("/root"):
 		set_spell(SpellsHandler.test_spell)

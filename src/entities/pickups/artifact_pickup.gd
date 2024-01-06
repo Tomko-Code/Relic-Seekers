@@ -3,6 +3,11 @@ extends GenericPickup
 
 var artifact: Artifact = null
 
+func get_gold_value():
+	if artifact:
+		return artifact.get_gold_value()
+	else:
+		return super.get_gold_value()
 
 func set_artifact(_artifact: Artifact):
 	artifact = _artifact
