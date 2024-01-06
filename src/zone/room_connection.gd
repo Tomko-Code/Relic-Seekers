@@ -29,7 +29,7 @@ func _on_area_2d_body_entered(body):
 	call_deferred("tp",body)
 
 func on_opend() -> void:
-	$Sprite2D.modulate = Color.WHITE
+	$AnimationPlayer.play_backwards("Close")
 
 func on_closed() -> void:
-	$Sprite2D.modulate = Color.RED
+	$AnimationPlayer.play("Close")

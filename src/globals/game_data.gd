@@ -148,7 +148,12 @@ var rooms_data = {
 	
 	"1x1_small" : {
 		"shape" : [[1]],
-		"res" : load("res://src/rooms/pcg/standard/1x1_small.tscn")
+		"res" : load("res://src/rooms/pcg/standard/1x1_small.tscn"),
+		"waves" : [
+			[[1, 1, ["goblin"]]]
+			#[[1, 1, ["test_mob_a"]]],
+			#[[1, 1, ["test_mob_a"]],[1, 1, ["test_mob_a"]]]
+		]
 	},
 	"1x1_small_red" : {
 		"shape" : [[1]],

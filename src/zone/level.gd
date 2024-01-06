@@ -36,11 +36,20 @@ func spawn_room(room_data:RoomData) -> Room:
 	for closed_connection in room_data.closed_connection_arry:
 		var conn:RoomConnection = room_connection_res.instantiate()
 		conn.data = closed_connection
+		
+		# rotate
+		conn.rotate(conn.data.direction.angle() + Vector2(0, 1).angle())
+		
+		
+		# possition
 		conn.position = Constants.CHUNK_SIZE * conn.data.inside_cord
 		conn.position += Constants.CHUNK_SIZE/2
 		
 		conn.position += conn.data.direction * (Constants.CHUNK_SIZE/4)
-		conn.position += conn.data.direction * Vector2(32*3, 0)
+		conn.position += conn.data.direction * Vector2((96+48), 64)
+		
+		
+		
 		room.add_child(conn)
 		room.data.spawned_room = room
 	

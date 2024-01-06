@@ -12,7 +12,7 @@ func set_type(type:String):
 
 func set_level_gen_preset(_level_preset:LevelGenerationPreset):
 	level_preset = _level_preset
-	
+	print(level_preset)
 	if level_preset.special_rooms.has(room_typ.text):
 		check_button.button_pressed = true
 		count.value = level_preset.special_rooms[room_typ.text]["count"]
