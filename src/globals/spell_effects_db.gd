@@ -84,6 +84,19 @@ func ensure_unique(effect: SpellEffect, pool: Array):
 			ret_arr.append(entry)
 	return ret_arr
 
+func prune_conflicts(effects_pool: Array, effect: SpellEffect) -> Array:
+	var new_pool = []
+	var conflicts_effect = get_conflict_entries_for_effect(conflicts_map, effect)
+	for entry in effects_pool:
+		var entry_effect = entry[0]
+		var conflicts_entry_effect = get_conflict_entries_for_effect(conflicts_effect, entry_effect)
+		if not conflicts_entry_effect.is_empty():
+			continue
+		else:
+			new_pool.append(entry)
+	return new_pool
+			
+
 func random_effects_for_spell_from_pool(effects_pool, spell: Spell, effect_min: int, effect_max: int, no_repeats: bool):
 	var random = randi_range(effect_min, effect_max)
 	var pool = effects[effects_pool]
@@ -93,6 +106,7 @@ func random_effects_for_spell_from_pool(effects_pool, spell: Spell, effect_min: 
 		pool = ensure_unique(effect, pool)
 		if effect.check_conditions(spell) and not ( no_repeats and spell.has_effect(effect) ):
 			ret_effects.append(effect)
+			pool = prune_conflicts(pool, effect)
 	return ret_effects
 
 func random_effects_from_pool(effects_pool):
