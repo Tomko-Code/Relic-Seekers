@@ -95,7 +95,6 @@ func prune_conflicts(effects_pool: Array, effect: SpellEffect) -> Array:
 		else:
 			new_pool.append(entry)
 	return new_pool
-			
 
 func random_effects_for_spell_from_pool(effects_pool, spell: Spell, effect_min: int, effect_max: int, no_repeats: bool):
 	var random = randi_range(effect_min, effect_max)

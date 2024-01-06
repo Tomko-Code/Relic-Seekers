@@ -9,8 +9,8 @@ var heart_resource = load("res://src/entities/pickups/heart_pickup.tscn")
 var chest_resource = load("res://src/entities/enemies/other/chest.tscn")
 
 
-func create_chest(loot_callback: String):
-	var chest = chest_resource.instantiate() as Chest
+func create_chest():
+	return chest_resource.instantiate()
 
 func create_gold_pickup():
 	return gold_resource.instantiate()

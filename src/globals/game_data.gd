@@ -202,6 +202,21 @@ var rooms_data = {
 			}
 		},
 	},
+	"chest_room" : {
+		"shape" : [[1]],
+		"res" : load("res://src/rooms/special/chest_room.tscn"),
+		"icons" : {
+			"shrine_icon" : {
+				"type" : "label",
+				"res" : preload("res://assets/other/shrine_icon.tscn"),
+			}
+		},
+		"waves" : [
+			[[5, 10, ["goblin"]]]
+			#[[1, 1, ["test_mob_a"]]],
+			#[[1, 1, ["test_mob_a"]],[1, 1, ["test_mob_a"]]]
+		]
+	},
 	#######################################
 	# Standard pcg set
 	#######################################
@@ -258,7 +273,8 @@ var room_sets:Dictionary = {
 
 var special_rooms:Array = [
 	"shop",
-	"shrine_room"
+	"shrine_room",
+	"chest_room"
 ]
 
 func load_save_file():

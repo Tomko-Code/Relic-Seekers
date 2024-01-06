@@ -13,7 +13,12 @@ var probability_loot_tables = {
 	standard_chest_loot = [
 		["gold", 100, [5,10]],
 	],
-
+	chest_room_loot = [
+		["chest", 100, [1,1]],
+		["chest", 50, [1,1]],
+		["chest", 25, [1,1]],
+		["chest", 15, [1,1]],
+	]
 }
 
 var weighted_loot_tables = {
@@ -100,4 +105,6 @@ func create_loot(loot_type: String):
 		"artifact":
 			var artifact = PickupsHandler.create_random_artifact()
 			loot = PickupsHandler.create_artifact_pickup(artifact) as ArtifactPickup
+		"chest":
+			loot = PickupsHandler.create_chest()
 	return loot
