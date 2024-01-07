@@ -22,6 +22,8 @@ var entity_effects: Array = []
 
 var spawn_particles: CPUParticles2D = null
 var finish_particles: CPUParticles2D = null
+
+var trail_timer: Timer = null
 var trail_particles: CPUParticles2D = null
 
 var effect_chance_modifiers: Dictionary = {}
@@ -79,7 +81,7 @@ func initialize(_projectile_data: Dictionary):
 		if projectile_data.trail_particles is Color:
 			trail_particles = load("res://assets/particles/trail_particles.tscn").instantiate()
 			trail_particles.color = projectile_data.trail_particles
-		var trail_timer = Timer.new()
+		trail_timer = Timer.new()
 		trail_timer.timeout.connect(update_trail_direction)
 		add_child(trail_timer)
 		add_child(trail_particles)
@@ -127,10 +129,21 @@ func expire():
 		finish_particles.position = position
 		get_parent().call_deferred("add_child", finish_particles)
 		finish_particles.run()
-	queue_free()
+	ProjectilesHandler.free_projectile(self)
+
+func release():
+	is_expired = false
+	was_launched = false
+	already_hit.clear()
+	for exception in get_collision_exceptions():
+		remove_collision_exception_with(exception)
+	$Components/ProjectileMovementComponent.distance_traveled_duration = 0
+	#_HitboxComponent.body_entered.disconnect(hit_body)
+	if trail_timer:
+		remove_child(trail_timer)
+		remove_child(trail_particles)
 
 func hit_body(body):
-	print(body)
 	var comp_arr = GameManager.get_entity_component(body, CombatSystem)
 	if not comp_arr.is_empty():
 		for comp in comp_arr:

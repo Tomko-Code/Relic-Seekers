@@ -61,7 +61,7 @@ _AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
 [node name="StatsComponent" type="Node" parent="Components"]
 script = ExtResource("3_cf8qk")
 shoot_frequency = 0.1
-max_health = 1000.0
+max_health = 1.0
 
 [node name="CombatHitbox" type="Area2D" parent="Components"]
 collision_layer = 4
@@ -72,12 +72,11 @@ script = ExtResource("4_ltej6")
 visible = false
 shape = SubResource("RectangleShape2D_s78fp")
 
-[node name="CombatSystem" type="Node" parent="Components" node_paths=PackedStringArray("_HitboxComponent", "_StatsComponent", "_MovementComponent", "_EntityEffectsHandler")]
+[node name="CombatSystem" type="Node" parent="Components" node_paths=PackedStringArray("_HitboxComponent", "_StatsComponent", "_MovementComponent")]
 script = ExtResource("5_ndwm2")
 _HitboxComponent = NodePath("../CombatHitbox")
 _StatsComponent = NodePath("../StatsComponent")
 _MovementComponent = NodePath("../MoveToDestMovementComponent")
-_EntityEffectsHandler = NodePath("")
 
 [node name="AnimatedSpriteComponent" type="Node2D" parent="Components"]
 script = ExtResource("6_hv3v0")
