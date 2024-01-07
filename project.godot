@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Utility="*res://src/globals/utility.gd"
 Constants="*res://src/globals/constants.gd"
+PoolManager="*res://src/globals/pool_manager.gd"
 GameData="*res://src/globals/game_data.gd"
 Settings="*res://src/globals/settings.gd"
 ResourceManager="*res://src/globals/resource_manager.gd"
