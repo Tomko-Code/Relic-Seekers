@@ -41,4 +41,3 @@ func _on_button_5_pressed():
 	spell_pickup.position = GameManager.player.position
 	GameManager.player.get_parent().call_deferred("add_child", spell_pickup)
 	pass
-

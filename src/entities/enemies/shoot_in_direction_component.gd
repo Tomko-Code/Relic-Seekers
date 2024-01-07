@@ -12,6 +12,9 @@ var shooting_frequency_current = 0.0
 func get_direction():
 	return shooting_direction
 
+func force_shoot(direction_vector: Vector2):
+	shoot(direction_vector)
+
 func shoot(direction_vector):
 	var projectile = ProjectilesHandler.spawn_projectile(_StatsComponent.get_projectile_type(), false)
 	if not projectile:

@@ -9,5 +9,8 @@ var enemies = {
 	},
 	goblin = {
 		resource = load("res://src/entities/enemies/mobs/goblin.tscn"),
-	}
+	},
+	golem = { 
+		resource = load("res://src/entities/enemies/mobs/golem.tscn"), 
+	},
 }

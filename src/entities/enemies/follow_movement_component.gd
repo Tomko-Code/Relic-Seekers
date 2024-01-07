@@ -5,7 +5,6 @@ extends MovementComponent
 #@onready var nav_agent = NavigationAgent2D.new()
 @onready var timer = Timer.new()
 
-var acceleration = 10
 
 func _ready():
 	timer.autostart = true
