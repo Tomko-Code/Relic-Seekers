@@ -12,3 +12,6 @@ func get_title():
 
 func get_description():
 	return "Artifact Description"
+
+func get_gold_value():
+	return 20

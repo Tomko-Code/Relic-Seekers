@@ -12,6 +12,9 @@ extends CharacterBody2D
 
 var despawn_timer = Timer.new()
 
+func get_gold_value():
+	return 5
+
 func _ready():
 	_PickupRepulsionMovement.is_frozen = is_frozen
 	var timer = Timer.new()

@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://c7n5m2x3na57k"]
+
+[ext_resource type="Texture2D" uid="uid://bvipe305bh2d8" path="res://assets/art/sprites/entities/other/altar.png" id="1_o3dtb"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_o3dtb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

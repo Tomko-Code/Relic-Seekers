@@ -1,7 +1,10 @@
 class_name ActiveArtifact
 extends Artifact
 
-var max_charge: float = 100
+var max_charge: float = 100 :
+	set(value): 
+		max_charge = value
+		current_charge = value
 var current_charge: float = 0
 
 signal used

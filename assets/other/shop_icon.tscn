@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgo5p6lehkrog"]
+
+[ext_resource type="FontFile" uid="uid://bpdjfdnl7p1vf" path="res://assets/fonts/yoster.ttf" id="1_hvi1d"]
+
+[node name="shop_icon" type="Label"]
+modulate = Color(0.956863, 0.831373, 0, 1)
+anchors_preset = -1
+offset_left = -10.0
+offset_top = -18.0
+offset_right = 14.0
+offset_bottom = 21.0
+pivot_offset = Vector2(10, 18)
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_hvi1d")
+theme_override_font_sizes/font_size = 36
+text = "S"
+uppercase = true
