@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="LevelGenerationPreset" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://src/pcg/level_generation_preset.gd" id="1_xt5sq"]
+[ext_resource type="Script" path="res://src/pcg/level_generation_preset.gd" id="1_58rcj"]
 
 [resource]
-script = ExtResource("1_xt5sq")
+script = ExtResource("1_58rcj")
 level_name = "0"
-level_size = Vector2(5, 5)
-min_rooms = 5
+level_size = Vector2(10, 10)
+min_rooms = 10
 max_rooms = 10
-start_position = Vector2(2, 2)
+start_position = Vector2(4, 4)
 random_start = false
 start_room = ""
 end_room = ""

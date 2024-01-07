@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0h7d0ariah40"]
+
+[ext_resource type="PackedScene" uid="uid://bqb43ymw5guvu" path="res://assets/sfx/light/light_source_wall.tscn" id="1_w78wa"]
+
+[node name="SetOfLightsFor1x1" type="Node2D"]
+
+[node name="PointLight2D4" parent="." instance=ExtResource("1_w78wa")]
+position = Vector2(224, 800)
+rotation = 4.71239
+direction = 4
+
+[node name="PointLight2D" parent="." instance=ExtResource("1_w78wa")]
+position = Vector2(1376, 800)
+rotation = 1.5708
+direction = 0
+
+[node name="PointLight2D2" parent="." instance=ExtResource("1_w78wa")]
+position = Vector2(224, 480)
+rotation = 4.71239
+direction = 4
+
+[node name="PointLight2D3" parent="." instance=ExtResource("1_w78wa")]
+position = Vector2(1376, 480)
+rotation = 1.5708
+direction = 0
+
+[node name="PointLight2D5" parent="." instance=ExtResource("1_w78wa")]
+position = Vector2(544, 224)
+
+[node name="PointLight2D6" parent="." instance=ExtResource("1_w78wa")]
+position = Vector2(1056, 224)
+
+[node name="PointLight2D7" parent="." instance=ExtResource("1_w78wa")]
+position = Vector2(1056, 1056)
+rotation = 3.14159
+direction = 6
+
+[node name="PointLight2D8" parent="." instance=ExtResource("1_w78wa")]
+position = Vector2(544, 1056)
+rotation = 3.14159
+direction = 6

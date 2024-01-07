@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cn8h4a41nix7g"]
+[gd_scene load_steps=3 format=3 uid="uid://cn8h4a41nix7g"]
 
 [ext_resource type="PackedScene" uid="uid://bnrt7xcfjh5bx" path="res://src/zone/room.tscn" id="1_7uags"]
+[ext_resource type="PackedScene" uid="uid://bqb43ymw5guvu" path="res://assets/sfx/light_source_wall.tscn" id="2_qiqbg"]
 
 [node name="1x1Small" instance=ExtResource("1_7uags")]
 
@@ -9,3 +10,17 @@ layer_0/tile_data = PackedInt32Array(327686, 589826, 2, 327687, 589826, 2, 32768
 
 [node name="Walls" parent="." index="2"]
 layer_0/tile_data = PackedInt32Array(65536, 524288, 1, 65540, 393216, 1, 1, 458752, 2, 2, 458752, 2, 3, 458752, 2, 131076, 393216, 1, 0, 262144, 3, 4, 196608, 3, 196608, 262144, 2, 196612, 196608, 2, 131072, 524288, 1, 196609, 458752, 0, 196610, 458752, 0, 196611, 458752, 0)
+
+[node name="LightSourceWall" parent="." index="3" instance=ExtResource("2_qiqbg")]
+position = Vector2(476, 261)
+
+[node name="LightSourceWall3" parent="." index="4" instance=ExtResource("2_qiqbg")]
+position = Vector2(462, 1003)
+rotation = 3.14159
+
+[node name="LightSourceWall4" parent="." index="5" instance=ExtResource("2_qiqbg")]
+position = Vector2(1098, 993)
+rotation = 3.14159
+
+[node name="LightSourceWall2" parent="." index="6" instance=ExtResource("2_qiqbg")]
+position = Vector2(1040, 256)

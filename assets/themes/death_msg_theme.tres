@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://o6wqytlp1g1i"]
+
+[ext_resource type="FontFile" uid="uid://cme1bekvwna7q" path="res://assets/fonts/novem___.ttf" id="1_h6348"]
+
+[resource]
+default_font = ExtResource("1_h6348")
+Button/colors/font_hover_color = Color(0.94902, 0.94902, 0.337255, 1)

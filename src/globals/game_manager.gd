@@ -12,6 +12,8 @@ var dialog_box:Dialog = null
 var hud:HUD = null
 var map:Map = null
 
+var player_alive = true
+
 var loaded_scenes = {}
 
 func _init():

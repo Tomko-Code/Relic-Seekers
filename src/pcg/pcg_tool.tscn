@@ -366,7 +366,7 @@ script = ExtResource("3_il4dp")
 [node name="RoomView" type="SubViewport" parent="VBoxContainer/HBoxContainer/Level/Room"]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(748, 606)
+size = Vector2i(2, 2)
 render_target_update_mode = 4
 
 [node name="Camera2D" type="Camera2D" parent="VBoxContainer/HBoxContainer/Level/Room/RoomView"]

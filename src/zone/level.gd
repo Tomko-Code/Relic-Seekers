@@ -4,6 +4,7 @@ class_name Level
 signal level_activated
 
 var room_connection_res = preload("res://src/zone/room_connection.tscn")
+var ambient_light_res = preload("res://assets/sfx/ambient_light/ambient_light.tscn")
 
 var map = []
 var unspawned_rooms = []
@@ -15,7 +16,14 @@ var level_size:Vector2 = Vector2.ZERO
 var player_spawn_pos:Vector2 = Vector2.ZERO
 
 var custom_spawn:bool = false
+var custom_ambient:bool = false
 
+var ambient_light
+
+func _ready():
+	if not custom_ambient:
+		ambient_light = ambient_light_res.instantiate()
+		add_child(ambient_light)
 
 func spawn_room(room_data:RoomData) -> Room:
 	if room_data.type == "":

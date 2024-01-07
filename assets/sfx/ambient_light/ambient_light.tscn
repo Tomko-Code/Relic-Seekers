@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://iplpux7upis7"]
+
+[node name="AmbientLight" type="CanvasModulate"]
+color = Color(0.564706, 0.564706, 0.564706, 1)
