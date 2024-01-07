@@ -12,4 +12,4 @@ func _process(delta):
 
 
 func _on_pressed():
-	pass
+	print("tp")

@@ -17,7 +17,7 @@ func tp(body):
 	
 	var active_level:Level = GameManager.loaded_scenes["Game"].active_level 
 	active_level.currnet_active_room.emit_signal("player_exit")
-	
+	active_level.currnet_active_room.lights.hide()
 	active_level.currnet_active_room.set_physics_process(false)
 	active_level.currnet_active_room.set_process(false)
 	

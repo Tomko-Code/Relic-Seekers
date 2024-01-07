@@ -11,4 +11,4 @@ layer_0/tile_data = PackedInt32Array(327686, 589826, 2, 327687, 589826, 2, 32768
 [node name="Walls" parent="." index="2"]
 layer_0/tile_data = PackedInt32Array(65536, 524288, 1, 65540, 393216, 1, 1, 458752, 2, 2, 458752, 2, 3, 458752, 2, 131076, 393216, 1, 0, 262144, 3, 4, 196608, 3, 196608, 524288, 1, 196612, 393216, 1, 131072, 524288, 1, 262144, 524288, 1, 327680, 524288, 1, 393216, 524288, 1, 393220, 393216, 1, 327684, 393216, 1, 262148, 393216, 1, 458752, 262144, 2, 458753, 458752, 0, 458754, 458752, 0, 458755, 458752, 0, 458756, 196608, 2)
 
-[node name="SetOfLightsFor1x2" parent="." index="3" instance=ExtResource("2_8e0yi")]
+[node name="SetOfLightsFor1x2" parent="Lights" index="0" instance=ExtResource("2_8e0yi")]

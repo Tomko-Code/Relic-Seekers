@@ -17,4 +17,4 @@ layer_0/tile_data = PackedInt32Array(0, 262144, 3, 65536, 524288, 1, 131072, 524
 [node name="Teleport" parent="." index="3" instance=ExtResource("3_1dirh")]
 position = Vector2(800, 640)
 
-[node name="SetOfLightsFor1x1" parent="." index="4" instance=ExtResource("4_j55i2")]
+[node name="SetOfLightsFor1x1" parent="Lights" index="0" instance=ExtResource("4_j55i2")]

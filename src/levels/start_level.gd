@@ -1,11 +1,12 @@
 extends Level
 class_name StartLevel
 
+func _ready():
+	remove_child(ambient_light)
+
 func set_up(args:Array = []) -> void:
 	# Set level
 	create_level(Vector2(1,1))
-	
-	remove_child(ambient_light)
 	
 	# Set Rooms
 	var room:RoomData = RoomData.new().set_up("swamp_room", self)

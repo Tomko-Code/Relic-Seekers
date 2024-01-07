@@ -778,4 +778,4 @@ position = Vector2(608, 1008)
 [node name="SpikeTrap10" parent="Node2D25" index="8" groups=["spikes_b"] instance=ExtResource("4_dv6we")]
 position = Vector2(544, 1008)
 
-[node name="SetOfLightsFor1x2" parent="." index="32" instance=ExtResource("5_doogi")]
+[node name="SetOfLightsFor1x2" parent="Lights" index="0" instance=ExtResource("5_doogi")]

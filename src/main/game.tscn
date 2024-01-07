@@ -75,6 +75,7 @@ _data = {
 script = ExtResource("1_3g1o0")
 
 [node name="Map" type="CanvasLayer" parent="." node_paths=PackedStringArray("level_render", "sub_view", "mini_map", "sub_view_container")]
+layer = 3
 script = ExtResource("4_xv8q3")
 level_render = NodePath("CenterContainer/SubViewportContainer/SubViewport/level_render")
 sub_view = NodePath("CenterContainer/SubViewportContainer/SubViewport")

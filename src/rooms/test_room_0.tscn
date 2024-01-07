@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ukxwcknf2ek7"]
 
-[ext_resource type="PackedScene" uid="uid://cmc28dtrfomvc" path="res://src/zone/room.tscn" id="1_sqvks"]
+[ext_resource type="PackedScene" uid="uid://bnrt7xcfjh5bx" path="res://src/zone/room.tscn" id="1_sqvks"]
 [ext_resource type="Script" path="res://src/rooms/test_room_0.gd" id="2_o2rrh"]
 
 [node name="TestRoom0" instance=ExtResource("1_sqvks")]

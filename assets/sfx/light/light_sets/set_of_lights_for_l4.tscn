@@ -1,0 +1,85 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqagmul4ydv14"]
+
+[ext_resource type="PackedScene" uid="uid://bqb43ymw5guvu" path="res://assets/sfx/light/light_source_wall.tscn" id="1_t05p1"]
+
+[node name="SetOfLightsForL4" type="Node2D"]
+
+[node name="PointLight2D" parent="." instance=ExtResource("1_t05p1")]
+position = Vector2(480, 224)
+
+[node name="PointLight2D2" parent="." instance=ExtResource("1_t05p1")]
+position = Vector2(1120, 224)
+
+[node name="PointLight2D3" parent="." instance=ExtResource("1_t05p1")]
+position = Vector2(1376, 480)
+rotation = 1.5708
+direction = 0
+
+[node name="PointLight2D4" parent="." instance=ExtResource("1_t05p1")]
+position = Vector2(1376, 1248)
+rotation = 1.5708
+direction = 0
+
+[node name="PointLight2D5" parent="." instance=ExtResource("1_t05p1")]
+position = Vector2(1632, 1504)
+
+[node name="PointLight2D6" parent="." instance=ExtResource("1_t05p1")]
+position = Vector2(2080, 1504)
+
+[node name="PointLight2D7" parent="." instance=ExtResource("1_t05p1")]
+position = Vector2(2656, 1504)
+
+[node name="PointLight2D8" parent="." instance=ExtResource("1_t05p1")]
+position = Vector2(2976, 1760)
+rotation = 1.5708
+direction = 0
+
+[node name="PointLight2D9" parent="." instance=ExtResource("1_t05p1")]
+position = Vector2(2976, 2080)
+rotation = 1.5708
+direction = 0
+
+[node name="PointLight2D10" parent="." instance=ExtResource("1_t05p1")]
+position = Vector2(2720, 2336)
+rotation = 3.14159
+direction = 6
+
+[node name="PointLight2D11" parent="." instance=ExtResource("1_t05p1")]
+position = Vector2(2080, 2336)
+rotation = 3.14159
+direction = 6
+
+[node name="PointLight2D12" parent="." instance=ExtResource("1_t05p1")]
+position = Vector2(1568, 2336)
+rotation = 3.14159
+direction = 6
+
+[node name="PointLight2D13" parent="." instance=ExtResource("1_t05p1")]
+position = Vector2(1056, 2336)
+rotation = 3.14159
+direction = 6
+
+[node name="PointLight2D14" parent="." instance=ExtResource("1_t05p1")]
+position = Vector2(480, 2336)
+rotation = 3.14159
+direction = 6
+
+[node name="PointLight2D15" parent="." instance=ExtResource("1_t05p1")]
+position = Vector2(224, 2080)
+rotation = 4.71239
+direction = 4
+
+[node name="PointLight2D16" parent="." instance=ExtResource("1_t05p1")]
+position = Vector2(224, 1568)
+rotation = 4.71239
+direction = 4
+
+[node name="PointLight2D17" parent="." instance=ExtResource("1_t05p1")]
+position = Vector2(224, 1056)
+rotation = 4.71239
+direction = 4
+
+[node name="PointLight2D18" parent="." instance=ExtResource("1_t05p1")]
+position = Vector2(224, 480)
+rotation = 4.71239
+direction = 4

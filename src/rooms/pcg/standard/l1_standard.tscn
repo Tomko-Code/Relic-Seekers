@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqibr0j3dng0y"]
+[gd_scene load_steps=3 format=3 uid="uid://cqibr0j3dng0y"]
 
 [ext_resource type="PackedScene" uid="uid://bnrt7xcfjh5bx" path="res://src/zone/room.tscn" id="1_h7glc"]
-[ext_resource type="PackedScene" uid="uid://iplpux7upis7" path="res://assets/sfx/ambient_light/ambient_light.tscn" id="2_wbt28"]
-[ext_resource type="PackedScene" uid="uid://bqb43ymw5guvu" path="res://assets/sfx/light/light_source_wall.tscn" id="3_gde3l"]
+[ext_resource type="PackedScene" uid="uid://c16nwpeqifait" path="res://assets/sfx/light/light_sets/set_of_lights_for_l1.tscn" id="3_wqe3l"]
 
 [node name="L1Standard" instance=ExtResource("1_h7glc")]
 
@@ -12,91 +11,4 @@ layer_0/tile_data = PackedInt32Array(327686, 589826, 2, 327687, 589826, 2, 32768
 [node name="Walls" parent="." index="2"]
 layer_0/tile_data = PackedInt32Array(65536, 524288, 1, 1, 458752, 2, 2, 458752, 2, 3, 458752, 2, 0, 262144, 3, 4, 458752, 2, 196608, 524288, 1, 196612, 393216, 0, 131072, 524288, 1, 262144, 524288, 1, 327680, 524288, 1, 393216, 524288, 1, 458752, 262144, 2, 458753, 458752, 0, 458754, 458752, 0, 458755, 458752, 0, 262148, 393216, 1, 327684, 393216, 1, 393220, 393216, 1, 458756, 196608, 2, 5, 458752, 2, 196613, 458752, 0, 196614, 458752, 0, 196615, 458752, 0, 196616, 458752, 0, 196617, 196608, 2, 131081, 393216, 1, 65545, 393216, 1, 9, 196608, 3, 8, 458752, 2, 7, 458752, 2, 6, 458752, 2)
 
-[node name="AmbientLight" parent="." index="3" instance=ExtResource("2_wbt28")]
-
-[node name="SetOfLightsForL1" type="Node2D" parent="Lights" index="0"]
-
-[node name="PointLight2D" parent="Lights/SetOfLightsForL1" index="0" instance=ExtResource("3_gde3l")]
-position = Vector2(480, 224)
-
-[node name="PointLight2D2" parent="Lights/SetOfLightsForL1" index="1" instance=ExtResource("3_gde3l")]
-position = Vector2(1056, 224)
-
-[node name="PointLight2D3" parent="Lights/SetOfLightsForL1" index="2" instance=ExtResource("3_gde3l")]
-position = Vector2(1568, 224)
-
-[node name="PointLight2D4" parent="Lights/SetOfLightsForL1" index="3" instance=ExtResource("3_gde3l")]
-position = Vector2(2080, 224)
-
-[node name="PointLight2D5" parent="Lights/SetOfLightsForL1" index="4" instance=ExtResource("3_gde3l")]
-position = Vector2(2720, 224)
-
-[node name="PointLight2D6" parent="Lights/SetOfLightsForL1" index="5" instance=ExtResource("3_gde3l")]
-position = Vector2(2976, 480)
-rotation = 1.5708
-direction = 0
-
-[node name="PointLight2D7" parent="Lights/SetOfLightsForL1" index="6" instance=ExtResource("3_gde3l")]
-position = Vector2(2976, 800)
-rotation = 1.5708
-direction = 0
-
-[node name="PointLight2D8" parent="Lights/SetOfLightsForL1" index="7" instance=ExtResource("3_gde3l")]
-position = Vector2(2720, 1056)
-rotation = 3.14159
-direction = 6
-
-[node name="PointLight2D9" parent="Lights/SetOfLightsForL1" index="8" instance=ExtResource("3_gde3l")]
-position = Vector2(2080, 1056)
-rotation = 3.14159
-direction = 6
-
-[node name="PointLight2D10" parent="Lights/SetOfLightsForL1" index="9" instance=ExtResource("3_gde3l")]
-position = Vector2(1632, 1056)
-rotation = 3.14159
-direction = 6
-
-[node name="PointLight2D11" parent="Lights/SetOfLightsForL1" index="10" instance=ExtResource("3_gde3l")]
-position = Vector2(1376, 1312)
-rotation = 1.5708
-direction = 0
-
-[node name="PointLight2D12" parent="Lights/SetOfLightsForL1" index="11" instance=ExtResource("3_gde3l")]
-position = Vector2(1376, 2080)
-rotation = 1.5708
-direction = 0
-
-[node name="PointLight2D13" parent="Lights/SetOfLightsForL1" index="12" instance=ExtResource("3_gde3l")]
-position = Vector2(1376, 1696)
-rotation = 1.5708
-direction = 0
-
-[node name="PointLight2D14" parent="Lights/SetOfLightsForL1" index="13" instance=ExtResource("3_gde3l")]
-position = Vector2(1120, 2336)
-rotation = 3.14159
-direction = 6
-
-[node name="PointLight2D15" parent="Lights/SetOfLightsForL1" index="14" instance=ExtResource("3_gde3l")]
-position = Vector2(480, 2336)
-rotation = 3.14159
-direction = 6
-
-[node name="PointLight2D16" parent="Lights/SetOfLightsForL1" index="15" instance=ExtResource("3_gde3l")]
-position = Vector2(224, 2080)
-rotation = 4.71239
-direction = 4
-
-[node name="PointLight2D17" parent="Lights/SetOfLightsForL1" index="16" instance=ExtResource("3_gde3l")]
-position = Vector2(224, 1568)
-rotation = 4.71239
-direction = 4
-
-[node name="PointLight2D18" parent="Lights/SetOfLightsForL1" index="17" instance=ExtResource("3_gde3l")]
-position = Vector2(224, 1056)
-rotation = 4.71239
-direction = 4
-
-[node name="PointLight2D19" parent="Lights/SetOfLightsForL1" index="18" instance=ExtResource("3_gde3l")]
-position = Vector2(224, 480)
-rotation = 4.71239
-direction = 4
+[node name="SetOfLightsForL1" parent="Lights" index="0" instance=ExtResource("3_wqe3l")]

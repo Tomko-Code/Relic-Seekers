@@ -52,4 +52,4 @@ scale = Vector2(2, 2)
 texture = ExtResource("4_sm07s")
 region_rect = Rect2(0, 0, 64, 32)
 
-[node name="SetOfLightsFor2x1" parent="." index="5" instance=ExtResource("6_vw6yf")]
+[node name="SetOfLightsFor2x1" parent="Lights" index="0" instance=ExtResource("6_vw6yf")]

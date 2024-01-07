@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bnrt7xcfjh5bx" path="res://src/zone/room.tscn" id="1_veiqr"]
 [ext_resource type="Script" path="res://src/rooms/special/shop_room.gd" id="2_7ubgf"]
 [ext_resource type="PackedScene" uid="uid://dtsmyiv4frm0u" path="res://docs/src/entities/Interactables/restock_interactible.tscn" id="3_1hxn8"]
-[ext_resource type="PackedScene" path="res://docs/src/entities/Interactables/shop_altar.tscn" id="4_ayrvv"]
+[ext_resource type="PackedScene" uid="uid://dpwxo8k0nk2g5" path="res://docs/src/entities/Interactables/shop_altar.tscn" id="4_ayrvv"]
 [ext_resource type="Script" path="res://src/rooms/special/shop_marker.gd" id="4_ff73c"]
 [ext_resource type="PackedScene" uid="uid://d0h7d0ariah40" path="res://assets/sfx/light/light_sets/set_of_lights_for_1x1.tscn" id="7_wgwgi"]
 
@@ -43,4 +43,4 @@ script = ExtResource("4_ff73c")
 position = Vector2(1152, 448)
 script = ExtResource("4_ff73c")
 
-[node name="Lights" parent="." index="10" instance=ExtResource("7_wgwgi")]
+[node name="Lights2" parent="Lights" index="0" instance=ExtResource("7_wgwgi")]

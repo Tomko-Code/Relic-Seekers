@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://src/rooms/special/shrine_room.gd" id="1_pw326"]
 [ext_resource type="TileSet" uid="uid://dm2xndon4kkfk" path="res://assets/tileset/show_room/show_room_tileset.tres" id="2_yd37h"]
 [ext_resource type="TileSet" uid="uid://d2tr7ruwf8c7j" path="res://assets/tileset/show_room/show_room_walls_tileset.tres" id="3_60yk4"]
-[ext_resource type="PackedScene" uid="uid://bqb43ymw5guvu" path="res://assets/sfx/light_source_wall.tscn" id="5_lcebg"]
+[ext_resource type="PackedScene" uid="uid://bqb43ymw5guvu" path="res://assets/sfx/light/light_source_wall.tscn" id="5_lcebg"]
 
 [node name="ShrineRoom" type="Node2D" node_paths=PackedStringArray("floors", "walls", "Gates")]
 script = ExtResource("1_pw326")

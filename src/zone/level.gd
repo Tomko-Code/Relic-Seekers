@@ -24,6 +24,8 @@ func _ready():
 	if not custom_ambient:
 		ambient_light = ambient_light_res.instantiate()
 		add_child(ambient_light)
+	
+	default_room.lights.show()
 
 func spawn_room(room_data:RoomData) -> Room:
 	if room_data.type == "":

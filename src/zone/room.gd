@@ -35,6 +35,8 @@ var change_budiers:bool = true
 
 var minimum_distance:float = 192.0
 
+@export var lights:Node2D
+
 # Meta
 var known:bool = false
 var seen:bool = false 
@@ -45,7 +47,6 @@ func _ready():
 	
 	set_physics_process(false)
 	set_process(false)
-	#hide()
 
 func set_room_closed(value:bool) -> void:
 	if room_closed == value:
@@ -216,9 +217,10 @@ func spawn_next_wave() -> void:
 		data.has_waves = false
 
 func on_player_exit() -> void:
+	
 	set_physics_process(false)
 	set_process(false)
-	#hide()
+	
 
 func on_player_enter() -> void:
 	if data.has_waves:
@@ -226,8 +228,8 @@ func on_player_enter() -> void:
 	
 	set_physics_process(true)
 	set_process(true)
-	#show()
-	
+	lights.show()
+	print("eeee")
 	for conn in data.closed_connection_arry:
 		var room_data:RoomData = conn.connected_room
 		var room:Room = room_data.spawned_room

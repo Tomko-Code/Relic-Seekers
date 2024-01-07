@@ -15,4 +15,4 @@ layer_0/tile_data = PackedInt32Array(65536, 524288, 1, 1, 458752, 2, 2, 458752, 
 [node name="AmbientLight" parent="." index="3" instance=ExtResource("2_jraik")]
 visible = false
 
-[node name="SetOfLightsFor2x2" parent="." index="4" instance=ExtResource("3_brau0")]
+[node name="SetOfLightsFor2x2" parent="Lights" index="0" instance=ExtResource("3_brau0")]
