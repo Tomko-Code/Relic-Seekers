@@ -1,6 +1,17 @@
 extends Node
 
+signal boss_spawned(boss: Enemy)
+#signal boss_died
+
 var all_enemies = []
+
+func spawn_boss(enemy_name):
+	var enemy = spawn_enemy(enemy_name)
+	if enemy == null:
+		return null
+	else:
+		boss_spawned.emit(enemy)
+		return enemy
 
 func spawn_enemy(enemy_name:String) -> Enemy:
 	if EnemiesDb.enemies.has(enemy_name):

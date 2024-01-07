@@ -3,6 +3,8 @@ class_name SpawnerPoint
 
 signal animation_end
 
+@export var animation_player: AnimationPlayer
+
 var room:Room = null
 var enemy:Enemy = null
 

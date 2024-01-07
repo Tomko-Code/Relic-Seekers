@@ -4,6 +4,7 @@ extends Node2D
 @export var _AnimatedSpriteComponent: AnimatedSpriteComponent
 @export var height: float = 0
 
+
 func _draw():
 	var pos = Vector2.ZERO
 	var x_val = 0.0
