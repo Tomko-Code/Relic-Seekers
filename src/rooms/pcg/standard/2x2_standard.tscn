@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bukc8i01ge1en"]
+[gd_scene load_steps=4 format=3 uid="uid://bukc8i01ge1en"]
 
 [ext_resource type="PackedScene" uid="uid://bnrt7xcfjh5bx" path="res://src/zone/room.tscn" id="1_7ve5o"]
+[ext_resource type="PackedScene" uid="uid://iplpux7upis7" path="res://assets/sfx/ambient_light/ambient_light.tscn" id="2_jraik"]
+[ext_resource type="PackedScene" uid="uid://bmfw1epumh1mt" path="res://assets/sfx/light/light_sets/set_of_lights_for_2x2.tscn" id="3_brau0"]
 
 [node name="2x2Standard" instance=ExtResource("1_7ve5o")]
 
@@ -9,3 +11,8 @@ layer_0/tile_data = PackedInt32Array(327686, 589826, 2, 327687, 589826, 2, 32768
 
 [node name="Walls" parent="." index="2"]
 layer_0/tile_data = PackedInt32Array(65536, 524288, 1, 1, 458752, 2, 2, 458752, 2, 3, 458752, 2, 0, 262144, 3, 4, 458752, 2, 196608, 524288, 1, 131072, 524288, 1, 5, 458752, 2, 196617, 393216, 1, 131081, 393216, 1, 65545, 393216, 1, 9, 196608, 3, 8, 458752, 2, 7, 458752, 2, 6, 458752, 2, 262144, 524288, 1, 458756, 458752, 0, 458755, 458752, 0, 458754, 458752, 0, 458753, 458752, 0, 458752, 262144, 2, 393216, 524288, 1, 327680, 524288, 1, 458757, 458752, 0, 458758, 458752, 0, 458759, 458752, 0, 458760, 458752, 0, 458761, 196608, 2, 393225, 393216, 1, 327689, 393216, 1, 262153, 393216, 1)
+
+[node name="AmbientLight" parent="." index="3" instance=ExtResource("2_jraik")]
+visible = false
+
+[node name="SetOfLightsFor2x2" parent="." index="4" instance=ExtResource("3_brau0")]

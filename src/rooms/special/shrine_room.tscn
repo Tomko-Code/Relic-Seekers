@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://deuhyah7k3e41"]
+[gd_scene load_steps=5 format=3 uid="uid://b5es7el25e0rc"]
 
 [ext_resource type="Script" path="res://src/rooms/special/shrine_room.gd" id="1_pw326"]
 [ext_resource type="TileSet" uid="uid://dm2xndon4kkfk" path="res://assets/tileset/show_room/show_room_tileset.tres" id="2_yd37h"]
 [ext_resource type="TileSet" uid="uid://d2tr7ruwf8c7j" path="res://assets/tileset/show_room/show_room_walls_tileset.tres" id="3_60yk4"]
+[ext_resource type="PackedScene" uid="uid://bqb43ymw5guvu" path="res://assets/sfx/light_source_wall.tscn" id="5_lcebg"]
 
 [node name="ShrineRoom" type="Node2D" node_paths=PackedStringArray("floors", "walls", "Gates")]
 script = ExtResource("1_pw326")
@@ -33,3 +34,41 @@ layer_0/tile_data = PackedInt32Array(0, 262144, 3, 65536, 524288, 1, 131072, 524
 
 [node name="ShrineMarker" type="Marker2D" parent="."]
 position = Vector2(800, 640)
+
+[node name="Lights" type="Node2D" parent="."]
+
+[node name="PointLight2D" parent="Lights" instance=ExtResource("5_lcebg")]
+position = Vector2(928, 224)
+
+[node name="PointLight2D2" parent="Lights" instance=ExtResource("5_lcebg")]
+position = Vector2(928, 1056)
+rotation = 3.14159
+direction = 6
+
+[node name="PointLight2D3" parent="Lights" instance=ExtResource("5_lcebg")]
+position = Vector2(672, 1056)
+rotation = 3.14159
+direction = 6
+
+[node name="PointLight2D4" parent="Lights" instance=ExtResource("5_lcebg")]
+position = Vector2(672, 224)
+
+[node name="PointLight2D5" parent="Lights" instance=ExtResource("5_lcebg")]
+position = Vector2(1376, 800)
+rotation = 1.5708
+direction = 0
+
+[node name="PointLight2D6" parent="Lights" instance=ExtResource("5_lcebg")]
+position = Vector2(224, 480)
+rotation = 4.71239
+direction = 4
+
+[node name="PointLight2D7" parent="Lights" instance=ExtResource("5_lcebg")]
+position = Vector2(1376, 480)
+rotation = 1.5708
+direction = 0
+
+[node name="PointLight2D8" parent="Lights" instance=ExtResource("5_lcebg")]
+position = Vector2(224, 800)
+rotation = 4.71239
+direction = 4

@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyrkvov1hkxaq"]
+
+[ext_resource type="PackedScene" uid="uid://dt7kwnp3cugmy" path="res://assets/sfx/light/light_sets/vertical_wall_set_light.tscn" id="1_burre"]
+
+[node name="SetOfLightsFor2x1" type="Node2D"]
+
+[node name="VerticalWallSetLight" parent="." instance=ExtResource("1_burre")]
+
+[node name="VerticalWallSetLight2" parent="." instance=ExtResource("1_burre")]
+position = Vector2(2976, 608)
+rotation = 3.14159
+
+[node name="VerticalWallSetLight3" parent="." instance=ExtResource("1_burre")]
+position = Vector2(2592, 224)
+rotation = 1.5708
+
+[node name="VerticalWallSetLight4" parent="." instance=ExtResource("1_burre")]
+position = Vector2(1568, 224)
+rotation = 1.5708
+
+[node name="VerticalWallSetLight5" parent="." instance=ExtResource("1_burre")]
+position = Vector2(672, 224)
+rotation = 1.5708
+
+[node name="VerticalWallSetLight6" parent="." instance=ExtResource("1_burre")]
+position = Vector2(2528, 1056)
+rotation = 4.71239
+
+[node name="VerticalWallSetLight7" parent="." instance=ExtResource("1_burre")]
+position = Vector2(1504, 1056)
+rotation = 4.71239
+
+[node name="VerticalWallSetLight8" parent="." instance=ExtResource("1_burre")]
+position = Vector2(608, 1056)
+rotation = 4.71239

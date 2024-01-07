@@ -78,7 +78,7 @@ amount = 16
 process_material = SubResource("ParticleProcessMaterial_l7vvm")
 
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="TextureRectHookBotton"]
-position = Vector2(1016, 470)
+position = Vector2(1016, 472)
 amount = 16
 process_material = SubResource("ParticleProcessMaterial_l7vvm")
 

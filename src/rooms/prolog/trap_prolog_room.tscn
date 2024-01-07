@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b24fdh1pyxkdx"]
+[gd_scene load_steps=6 format=3 uid="uid://b24fdh1pyxkdx"]
 
 [ext_resource type="PackedScene" uid="uid://bnrt7xcfjh5bx" path="res://src/zone/room.tscn" id="1_d5mm3"]
 [ext_resource type="Script" path="res://src/rooms/prolog/trap_prolog_room.gd" id="2_6yp6g"]
 [ext_resource type="PackedScene" uid="uid://cd5io7jujipyr" path="res://src/entities/enemies/other/cannon.tscn" id="4_cwi6c"]
 [ext_resource type="PackedScene" uid="uid://bprr7yihq8lko" path="res://src/entities/enemies/other/spike_trap.tscn" id="4_dv6we"]
+[ext_resource type="PackedScene" uid="uid://dlt0li4hd2jkv" path="res://assets/sfx/light/light_sets/set_of_lights_for_1x2.tscn" id="5_doogi"]
 
 [node name="TrapPrologRoom" instance=ExtResource("1_d5mm3")]
 script = ExtResource("2_6yp6g")
@@ -776,3 +777,5 @@ position = Vector2(608, 1008)
 
 [node name="SpikeTrap10" parent="Node2D25" index="8" groups=["spikes_b"] instance=ExtResource("4_dv6we")]
 position = Vector2(544, 1008)
+
+[node name="SetOfLightsFor1x2" parent="." index="32" instance=ExtResource("5_doogi")]

@@ -4,6 +4,7 @@ class_name Level
 signal level_activated
 
 var room_connection_res = preload("res://src/zone/room_connection.tscn")
+var ambient_light_res = preload("res://assets/sfx/ambient_light/ambient_light.tscn")
 
 var map = []
 var unspawned_rooms = []
@@ -15,7 +16,14 @@ var level_size:Vector2 = Vector2.ZERO
 var player_spawn_pos:Vector2 = Vector2.ZERO
 
 var custom_spawn:bool = false
+var custom_ambient:bool = false
 
+var ambient_light
+
+func _ready():
+	if not custom_ambient:
+		ambient_light = ambient_light_res.instantiate()
+		add_child(ambient_light)
 
 func spawn_room(room_data:RoomData) -> Room:
 	if room_data.type == "":
@@ -36,11 +44,20 @@ func spawn_room(room_data:RoomData) -> Room:
 	for closed_connection in room_data.closed_connection_arry:
 		var conn:RoomConnection = room_connection_res.instantiate()
 		conn.data = closed_connection
+		
+		# rotate
+		conn.rotate(conn.data.direction.angle() + Vector2(0, 1).angle())
+		
+		
+		# possition
 		conn.position = Constants.CHUNK_SIZE * conn.data.inside_cord
 		conn.position += Constants.CHUNK_SIZE/2
 		
 		conn.position += conn.data.direction * (Constants.CHUNK_SIZE/4)
-		conn.position += conn.data.direction * Vector2(32*3, 0)
+		conn.position += conn.data.direction * Vector2((96+48), 64)
+		
+		
+		
 		room.add_child(conn)
 		room.data.spawned_room = room
 	

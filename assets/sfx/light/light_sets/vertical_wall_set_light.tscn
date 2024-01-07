@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dt7kwnp3cugmy"]
+
+[ext_resource type="PackedScene" uid="uid://bqb43ymw5guvu" path="res://assets/sfx/light_source_wall.tscn" id="1_qlbc5"]
+
+[node name="VerticalWallSetLight" type="Node2D"]
+position = Vector2(224, 608)
+
+[node name="PointLight2D" parent="." instance=ExtResource("1_qlbc5")]
+position = Vector2(0, -192)
+rotation = 4.71239
+direction = 4
+
+[node name="PointLight2D2" parent="." instance=ExtResource("1_qlbc5")]
+position = Vector2(0, 256)
+rotation = 4.71239
+direction = 4

@@ -10,6 +10,7 @@ var is_dead: bool = false
 func call_death():
 	if not is_dead:
 		emit_signal("death")
+		GameData.save_file.killed_enemies += 1
 		SoundManager.play_sfx("death_sfx")
 		spawn_loot()
 		queue_free()

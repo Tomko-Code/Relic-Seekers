@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bllc0vjx8rbro"]
+[gd_scene load_steps=6 format=3 uid="uid://b48ofnu4qll5j"]
 
 [ext_resource type="Script" path="res://src/rooms/special/chest_room.gd" id="1_s6qq6"]
 [ext_resource type="TileSet" uid="uid://dm2xndon4kkfk" path="res://assets/tileset/show_room/show_room_tileset.tres" id="2_g8led"]
 [ext_resource type="TileSet" uid="uid://d2tr7ruwf8c7j" path="res://assets/tileset/show_room/show_room_walls_tileset.tres" id="3_q5bfn"]
 [ext_resource type="PackedScene" uid="uid://bprr7yihq8lko" path="res://src/entities/enemies/other/spike_trap.tscn" id="4_edrfv"]
+[ext_resource type="PackedScene" uid="uid://d0h7d0ariah40" path="res://assets/sfx/light/light_sets/set_of_lights_for_1x1.tscn" id="5_n2nkl"]
 
 [node name="ChestRoom" type="Node2D" node_paths=PackedStringArray("floors", "walls", "Gates")]
 script = ExtResource("1_s6qq6")
@@ -14,6 +15,7 @@ Gates = NodePath("Gates")
 [node name="Gates" type="Node2D" parent="."]
 
 [node name="Floors" type="TileMap" parent="."]
+modulate = Color(0.482353, 0.482353, 0.482353, 1)
 tile_set = ExtResource("2_g8led")
 format = 2
 layer_0/name = "Floor"
@@ -260,3 +262,5 @@ position = Vector2(704, 768)
 
 [node name="Marker2D4" type="Marker2D" parent="ChestMarkers"]
 position = Vector2(896, 768)
+
+[node name="SetOfLightsFor1x1" parent="." instance=ExtResource("5_n2nkl")]

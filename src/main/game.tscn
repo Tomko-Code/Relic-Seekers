@@ -1,10 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://cbgrg2gkexspu"]
+[gd_scene load_steps=15 format=3 uid="uid://cbgrg2gkexspu"]
 
 [ext_resource type="Script" path="res://src/main/game.gd" id="1_3g1o0"]
 [ext_resource type="PackedScene" uid="uid://cfmmqeomv02jn" path="res://src/menus/hud.tscn" id="2_ob4nq"]
 [ext_resource type="PackedScene" uid="uid://bh3fyfhc3w8xt" path="res://src/dialog/dialog.tscn" id="3_yw5p0"]
 [ext_resource type="PackedScene" uid="uid://hcarbmby224x" path="res://src/zone/level_render/level_render.tscn" id="4_1l0ym"]
 [ext_resource type="Script" path="res://src/main/map.gd" id="4_xv8q3"]
+[ext_resource type="Texture2D" uid="uid://bwx1f53jboxkp" path="res://assets/art/UI/9-path-01.png" id="6_1r5rx"]
+[ext_resource type="Script" path="res://src/main/death_popup.gd" id="6_yxsh3"]
+[ext_resource type="Theme" uid="uid://o6wqytlp1g1i" path="res://assets/themes/death_msg_theme.tres" id="7_xt4eh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vn7mw"]
 bg_color = Color(0.164706, 0.219608, 0.423529, 1)
@@ -152,6 +155,67 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
+[node name="DeathPopup" type="CanvasLayer" parent="." node_paths=PackedStringArray("enemies_killed")]
+layer = 20
+visible = false
+script = ExtResource("6_yxsh3")
+enemies_killed = NodePath("CenterContainer/MarginContainer/MarginContainer/VBoxContainer/EnemysKilled")
+
+[node name="CenterContainer" type="CenterContainer" parent="DeathPopup"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="DeathPopup/CenterContainer"]
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="DeathPopup/CenterContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("6_1r5rx")
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="MarginContainer" type="MarginContainer" parent="DeathPopup/CenterContainer/MarginContainer"]
+custom_minimum_size = Vector2(288, 324)
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DeathPopup/CenterContainer/MarginContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="DeathMSG" type="Label" parent="DeathPopup/CenterContainer/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("7_xt4eh")
+text = "Game Over"
+horizontal_alignment = 1
+
+[node name="EnemysKilled" type="Label" parent="DeathPopup/CenterContainer/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("7_xt4eh")
+text = "dsfw"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="DeathPopup/CenterContainer/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7_xt4eh")
+
+[node name="ResetGameButton" type="Button" parent="DeathPopup/CenterContainer/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("7_xt4eh")
+text = "Respawn"
+flat = true
+
 [connection signal="level_change" from="." to="Map" method="_on_game_level_change"]
 [connection signal="visibility_changed" from="Map" to="Map" method="_on_visibility_changed"]
 [connection signal="visibility_changed" from="Map/CenterContainer/SubViewportContainer" to="Map" method="_on_sub_viewport_container_visibility_changed"]
+[connection signal="pressed" from="DeathPopup/CenterContainer/MarginContainer/MarginContainer/VBoxContainer/ResetGameButton" to="." method="_on_reset_game_button_pressed"]

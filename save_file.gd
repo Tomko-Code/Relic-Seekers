@@ -12,5 +12,8 @@ class_name SaveFile
 @export var prolog_complete:bool = false
 @export var current_level:int = 0
 
+# Run
+@export var killed_enemies:int = 0
+
 # Show
 @export var wave:int = 0

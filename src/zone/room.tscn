@@ -16,6 +16,7 @@ Gates = NodePath("Gates")
 tile_set = ExtResource("2_nb1v7")
 format = 2
 layer_0/name = "Floor"
+layer_0/modulate = Color(0.482353, 0.482353, 0.482353, 1)
 layer_1/name = "Pits"
 layer_1/enabled = true
 layer_1/modulate = Color(1, 1, 1, 1)
@@ -28,3 +29,5 @@ layer_1/tile_data = PackedInt32Array()
 tile_set = ExtResource("3_olidx")
 cell_quadrant_size = 32
 format = 2
+
+[node name="Lights" type="Node2D" parent="."]

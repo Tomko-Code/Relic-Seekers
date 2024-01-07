@@ -20,7 +20,35 @@ var player:PlayerEntity = null
 var type = PlayerEntity
 
 func on_player_death():
+	# remove player from level
+	#var parent = player.get_parent()
+	#GameManager.game_camera.freeze_position()
+	
+	#GameManager.game_camera.position = player.position
+	#parent.remove_child(player)
+	player.hide()
+	player.paused = true
+	
+	#GameManager.change_camera_parent(parent)
+	GameManager.player_alive = false
+	$DeathPopup.show()
+	
+	$HUD.hide()
+	$Transition.hide()
+	$Map.hide()
+	
+	$DeathPopup.enemies_killed.text = "Enemies killed : " + str(GameData.save_file.killed_enemies)
+	
+	#reset_game()
 
+func reset_game() -> void:
+	$DeathPopup.hide()
+	
+	$HUD.show()
+	$Transition.show()
+	$Map.show()
+	
+	# reset game
 	GameData.save_file.player_inventory.reset()
 	GameData.save_file.max_health = 6
 	GameData.save_file.current_health = GameData.save_file.max_health
@@ -30,8 +58,10 @@ func on_player_death():
 	GameManager.player.emit_signal("health_changed")
 	
 	GameData.save_file.wave = 0
+	GameData.save_file.killed_enemies = 0
 	
 	call_deferred("change_active_to_sanctuary_level")
+	GameManager.player_alive = true
 	$Map/CenterContainer/SubViewportContainer/SubViewport/level_render.clear_render()
 
 func change_current_level(level:Level) -> void:
@@ -60,11 +90,12 @@ func deactivate_level(level:Level) -> void:
 	level.remove_child(player)
 
 func activate_level(level:Level) -> void:
-	add_child(level)
-	level.add_child(player)
-	level.emit_signal("level_activated")
+	if active_level != level:
+		add_child(level)
+		level.add_child(player)
+		level.emit_signal("level_activated")
 	
-	active_level = level
+		active_level = level
 
 func change_active_to_current_level() -> void:
 	$Map.show()
@@ -139,3 +170,8 @@ func _ready():
 
 func _process(delta):
 	pass
+
+func _on_reset_game_button_pressed():
+	reset_game()
+	player.show()
+	player.paused = false
