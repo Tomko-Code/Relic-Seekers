@@ -13,3 +13,24 @@ random_start = false
 start_room = ""
 end_room = ""
 room_sets = ["standard"]
+shape_weights = {
+"1x1": 150,
+"1x2": 20,
+"2x1": 20,
+"2x2": 25,
+"l1": 10,
+"l2": 10,
+"l3": 10,
+"l4": 10
+}
+special_rooms = {
+"chest_room": {
+"count": 1.0
+},
+"shop": {
+"count": 1.0
+},
+"shrine_room": {
+"count": 1.0
+}
+}

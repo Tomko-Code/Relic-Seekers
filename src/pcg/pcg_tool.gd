@@ -193,8 +193,8 @@ func file_new() -> void:
 func clear_level_preset() -> void:
 	clear_level()
 	
-	for c in selected_room_list.get_children():
-		c.queue_free()
+	#for c in selected_room_list.get_children():
+	#	c.queue_free()
 	
 	print("Clear preset")
 	level_preset = null
