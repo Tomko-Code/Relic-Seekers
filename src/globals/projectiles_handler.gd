@@ -5,11 +5,19 @@ var explosion_area_resource = load("res://src/entities/projectiles/explosion_are
 var friendly_layer = 8
 var hostile_layer = 16
 
+var hostile_projectile_pool_id: int
 var all_projectiles = []
+
+func _ready():
+	hostile_projectile_pool_id = PoolManager.register_pool(base_projectile)
 
 func spawn_projectile(projectile_name, is_friendly: bool):
 	if ProjectilesDb.projectiles.has(projectile_name):
-		var projectile: BaseProjectile = base_projectile.instantiate()
+		var projectile: BaseProjectile
+		if is_friendly:
+			projectile = base_projectile.instantiate()
+		else:
+			projectile = PoolManager.get_object(hostile_projectile_pool_id)
 		var sprite: AnimatedSprite2D = projectile.get_node("Components/AnimatedSpriteComponent/Sprite")
 		sprite.sprite_frames = ProjectilesDb.projectiles[projectile_name].sprite
 		
@@ -28,8 +36,16 @@ func spawn_projectile_explosion(projectile: BaseProjectile, damage_modifier: flo
 	explosion_area.from_projectile(projectile)
 	explosion_area.damage *= damage_modifier
 	return explosion_area
-	
+
+func free_projectile(projectile: BaseProjectile):
+	if projectile.is_friendly:
+		projectile.queue_free()
+	else:
+		PoolManager.release_object(hostile_projectile_pool_id, projectile)
+		
+
 func clear_projectile(projectile):
+	projectile.expired.disconnect(clear_projectile.bind(projectile))
 	all_projectiles.erase(projectile)
 	
 func clear_all_projectiles():

@@ -8,6 +8,7 @@ var boss: Enemy = null
 func _ready():
 	update_stats()
 	EnemiesHandler.boss_spawned.connect(set_boss)
+	GameManager.player.death.connect(boss_death)
 
 func set_boss(_boss: Enemy):
 	if boss != null and is_instance_valid(boss) and not boss.is_queued_for_deletion():
