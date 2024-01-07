@@ -1,0 +1,146 @@
+[gd_scene load_steps=21 format=3 uid="uid://t4ko0irnia3q"]
+
+[ext_resource type="Script" path="res://src/entities/enemies/enemy.gd" id="1_wi26d"]
+[ext_resource type="Script" path="res://src/entities/enemies/mobs/golem_behaviour.gd" id="2_6hkj0"]
+[ext_resource type="Script" path="res://src/entities/entity_shadow_component.gd" id="2_inqmd"]
+[ext_resource type="Script" path="res://src/entities/stats_component.gd" id="3_cf8qk"]
+[ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="4_ltej6"]
+[ext_resource type="Script" path="res://src/systems/combat/combat_system.gd" id="5_ndwm2"]
+[ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="6_hv3v0"]
+[ext_resource type="SpriteFrames" uid="uid://my11t2e38qg6" path="res://assets/sprites/mobs/golem_boss.tres" id="7_77onb"]
+[ext_resource type="Script" path="res://src/systems/movement/four_direction_animation_system_extra.gd" id="8_8gea8"]
+[ext_resource type="PackedScene" uid="uid://blv5sfddyxsl6" path="res://src/entities/projectiles/damage_area.tscn" id="11_fedvr"]
+[ext_resource type="Script" path="res://src/systems/movement/entity_repulsion_system.gd" id="12_133mi"]
+[ext_resource type="Script" path="res://src/entities/entity_effects_handler.gd" id="13_5b4bn"]
+[ext_resource type="Script" path="res://src/entities/move_to_dest_movement_component.gd" id="13_lqm0q"]
+[ext_resource type="Script" path="res://src/entities/enemies/shoot_in_direction_component.gd" id="16_viool"]
+[ext_resource type="Script" path="res://src/entities/shoot_at_enemy_behaviour.gd" id="17_8fyfp"]
+[ext_resource type="Script" path="res://src/entities/follow_hostile_behaviour.gd" id="18_7or6a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_auixy"]
+size = Vector2(64, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s78fp"]
+size = Vector2(64, 64)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rp2wp"]
+radius = 80.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hfw7d"]
+radius = 64.0
+
+[node name="Golem" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 258
+script = ExtResource("1_wi26d")
+loot_table = "standard_boss_loot"
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_auixy")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+radius = 60.0
+
+[node name="Components" type="Node2D" parent="." node_paths=PackedStringArray("animation_system", "animation", "follow_behaviour", "shooting_behaviour", "shooting", "stats", "clock", "extra_clock")]
+script = ExtResource("2_6hkj0")
+animation_system = NodePath("FourDirectionMovementSystemExtra")
+animation = NodePath("AnimatedSpriteComponent")
+follow_behaviour = NodePath("FollowEnemyBehaviour")
+shooting_behaviour = NodePath("ShootAtEnemyBehaviour")
+shooting = NodePath("ShootInDirectionComponent")
+stats = NodePath("StatsComponent")
+clock = NodePath("../StateClock")
+extra_clock = NodePath("../ExtraClock")
+
+[node name="EntityShadowComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("_AnimatedSpriteComponent")]
+position = Vector2(0, -16)
+scale = Vector2(0.8, 0.8)
+script = ExtResource("2_inqmd")
+_AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
+
+[node name="StatsComponent" type="Node" parent="Components"]
+script = ExtResource("3_cf8qk")
+shoot_frequency = 0.1
+max_health = 1000.0
+
+[node name="CombatHitbox" type="Area2D" parent="Components"]
+collision_layer = 4
+collision_mask = 8
+script = ExtResource("4_ltej6")
+
+[node name="Hitbox" type="CollisionShape2D" parent="Components/CombatHitbox"]
+visible = false
+shape = SubResource("RectangleShape2D_s78fp")
+
+[node name="CombatSystem" type="Node" parent="Components" node_paths=PackedStringArray("_HitboxComponent", "_StatsComponent", "_MovementComponent", "_EntityEffectsHandler")]
+script = ExtResource("5_ndwm2")
+_HitboxComponent = NodePath("../CombatHitbox")
+_StatsComponent = NodePath("../StatsComponent")
+_MovementComponent = NodePath("../MoveToDestMovementComponent")
+_EntityEffectsHandler = NodePath("")
+
+[node name="AnimatedSpriteComponent" type="Node2D" parent="Components"]
+script = ExtResource("6_hv3v0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Components/AnimatedSpriteComponent"]
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("7_77onb")
+animation = &"idle_left_down"
+
+[node name="FourDirectionMovementSystemExtra" type="Node" parent="Components" node_paths=PackedStringArray("_MovementComponent", "_AnimatedSpriteComponent")]
+script = ExtResource("8_8gea8")
+_MovementComponent = NodePath("../MoveToDestMovementComponent")
+_AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
+
+[node name="DamageArea" parent="Components" node_paths=PackedStringArray("stats", "hitbox") instance=ExtResource("11_fedvr")]
+stats = NodePath("../StatsComponent")
+hitbox = NodePath("../ContactDamageHitbox")
+
+[node name="ContactDamageHitbox" type="Area2D" parent="Components" node_paths=PackedStringArray("entity")]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("4_ltej6")
+entity = NodePath("../DamageArea")
+
+[node name="Hitbox" type="CollisionShape2D" parent="Components/ContactDamageHitbox"]
+shape = SubResource("CircleShape2D_rp2wp")
+
+[node name="EntityRepulsionSystem" type="Node" parent="Components" node_paths=PackedStringArray("_HitboxComponent")]
+script = ExtResource("12_133mi")
+_HitboxComponent = NodePath("../RepulsionHitbox")
+
+[node name="RepulsionHitbox" type="Area2D" parent="Components"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("4_ltej6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/RepulsionHitbox"]
+shape = SubResource("CircleShape2D_hfw7d")
+
+[node name="EntityEffectsHandler" type="Node2D" parent="Components" node_paths=PackedStringArray("_StatsComponent")]
+script = ExtResource("13_5b4bn")
+_StatsComponent = NodePath("../StatsComponent")
+
+[node name="MoveToDestMovementComponent" type="Node" parent="Components" node_paths=PackedStringArray("nav_agent")]
+script = ExtResource("13_lqm0q")
+nav_agent = NodePath("../../NavigationAgent2D")
+speed = 100.0
+
+[node name="ShootInDirectionComponent" type="Node" parent="Components" node_paths=PackedStringArray("_StatsComponent")]
+script = ExtResource("16_viool")
+_StatsComponent = NodePath("../StatsComponent")
+
+[node name="ShootAtEnemyBehaviour" type="Node" parent="Components" node_paths=PackedStringArray("shooting")]
+script = ExtResource("17_8fyfp")
+shooting = NodePath("../ShootInDirectionComponent")
+
+[node name="FollowEnemyBehaviour" type="Node" parent="Components" node_paths=PackedStringArray("movement")]
+script = ExtResource("18_7or6a")
+movement = NodePath("../MoveToDestMovementComponent")
+
+[node name="StateClock" type="Timer" parent="."]
+one_shot = true
+
+[node name="ExtraClock" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true

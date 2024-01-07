@@ -60,8 +60,9 @@ _data = {
 "show": SubResource("Animation_u7q1y")
 }
 
-[node name="SpawnerPoint" type="Node2D"]
+[node name="SpawnerPoint" type="Node2D" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("1_mki81")
+animation_player = NodePath("AnimationPlayer")
 
 [node name="Huh" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_i2a35")

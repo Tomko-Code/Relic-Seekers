@@ -176,7 +176,9 @@ var rooms_data = {
 	},
 	"test_boss_room" : {
 		"shape" : [[1, 1],[1, 1]],
-		"res" : load("res://src/rooms/pcg/standard/2x2_standard.tscn")
+		"res" : load("res://src/rooms/boss_room.tscn"),
+		"has_teleport" : true,
+		"teleport_type" : TeleportData.TELEPORT_TYPES.CIRCLE
 	},
 	#######################################
 	# Standard pcg special rooms

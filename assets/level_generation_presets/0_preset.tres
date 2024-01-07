@@ -6,9 +6,9 @@
 script = ExtResource("1_58rcj")
 level_name = "0"
 level_size = Vector2(10, 10)
-min_rooms = 10
+min_rooms = 3
 max_rooms = 10
-start_position = Vector2(4, 4)
+start_position = Vector2(0, 0)
 random_start = false
 start_room = ""
 end_room = ""
@@ -23,14 +23,4 @@ shape_weights = {
 "l3": 10,
 "l4": 10
 }
-special_rooms = {
-"chest_room": {
-"count": 1.0
-},
-"shop": {
-"count": 1.0
-},
-"shrine_room": {
-"count": 1.0
-}
-}
+special_rooms = {}

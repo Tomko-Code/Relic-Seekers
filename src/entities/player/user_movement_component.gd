@@ -1,7 +1,6 @@
 class_name UserMovementComponent
 extends MovementComponent
 
-var acceleration = 10
 var is_dashing = false
 var can_dash = true
 
