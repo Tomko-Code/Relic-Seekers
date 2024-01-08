@@ -16,6 +16,11 @@ func spawn_boss(enemy_name):
 func spawn_enemy(enemy_name:String) -> Enemy:
 	if EnemiesDb.enemies.has(enemy_name):
 		var enemy: Enemy = EnemiesDb.enemies[enemy_name].resource.instantiate()
+		var stats = GameManager.get_entity_component(enemy, StatsComponent)[0]
+		
+		stats.max_health = stats.max_health * int((GameManager.level_depth * 0.2) + 1)
+		stats.current_health = stats.max_health
+		
 		all_enemies.append(enemy)
 		enemy.death.connect(clear_enemie.bind(enemy))
 		return enemy

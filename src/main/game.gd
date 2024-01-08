@@ -48,6 +48,11 @@ func reset_game() -> void:
 	$Transition.show()
 	$Map.show()
 	
+	#if current_level != null:
+	#	clear_level(current_level)
+	
+	GameManager.level_depth = 0
+	
 	# reset game
 	GameData.save_file.player_inventory.reset()
 	GameData.save_file.max_health = 6
@@ -83,6 +88,7 @@ func clear_level(level:Level) -> void:
 	if level_state == LEVEL_STATES.CURRENT:
 		deactivate_level(level)
 	
+	#if level != null:
 	level.queue_free()
 
 func deactivate_level(level:Level) -> void:

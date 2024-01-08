@@ -25,6 +25,8 @@ var room_randomize_setting = ROOM_RANOMIZE_SETTINGS.BY_SHAPE_ROOM_WEIGHT
 
 @export var room_sets = []
 
+@export var difficulty = 1
+
 @export var shape_weights:Dictionary = {
 	"1x1": 150,
 	"1x2": 20,

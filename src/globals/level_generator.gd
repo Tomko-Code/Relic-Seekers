@@ -20,6 +20,7 @@ var rooms:Array[RoomData]
 var rooms_with_open_connections:Array[RoomData]
 
 func generate(_level_preset:LevelGenerationPreset) -> Level:
+	randomize()
 	level_preset = _level_preset
 	start_generator()
 	
@@ -49,7 +50,8 @@ func generate(_level_preset:LevelGenerationPreset) -> Level:
 	end_room.is_end = true
 	
 	var special_rooms:Dictionary = level_preset.special_rooms.duplicate(true)
-	
+	print("special = ")
+	print(level_preset.special_rooms)
 	while true:
 		try_cout += 1
 		var room = null
@@ -62,6 +64,12 @@ func generate(_level_preset:LevelGenerationPreset) -> Level:
 		
 		if try_cout > 100:
 			print("Generating fail.")
+			print(rooms.size() < level_preset.min_rooms)
+			print(boss_added)
+			print(end_added)
+			print(special_rooms_added)
+			if !special_rooms_added:
+				print(level_preset.special_rooms)
 			return null
 		
 		if room == null: # might be no more rooms with open connections

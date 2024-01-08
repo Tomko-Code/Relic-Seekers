@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqqn7hwsu6ha5"]
+[gd_scene load_steps=6 format=3 uid="uid://bms5flh2wdrjj"]
 
 [ext_resource type="Script" path="res://src/rooms/boss_room.gd" id="1_pojs7"]
 [ext_resource type="TileSet" uid="uid://dm2xndon4kkfk" path="res://assets/tileset/show_room/show_room_tileset.tres" id="2_qwt10"]
@@ -6,16 +6,16 @@
 [ext_resource type="Texture2D" uid="uid://h5822ojp1xkc" path="res://assets/art/sprites/teleports/circle_teleport.png" id="4_0rwgr"]
 [ext_resource type="PackedScene" uid="uid://bmfw1epumh1mt" path="res://assets/sfx/light/light_sets/set_of_lights_for_2x2.tscn" id="4_qlohp"]
 
-[node name="BossRoom" type="Node2D" node_paths=PackedStringArray("floors", "walls", "Gates")]
+[node name="BossRoom" type="Node2D" node_paths=PackedStringArray("floors", "walls", "Gates", "lights")]
 script = ExtResource("1_pojs7")
 floors = NodePath("Floors")
 walls = NodePath("Walls")
 Gates = NodePath("Gates")
+lights = NodePath("Lights")
 
 [node name="Gates" type="Node2D" parent="."]
 
 [node name="Floors" type="TileMap" parent="."]
-modulate = Color(0.482353, 0.482353, 0.482353, 1)
 tile_set = ExtResource("2_qwt10")
 format = 2
 layer_0/name = "Floor"
@@ -38,6 +38,7 @@ layer_0/tile_data = PackedInt32Array(65536, 524288, 1, 1, 458752, 2, 2, 458752, 
 [node name="Lights" type="Node2D" parent="."]
 
 [node name="SetOfLightsFor2x2" parent="Lights" instance=ExtResource("4_qlohp")]
+visible = false
 
 [node name="SpawnSpot" type="Marker2D" parent="."]
 position = Vector2(1600, 1280)

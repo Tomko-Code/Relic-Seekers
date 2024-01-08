@@ -5,11 +5,12 @@
 [ext_resource type="TileSet" uid="uid://d2tr7ruwf8c7j" path="res://assets/tileset/show_room/show_room_walls_tileset.tres" id="3_60yk4"]
 [ext_resource type="PackedScene" uid="uid://bqb43ymw5guvu" path="res://assets/sfx/light/light_source_wall.tscn" id="5_lcebg"]
 
-[node name="ShrineRoom" type="Node2D" node_paths=PackedStringArray("floors", "walls", "Gates")]
+[node name="ShrineRoom" type="Node2D" node_paths=PackedStringArray("floors", "walls", "Gates", "lights")]
 script = ExtResource("1_pw326")
 floors = NodePath("Floors")
 walls = NodePath("Walls")
 Gates = NodePath("Gates")
+lights = NodePath("Lights")
 
 [node name="Gates" type="Node2D" parent="."]
 

@@ -130,13 +130,15 @@ func get_random_free_spot(max_test:int = 1000) -> Vector2:
 func is_this_spot_free(_cord:Vector2) -> bool:
 	var cord = _cord
 	var cord_position = (cord*Constants.FLOOR_TILE_SIZE) + (Constants.FLOOR_TILE_SIZE/2)
-
+	var room_cord = (cord_position/Constants.CHUNK_SIZE).floor()
+	
 	var wall_cord = (cord_position/Constants.WALL_TILE_SIZE).floor()
 	
 	var not_pit = (floors.get_cell_tile_data(1, cord) == null)
 	var not_wall = (walls.get_cell_tile_data(0, wall_cord) == null)
+	var inside_room = (data.room_shape[room_cord.y][room_cord.x] == 1)
 	
-	return not_pit and not_wall
+	return not_pit and not_wall and inside_room
 
 func reset_snail() -> void:
 	snail_start_cord = Vector2.ZERO
@@ -182,15 +184,17 @@ func get_next_snail_cord() -> Vector2:
 func spawn_wave() -> void:
 	var wave = data.waves[wave_it]
 	for part in wave:
-		var spawn_amout = randi_range(part[0], part[1])
+		var min:int = part[0] * clamp(GameManager.level_depth * 0.7,1,9)
+		var max:int = (part[1] * clamp(GameManager.level_depth * 0.7,1,9)) + GameManager.level_depth
+		var spawn_amout = randi_range(min, max)
 		
 		for spawn in range(spawn_amout):
 			spawn_enemy(part[2].pick_random())
 
 func spawn_enemy(enemy_type:String):
-	var cord:Vector2 = get_random_free_spot()
-	if cord == Vector2.INF:
-		return
+	var cord = get_random_free_spot()
+	while cord == Vector2.INF:
+		cord = get_random_free_spot()
 	
 	var pos:Vector2 = cord * Constants.FLOOR_TILE_SIZE
 	enemy_count += 1

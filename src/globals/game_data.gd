@@ -15,6 +15,49 @@ var data = {
 
 var save_file:SaveFile
 
+# Waves presets
+var wave_1x1 = [
+	[
+		[1, 2, ["goblin","stone_eye"]]
+	]
+]
+
+var wave_2x1 = [
+	[
+		[2, 4, ["goblin","stone_eye"]]
+	],
+	[
+		[2, 5, ["goblin","stone_eye"]]
+	]
+]
+
+var wave_2x2 = [
+	[
+		[3, 5, ["goblin","stone_eye"]]
+	],
+	[
+		[3, 6, ["goblin","stone_eye"]]
+	],
+	[
+		[4, 7, ["goblin","stone_eye"]]
+	],
+	[
+		[4, 11, ["goblin","stone_eye"]]
+	]
+]
+
+var wave_lx = [
+	[
+		[3, 5, ["goblin","stone_eye"]]
+	],
+	[
+		[3, 6, ["goblin","stone_eye"]]
+	],
+	[
+		[4, 7, ["goblin","stone_eye"]]
+	]
+]
+
 # rooms data
 var rooms_data = {
 	#######################################
@@ -149,11 +192,7 @@ var rooms_data = {
 	"1x1_small" : {
 		"shape" : [[1]],
 		"res" : load("res://src/rooms/pcg/standard/1x1_small.tscn"),
-		"waves" : [
-			[[1, 1, ["goblin"]]]
-			#[[1, 1, ["test_mob_a"]]],
-			#[[1, 1, ["test_mob_a"]],[1, 1, ["test_mob_a"]]]
-		]
+		"waves" : wave_1x1
 	},
 	"1x1_small_red" : {
 		"shape" : [[1]],
@@ -219,7 +258,9 @@ var rooms_data = {
 			}
 		},
 		"waves" : [
-			[[5, 10, ["goblin"]]]
+			[[1, 5, ["goblin"]]],
+			[[1, 5, ["goblin"]]],
+			[[1, 5, ["goblin"]]]
 			#[[1, 1, ["test_mob_a"]]],
 			#[[1, 1, ["test_mob_a"]],[1, 1, ["test_mob_a"]]]
 		]
@@ -229,39 +270,46 @@ var rooms_data = {
 	#######################################
 	"1x2_standard" : {
 		"shape" : [[1],[1]],
-		"res" : load("res://src/rooms/pcg/standard/1x2_standard.tscn")
+		"res" : load("res://src/rooms/pcg/standard/1x2_standard.tscn"),
+		"waves" : wave_2x1
 	},
 	"2x1_standard" : {
 		"shape" : [[1, 1]],
-		"res" : load("res://src/rooms/pcg/standard/2x1_standard.tscn")
+		"res" : load("res://src/rooms/pcg/standard/2x1_standard.tscn"),
+		"waves" : wave_2x1
 	},
 	"2x2_standard" : {
 		"shape" : [[1, 1],[1, 1]],
-		"res" : load("res://src/rooms/pcg/standard/2x2_standard.tscn")
+		"res" : load("res://src/rooms/pcg/standard/2x2_standard.tscn"),
+		"waves" : wave_2x2
 	},
 	"l1_standard" : {
 		"shape" : [
 			[1, 1],
 			[1, 0]],
-		"res" : load("res://src/rooms/pcg/standard/l1_standard.tscn")
+		"res" : load("res://src/rooms/pcg/standard/l1_standard.tscn"),
+		"waves" : wave_lx
 	},
 	"l2_standard" : {
 		"shape" : [
 			[1, 1],
 			[0, 1]],
-		"res" : load("res://src/rooms/pcg/standard/l2_standard.tscn")
+		"res" : load("res://src/rooms/pcg/standard/l2_standard.tscn"),
+		"waves" : wave_lx
 	},
 	"l3_standard" : {
 		"shape" : [
 			[0, 1],
 			[1, 1]],
-		"res" : load("res://src/rooms/pcg/standard/l3_standard.tscn")
+		"res" : load("res://src/rooms/pcg/standard/l3_standard.tscn"),
+		"waves" : wave_lx
 	},
 	"l4_standard" : {
 		"shape" : [
 			[1, 0],
 			[1, 1]],
-		"res" : load("res://src/rooms/pcg/standard/l4_standard.tscn")
+		"res" : load("res://src/rooms/pcg/standard/l4_standard.tscn"),
+		"waves" : wave_lx
 	}
 }
 
