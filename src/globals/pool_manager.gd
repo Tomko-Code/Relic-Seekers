@@ -15,7 +15,6 @@ func register_pool(template) -> int:
 	
 
 func get_object(pool_id: int):
-	print("Projectiles: %s" % _pools[pool_id].total_objects)
 	return _pools[pool_id].get_object()
 
 

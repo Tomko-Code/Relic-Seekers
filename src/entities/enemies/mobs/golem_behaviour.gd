@@ -42,18 +42,22 @@ func match_state(state: STATES):
 			follow_behaviour.active = true
 			shooting_behaviour.active = false
 			animation_system._ShootingComponent = null
+			
 			clock.start(1)
 		STATES.SHOOTING:
 			follow_behaviour.active = false
 			shooting_behaviour.active = true
-			stats.shoot_speed = default_shoot_speed
 			animation_system._ShootingComponent = shooting
+			
+			stats.shoot_speed = default_shoot_speed
+			
 			clock.start(2)
 		STATES.SLAM:
 			animation_system._ShootingComponent = null
 			follow_behaviour.active = false
 			shooting_behaviour.active = false
 			animation_system.set_process(false)
+			
 			animation.set_animation("slam")
 			var sprite = animation.get_children()[0] as AnimatedSprite2D
 			await sprite.animation_finished
@@ -65,6 +69,7 @@ func match_state(state: STATES):
 			follow_behaviour.active = false
 			shooting_behaviour.active = false
 			animation_system.set_process(false)
+			
 			for x in randi_range(2,3):
 				print(animation.set_animation("slam", 1 , true))
 				var sprite = animation.get_children()[0] as AnimatedSprite2D
@@ -73,6 +78,7 @@ func match_state(state: STATES):
 				#extra_clock.start()
 				#await extra_clock.timeout
 				print("TIMEOUT")
+			
 			animation_system.set_process(true)
 			progress_state()
 

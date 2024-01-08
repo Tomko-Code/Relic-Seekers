@@ -22,6 +22,7 @@ func make_path():
 	
 func _physics_process(delta):
 	if not is_moving:
+		is_idle = true
 		return
 	
 	var next_position = nav_agent.get_next_path_position()

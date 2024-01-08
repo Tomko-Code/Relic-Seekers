@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="4_ltej6"]
 [ext_resource type="Script" path="res://src/systems/combat/combat_system.gd" id="5_ndwm2"]
 [ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="6_hv3v0"]
-[ext_resource type="SpriteFrames" uid="uid://my11t2e38qg6" path="res://assets/sprites/mobs/golem_boss.tres" id="7_77onb"]
+[ext_resource type="SpriteFrames" uid="uid://c6i2333t8rlpq" path="res://assets/sprites/mobs/golem_boss.tres" id="7_77onb"]
 [ext_resource type="Script" path="res://src/systems/movement/four_direction_animation_system_extra.gd" id="8_8gea8"]
 [ext_resource type="PackedScene" uid="uid://blv5sfddyxsl6" path="res://src/entities/projectiles/damage_area.tscn" id="11_fedvr"]
 [ext_resource type="Script" path="res://src/systems/movement/entity_repulsion_system.gd" id="12_133mi"]
@@ -72,11 +72,10 @@ script = ExtResource("4_ltej6")
 visible = false
 shape = SubResource("RectangleShape2D_s78fp")
 
-[node name="CombatSystem" type="Node" parent="Components" node_paths=PackedStringArray("_HitboxComponent", "_StatsComponent", "_MovementComponent")]
+[node name="CombatSystem" type="Node" parent="Components" node_paths=PackedStringArray("_HitboxComponent", "_StatsComponent")]
 script = ExtResource("5_ndwm2")
 _HitboxComponent = NodePath("../CombatHitbox")
 _StatsComponent = NodePath("../StatsComponent")
-_MovementComponent = NodePath("../MoveToDestMovementComponent")
 
 [node name="AnimatedSpriteComponent" type="Node2D" parent="Components"]
 script = ExtResource("6_hv3v0")
