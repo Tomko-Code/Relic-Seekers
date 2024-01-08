@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="4_e0u06"]
 [ext_resource type="Script" path="res://src/systems/combat/combat_system.gd" id="5_vxiji"]
 [ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="6_hvmpo"]
-[ext_resource type="SpriteFrames" uid="uid://ch01odi3jhnmr" path="res://assets/sprites/player_tmp.tres" id="7_pb4we"]
+[ext_resource type="SpriteFrames" uid="uid://daieghomrg517" path="res://assets/sprites/mobs/goblin.tres" id="7_6wn7k"]
 [ext_resource type="Script" path="res://src/systems/movement/four_direction_animation_system_extra.gd" id="8_6t6lx"]
 [ext_resource type="PackedScene" uid="uid://b001mo8qgm6le" path="res://src/entities/enemies/health_bar_component.tscn" id="9_xi8oq"]
 [ext_resource type="Script" path="res://src/entities/enemies/follow_movement_component.gd" id="10_03hl7"]
@@ -57,15 +57,15 @@ _EntityEffectsHandler = NodePath("../EntityEffectsHandler")
 script = ExtResource("6_hvmpo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Components/AnimatedSpriteComponent"]
-modulate = Color(0, 0.729412, 0.262745, 1)
-scale = Vector2(0.5, 0.5)
-sprite_frames = ExtResource("7_pb4we")
-animation = &"idle_left_down"
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("7_6wn7k")
+animation = &"idle_right_down"
 
 [node name="FourDirectionMovementSystemExtra" type="Node" parent="Components" node_paths=PackedStringArray("_MovementComponent", "_AnimatedSpriteComponent")]
 script = ExtResource("8_6t6lx")
 _MovementComponent = NodePath("../FollowMovementComponent")
 _AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
+right_only = true
 
 [node name="HealthBarComponent" parent="Components" node_paths=PackedStringArray("_StatsComponent") instance=ExtResource("9_xi8oq")]
 _StatsComponent = NodePath("../StatsComponent")
