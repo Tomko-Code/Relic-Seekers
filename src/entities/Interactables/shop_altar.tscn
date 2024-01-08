@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://dpwxo8k0nk2g5"]
+
+[ext_resource type="Script" path="res://docs/src/entities/Interactables/shop_altar.gd" id="1_85sp0"]
+[ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="2_mheyv"]
+[ext_resource type="SpriteFrames" uid="uid://c7n5m2x3na57k" path="res://assets/sprites/other/altar.tres" id="3_jf2pd"]
+[ext_resource type="PackedScene" uid="uid://bdlxq5bh2qqu2" path="res://src/entities/interactable/interactable_component.tscn" id="4_i0a1a"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_vhn41"]
+device = -1
+keycode = 70
+unicode = 102
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xi1sr"]
+radius = 32.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2tf1w"]
+size = Vector2(48, 24)
+
+[node name="ShopAltar" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_85sp0")
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="AnimatedSpriteComponent" type="Node2D" parent="Components"]
+script = ExtResource("2_mheyv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Components/AnimatedSpriteComponent"]
+sprite_frames = ExtResource("3_jf2pd")
+
+[node name="InteractableComponent" parent="Components" instance=ExtResource("4_i0a1a")]
+interaction_input = SubResource("InputEventKey_vhn41")
+interaction_descryption = "Sacrifice your active spell in exchange for loot"
+interaction_title = "Spell Altar"
+input_text = "F"
+shape = SubResource("CircleShape2D_xi1sr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 12)
+shape = SubResource("RectangleShape2D_2tf1w")
