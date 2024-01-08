@@ -46,7 +46,7 @@ func _physics_process(delta):
 	query.collision_mask = 2
 	var result = space_state.intersect_ray(query)
 	
-	if result:
+	if result or (parent.global_position - player.global_position).length() > 650 :
 		is_shooting = false
 	else:
 		is_shooting = true

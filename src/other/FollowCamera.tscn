@@ -73,6 +73,7 @@ scale = Vector2(0.375, 0.375)
 texture = ExtResource("2_dixgj")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.8, 0.8)
 process_callback = 0
 position_smoothing_speed = 1.0
 
