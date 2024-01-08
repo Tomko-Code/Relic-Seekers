@@ -8,6 +8,7 @@ extends Node
 #optional
 @export var _ShootingComponent: ShootingComponent
 
+@export var right_only: bool = false
 
 func get_direction_constant(vector: Vector2):
 	var final_angle = PI/4*(8) + PI/8
@@ -43,18 +44,32 @@ func _process(delta):
 		Constants.all_directions.UP:
 			#_AnimatedSpriteComponent.set_animation("move_up")
 			if _AnimatedSpriteComponent.current_animation not in ["move_left_up", "move_up_right"] or _MovementComponent.is_idle:
-				set_animation("left_up")
+				if right_only:
+					set_animation("up_right", true)
+				else:
+					set_animation("left_up")
 		Constants.all_directions.LEFT_UP:
-			set_animation("left_up")
+			if right_only:
+				set_animation("up_right", true)
+			else:
+				set_animation("left_up")
 		Constants.all_directions.LEFT:
-			#_AnimatedSpriteComponent.set_animation("move_left")
-			set_animation("left_down")
+			if right_only:
+				set_animation("right_down", true)
+			else:
+				set_animation("left_down")
 		Constants.all_directions.LEFT_DOWN:
-			set_animation("left_down")
+			if right_only:
+				set_animation("right_down", true)
+			else:
+				set_animation("left_down")
 		Constants.all_directions.DOWN:
 			#_AnimatedSpriteComponent.set_animation("move_down")
 			if _AnimatedSpriteComponent.current_animation not in ["move_right_down", "move_left_down"] or _MovementComponent.is_idle:
-				set_animation("left_down")
+				if right_only:
+					set_animation("right_down", true)
+				else:
+					set_animation("left_down")
 		Constants.all_directions.RIGHT_DOWN:
 			set_animation("right_down")
 				
@@ -62,7 +77,7 @@ func _process(delta):
 		_AnimatedSpriteComponent.rotation = _MovementComponent.get_direction().angle()
 
 
-func set_animation(animation: String):
+func set_animation(animation: String, flip_h:bool = false):
 	var animation_direction = 1
 	if _ShootingComponent:
 		var movment_direction = get_direction_constant(_ShootingComponent.get_direction())
@@ -72,6 +87,6 @@ func set_animation(animation: String):
 			animation_direction = -1
 	
 	if _MovementComponent.is_idle:
-		_AnimatedSpriteComponent.set_animation("idle_" + animation, animation_direction)
+		_AnimatedSpriteComponent.set_animation("idle_" + animation, animation_direction, false, flip_h)
 	else:
-		_AnimatedSpriteComponent.set_animation("move_" + animation, animation_direction)
+		_AnimatedSpriteComponent.set_animation("move_" + animation, animation_direction, false, flip_h)

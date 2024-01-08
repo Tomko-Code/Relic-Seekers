@@ -19,8 +19,8 @@ func _ready():
 	despawn_particles.lifetime = 0.1
 	update()
 
-func _draw():
-	draw_arc(Vector2.ZERO, 16, 0, 2*PI, 64, core_color, -1, true)
+#func _draw():
+#	draw_arc(Vector2.ZERO, 16, 0, 2*PI, 64, core_color, -1, true)
 
 func from_projectile(projectile: BaseProjectile):
 	if projectile.finish_particles:
@@ -34,7 +34,7 @@ func update():
 	$Node2D/AnimatedSpriteComponent/Sprite2D.rotation = randf_range(0, 2*PI)
 	$Node2D/AnimatedSpriteComponent/Sprite2D.modulate = core_color
 	$CPUParticles2D.color = core_color
-	queue_redraw()
+	#queue_redraw()
 
 func _physics_process(delta):
 	current_scale += delta * scaling_speed

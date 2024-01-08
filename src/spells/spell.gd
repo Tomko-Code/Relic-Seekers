@@ -144,6 +144,8 @@ func change_mana(value: int):
 func get_gold_value():
 	var effects = get_effects(false)
 	var gold_value = 15
+	var pos_effects = 1
+	var neg_effects = 1
 	for effect in effects:
 		effect = effect as SpellEffect
 		if effect.effect_type == Constants.effect_types.POSITIVE:
@@ -152,10 +154,14 @@ func get_gold_value():
 				gold_value += tier
 			else:
 				gold_value += 2
+			gold_value += pos_effects
+			pos_effects *= 2
 		elif effect.effect_type == Constants.effect_types.NEGATIVE:
 			var tier = effect.get("tier")
 			if tier != null:
 				gold_value -= tier
 			else:
 				gold_value -= 2
+			gold_value -= neg_effects
+			neg_effects *= 2
 	return gold_value

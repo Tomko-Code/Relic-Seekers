@@ -28,7 +28,8 @@ func process_entity(entity):
 	
 	if _StatsComponent and (entity is BaseProjectile or entity is DamageArea):
 		_StatsComponent.change_health(entity.damage)
-		_MovementComponent.recoil(entity)
+		if _MovementComponent:
+			_MovementComponent.recoil(entity)
 	
 	if _StatsComponent is PlayerStatsComponent and entity is DamageArea:
 		_StatsComponent = _StatsComponent as PlayerStatsComponent
