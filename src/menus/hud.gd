@@ -13,6 +13,7 @@ func _process(delta):
 	if fps_lable.visible:
 		fps_lable.text = "FPS : " + str(Engine.get_frames_per_second())
 
+
 func on_settings_changed(setting:String, value) -> void:
 	match setting:
 		"show_fps":

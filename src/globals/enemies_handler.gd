@@ -3,6 +3,8 @@ extends Node
 signal boss_spawned(boss: Enemy)
 #signal boss_died
 
+var marker = preload("res://src/entities/marker_component.tscn")
+
 var all_enemies = []
 
 func spawn_boss(enemy_name):
@@ -17,7 +19,7 @@ func spawn_enemy(enemy_name:String) -> Enemy:
 	if EnemiesDb.enemies.has(enemy_name):
 		var enemy: Enemy = EnemiesDb.enemies[enemy_name].resource.instantiate()
 		var stats = GameManager.get_entity_component(enemy, StatsComponent)[0]
-		
+		enemy.get_node("Components").add_child(marker.instantiate())
 		stats.max_health = stats.max_health * int((GameManager.level_depth * 0.2) + 1)
 		stats.current_health = stats.max_health
 		

@@ -23,8 +23,8 @@ func _on_interactable_component_interacted():
 	
 	level_preset.random_start = false
 	
-	level_preset.min_rooms = 10 + (level_preset.difficulty * 5)
-	level_preset.max_rooms = 10 + (level_preset.difficulty * 5)
+	level_preset.min_rooms = 7 + (level_preset.difficulty * 5)
+	level_preset.max_rooms = 7 + (level_preset.difficulty * 5)
 	
 	var special_rooms_count = GameManager.level_depth + randi_range(1, 3)
 	var special_rooms = [

@@ -7,6 +7,7 @@ signal death
 var is_dead: bool = false
 @export var loot_table: String = "standard_mob_loot"
 
+
 func call_death():
 	if not is_dead:
 		emit_signal("death")

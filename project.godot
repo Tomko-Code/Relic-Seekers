@@ -13,13 +13,13 @@ config_version=5
 config/name="relic_seekers"
 run/main_scene="res://src/main/game_start.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://assets/art/icons/icon.png"
+config/windows_native_icon="res://assets/art/icons/icon.ico"
 
 [autoload]
 
 Utility="*res://src/globals/utility.gd"
 Constants="*res://src/globals/constants.gd"
-PoolManager="*res://src/globals/pool_manager.gd"
 GameData="*res://src/globals/game_data.gd"
 Settings="*res://src/globals/settings.gd"
 ResourceManager="*res://src/globals/resource_manager.gd"
@@ -37,6 +37,7 @@ PickupsHandler="*res://src/globals/pickups_handler.gd"
 ArtifactsDb="*res://src/globals/artifacts_db.gd"
 SoundManager="*res://src/globals/sound_manager.gd"
 LootHandler="*res://src/globals/loot_handler.gd"
+PoolManager="*res://src/globals/pool_manager.gd"
 
 [display]
 

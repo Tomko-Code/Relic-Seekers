@@ -123,7 +123,7 @@ func detach_tooltip(node):
 	if node is CollisionObject2D or node is Control and node.mouse_entered.is_connected(tooltip_node.on_hover_show):
 		var flagged_connection = []
 		for con in node.mouse_entered.get_connections():
-			print(con.callable.get_object())
+			#print(con.callable.get_object())
 			if con.callable.get_object() == tooltip_node:
 				flagged_connection.append(con.callable)
 		for callback in flagged_connection:

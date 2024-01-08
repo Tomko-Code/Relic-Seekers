@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0boqtc610r3k"]
+
+[ext_resource type="Script" path="res://src/entities/marker_component.gd" id="1_3mfai"]
+[ext_resource type="Texture2D" uid="uid://c4da06gt1425" path="res://assets/art/UI/big_arrow.svg" id="2_dqppl"]
+
+[node name="MarkerComponent" type="Node2D" node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_3mfai")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(17, 0)
+texture = ExtResource("2_dqppl")
+offset = Vector2(-17, 0)
