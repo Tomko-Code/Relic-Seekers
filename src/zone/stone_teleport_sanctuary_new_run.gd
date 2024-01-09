@@ -18,7 +18,7 @@ func _on_interactable_component_interacted():
 	if scaling_levels:
 		level_preset.difficulty = GameManager.level_depth
 	
-	level_preset.level_size = Vector2(100, 100)
+	level_preset.level_size = Vector2(1000, 1000)
 	level_preset.start_position = Vector2(49,49)
 	
 	level_preset.random_start = false
