@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyt7sb2kcnhas"]
+
+[ext_resource type="Texture2D" uid="uid://d2ptqhhiy7wis" path="res://assets/sfx/light/light_gradients/gradient_one.tres" id="1_uy5iu"]
+
+[node name="SpotLight" type="PointLight2D"]
+position = Vector2(1600, 1215)
+energy = 1.7
+blend_mode = 2
+texture = ExtResource("1_uy5iu")
+texture_scale = 2.8
