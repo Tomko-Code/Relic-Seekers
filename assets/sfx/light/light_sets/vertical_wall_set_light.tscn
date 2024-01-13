@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dt7kwnp3cugmy"]
 
-[ext_resource type="PackedScene" uid="uid://bqb43ymw5guvu" path="res://assets/sfx/light_source_wall.tscn" id="1_qlbc5"]
+[ext_resource type="PackedScene" uid="uid://bqb43ymw5guvu" path="res://assets/sfx/light/light_sources/light_source_wall.tscn" id="1_qlbc5"]
 
 [node name="VerticalWallSetLight" type="Node2D"]
 position = Vector2(224, 608)

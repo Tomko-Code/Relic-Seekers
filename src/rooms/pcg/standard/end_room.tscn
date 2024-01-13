@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://o5dswy3o3sqe"]
+[gd_scene load_steps=5 format=3 uid="uid://o5dswy3o3sqe"]
 
 [ext_resource type="PackedScene" uid="uid://bnrt7xcfjh5bx" path="res://src/zone/room.tscn" id="1_jt1rx"]
 [ext_resource type="PackedScene" uid="uid://3tchj66syyvi" path="res://src/zone/stone_teleport_sanctuary_new_run.tscn" id="2_u8fdf"]
 [ext_resource type="PackedScene" uid="uid://d0h7d0ariah40" path="res://assets/sfx/light/light_sets/set_of_lights_for_1x1.tscn" id="3_gq1xs"]
+[ext_resource type="PackedScene" uid="uid://dyt7sb2kcnhas" path="res://assets/sfx/light/light_sources/spot_light.tscn" id="4_lqaxo"]
 
 [node name="EndRoom" instance=ExtResource("1_jt1rx")]
 
@@ -16,3 +17,7 @@ layer_0/tile_data = PackedInt32Array(65536, 524288, 1, 65540, 393216, 1, 1, 4587
 position = Vector2(812, 652)
 
 [node name="Lights2" parent="Lights" index="0" instance=ExtResource("3_gq1xs")]
+
+[node name="SpotLight" parent="Lights" index="1" instance=ExtResource("4_lqaxo")]
+position = Vector2(790, 637)
+texture_scale = 0.6
