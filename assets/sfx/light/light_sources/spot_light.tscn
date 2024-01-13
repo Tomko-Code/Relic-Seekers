@@ -4,7 +4,8 @@
 
 [node name="SpotLight" type="PointLight2D"]
 position = Vector2(1600, 1215)
-energy = 1.7
+color = Color(1, 0.85098, 0.74902, 1)
+energy = 1.5
 blend_mode = 2
 texture = ExtResource("1_uy5iu")
 texture_scale = 2.8

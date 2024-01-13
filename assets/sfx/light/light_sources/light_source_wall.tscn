@@ -134,7 +134,7 @@ animations = [{
 
 [node name="PointLight2D" type="PointLight2D"]
 color = Color(1, 0.85098, 0.74902, 1)
-energy = 1.6
+energy = 1.5
 blend_mode = 2
 texture = ExtResource("1_fm80g")
 script = ExtResource("2_x46qw")

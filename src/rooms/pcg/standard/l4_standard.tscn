@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cf7dnlvy7isi0"]
+[gd_scene load_steps=4 format=3 uid="uid://cf7dnlvy7isi0"]
 
 [ext_resource type="PackedScene" uid="uid://bnrt7xcfjh5bx" path="res://src/zone/room.tscn" id="1_wmsra"]
 [ext_resource type="PackedScene" uid="uid://dqagmul4ydv14" path="res://assets/sfx/light/light_sets/set_of_lights_for_l4.tscn" id="3_atsa1"]
+[ext_resource type="PackedScene" uid="uid://dyt7sb2kcnhas" path="res://assets/sfx/light/light_sources/spot_light.tscn" id="3_v1ut8"]
 
 [node name="L4Standard" instance=ExtResource("1_wmsra")]
 
@@ -12,3 +13,27 @@ layer_0/tile_data = PackedInt32Array(327686, 589826, 2, 327687, 589826, 2, 32768
 layer_0/tile_data = PackedInt32Array(65536, 524288, 1, 1, 458752, 2, 2, 458752, 2, 3, 458752, 2, 0, 262144, 3, 4, 196608, 3, 196608, 524288, 1, 196612, 393216, 1, 131072, 524288, 1, 262144, 524288, 1, 327680, 524288, 1, 262148, 393216, 2, 458755, 458752, 0, 458754, 458752, 0, 393216, 524288, 1, 458752, 262144, 2, 458753, 458752, 0, 458756, 458752, 0, 458757, 458752, 0, 458758, 458752, 0, 458759, 458752, 0, 458760, 458752, 0, 458761, 196608, 2, 393225, 393216, 1, 327689, 393216, 1, 262153, 196608, 3, 262152, 458752, 2, 262151, 458752, 2, 262150, 458752, 2, 262149, 458752, 2, 131076, 393216, 1, 65540, 393216, 1)
 
 [node name="SetOfLightsForL4" parent="Lights" index="0" instance=ExtResource("3_atsa1")]
+
+[node name="SpotLight16" parent="Lights/SetOfLightsForL4" index="18" instance=ExtResource("3_v1ut8")]
+position = Vector2(864, 1760)
+texture_scale = 1.0
+
+[node name="SpotLight17" parent="Lights/SetOfLightsForL4" index="19" instance=ExtResource("3_v1ut8")]
+position = Vector2(800, 1184)
+texture_scale = 0.7
+
+[node name="SpotLight18" parent="Lights/SetOfLightsForL4" index="20" instance=ExtResource("3_v1ut8")]
+position = Vector2(800, 800)
+texture_scale = 0.7
+
+[node name="SpotLight19" parent="Lights/SetOfLightsForL4" index="21" instance=ExtResource("3_v1ut8")]
+position = Vector2(1312, 1952)
+texture_scale = 0.7
+
+[node name="SpotLight20" parent="Lights/SetOfLightsForL4" index="22" instance=ExtResource("3_v1ut8")]
+position = Vector2(1824, 1952)
+texture_scale = 0.7
+
+[node name="SpotLight21" parent="Lights/SetOfLightsForL4" index="23" instance=ExtResource("3_v1ut8")]
+position = Vector2(2400, 1952)
+texture_scale = 0.7
