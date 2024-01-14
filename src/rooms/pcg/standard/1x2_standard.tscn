@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://n5ak4h6smpbx"]
+[gd_scene load_steps=4 format=3 uid="uid://n5ak4h6smpbx"]
 
 [ext_resource type="PackedScene" uid="uid://bnrt7xcfjh5bx" path="res://src/zone/room.tscn" id="1_gh6rl"]
 [ext_resource type="PackedScene" uid="uid://dlt0li4hd2jkv" path="res://assets/sfx/light/light_sets/set_of_lights_for_1x2.tscn" id="2_8e0yi"]
+[ext_resource type="PackedScene" uid="uid://dyt7sb2kcnhas" path="res://assets/sfx/light/light_sources/spot_light.tscn" id="2_hv5bs"]
 
 [node name="1x2Standard" instance=ExtResource("1_gh6rl")]
 
@@ -11,4 +12,16 @@ layer_0/tile_data = PackedInt32Array(327686, 589826, 2, 327687, 589826, 2, 32768
 [node name="Walls" parent="." index="2"]
 layer_0/tile_data = PackedInt32Array(65536, 524288, 1, 65540, 393216, 1, 1, 458752, 2, 2, 458752, 2, 3, 458752, 2, 131076, 393216, 1, 0, 262144, 3, 4, 196608, 3, 196608, 524288, 1, 196612, 393216, 1, 131072, 524288, 1, 262144, 524288, 1, 327680, 524288, 1, 393216, 524288, 1, 393220, 393216, 1, 327684, 393216, 1, 262148, 393216, 1, 458752, 262144, 2, 458753, 458752, 0, 458754, 458752, 0, 458755, 458752, 0, 458756, 196608, 2)
 
-[node name="SetOfLightsFor1x2" parent="Lights" index="0" instance=ExtResource("2_8e0yi")]
+[node name="SpotLight" parent="Lights" index="0" instance=ExtResource("2_hv5bs")]
+position = Vector2(800, 1824)
+texture_scale = 0.7
+
+[node name="SetOfLightsFor1x2" parent="Lights" index="1" instance=ExtResource("2_8e0yi")]
+
+[node name="SpotLight2" parent="Lights" index="2" instance=ExtResource("2_hv5bs")]
+position = Vector2(800, 1312)
+texture_scale = 0.7
+
+[node name="SpotLight3" parent="Lights" index="3" instance=ExtResource("2_hv5bs")]
+position = Vector2(800, 800)
+texture_scale = 0.7

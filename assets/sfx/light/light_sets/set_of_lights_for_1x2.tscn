@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dlt0li4hd2jkv"]
 
-[ext_resource type="PackedScene" uid="uid://bqb43ymw5guvu" path="res://assets/sfx/light/light_source_wall.tscn" id="1_ywdtd"]
+[ext_resource type="PackedScene" uid="uid://bqb43ymw5guvu" path="res://assets/sfx/light/light_sources/light_source_wall.tscn" id="1_ywdtd"]
 
 [node name="SetOfLightsFor1x2" type="Node2D"]
 
