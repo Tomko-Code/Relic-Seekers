@@ -42,6 +42,8 @@ func get_enemy_closest_to(entity: Node2D, excluded_enemies: Array):
 	var closest_enemy = null
 	var closest_distance = INF
 	for enemy in all_enemies:
+		if enemy == null or not is_instance_valid(enemy):
+			return null
 		if (enemy.global_position - entity.global_position).length() < closest_distance and enemy not in excluded_enemies:
 			closest_distance = (enemy.global_position - entity.global_position).length()
 			closest_enemy = enemy

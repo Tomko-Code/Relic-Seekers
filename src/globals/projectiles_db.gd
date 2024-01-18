@@ -7,6 +7,13 @@ var projectiles: Dictionary = {
 	test_projectile_b = {
 		sprite = load("res://assets/sprites/projectiles/test_projectile_b.tres")
 	},
+	death_ball = {
+		sprite = load("res://assets/sprites/projectiles/test_projectile_b.tres"),
+		spawn_particles = Color.BLACK,
+		finish_particles = Color.BLACK,
+		trail_particles = Color.BLACK,
+		scale = Vector2(3,3),
+	},
 	fireball = {
 		sprite = load("res://assets/sprites/projectiles/fireball_sprite.tres"),
 		spawn_particles = Color.ORANGE_RED,

@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://jbvdv1tp0cv3"]
+
+[ext_resource type="Texture2D" uid="uid://bagmongkbavce" path="res://assets/art/sprites/spells/death_beam_spell_sprite.png" id="1_bre5h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4i8xs"]
+atlas = ExtResource("1_bre5h")
+region = Rect2(0, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4i8xs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

@@ -41,7 +41,7 @@ func change_current_spell(value: int):
 
 func get_current_spell(include_default = true) -> Spell:
 	var spell = spells[current_spell_slot]
-	if spell:
+	if current_spell_slot > 0 and not spell == null:
 		return spell
 	if include_default:
 		return spells[0]
@@ -49,12 +49,13 @@ func get_current_spell(include_default = true) -> Spell:
 		return null
 
 func add_spell(new_spell: Spell):
-	for spell_slot_id in range(1,5):
-		if spells[spell_slot_id] == null:
-			spells[spell_slot_id] = new_spell
-			emit_signal("spells_changed")
-			return null
+
 	if current_spell_slot == 0:
+		for spell_slot_id in range(1,5):
+			if spells[spell_slot_id] == null:
+				spells[spell_slot_id] = new_spell
+				emit_signal("spells_changed")
+				return null
 		var last_spell = spells.back()
 		for spell_slot_id in range(3,0,-1):
 			spells[spell_slot_id+1] = spells[spell_slot_id]
@@ -110,6 +111,8 @@ func reset():
 	if passive_artifact != null:
 		passive_artifact.queue_free()
 		passive_artifact = null
+	
+	SpellsDb.get_death_ray()
 	
 	emit_signal("spells_changed")
 	

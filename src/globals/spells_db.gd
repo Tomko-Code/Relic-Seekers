@@ -7,6 +7,15 @@ func _init():
 	spells.test_spell = spells.fireball.duplicate(true)
 	#spells.default_spell.projectile_data.effects = [ChainEffect.new().init(0)]
 
+func _ready():
+	get_death_ray()
+
+func get_death_ray():
+	GameData.save_file.player_inventory.change_current_spell(4)
+	var spell = SpellsHandler.create_spell("death_beam")
+	GameData.save_file.player_inventory.add_spell(spell)
+	GameData.save_file.player_inventory.change_current_spell(0)
+
 var random_pool = [
 	["fireball", 2],
 	["icicle", 3],
@@ -17,8 +26,32 @@ var random_pool = [
 var spells = {
 	default_spell = null,
 	test_spell = null,
+	death_beam = {
+		type="death_beam",
+		archetype=Constants.spell_archetypes.PROJECTILE,
+		full_name = "[color=purple]Death Beam[/color]",
+		projectile_type = "death_ball",
+		description = "Launch a ray of death",
+		innate_effects = [
+				HomingEffect.new(),
+				InstantMotionEffect.new(),
+				PierceEffect.new().init(3),
+				ExplosiveEffect.new().init(2),
+			],
+		projectile_data = {
+			damage_type = Constants.damage_types.FIRE,
+			damage = 20,
+			speed = 400,
+			range = 1000,
+		},
+		frames = load("res://assets/sprites/spells/death_beam_spell.tres"),
+		max_mana = -1,
+		mana_cost = 1,
+		cast_frequency = 0.1,
+		#shoot_frequency = 0.1,
+	},
 	fireball = {
-		type="default_spell",
+		type="fireball",
 		archetype=Constants.spell_archetypes.PROJECTILE,
 		full_name = "Fireball",
 		projectile_type = "fireball",

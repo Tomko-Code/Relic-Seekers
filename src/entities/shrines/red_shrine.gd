@@ -7,9 +7,22 @@ func can_apply_on_spell(spell: Spell) -> bool:
 
 func apply_on_spell(spell: Spell):
 	spell.set_meta("modified", true)
-	var effects = SpellEffectsDb.random_effects_for_spell_from_pool("positive", spell, 1, 2, true) as Array
+	var positive = SpellEffectsDb.random_effects_for_spell_from_pool("positive", spell, 1, 2, true) as Array
 	var negative = SpellEffectsDb.random_effects_for_spell_from_pool("negative", spell, 0, 2, true)
-	effects.append_array(negative)
+	
+	var pre_c_effects = positive.duplicate() as Array
+	pre_c_effects.append_array(negative)
+	
+	var effects = []
+	for peff in pre_c_effects:
+		var add_effect_f = true
+		for ceff in effects:
+			if peff.get_script() == ceff.get_script():
+				add_effect_f = false
+				break
+		if add_effect_f:
+			effects.append(peff)
+	
 	for effect in effects:
 		effect = effect as SpellEffect
 		spell.add_effect(effect)

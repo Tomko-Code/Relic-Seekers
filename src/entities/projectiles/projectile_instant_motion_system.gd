@@ -20,6 +20,7 @@ func full_send_it():
 		var trail = ProjectileTrail.new()
 		trail.frames = load("res://assets/sprites/other/trail/trail1.tres")
 		trail.play("default")
+		trail.scale = parent.scale
 		trail.rotation = _ProjectileMovementComponent.get_direction().angle()
 		trail.position = parent.position
 		if parent.trail_particles != null:

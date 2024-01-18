@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dq7dfu32hthvr"]
+[gd_scene load_steps=14 format=3 uid="uid://dq7dfu32hthvr"]
 
 [ext_resource type="PackedScene" uid="uid://bnrt7xcfjh5bx" path="res://src/zone/room.tscn" id="1_ig6x2"]
 [ext_resource type="Script" path="res://src/rooms/combat/main_combat_room.gd" id="2_qmh12"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bgspaj8eb85kd" path="res://src/entities/enemies/other/chest.tscn" id="10_t0dub"]
 [ext_resource type="PackedScene" uid="uid://4f13151paxdp" path="res://src/entities/shrines/blue_shrine.tscn" id="11_l8awo"]
 [ext_resource type="PackedScene" uid="uid://boxe2uihy7622" path="res://src/entities/shrines/red_shrine.tscn" id="12_gh6g6"]
+[ext_resource type="Script" path="res://src/spells/test_artifact_spawn.gd" id="13_l6ugl"]
 
 [node name="MainCombatRoom" node_paths=PackedStringArray("teleport") instance=ExtResource("1_ig6x2")]
 script = ExtResource("2_qmh12")
@@ -83,3 +84,8 @@ position = Vector2(0, -200)
 
 [node name="Marker2D" type="Marker2D" parent="." index="18"]
 position = Vector2(928, 1504)
+
+[node name="TestArtifactSpawn" type="Marker2D" parent="." index="20"]
+position = Vector2(821.257, 2168.25)
+script = ExtResource("13_l6ugl")
+artifact_name = "jar_of_fireflies"

@@ -50,9 +50,14 @@ text = "+50e"
 layout_mode = 2
 text = "test_spell"
 
+[node name="Button6" type="Button" parent="Console/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Full heal"
+
 [connection signal="text_changed" from="Console/TextEdit" to="." method="_on_text_edit_text_changed"]
 [connection signal="pressed" from="Console/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Console/VBoxContainer/HBoxContainer/Button2" to="." method="_on_button_2_pressed_death"]
 [connection signal="pressed" from="Console/VBoxContainer/HBoxContainer/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="Console/VBoxContainer/HBoxContainer/Button4" to="." method="_on_button_4_pressed"]
 [connection signal="pressed" from="Console/VBoxContainer/HBoxContainer/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="Console/VBoxContainer/HBoxContainer/Button6" to="." method="_on_button_6_pressed"]

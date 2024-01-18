@@ -17,6 +17,7 @@ func apply_on_projectile(projectile: BaseProjectile):
 
 func explode(projectile: BaseProjectile):
 	var explosion = ProjectilesHandler.spawn_projectile_explosion(projectile, explosion_tiers[tier])
+	explosion.scale = projectile.scale
 	explosion.position = projectile.position
 	projectile.get_parent().call_deferred("add_child", explosion)
 

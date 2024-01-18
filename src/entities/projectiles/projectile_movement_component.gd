@@ -36,11 +36,11 @@ func _physics_process(delta):
 	before_motion.emit()
 	distance_traveled_duration += delta
 	
-	if _EntityShadowComponent:
+	if _EntityShadowComponent and range >= 0:
 		_EntityShadowComponent.height = 9 - (10 * (distance_traveled_duration/(range/60)))
 		_EntityShadowComponent.queue_redraw()
 	
-	if distance_traveled_duration > range / 60:
+	if range >= 0 and distance_traveled_duration > range / 60:
 		parent.expire()
 		return
 	
