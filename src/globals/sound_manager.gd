@@ -23,8 +23,10 @@ func play_sfx(sfx_name):
 		
 		if sfx_q.size() >= sfx_limit:
 			var last_stream = sfx_q.pop_back() as AudioStreamPlayer
+			if not last_stream.is_node_ready():
+				sfx_q.push_front(last_stream)
+				return
 			last_stream.stop()
-			sfx_q.push_front(last_stream)
 			last_stream.play()
 		else:
 			var audio_player = AudioStreamPlayer.new()

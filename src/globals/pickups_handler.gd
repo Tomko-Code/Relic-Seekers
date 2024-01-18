@@ -8,6 +8,7 @@ var purchasable_wrapper_resource = load("res://src/entities/pickups/purchasable_
 var heart_resource = load("res://src/entities/pickups/heart_pickup.tscn")
 var chest_resource = load("res://src/entities/enemies/other/chest.tscn")
 
+var shrine_count = 0
 
 func create_chest():
 	return chest_resource.instantiate()

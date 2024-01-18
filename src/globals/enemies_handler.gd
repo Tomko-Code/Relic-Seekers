@@ -7,6 +7,8 @@ var marker = preload("res://src/entities/marker_component.tscn")
 
 var all_enemies = []
 
+var killed_enemies: int = 0
+
 func spawn_boss(enemy_name):
 	var enemy = spawn_enemy(enemy_name)
 	if enemy == null:
@@ -31,6 +33,7 @@ func spawn_enemy(enemy_name:String) -> Enemy:
 		return null
 
 func clear_enemie(enemy):
+	killed_enemies += 1
 	all_enemies.erase(enemy)
 
 func clear_all_enemies():
