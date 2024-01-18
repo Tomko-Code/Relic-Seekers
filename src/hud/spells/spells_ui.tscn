@@ -51,7 +51,7 @@ visible = false
 layout_mode = 2
 
 [node name="CurrentSpell" parent="HBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_l7fwu")]
-custom_minimum_size = Vector2(136, 136)
+custom_minimum_size = Vector2(112, 112)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
