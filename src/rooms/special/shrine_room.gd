@@ -9,7 +9,8 @@ var shrines = [
 @onready var marker = $ShrineMarker
 
 func _ready():
-	var shrine_res = GameManager.get_random_from_weighed_array(shrines)
+	var shrine_res = shrines[PickupsHandler.shrine_count % 2][0]
+	PickupsHandler.shrine_count += 1
 	var shrine: Shrine = shrine_res.instantiate()
 	
 	if shrine.get_title() == "Blue Shrine":

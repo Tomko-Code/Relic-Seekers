@@ -25,6 +25,14 @@ func play_sfx(audio_player: AudioStreamPlayer):
 
 func spawn_loot():
 	var loot_array = LootHandler.create_standard_loot(loot_table)
+
+	if EnemiesHandler.killed_enemies == 1:
+		var spell = SpellsHandler.create_spell("fireball")
+		spell.add_effect(ExtraProjectilesEffect.new().init(1))
+		spell.add_effect(PierceEffect.new().init(1))
+		var spell_pickup = SpellsHandler.create_spell_pickup(spell)
+		loot_array.append(spell_pickup)
+	
 	for pickup in loot_array:
 		var random_direction = Vector2.from_angle(PI*2 * randf()).normalized()
 		pickup.position = position + (random_direction * 10)
