@@ -47,6 +47,7 @@ theme_override_constants/separation = 4
 layout_mode = 2
 
 [node name="ArtifactSlotE" parent="HBoxContainer/MarginContainer/VBoxContainer/ArtifactSlots" instance=ExtResource("2_o8whr")]
+visible = false
 layout_mode = 2
 
 [node name="CurrentSpell" parent="HBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_l7fwu")]
