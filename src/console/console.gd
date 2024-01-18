@@ -41,3 +41,8 @@ func _on_button_5_pressed():
 	spell_pickup.position = GameManager.player.position
 	GameManager.player.get_parent().call_deferred("add_child", spell_pickup)
 	pass
+
+
+func _on_button_6_pressed():
+	var stats = GameManager.get_entity_component(GameManager.player, PlayerStatsComponent)[0] as PlayerStatsComponent
+	stats.change_health(-(stats.max_health - stats.current_health))
