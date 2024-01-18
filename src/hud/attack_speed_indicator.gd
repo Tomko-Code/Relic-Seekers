@@ -24,10 +24,11 @@ func update_spell():
 	if old_spell:
 		old_spell.on_cast.disconnect(on_cast)
 	spell = GameData.save_file.player_inventory.get_current_spell()
-	spell.on_cast.connect(on_cast)
-	timeout_frequency_max = spell.cast_frequency
-	timeout_frequency_current = spell.get_remaining_cooldown()
-	set_process(true)
+	if spell != null:
+		spell.on_cast.connect(on_cast)
+		timeout_frequency_max = spell.cast_frequency
+		timeout_frequency_current = spell.get_remaining_cooldown()
+		set_process(true)
 
 func _draw():
 	draw_arc(Vector2.ZERO, radius, 0, 2*PI * (timeout_frequency_current/timeout_frequency_max),100,Color.RED,2,true)

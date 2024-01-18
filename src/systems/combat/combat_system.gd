@@ -31,6 +31,9 @@ func process_entity(entity):
 		if _MovementComponent:
 			_MovementComponent.recoil(entity)
 	
+	if _StatsComponent and entity is DamageArea:
+		SoundManager.play_sfx("hit_sfx")
+	
 	if _StatsComponent is PlayerStatsComponent and entity is DamageArea:
 		_StatsComponent = _StatsComponent as PlayerStatsComponent
 		if not _StatsComponent.invulnerability_end.is_connected(re_check_area_damage):

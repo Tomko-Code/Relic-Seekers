@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="4_e0u06"]
 [ext_resource type="Script" path="res://src/systems/combat/combat_system.gd" id="5_vxiji"]
 [ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="6_hvmpo"]
-[ext_resource type="SpriteFrames" uid="uid://daieghomrg517" path="res://assets/sprites/mobs/goblin.tres" id="7_6wn7k"]
+[ext_resource type="SpriteFrames" uid="uid://b5r8lbqf1hpk" path="res://assets/sprites/mobs/goblin.tres" id="7_6wn7k"]
 [ext_resource type="Script" path="res://src/systems/movement/four_direction_animation_system_extra.gd" id="8_6t6lx"]
 [ext_resource type="PackedScene" uid="uid://b001mo8qgm6le" path="res://src/entities/enemies/health_bar_component.tscn" id="9_xi8oq"]
 [ext_resource type="Script" path="res://src/entities/enemies/follow_movement_component.gd" id="10_03hl7"]

@@ -24,6 +24,8 @@ func spawn_projectile(projectile_name, is_friendly: bool):
 		projectile.type = projectile_name
 		projectile.projectile_data.type = projectile_name
 		
+		projectile.launch(Vector2.ZERO)
+		
 		set_projectile_layer(projectile, is_friendly)
 		
 		all_projectiles.append(projectile)

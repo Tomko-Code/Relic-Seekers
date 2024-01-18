@@ -58,7 +58,6 @@ func get_projectile_data():
 
 func initialize(_projectile_data: Dictionary):
 	projectile_data = _projectile_data.duplicate(true)
-	
 	for key in projectile_data.keys():
 		set(key, projectile_data[key])
 	#speed = projectile_data.get("speed", speed)
@@ -95,6 +94,10 @@ func re_apply_effects():
 		effect.apply_on_projectile(self)
 
 func launch(direction_vector: Vector2):
+	if direction_vector == Vector2.ZERO:
+		speed = 0
+		range = -1
+	
 	#if not was_launched:
 	#	SoundManager.play_sfx("spawn_sound")
 	launch_direction = direction_vector
