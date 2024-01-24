@@ -30,8 +30,12 @@ func spawn_loot():
 		var spell = SpellsHandler.create_spell("fireball")
 		spell.add_effect(ExtraProjectilesEffect.new().init(1))
 		spell.add_effect(PierceEffect.new().init(1))
+		var loot1 = PickupsHandler.create_gold_pickup() as GoldPickup
+		var loot2 = PickupsHandler.create_emerald_pickup() as EmeraldPickup
 		var spell_pickup = SpellsHandler.create_spell_pickup(spell)
 		loot_array.append(spell_pickup)
+		loot_array.append(loot1)
+		loot_array.append(loot2)
 	
 	for pickup in loot_array:
 		var random_direction = Vector2.from_angle(PI*2 * randf()).normalized()
