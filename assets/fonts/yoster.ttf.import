@@ -2,9 +2,7 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-
 uid="uid://bpdjfdnl7p1vf"
-
 path="res://.godot/imported/yoster.ttf-7cef9b7dce5ce91cdcc28263aa7977b8.fontdata"
 
 [deps]
@@ -17,6 +15,7 @@ dest_files=["res://.godot/imported/yoster.ttf-7cef9b7dce5ce91cdcc28263aa7977b8.f
 Rendering=null
 antialiasing=1
 generate_mipmaps=false
+disable_embedded_bitmaps=true
 multichannel_signed_distance_field=false
 msdf_pixel_range=8
 msdf_size=48
@@ -24,6 +23,7 @@ allow_system_fallback=true
 force_autohinter=false
 hinting=1
 subpixel_positioning=1
+keep_rounding_remainders=true
 oversampling=0.0
 Fallbacks=null
 fallbacks=[]
