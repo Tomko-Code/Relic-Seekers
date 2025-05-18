@@ -22,13 +22,13 @@ signal spells_changed
 #@export var artefact_1
 
 @export var current_spell_slot:int = 0
-@export var spells:Array[Spell] = [null,null,null,null,null]
+@export var spells:Array = [null,null,null,null,null]
 
-@export var active_artifact: ActiveArtifact = null:
+@export var active_artifact = null:
 	set(value):
 		active_artifact = value
 		emit_signal("active_artifact_changed")
-@export var passive_artifact: PassiveArtifact = null:
+@export var passive_artifact = null:
 	set(value):
 		passive_artifact = value
 		emit_signal("passive_artifact_changed")
