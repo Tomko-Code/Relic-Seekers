@@ -15,4 +15,3 @@ func on_player_entered(player):
 			player._PlayerStatsComponent.change_health(-1)
 			SoundManager.play_sfx("heart_sfx")
 			queue_free()
-

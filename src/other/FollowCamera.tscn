@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://jumgdbiwdj0i"]
 
-[ext_resource type="Script" path="res://src/other/follow_camera.gd" id="1_g4usv"]
+[ext_resource type="Script" uid="uid://w6j0om4sfm7k" path="res://src/other/follow_camera.gd" id="1_g4usv"]
 [ext_resource type="Texture2D" uid="uid://dayf0y6nyidev" path="res://icon.svg" id="2_dixgj"]
 
 [sub_resource type="Animation" id="Animation_7vbcn"]
@@ -59,8 +59,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_45wxa"]
 _data = {
-"RESET": SubResource("Animation_7vbcn"),
-"SlowCameraEffect": SubResource("Animation_3fahm")
+&"RESET": SubResource("Animation_7vbcn"),
+&"SlowCameraEffect": SubResource("Animation_3fahm")
 }
 
 [node name="FollowCamera" type="Node2D"]
@@ -78,5 +78,5 @@ position_smoothing_speed = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_45wxa")
+&"": SubResource("AnimationLibrary_45wxa")
 }

@@ -34,4 +34,3 @@ func _draw():
 	
 	draw_set_transform(pos,0,x_val * Vector2(3,1) )
 	draw_circle(Vector2(0,0),1.0,Color(0.0,0.0,0.0,0.3))
-

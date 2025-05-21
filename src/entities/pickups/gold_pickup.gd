@@ -15,4 +15,3 @@ func on_player_entered(player):
 		GameData.save_file.player_inventory.gold += 1
 		SoundManager.play_sfx("gold_sfx")
 		queue_free()
-
