@@ -18,29 +18,29 @@ layer_0/tile_data = PackedInt32Array(851973, 524290, 1, 786437, 524290, 1, 72090
 layer_0/tile_data = PackedInt32Array(0, 262144, 3, 65536, 524288, 1, 131072, 524288, 1, 1, 458752, 2, 2, 458752, 2, 3, 458752, 2, 4, 196608, 3, 65540, 393216, 1, 131076, 393216, 1, 196612, 196608, 2, 196611, 458752, 0, 196610, 458752, 0, 196609, 458752, 0, 196608, 262144, 2)
 
 [node name="ShopAltar" parent="." index="3" instance=ExtResource("4_ayrvv")]
-position = Vector2(448, 832)
+position = Vector2(224, 416)
 
 [node name="RestockInteractible" parent="." index="4" instance=ExtResource("3_1hxn8")]
-position = Vector2(512, 448)
+position = Vector2(256, 224.013)
 
 [node name="ShopMarker" type="Marker2D" parent="." index="5" groups=["ShopMarker"]]
-position = Vector2(642, 450)
+position = Vector2(321, 225)
 script = ExtResource("4_ff73c")
 
 [node name="ShopMarker2" type="Marker2D" parent="." index="6" groups=["ShopMarker"]]
-position = Vector2(770, 450)
+position = Vector2(385, 225)
 script = ExtResource("4_ff73c")
 
 [node name="ShopMarker3" type="Marker2D" parent="." index="7" groups=["ShopMarker"]]
-position = Vector2(898, 450)
+position = Vector2(449, 225)
 script = ExtResource("4_ff73c")
 
 [node name="ShopMarker4" type="Marker2D" parent="." index="8" groups=["ShopMarker"]]
-position = Vector2(1026, 452)
+position = Vector2(513, 226)
 script = ExtResource("4_ff73c")
 
 [node name="ShopMarker5" type="Marker2D" parent="." index="9" groups=["ShopMarker"]]
-position = Vector2(1152, 448)
+position = Vector2(576, 224)
 script = ExtResource("4_ff73c")
 
 [node name="Lights2" parent="Lights" index="0" instance=ExtResource("7_wgwgi")]
