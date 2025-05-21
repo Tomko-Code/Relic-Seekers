@@ -10,7 +10,7 @@ func _draw():
 	var x_val = 0.0
 	for sprite in _AnimatedSpriteComponent.get_children():
 		if sprite is AnimatedSprite2D:
-			sprite as AnimatedSprite2D
+			#sprite as AnimatedSprite2D
 			var frames = sprite.sprite_frames as SpriteFrames
 			if frames == null:
 				continue
@@ -21,7 +21,7 @@ func _draw():
 			if texture_size.x > x_val:
 				x_val = texture_size.x
 		elif sprite is Sprite2D:
-			sprite as Sprite2D
+			#sprite as Sprite2D
 			var texture = sprite.texture
 			var texture_size = texture.get_size() * sprite.scale
 			if texture_size.y > pos.y:

@@ -233,7 +233,7 @@ func on_player_enter() -> void:
 	set_physics_process(true)
 	set_process(true)
 	lights.show()
-	print("eeee")
+	
 	for conn in data.closed_connection_arry:
 		var room_data:RoomData = conn.connected_room
 		var room:Room = room_data.spawned_room

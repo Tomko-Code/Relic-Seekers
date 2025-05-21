@@ -57,10 +57,10 @@ func set_on_fire(damage_value):
 	if on_fire and on_fire_damage >= damage_value:
 		return
 	if not on_fire_particles:
-		var on_fire_particles = on_fire_partices_resource.instantiate()
-		on_fire_particles.tree_exiting.connect(clear_fire_particles)
-		on_fire_particles.run()
-		parent.call_deferred("add_child", on_fire_particles)
+		var n_on_fire_particles = on_fire_partices_resource.instantiate()
+		n_on_fire_particles.tree_exiting.connect(clear_fire_particles)
+		n_on_fire_particles.run()
+		parent.call_deferred("add_child", n_on_fire_particles)
 	else:
 		on_fire_particles.run()
 	on_fire_damage = damage_value

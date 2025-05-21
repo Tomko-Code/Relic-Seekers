@@ -77,7 +77,7 @@ func match_state(state: STATES):
 				slam_type_2()
 				#extra_clock.start()
 				#await extra_clock.timeout
-				print("TIMEOUT")
+				print("golem:TIMEOUT")
 			
 			animation_system.set_process(true)
 			progress_state()

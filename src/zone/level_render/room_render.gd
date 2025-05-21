@@ -34,7 +34,7 @@ func set_up():
 	
 	if GameData.rooms_data[room.data.type].has("icons"):
 		for icon in GameData.rooms_data[room.data.type]["icons"]:
-			var icon_dic = GameData.rooms_data[room.data.type]["icons"][icon]
+			var icon_dic:Dictionary = GameData.rooms_data[room.data.type]["icons"][icon]
 			var new_icon = null
 			match icon_dic["type"]:
 				"texture":
@@ -46,6 +46,9 @@ func set_up():
 					new_icon.position += (Constants.CHUNK_SIZE/16)/2 * (icon_dic["cord"] + Vector2.ONE)
 				"label":
 					new_icon = icon_dic["res"].instantiate()
+					if icon_dic.has("scale"):
+						new_icon.scale.x = icon_dic["scale"]
+						new_icon.scale.y = icon_dic["scale"]
 					new_icon.position += (Constants.CHUNK_SIZE/16)/2
 			add_child(new_icon)
 	

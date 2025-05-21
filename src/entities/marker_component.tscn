@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b0boqtc610r3k"]
 
-[ext_resource type="Script" path="res://src/entities/marker_component.gd" id="1_3mfai"]
+[ext_resource type="Script" uid="uid://dashlbku6oat0" path="res://src/entities/marker_component.gd" id="1_3mfai"]
 [ext_resource type="Texture2D" uid="uid://c4da06gt1425" path="res://assets/art/UI/big_arrow.svg" id="2_dqppl"]
 
 [node name="MarkerComponent" type="Node2D" node_paths=PackedStringArray("sprite")]

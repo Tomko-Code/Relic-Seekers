@@ -16,8 +16,8 @@ func get_direction():
 
 func collision(hitbox: Area2D):
 	if hitbox is HitboxComponent:
-		var direction = parent.position - hitbox.get_entity().position
-		push(direction, 150)
+		var n_direction = parent.position - hitbox.get_entity().position
+		push(n_direction, 150)
 
 func push(push_direction: Vector2, push_strength: float = 50):
 	if parent == null:
