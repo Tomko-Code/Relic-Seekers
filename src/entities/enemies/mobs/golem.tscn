@@ -1,21 +1,21 @@
 [gd_scene load_steps=21 format=3 uid="uid://t4ko0irnia3q"]
 
-[ext_resource type="Script" path="res://src/entities/enemies/enemy.gd" id="1_wi26d"]
-[ext_resource type="Script" path="res://src/entities/enemies/mobs/golem_behaviour.gd" id="2_6hkj0"]
-[ext_resource type="Script" path="res://src/entities/entity_shadow_component.gd" id="2_inqmd"]
-[ext_resource type="Script" path="res://src/entities/stats_component.gd" id="3_cf8qk"]
-[ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="4_ltej6"]
-[ext_resource type="Script" path="res://src/systems/combat/combat_system.gd" id="5_ndwm2"]
-[ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="6_hv3v0"]
+[ext_resource type="Script" uid="uid://dt8guyx4fxrdq" path="res://src/entities/enemies/enemy.gd" id="1_wi26d"]
+[ext_resource type="Script" uid="uid://6uv5xucoijcm" path="res://src/entities/enemies/mobs/golem_behaviour.gd" id="2_6hkj0"]
+[ext_resource type="Script" uid="uid://ffcct1p8i3i7" path="res://src/entities/entity_shadow_component.gd" id="2_inqmd"]
+[ext_resource type="Script" uid="uid://uvfmmqcu25jg" path="res://src/entities/stats_component.gd" id="3_cf8qk"]
+[ext_resource type="Script" uid="uid://dt1kwvki67pr4" path="res://src/entities/hitbox_component.gd" id="4_ltej6"]
+[ext_resource type="Script" uid="uid://biys6csm1o8vy" path="res://src/systems/combat/combat_system.gd" id="5_ndwm2"]
+[ext_resource type="Script" uid="uid://bij7aw7p5gd2p" path="res://src/entities/animated_sprite_component.gd" id="6_hv3v0"]
 [ext_resource type="SpriteFrames" uid="uid://c6i2333t8rlpq" path="res://assets/sprites/mobs/golem_boss.tres" id="7_77onb"]
-[ext_resource type="Script" path="res://src/systems/movement/four_direction_animation_system_extra.gd" id="8_8gea8"]
+[ext_resource type="Script" uid="uid://butmj2a0rcqef" path="res://src/systems/movement/four_direction_animation_system_extra.gd" id="8_8gea8"]
 [ext_resource type="PackedScene" uid="uid://blv5sfddyxsl6" path="res://src/entities/projectiles/damage_area.tscn" id="11_fedvr"]
-[ext_resource type="Script" path="res://src/systems/movement/entity_repulsion_system.gd" id="12_133mi"]
-[ext_resource type="Script" path="res://src/entities/entity_effects_handler.gd" id="13_5b4bn"]
-[ext_resource type="Script" path="res://src/entities/move_to_dest_movement_component.gd" id="13_lqm0q"]
-[ext_resource type="Script" path="res://src/entities/enemies/shoot_in_direction_component.gd" id="16_viool"]
-[ext_resource type="Script" path="res://src/entities/shoot_at_enemy_behaviour.gd" id="17_8fyfp"]
-[ext_resource type="Script" path="res://src/entities/follow_hostile_behaviour.gd" id="18_7or6a"]
+[ext_resource type="Script" uid="uid://cwjrqxwlf33av" path="res://src/systems/movement/entity_repulsion_system.gd" id="12_133mi"]
+[ext_resource type="Script" uid="uid://dm2qxmntvxeh" path="res://src/entities/entity_effects_handler.gd" id="13_5b4bn"]
+[ext_resource type="Script" uid="uid://b5bnv65aos7u5" path="res://src/entities/move_to_dest_movement_component.gd" id="13_lqm0q"]
+[ext_resource type="Script" uid="uid://cbuuiw204rnkv" path="res://src/entities/enemies/shoot_in_direction_component.gd" id="16_viool"]
+[ext_resource type="Script" uid="uid://bpaidjke1hqm" path="res://src/entities/shoot_at_enemy_behaviour.gd" id="17_8fyfp"]
+[ext_resource type="Script" uid="uid://bwc0d38dmgv2b" path="res://src/entities/follow_hostile_behaviour.gd" id="18_7or6a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_auixy"]
 size = Vector2(64, 112)
@@ -81,7 +81,7 @@ _StatsComponent = NodePath("../StatsComponent")
 script = ExtResource("6_hv3v0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Components/AnimatedSpriteComponent"]
-scale = Vector2(3, 3)
+scale = Vector2(2, 2)
 sprite_frames = ExtResource("7_77onb")
 animation = &"idle_left_down"
 
