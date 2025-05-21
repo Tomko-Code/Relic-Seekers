@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://brd00b1be7ls6"]
+[gd_scene load_steps=7 format=3 uid="uid://brd00b1be7ls6"]
 
 [ext_resource type="PackedScene" uid="uid://bnrt7xcfjh5bx" path="res://src/zone/room.tscn" id="1_t0fyi"]
 [ext_resource type="PackedScene" uid="uid://lmlrrv4br5gi" path="res://src/entities/enemies/other/delayed_spike_trap.tscn" id="2_wee7n"]
 [ext_resource type="FontFile" uid="uid://bpdjfdnl7p1vf" path="res://assets/fonts/yoster.ttf" id="3_n05e8"]
 [ext_resource type="TileSet" uid="uid://cbtd8fjc7crdq" path="res://assets/tileset/path-tileset.tres" id="4_ijb13"]
 [ext_resource type="PackedScene" uid="uid://dxe2hjd6i4hj4" path="res://src/entities/Interactables/next_wave_button.tscn" id="5_reg4m"]
+[ext_resource type="PackedScene" uid="uid://dyt7sb2kcnhas" path="res://assets/sfx/light/light_sources/spot_light.tscn" id="6_jrjmy"]
 
 [node name="ShowRoom" instance=ExtResource("1_t0fyi")]
 
@@ -94,3 +95,9 @@ position = Vector2(920, 1368)
 
 [node name="DelayedSpikeTrap6" parent="SRight" index="5" instance=ExtResource("2_wee7n")]
 position = Vector2(1000, 1368)
+
+[node name="Lights" parent="." index="8"]
+visible = true
+
+[node name="SpotLight" parent="Lights" index="0" instance=ExtResource("6_jrjmy")]
+position = Vector2(801, 640)
