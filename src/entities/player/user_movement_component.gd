@@ -20,7 +20,7 @@ signal dash_over
 @export var _AnimatedSpriteComponent: AnimatedSpriteComponent
 
 func _ready():
-	speed = 500
+	pass
 
 func _physics_process(delta):
 	direction = input_direction
@@ -64,4 +64,3 @@ func _physics_process(delta):
 	#if collision:
 	#	parent.velocity = parent.velocity.slide(collision.get_normal())
 	#	collision = parent.move_and_collide(parent.velocity * delta)
-

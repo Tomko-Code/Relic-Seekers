@@ -63,6 +63,7 @@ _AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
 [node name="UserMovementComponent" type="Node" parent="Components" node_paths=PackedStringArray("_AnimatedSpriteComponent")]
 script = ExtResource("2_xekry")
 _AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
+speed = 250.0
 
 [node name="AnimatedSpriteComponent" type="Node2D" parent="Components"]
 script = ExtResource("3_t82yd")
