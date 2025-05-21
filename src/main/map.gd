@@ -12,7 +12,7 @@ var map_open:bool = false
 func _ready():
 	GameManager.map = self
 	sub_view.render_target_update_mode = SubViewport.UPDATE_ALWAYS
-	level_render.camera.zoom = Vector2(1, 1)
+	level_render.camera.zoom = Vector2(0.5, 0.5)
 
 func _on_game_level_change(level:Level):
 	# Biiiiiiiig Spaggggettttti
@@ -38,7 +38,7 @@ func _input(event):
 			sub_view_container.visible = false
 			mini_map.visible = true
 			map_open = false
-			level_render.camera.zoom = Vector2(1, 1)
+			level_render.camera.zoom = Vector2(0.5, 0.5)
 			print("minimap")
 		else:
 			sub_view_container.custom_minimum_size = Vector2(640, 360)
