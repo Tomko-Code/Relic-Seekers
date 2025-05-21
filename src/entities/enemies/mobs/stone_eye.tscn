@@ -1,18 +1,18 @@
 [gd_scene load_steps=17 format=3 uid="uid://c6paul1ifqilq"]
 
-[ext_resource type="Script" path="res://src/entities/enemies/mobs/stone_eye.gd" id="1_yoog5"]
-[ext_resource type="Script" path="res://src/entities/entity_shadow_component.gd" id="2_qctfr"]
-[ext_resource type="Script" path="res://src/entities/stats_component.gd" id="3_o1gym"]
-[ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="4_4v68h"]
-[ext_resource type="Script" path="res://src/systems/combat/combat_system.gd" id="5_xx5hp"]
-[ext_resource type="Script" path="res://src/entities/enemies/generic_shooting_component.gd" id="6_g7hx0"]
-[ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="7_xmlme"]
+[ext_resource type="Script" uid="uid://c01llsepp4fa4" path="res://src/entities/enemies/mobs/stone_eye.gd" id="1_yoog5"]
+[ext_resource type="Script" uid="uid://ffcct1p8i3i7" path="res://src/entities/entity_shadow_component.gd" id="2_qctfr"]
+[ext_resource type="Script" uid="uid://uvfmmqcu25jg" path="res://src/entities/stats_component.gd" id="3_o1gym"]
+[ext_resource type="Script" uid="uid://dt1kwvki67pr4" path="res://src/entities/hitbox_component.gd" id="4_4v68h"]
+[ext_resource type="Script" uid="uid://biys6csm1o8vy" path="res://src/systems/combat/combat_system.gd" id="5_xx5hp"]
+[ext_resource type="Script" uid="uid://d1h026sfcvn31" path="res://src/entities/enemies/generic_shooting_component.gd" id="6_g7hx0"]
+[ext_resource type="Script" uid="uid://bij7aw7p5gd2p" path="res://src/entities/animated_sprite_component.gd" id="7_xmlme"]
 [ext_resource type="SpriteFrames" uid="uid://bgen10thrmvsq" path="res://assets/sprites/mobs/stone_eye.tres" id="8_03ey1"]
-[ext_resource type="Script" path="res://src/systems/movement/four_direction_animation_system_extra.gd" id="9_koa8s"]
-[ext_resource type="Script" path="res://src/entities/enemies/follow_and_shoot_movement_component.gd" id="10_807j2"]
+[ext_resource type="Script" uid="uid://butmj2a0rcqef" path="res://src/systems/movement/four_direction_animation_system_extra.gd" id="9_koa8s"]
+[ext_resource type="Script" uid="uid://isi1ytoyj7g" path="res://src/entities/enemies/follow_and_shoot_movement_component.gd" id="10_807j2"]
 [ext_resource type="PackedScene" uid="uid://b001mo8qgm6le" path="res://src/entities/enemies/health_bar_component.tscn" id="11_0a858"]
-[ext_resource type="Script" path="res://src/systems/movement/entity_repulsion_system.gd" id="12_rqu1c"]
-[ext_resource type="Script" path="res://src/entities/entity_effects_handler.gd" id="13_io5mp"]
+[ext_resource type="Script" uid="uid://cwjrqxwlf33av" path="res://src/systems/movement/entity_repulsion_system.gd" id="12_rqu1c"]
+[ext_resource type="Script" uid="uid://dm2qxmntvxeh" path="res://src/entities/entity_effects_handler.gd" id="13_io5mp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffpyv"]
 size = Vector2(36, 36)
@@ -36,8 +36,8 @@ _AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
 
 [node name="StatsComponent" type="Node" parent="Components"]
 script = ExtResource("3_o1gym")
-shoot_speed = 240.0
-shoot_range = 999.0
+shoot_speed = 200.0
+shoot_range = 120.0
 shoot_damage = null
 shoot_frequency = 1.5
 varible_shoot_frequency = true
@@ -83,6 +83,7 @@ _ShootingComponent = NodePath("../GenericShootingComponent")
 script = ExtResource("10_807j2")
 nav_agent = NodePath("../../NavigationAgent2D")
 _ShootingComponent = NodePath("../GenericShootingComponent")
+speed = 100.0
 
 [node name="HealthBarComponent" parent="Components" node_paths=PackedStringArray("_StatsComponent") instance=ExtResource("11_0a858")]
 _StatsComponent = NodePath("../StatsComponent")
