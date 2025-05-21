@@ -234,7 +234,7 @@ var rooms_data = {
 			#}
 			"shop_icon" : {
 				"type" : "label",
-				"res" : preload("res://assets/other/shop_icon.tscn"),
+				"res" : preload("res://assets/other/shop_icon.tscn")
 			}
 		},
 	},
@@ -245,6 +245,7 @@ var rooms_data = {
 			"shrine_icon" : {
 				"type" : "label",
 				"res" : preload("res://assets/other/shrine_icon.tscn"),
+				"scale" : 0.5
 			}
 		},
 	},
@@ -254,7 +255,7 @@ var rooms_data = {
 		"icons" : {
 			"shrine_icon" : {
 				"type" : "label",
-				"res" : preload("res://assets/other/chest_icon.tscn"),
+				"res" : preload("res://assets/other/chest_icon.tscn")
 			}
 		},
 		"waves" : [
