@@ -3,7 +3,7 @@ class_name RoomRender
 
 var room_ration:Vector2 = Vector2(5, 4)
 var room_size:Vector2 = room_ration * Vector2(10, 10)
-var border_size:int = 1
+var border_size:int = 2
 var room_margine:Vector2 = Vector2(0, 10)
 
 var tp_button_res = preload("res://src/zone/level_render/tp_button.tscn")
