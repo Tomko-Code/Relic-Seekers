@@ -45,6 +45,8 @@ format = 2
 layer_0/tile_data = PackedInt32Array(1966086, 524288, 3, 1900550, 524288, 0, 1900551, 655360, 0, 1966087, 589824, 3, 1900552, 655360, 0, 1966088, 589824, 3, 1900553, 327680, 1, 1966089, 589824, 3, 1966090, 720896, 3, 1900554, 720896, 2, 1245196, 720896, 0, 1310732, 720896, 3, 1245195, 655360, 0, 1245194, 655360, 0, 1310731, 589824, 3, 1310730, 393216, 2, 1245193, 524288, 0, 1310729, 524288, 1, 1376265, 524288, 1, 1441801, 524288, 1, 1507337, 524288, 1, 1572873, 524288, 1, 1572874, 720896, 2, 1638410, 720896, 2, 1638409, 524288, 1, 1703945, 524288, 1, 1769481, 524288, 1, 1835017, 524288, 1, 1835018, 720896, 2, 1769482, 720896, 2, 1703946, 720896, 2, 1507338, 720896, 2, 1441802, 720896, 2, 1376266, 720896, 2)
 
 [node name="SLeft" type="Node2D" parent="." index="5"]
+position = Vector2(3, -5)
+scale = Vector2(0.5, 0.5)
 
 [node name="DelayedSpikeTrap" parent="SLeft" index="0" instance=ExtResource("2_wee7n")]
 position = Vector2(920, 1208)
@@ -65,13 +67,15 @@ position = Vector2(920, 1368)
 position = Vector2(1000, 1368)
 
 [node name="NextWaveButton" parent="." index="6" node_paths=PackedStringArray("room", "lable", "timer") instance=ExtResource("5_reg4m")]
-position = Vector2(1600, 1288)
+position = Vector2(800, 655)
+scale = Vector2(0.5, 0.5)
 room = NodePath("..")
 lable = NodePath("../Spawner/CenterContainer/Label")
 timer = NodePath("../Spawner/Timer")
 
 [node name="SRight" type="Node2D" parent="." index="7"]
-position = Vector2(1268, 2)
+position = Vector2(646, -8)
+scale = Vector2(0.5, 0.5)
 
 [node name="DelayedSpikeTrap" parent="SRight" index="0" instance=ExtResource("2_wee7n")]
 position = Vector2(920, 1208)

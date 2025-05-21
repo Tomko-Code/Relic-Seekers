@@ -2,9 +2,9 @@ extends Node2D
 class_name RoomRender
 
 var room_ration:Vector2 = Vector2(5, 4)
-var room_size:Vector2 = room_ration * Vector2(20, 20)
-var border_size:int = 2
-var room_margine:Vector2 = Vector2(0, 20)
+var room_size:Vector2 = room_ration * Vector2(10, 10)
+var border_size:int = 1
+var room_margine:Vector2 = Vector2(0, 10)
 
 var tp_button_res = preload("res://src/zone/level_render/tp_button.tscn")
 var entrence_sprite_res = preload("res://assets/other/entrence_e_icon.tscn")
@@ -65,8 +65,8 @@ func set_up():
 	if room.data.is_boss:
 		var boss_sprite = Sprite2D.new()
 		boss_sprite.texture = load("res://assets/art/UI/skull.png")
-		boss_sprite.scale.x = 0.25
-		boss_sprite.scale.y = 0.25
+		boss_sprite.scale.x = 0.25/2
+		boss_sprite.scale.y = 0.25/2
 		boss_sprite.centered = true
 		boss_sprite.position += (Constants.CHUNK_SIZE/16)
 		
@@ -77,7 +77,7 @@ func set_up():
 		
 		if room.has_node("Teleport"):
 			tp_button.position = room.get_node("Teleport").position/16
-			tp_button.position -= Vector2(24, 24)
+			tp_button.position -= Vector2(24, 24)/2
 			tp_button.pressed.connect(on_tp)
 			
 		
@@ -86,12 +86,12 @@ func set_up():
 	for conn in room.data.closed_connection_arry:
 		var sprite:Sprite2D = Sprite2D.new()
 		sprite.texture = load("res://assets/art/UI/big_arrow.svg")
-		sprite.scale = Vector2(0.5, 0.5)
+		sprite.scale = Vector2(0.25, 0.25)
 		sprite.position = Constants.CHUNK_SIZE * conn.inside_cord
 		sprite.position += Constants.CHUNK_SIZE/2
 		
 		sprite.position += conn.direction * (Constants.CHUNK_SIZE/4)
-		sprite.position += conn.direction * Vector2(88*3, 168)
+		sprite.position += conn.direction * (Vector2(78*3, 170)/2)
 		sprite.position /= 16
 		
 		sprite.rotate((-conn.direction).angle())

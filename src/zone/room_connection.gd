@@ -12,7 +12,7 @@ func tp(body):
 		return
 	
 	GameManager.game_camera.freeze_position()
-	body.global_position += data.direction * 800
+	body.global_position += data.direction * 400
 	GameManager.game_camera.unfreeze_position()
 	
 	var active_level:Level = GameManager.loaded_scenes["Game"].active_level 

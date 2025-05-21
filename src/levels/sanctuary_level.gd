@@ -11,6 +11,7 @@ func set_up(args:Array = []) -> void:
 	var sanctuary_room:RoomData = RoomData.new().set_up("sanctuary_room", self)
 	place_room(sanctuary_room, Vector2(0,0))
 	
+	
 	# Spawn map
 	default_room = spawn_room(sanctuary_room)
 	currnet_active_room = default_room

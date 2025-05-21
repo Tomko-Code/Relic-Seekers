@@ -6,11 +6,11 @@ extends Node2D
 @onready var Cursor = $CursorLayer/Cursor
 @onready var Camera = $Camera2D
 
-var speed = 30
+var speed = 25
 
-var near_zone = 300
-var far_zone = 400
-var inner_zone = 100
+var near_zone = 150
+var far_zone = 200
+var inner_zone = 5
 
 var intermediate_zone = far_zone - near_zone
 
@@ -23,7 +23,7 @@ var interpolate_distance_from_mouse = true
 var last_offset = Vector2.ZERO
 
 func initialize(_use_zones: bool = true, _interpolate_distance_from_mouse: bool = true,
-			_speed = 3, _near_zone = 300, _far_zone = 400, _inner_zone = 0, _draw_debug = false):
+			_speed = 3, _near_zone = 150, _far_zone = 200, _inner_zone = 0, _draw_debug = false):
 	speed = _speed
 	near_zone = _near_zone
 	far_zone = _far_zone

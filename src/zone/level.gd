@@ -56,7 +56,7 @@ func spawn_room(room_data:RoomData) -> Room:
 		conn.position += Constants.CHUNK_SIZE/2
 		
 		conn.position += conn.data.direction * (Constants.CHUNK_SIZE/4)
-		conn.position += conn.data.direction * Vector2((96+48), 64)
+		conn.position += conn.data.direction * (Vector2((96+48), 64)/2)
 		
 		
 		

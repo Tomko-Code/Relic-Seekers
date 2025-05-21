@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dt7kwnp3cugmy" path="res://assets/sfx/light/light_sets/vertical_wall_set_light.tscn" id="1_burre"]
 
 [node name="SetOfLightsFor2x1" type="Node2D"]
+scale = Vector2(0.5, 0.5)
 
 [node name="VerticalWallSetLight" parent="." instance=ExtResource("1_burre")]
 

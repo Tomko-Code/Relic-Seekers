@@ -78,7 +78,7 @@ func set_enemy_count(value:int):
 		# open room or spawn next wave
 
 func look_for_open_space(starting_position:Vector2) -> Vector2:
-	starting_position -= (data.cord*5*Vector2(5,4))*Vector2(64,64)
+	starting_position -= (data.cord*5*Vector2(5,4))*Constants.FLOOR_TILE_SIZE
 	
 	snail_start_cord = (starting_position/Constants.FLOOR_TILE_SIZE).floor()
 	#snail_start_cord += (data.cord*5*Vector2(5,4))
