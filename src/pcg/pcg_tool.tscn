@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://cjiykb4m16l8n"]
 
-[ext_resource type="Script" path="res://src/pcg/pcg_tool.gd" id="1_4ahx3"]
+[ext_resource type="Script" uid="uid://ccg2tsx3uadau" path="res://src/pcg/pcg_tool.gd" id="1_4ahx3"]
 [ext_resource type="Texture2D" uid="uid://db2b2mk6p5vhl" path="res://assets/art/UI/menu/unchecked_menu.svg" id="2_waob6"]
-[ext_resource type="Script" path="res://src/pcg/room_view_pcg.gd" id="3_il4dp"]
+[ext_resource type="Script" uid="uid://bxblt8352rl1m" path="res://src/pcg/room_view_pcg.gd" id="3_il4dp"]
 [ext_resource type="PackedScene" uid="uid://hcarbmby224x" path="res://src/zone/level_render/level_render.tscn" id="5_0l3si"]
 [ext_resource type="Texture2D" uid="uid://r6puxum6lyfb" path="res://assets/art/UI/skull.svg" id="5_08ab0"]
 
@@ -80,7 +80,7 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Settings" type="Panel" parent="VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
 [node name="TabContainer" type="TabContainer" parent="VBoxContainer/HBoxContainer/Settings"]
@@ -90,9 +90,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+current_tab = 0
 
 [node name="Settings" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer"]
 layout_mode = 2
+metadata/_tab_index = 0
 
 [node name="Settings" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Settings"]
 layout_mode = 2
@@ -330,13 +332,16 @@ prefix = "l4    :"
 [node name="Rooms" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer"]
 visible = false
 layout_mode = 2
+metadata/_tab_index = 1
 
 [node name="TabContainer" type="TabContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Rooms"]
 layout_mode = 2
 size_flags_vertical = 3
+current_tab = 0
 
 [node name="Sets" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Rooms/TabContainer"]
 layout_mode = 2
+metadata/_tab_index = 0
 
 [node name="All" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Rooms/TabContainer/Sets"]
 layout_mode = 2
@@ -345,6 +350,7 @@ layout_mode = 2
 visible = false
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
+metadata/_tab_index = 1
 
 [node name="SpecialRooms" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Settings/TabContainer/Rooms/TabContainer/SpecialRooms"]
 layout_mode = 2
@@ -366,11 +372,11 @@ script = ExtResource("3_il4dp")
 [node name="RoomView" type="SubViewport" parent="VBoxContainer/HBoxContainer/Level/Room"]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(748, 606)
+size = Vector2i(436, 318)
 render_target_update_mode = 4
 
 [node name="Camera2D" type="Camera2D" parent="VBoxContainer/HBoxContainer/Level/Room/RoomView"]
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(0.25, 0.25)
 
 [node name="Rooms" type="Node2D" parent="VBoxContainer/HBoxContainer/Level/Room/RoomView"]
 

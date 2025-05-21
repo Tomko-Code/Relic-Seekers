@@ -31,4 +31,3 @@ func restock_shop():
 		var shop_item = stock[index]
 		var purchasable = PickupsHandler.make_purchasable(shop_item)
 		shop_marker.set_purchasable(purchasable)
-

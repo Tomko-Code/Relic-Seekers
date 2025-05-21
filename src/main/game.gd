@@ -125,7 +125,7 @@ func change_active_to_sanctuary_level() -> void:
 	activate_level(sanctuary_level)
 	
 	# TODO : replace this to sanctuary room
-	player.position = Vector2(-160, 480)
+	player.position = Vector2(0, 200)
 	# ######################
 	
 	level_state = LEVEL_STATES.SANCTUARY
