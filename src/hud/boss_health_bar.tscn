@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://5acpcqd3s6u7"]
 
 [ext_resource type="Theme" uid="uid://byoo2gb70drio" path="res://assets/themes/interactable.tres" id="1_6u3y5"]
-[ext_resource type="Script" path="res://src/hud/boss_health_bar.gd" id="2_clwdu"]
+[ext_resource type="Script" uid="uid://bph0tnelu70hp" path="res://src/hud/boss_health_bar.gd" id="2_clwdu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5xgeg"]
 content_margin_top = 4.0

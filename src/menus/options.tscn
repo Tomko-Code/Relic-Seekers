@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://bpgge7nk2irr2"]
 
 [ext_resource type="Theme" uid="uid://yeqhvo4g7l6" path="res://assets/themes/main_menu_theme.tres" id="1_u67dd"]
-[ext_resource type="Script" path="res://src/menus/options.gd" id="2_r7w74"]
+[ext_resource type="Script" uid="uid://b3xp47ob5ud1y" path="res://src/menus/options.gd" id="2_r7w74"]
 [ext_resource type="Texture2D" uid="uid://bwx1f53jboxkp" path="res://assets/art/UI/9-path-01.png" id="3_63osh"]
-[ext_resource type="Script" path="res://src/menus/audio.gd" id="4_mb07c"]
-[ext_resource type="Script" path="res://src/menus/graphic.gd" id="5_dhbm8"]
-[ext_resource type="Script" path="res://src/menus/back.gd" id="6_ikmox"]
+[ext_resource type="Script" uid="uid://cfugk6orqxf0k" path="res://src/menus/audio.gd" id="4_mb07c"]
+[ext_resource type="Script" uid="uid://bqnx6vcjg3w12" path="res://src/menus/graphic.gd" id="5_dhbm8"]
+[ext_resource type="Script" uid="uid://6sml3qra3w48" path="res://src/menus/back.gd" id="6_ikmox"]
 [ext_resource type="PackedScene" uid="uid://c7ndb0a0etud5" path="res://src/menus/gameplay_settings.tscn" id="6_tgner"]
-[ext_resource type="Script" path="res://src/menus/reset_settings.gd" id="7_xivy7"]
+[ext_resource type="Script" uid="uid://dlngyve4w2ooo" path="res://src/menus/reset_settings.gd" id="7_xivy7"]
 
 [node name="Options" type="CenterContainer" node_paths=PackedStringArray("audio", "graphic", "gameplay")]
 anchors_preset = 15
@@ -25,14 +25,18 @@ gameplay = NodePath("VBoxContainer/TabContainer/Gameplay")
 layout_mode = 2
 
 [node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
-custom_minimum_size = Vector2(600, 400)
+clip_contents = true
+custom_minimum_size = Vector2(500, 300)
 layout_mode = 2
 theme = ExtResource("1_u67dd")
-theme_override_colors/font_selected_color = Color(0.886275, 0.886275, 0.270588, 1)
 theme_override_colors/font_hovered_color = Color(0.886275, 0.886275, 0.270588, 1)
+theme_override_colors/font_selected_color = Color(0.886275, 0.886275, 0.270588, 1)
 theme_override_font_sizes/font_size = 24
 tab_alignment = 1
+current_tab = 1
+clip_tabs = false
 all_tabs_in_front = true
+tab_focus_mode = 0
 
 [node name="Audio" type="MarginContainer" parent="VBoxContainer/TabContainer" node_paths=PackedStringArray("value_master", "value_music", "value_ui", "value_sfx", "value_dialog", "master_slider", "music_slider", "ui_slider", "sfx_slider", "dialog_slider")]
 visible = false
@@ -48,6 +52,7 @@ music_slider = NodePath("MarginContainer/ScrollContainer/MarginContainer/HBoxCon
 ui_slider = NodePath("MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/Scrolls/CenterContainer3/UI")
 sfx_slider = NodePath("MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/Scrolls/CenterContainer4/SFX")
 dialog_slider = NodePath("MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/Scrolls/CenterContainer5/Dialog")
+metadata/_tab_index = 0
 
 [node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer/TabContainer/Audio"]
 layout_mode = 2
@@ -60,10 +65,10 @@ patch_margin_bottom = 7
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/TabContainer/Audio"]
 layout_mode = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_left = 11
+theme_override_constants/margin_top = 11
+theme_override_constants/margin_right = 11
+theme_override_constants/margin_bottom = 6
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/TabContainer/Audio/MarginContainer"]
 layout_mode = 2
@@ -121,7 +126,7 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Master" type="HSlider" parent="VBoxContainer/TabContainer/Audio/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/Scrolls/CenterContainer"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_vertical = 2
 theme = ExtResource("1_u67dd")
@@ -134,7 +139,7 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Music" type="HSlider" parent="VBoxContainer/TabContainer/Audio/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/Scrolls/CenterContainer2"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_vertical = 2
 theme = ExtResource("1_u67dd")
@@ -147,7 +152,7 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="UI" type="HSlider" parent="VBoxContainer/TabContainer/Audio/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/Scrolls/CenterContainer3"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_vertical = 2
 theme = ExtResource("1_u67dd")
@@ -160,7 +165,7 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="SFX" type="HSlider" parent="VBoxContainer/TabContainer/Audio/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/Scrolls/CenterContainer4"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_vertical = 2
 theme = ExtResource("1_u67dd")
@@ -173,7 +178,7 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Dialog" type="HSlider" parent="VBoxContainer/TabContainer/Audio/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/Scrolls/CenterContainer5"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_vertical = 2
 theme = ExtResource("1_u67dd")
@@ -214,6 +219,7 @@ layout_mode = 2
 script = ExtResource("5_dhbm8")
 window_mode_options = NodePath("MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/Scrolls/WindowMode")
 vsync = NodePath("MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/Scrolls/VSyncMode")
+metadata/_tab_index = 1
 
 [node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer/TabContainer/Graphic"]
 layout_mode = 2
@@ -270,12 +276,14 @@ size_flags_vertical = 3
 focus_mode = 0
 theme_override_font_sizes/font_size = 12
 flat = true
-item_count = 2
 selected = 0
+item_count = 3
 popup/item_0/text = "WINDOW_MODE_WINDOWED"
 popup/item_0/id = 0
 popup/item_1/text = "WINDOW_MODE_FULLSCREEN"
 popup/item_1/id = 1
+popup/item_2/text = "WINDOW_MODE_EXCLUSIVE_FULLSCREEN"
+popup/item_2/id = 2
 
 [node name="VSyncMode" type="CheckBox" parent="VBoxContainer/TabContainer/Graphic/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/Scrolls"]
 layout_mode = 2
@@ -296,6 +304,7 @@ size_flags_vertical = 7
 [node name="Gameplay" parent="VBoxContainer/TabContainer" instance=ExtResource("6_tgner")]
 visible = false
 layout_mode = 2
+metadata/_tab_index = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2

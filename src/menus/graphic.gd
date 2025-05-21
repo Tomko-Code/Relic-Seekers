@@ -30,7 +30,9 @@ func set_up_window_mode_option_menu() -> void:
 		index = 0
 	elif DisplayServer.WINDOW_MODE_FULLSCREEN == value:
 		index = 1
-	
+	elif DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN == value:
+		index = 2
+		
 	window_mode_options.select(index)
 	_on_window_mode_item_selected(index)
 
@@ -40,6 +42,8 @@ func _on_window_mode_item_selected(index) -> void:
 			Settings.set_window_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		"WINDOW_MODE_FULLSCREEN":
 			Settings.set_window_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		"WINDOW_MODE_EXCLUSIVE_FULLSCREEN":
+			Settings.set_window_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 
 
 func _on_v_sync_mode_toggled(button_pressed):

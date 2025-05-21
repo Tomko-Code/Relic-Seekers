@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://wgg1ib14st5f"]
 
-[ext_resource type="Script" path="res://src/hud/attack_speed_indicator.gd" id="1_18756"]
+[ext_resource type="Script" uid="uid://dtwkhp752wex0" path="res://src/hud/attack_speed_indicator.gd" id="1_18756"]
 [ext_resource type="Theme" uid="uid://byoo2gb70drio" path="res://assets/themes/interactable.tres" id="2_jgdjl"]
 
 [node name="AttackSpeedIndicator" type="Control"]
@@ -17,6 +17,7 @@ size_flags_vertical = 4
 script = ExtResource("1_18756")
 
 [node name="DurationLabel" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

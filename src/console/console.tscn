@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cqkjikwarcc0d"]
 
-[ext_resource type="Script" path="res://src/console/console.gd" id="1_nv5ud"]
+[ext_resource type="Script" uid="uid://dby0ls6i8o44m" path="res://src/console/console.gd" id="1_nv5ud"]
 
 [node name="ConsoleLayer" type="CanvasLayer"]
 layer = 20
@@ -9,8 +9,8 @@ script = ExtResource("1_nv5ud")
 [node name="Console" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_right = 640.0
+offset_bottom = 360.0
 
 [node name="TextEdit" type="TextEdit" parent="Console"]
 layout_mode = 0

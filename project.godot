@@ -43,8 +43,10 @@ PoolManager="*res://src/globals/pool_manager.gd"
 
 window/size/viewport_width=640
 window/size/viewport_height=360
+window/size/window_width_override=1280
+window/size/window_height_override=720
 window/stretch/mode="viewport"
-window/stretch/scale_mode="integer"
+window/stretch/aspect="keep_height"
 
 [input]
 
@@ -184,3 +186,4 @@ LMB_pressed={
 
 textures/canvas_textures/default_texture_filter=0
 environment/defaults/default_clear_color=Color(0.105882, 0.0862745, 0.105882, 1)
+2d/snap/snap_2d_transforms_to_pixel=true

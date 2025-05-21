@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://e5icryfedpra"]
 
-[ext_resource type="Script" path="res://src/hud/spells/artifact_container.gd" id="1_o3yfv"]
+[ext_resource type="Script" uid="uid://dg308x7h3grko" path="res://src/hud/spells/artifact_container.gd" id="1_o3yfv"]
 [ext_resource type="FontFile" uid="uid://wxqcfc30ah8a" path="res://assets/fonts/HelvetiPixel.ttf" id="2_k0xix"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cr06f"]
@@ -24,7 +24,7 @@ corner_radius_top_right = 4
 anti_aliasing_size = 0.5
 
 [node name="ArtifactContainer" type="PanelContainer"]
-custom_minimum_size = Vector2(74, 74)
+custom_minimum_size = Vector2(37, 37)
 theme_override_styles/panel = SubResource("StyleBoxFlat_cr06f")
 script = ExtResource("1_o3yfv")
 
@@ -37,7 +37,7 @@ theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
 [node name="Artifact" type="TextureRect" parent="MarginContainer"]
-custom_minimum_size = Vector2(32, 32)
+custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 mouse_filter = 2
 stretch_mode = 5
@@ -60,5 +60,5 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_fonts/font = ExtResource("2_k0xix")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 16
 text = "Q"
