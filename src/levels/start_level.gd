@@ -1,8 +1,12 @@
 extends Level
 class_name StartLevel
 
+func _init() -> void:
+	name = "StartLevel"
+
 func _ready():
-	remove_child(ambient_light)
+	pass
+	#remove_child(ambient_light)
 
 func set_up(args:Array = []) -> void:
 	# Set level
@@ -17,7 +21,8 @@ func set_up(args:Array = []) -> void:
 	currnet_active_room = default_room
 	
 	# Set Player
-	GameManager.player.position = Vector2(550, 350)
+	#GameManager.player.glo = Vector2(2545.0, 2580.0)
+	player_spawn_pos = default_room.get_node("Marker2D").position
 	GameManager.player.paused = true
 	
 	print_number_map()

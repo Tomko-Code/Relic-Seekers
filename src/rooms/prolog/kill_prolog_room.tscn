@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cftid7yeck1up"]
 
 [ext_resource type="PackedScene" uid="uid://bnrt7xcfjh5bx" path="res://src/zone/room.tscn" id="1_23oq1"]
-[ext_resource type="Script" path="res://src/rooms/normal_room_0.gd" id="2_btydy"]
+[ext_resource type="Script" uid="uid://4f1vsjdr4o26" path="res://src/rooms/normal_room_0.gd" id="2_btydy"]
 [ext_resource type="PackedScene" uid="uid://d0h7d0ariah40" path="res://assets/sfx/light/light_sets/set_of_lights_for_1x1.tscn" id="3_h8df3"]
 
 [node name="KillPrologRoom" instance=ExtResource("1_23oq1")]

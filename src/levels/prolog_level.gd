@@ -1,6 +1,9 @@
 extends Level
 class_name PrologLevel
 
+func _init() -> void:
+	name = "PrologLevel"
+
 func set_up(args:Array = []) -> void:
 	create_level(Vector2(6,4))
 	
@@ -37,7 +40,5 @@ func set_up(args:Array = []) -> void:
 	print_number_map()
 	
 	# Set Player
-	custom_spawn = true
-	
-	GameManager.player.position = Vector2(800, 640)
+	player_spawn_pos = default_room.get_node("Teleport").position
 	GameManager.dialog_box.play("first_time_prolog")

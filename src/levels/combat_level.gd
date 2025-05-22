@@ -1,6 +1,9 @@
 extends Level
 class_name CombatLevel
 
+func _init() -> void:
+	name = "CombatLevel"
+
 func set_up(args:Array = []) -> void:
 	create_level(Vector2(10,10))
 	
