@@ -6,7 +6,7 @@ func _on_pressed():
 	material = ShaderMaterial.new()
 	material.shader = burn 
 	material.set("shader_parameter/start_time", Time.get_ticks_msec()/1000.0)
-	material.set("shader_parameter/end_time", (Time.get_ticks_msec()/1000.0) +3.5)
+	material.set("shader_parameter/end_time", (Time.get_ticks_msec()/1000.0) + 1)
 	material.set("shader_parameter/ash", Color(0.32544088363647, 0.3254409134388, 0.32544088363647))
 	material.set("shader_parameter/fire", Color(0.71764707565308, 0.28627452254295, 0))
 	

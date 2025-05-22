@@ -125,6 +125,7 @@ func change_active_to_sanctuary_level() -> void:
 	activate_level(sanctuary_level)
 	
 	# TODO : replace this to sanctuary room
+	print("player position set to (0, 200)")
 	player.position = Vector2(0, 200)
 	# ######################
 	

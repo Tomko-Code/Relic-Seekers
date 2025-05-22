@@ -2,14 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://bs7cxxa2qor5w" path="res://assets/art/prolog/scroll.png" id="1_a0t36"]
 [ext_resource type="Theme" uid="uid://yeqhvo4g7l6" path="res://assets/themes/main_menu_theme.tres" id="1_yvs1b"]
-[ext_resource type="Script" path="res://src/zones/prolog/continue_stroll.gd" id="2_75rd1"]
+[ext_resource type="Script" uid="uid://oduw1v2syy03" path="res://src/zones/prolog/continue_stroll.gd" id="2_75rd1"]
 [ext_resource type="FontFile" uid="uid://bpdjfdnl7p1vf" path="res://assets/fonts/yoster.ttf" id="2_peb2b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6qsqn"]
 
 [sub_resource type="Animation" id="Animation_3pr0d"]
 resource_name = "FadeOut"
-length = 4.0
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -17,7 +17,7 @@ tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.5, 3.5),
+"times": PackedFloat32Array(0.5, 2),
 "transitions": PackedFloat32Array(2, 1),
 "update": 0,
 "values": [Color(0.0980392, 0.129412, 0.0980392, 1), Color(0.0980392, 0.129412, 0.0980392, 0)]
@@ -40,8 +40,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n8cgd"]
 _data = {
-"FadeOut": SubResource("Animation_3pr0d"),
-"RESET": SubResource("Animation_30dg0")
+&"FadeOut": SubResource("Animation_3pr0d"),
+&"RESET": SubResource("Animation_30dg0")
 }
 
 [node name="Scroll" type="CanvasLayer"]
@@ -89,22 +89,19 @@ script = ExtResource("2_75rd1")
 
 [node name="ScrollContainer" type="CenterContainer" parent="Control"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -300.0
-offset_right = 200.0
-offset_bottom = 300.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/ScrollContainer"]
-custom_minimum_size = Vector2(400, 600)
+custom_minimum_size = Vector2(200, 300)
 layout_mode = 2
-theme_override_constants/margin_right = -60
+theme_override_constants/margin_left = -18
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = -52
 
 [node name="ScrollTexture" type="TextureRect" parent="Control/ScrollContainer/MarginContainer"]
 material = SubResource("ShaderMaterial_6qsqn")
@@ -116,7 +113,7 @@ expand_mode = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_peb2b")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 12
 text = "Dear Alarion,
 
 As our trusted mage,
@@ -128,13 +125,13 @@ located deep within the swamp.
 Find these ruins and missing
 expedition members.
 
-With respect,
+Sign, 
 High Mage Council"
 horizontal_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
 libraries = {
-"": SubResource("AnimationLibrary_n8cgd")
+&"": SubResource("AnimationLibrary_n8cgd")
 }
 
 [connection signal="pressed" from="Control/MarginContainer/Continue" to="Control/MarginContainer/Continue" method="_on_pressed"]

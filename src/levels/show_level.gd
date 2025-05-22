@@ -1,6 +1,9 @@
 extends Level
 class_name ShowLevel
 
+func _init() -> void:
+	name = "ShowLevel"
+
 func set_up(args:Array = []) -> void:
 	create_level(Vector2(10,10))
 	
