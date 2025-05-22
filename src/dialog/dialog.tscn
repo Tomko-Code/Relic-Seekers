@@ -151,19 +151,27 @@ theme_override_font_sizes/font_size = 24
 text = "Who"
 
 [node name="Margin" type="MarginContainer" parent="Control/HBoxContainer/StringContainer/Margin/VBoxContainer"]
+clip_contents = true
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 6
 
 [node name="String" type="Label" parent="Control/HBoxContainer/StringContainer/Margin/VBoxContainer/Margin"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_gdrbr")
+theme_override_font_sizes/font_size = 12
 text = "rer"
+autowrap_mode = 2
 visible_characters = 3
 
 [node name="ButtonDialogIntearct" type="Button" parent="Control/HBoxContainer/StringContainer/Margin/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 focus_mode = 0
+theme_override_colors/font_hover_color = Color(0.847059, 0.776471, 0.298039, 1)
 theme_override_fonts/font = ExtResource("3_gdrbr")
 theme_override_font_sizes/font_size = 24
 text = "Interaction"

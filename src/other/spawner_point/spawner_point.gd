@@ -9,9 +9,13 @@ var room:Room = null
 var enemy:Enemy = null
 
 func _ready():
-	pass
+	$SpawnRandomDelay.wait_time = randf_range(0, 1)
+	$SpawnRandomDelay.start()
 
 func _enter_tree():
+	pass
+
+func _on_spawn_random_delay_timeout() -> void:
 	$AnimationPlayer.play("show")
 
 func _on_animation_player_animation_finished(anim_name):

@@ -14,7 +14,14 @@ func on_hover_show(node: Node, text_callback: Callable, _hover_both: bool = true
 	
 	for child in $Contents.get_children():
 		child.queue_free()
+	
+	if text_callback == null:
+		print("unusuall null")
+		return
+	
 	var text_array = text_callback.call()
+
+	
 	var text_node_array = []
 	for item in text_array:
 		var bbcode_label = RichTextLabel.new()
