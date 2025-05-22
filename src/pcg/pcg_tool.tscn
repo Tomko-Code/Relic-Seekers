@@ -1,10 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://cjiykb4m16l8n"]
+[gd_scene load_steps=9 format=3 uid="uid://cjiykb4m16l8n"]
 
 [ext_resource type="Script" uid="uid://ccg2tsx3uadau" path="res://src/pcg/pcg_tool.gd" id="1_4ahx3"]
+[ext_resource type="FontFile" uid="uid://qbn5lycp6m72" path="res://assets/fonts/PixelFJVerdana12pt.ttf" id="1_oq4dl"]
 [ext_resource type="Texture2D" uid="uid://db2b2mk6p5vhl" path="res://assets/art/UI/menu/unchecked_menu.svg" id="2_waob6"]
 [ext_resource type="Script" uid="uid://bxblt8352rl1m" path="res://src/pcg/room_view_pcg.gd" id="3_il4dp"]
 [ext_resource type="PackedScene" uid="uid://hcarbmby224x" path="res://src/zone/level_render/level_render.tscn" id="5_0l3si"]
 [ext_resource type="Texture2D" uid="uid://r6puxum6lyfb" path="res://assets/art/UI/skull.svg" id="5_08ab0"]
+
+[sub_resource type="Theme" id="Theme_kb4e3"]
+default_font = ExtResource("1_oq4dl")
+default_font_size = 7
+LineEdit/colors/selection_color = Color(0.501961, 0.501961, 0.501961, 0)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qi7rt"]
 
@@ -15,6 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_kb4e3")
 script = ExtResource("1_4ahx3")
 file_menu = NodePath("VBoxContainer/MarginContainer/Menu/File")
 level_name_edit = NodePath("VBoxContainer/HBoxContainer/Settings/TabContainer/Settings/Settings/LevelName/LevelName")
@@ -50,6 +57,7 @@ grow_vertical = 2
 theme_override_constants/separation = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 0
@@ -372,7 +380,7 @@ script = ExtResource("3_il4dp")
 [node name="RoomView" type="SubViewport" parent="VBoxContainer/HBoxContainer/Level/Room"]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(436, 318)
+size = Vector2i(436, 360)
 render_target_update_mode = 4
 
 [node name="Camera2D" type="Camera2D" parent="VBoxContainer/HBoxContainer/Level/Room/RoomView"]

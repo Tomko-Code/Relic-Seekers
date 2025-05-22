@@ -32,6 +32,7 @@ func _ready():
 	_UserMovementComponent.dash_over.connect(on_dash_over)
 
 func _physics_process(_delta):
+	
 	queue_redraw()
 
 func _on_pit_hit_box_body_entered(body:TileMap):
