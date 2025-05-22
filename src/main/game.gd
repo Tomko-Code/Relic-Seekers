@@ -176,7 +176,11 @@ func _ready():
 	pass
 
 func _process(delta):
-	pass
+	if Input.is_action_just_pressed("artifact_slot_e"):
+		if level_state == LEVEL_STATES.SANCTUARY:
+			change_active_to_current_level()
+		else:
+			change_active_to_sanctuary_level()
 
 func _on_reset_game_button_pressed():
 	reset_game()
