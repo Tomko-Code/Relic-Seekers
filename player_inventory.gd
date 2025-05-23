@@ -9,11 +9,11 @@ signal active_artifact_changed
 
 signal spells_changed
 
-@export var gold:int = 0:
+var gold:int = 0:
 	set(value):
 		gold = value
 		emit_signal("gold_changed")
-@export var emeralds:int = 0:
+var emeralds:int = 0:
 	set(value):
 		emeralds = value
 		emit_signal("emeralds_changed")
@@ -21,14 +21,14 @@ signal spells_changed
 #@export var artefact_0
 #@export var artefact_1
 
-@export var current_spell_slot:int = 0
-@export var spells:Array = [null,null,null,null,null]
+var current_spell_slot:int = 0
+var spells:Array = [null,null,null,null,null]
 
-@export var active_artifact = null:
+var active_artifact = null:
 	set(value):
 		active_artifact = value
 		emit_signal("active_artifact_changed")
-@export var passive_artifact = null:
+var passive_artifact = null:
 	set(value):
 		passive_artifact = value
 		emit_signal("passive_artifact_changed")
