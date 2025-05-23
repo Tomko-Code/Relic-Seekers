@@ -31,7 +31,7 @@ func update_spell():
 	else:
 		#$MarginContainer/Spell.texture = load("res://assets/art/sprites/spells/non_spell.tres")
 		$MarginContainer/Spell.texture = null
-		$Shortcut.text = shortcut
+		$MarginContainer2/Shortcut.text = shortcut
 		$Mana.text = mana
 		$ManaCost.text = ""
 
