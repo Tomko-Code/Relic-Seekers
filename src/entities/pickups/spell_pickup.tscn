@@ -1,14 +1,14 @@
 [gd_scene load_steps=14 format=3 uid="uid://doo5nthidvht1"]
 
-[ext_resource type="Script" path="res://src/entities/pickups/spell_pickup.gd" id="1_cmxdu"]
+[ext_resource type="Script" uid="uid://dxyc1e3er6wul" path="res://src/entities/pickups/spell_pickup.gd" id="1_cmxdu"]
 [ext_resource type="PackedScene" uid="uid://bdlxq5bh2qqu2" path="res://src/entities/interactable/interactable_component.tscn" id="2_uh565"]
-[ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="3_wy3x1"]
-[ext_resource type="Script" path="res://src/entities/entity_shadow_component.gd" id="4_xkv5c"]
-[ext_resource type="Script" path="res://src/entities/pickups/effect_count_indicator.gd" id="5_iakv5"]
-[ext_resource type="Script" path="res://src/systems/pickup_animation_system.gd" id="5_ypdvy"]
-[ext_resource type="Script" path="res://src/entities/pickups/pickup_repulsion_movement.gd" id="6_tkrps"]
-[ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="7_pgisl"]
-[ext_resource type="Script" path="res://src/systems/movement/entity_repulsion_system.gd" id="9_4ddjd"]
+[ext_resource type="Script" uid="uid://bij7aw7p5gd2p" path="res://src/entities/animated_sprite_component.gd" id="3_wy3x1"]
+[ext_resource type="Script" uid="uid://ffcct1p8i3i7" path="res://src/entities/entity_shadow_component.gd" id="4_xkv5c"]
+[ext_resource type="Script" uid="uid://pyahmmvt8bb7" path="res://src/entities/pickups/effect_count_indicator.gd" id="5_iakv5"]
+[ext_resource type="Script" uid="uid://bldxd1y3fanu0" path="res://src/systems/pickup_animation_system.gd" id="5_ypdvy"]
+[ext_resource type="Script" uid="uid://cq1ml81c3kyuq" path="res://src/entities/pickups/pickup_repulsion_movement.gd" id="6_tkrps"]
+[ext_resource type="Script" uid="uid://dt1kwvki67pr4" path="res://src/entities/hitbox_component.gd" id="7_pgisl"]
+[ext_resource type="Script" uid="uid://cwjrqxwlf33av" path="res://src/systems/movement/entity_repulsion_system.gd" id="9_4ddjd"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_vubgw"]
 device = -1
@@ -16,7 +16,7 @@ keycode = 70
 unicode = 102
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7o126"]
-radius = 16.0
+radius = 24.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_duwmo"]
 radius = 32.0

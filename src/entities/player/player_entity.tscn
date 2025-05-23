@@ -15,7 +15,7 @@
 [ext_resource type="Script" uid="uid://dl40s5xnr12xr" path="res://src/entities/player/player_casting_component.gd" id="13_to852"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eip8d"]
-size = Vector2(48, 48)
+size = Vector2(34, 43)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cn6ma"]
 radius = 1.0
@@ -33,6 +33,7 @@ _PlayerStatsComponent = NodePath("Components/PlayerStatsComponent")
 pit_hit_box = NodePath("PitHitBox")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_eip8d")
 
 [node name="PitHitBox" type="Area2D" parent="."]

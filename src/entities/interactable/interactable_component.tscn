@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://bdlxq5bh2qqu2"]
 
-[ext_resource type="Script" path="res://src/entities/interactable/interactable_component.gd" id="1_7xkwy"]
+[ext_resource type="Script" uid="uid://bxhhclqw8ym85" path="res://src/entities/interactable/interactable_component.gd" id="1_7xkwy"]
 [ext_resource type="Theme" uid="uid://byoo2gb70drio" path="res://assets/themes/interactable.tres" id="2_edrs4"]
 [ext_resource type="Texture2D" uid="uid://bsm0afqv1mm5" path="res://assets/art/UI/9-path-small.png" id="3_4e074"]
 [ext_resource type="Texture2D" uid="uid://b1bdpwx07xxqh" path="res://assets/art/UI/small_arrow.svg" id="4_vmjau"]
@@ -77,9 +77,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b3wib"]
 _data = {
-"FadeIN": SubResource("Animation_lpkc6"),
-"FadeOut": SubResource("Animation_oadla"),
-"RESET": SubResource("Animation_hgd1x")
+&"FadeIN": SubResource("Animation_lpkc6"),
+&"FadeOut": SubResource("Animation_oadla"),
+&"RESET": SubResource("Animation_hgd1x")
 }
 
 [sub_resource type="Animation" id="Animation_8y2nm"]
@@ -115,8 +115,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u1n0m"]
 _data = {
-"Interacted": SubResource("Animation_8y2nm"),
-"RESET": SubResource("Animation_32ymx")
+&"Interacted": SubResource("Animation_8y2nm"),
+&"RESET": SubResource("Animation_32ymx")
 }
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_qmkte"]
@@ -136,16 +136,15 @@ input_text = "null"
 collision_layer = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(34, 19.5)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_b3wib")
+&"": SubResource("AnimationLibrary_b3wib")
 }
 
 [node name="AnimationInput" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_u1n0m")
+&"": SubResource("AnimationLibrary_u1n0m")
 }
 
 [node name="Box" type="VBoxContainer" parent="."]

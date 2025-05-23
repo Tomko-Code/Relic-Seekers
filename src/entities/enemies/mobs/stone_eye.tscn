@@ -36,12 +36,11 @@ _AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
 
 [node name="StatsComponent" type="Node" parent="Components"]
 script = ExtResource("3_o1gym")
-shoot_speed = 200.0
-shoot_range = 120.0
+shoot_speed = 170.0
+shoot_range = 110.0
 shoot_damage = null
-shoot_frequency = 1.5
+shoot_frequency = 1.6
 varible_shoot_frequency = true
-projectile_type = null
 max_health = 15.0
 
 [node name="HitboxComponent" type="Area2D" parent="Components"]
