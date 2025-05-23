@@ -1,13 +1,13 @@
 [gd_scene load_steps=13 format=3 uid="uid://dh88fdheh74rx"]
 
-[ext_resource type="Script" path="res://src/entities/pickups/artifact_pickup.gd" id="1_foedn"]
-[ext_resource type="Script" path="res://src/systems/pickup_animation_system.gd" id="2_475dl"]
-[ext_resource type="Script" path="res://src/entities/entity_shadow_component.gd" id="3_fxu6p"]
-[ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="4_vxgub"]
-[ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="6_w0pqc"]
+[ext_resource type="Script" uid="uid://c57dm11xwdyq3" path="res://src/entities/pickups/artifact_pickup.gd" id="1_foedn"]
+[ext_resource type="Script" uid="uid://bldxd1y3fanu0" path="res://src/systems/pickup_animation_system.gd" id="2_475dl"]
+[ext_resource type="Script" uid="uid://ffcct1p8i3i7" path="res://src/entities/entity_shadow_component.gd" id="3_fxu6p"]
+[ext_resource type="Script" uid="uid://bij7aw7p5gd2p" path="res://src/entities/animated_sprite_component.gd" id="4_vxgub"]
+[ext_resource type="Script" uid="uid://dt1kwvki67pr4" path="res://src/entities/hitbox_component.gd" id="6_w0pqc"]
 [ext_resource type="PackedScene" uid="uid://bdlxq5bh2qqu2" path="res://src/entities/interactable/interactable_component.tscn" id="7_3idw7"]
-[ext_resource type="Script" path="res://src/entities/pickups/pickup_repulsion_movement.gd" id="7_yb6yi"]
-[ext_resource type="Script" path="res://src/systems/movement/entity_repulsion_system.gd" id="8_nttbx"]
+[ext_resource type="Script" uid="uid://cq1ml81c3kyuq" path="res://src/entities/pickups/pickup_repulsion_movement.gd" id="7_yb6yi"]
+[ext_resource type="Script" uid="uid://cwjrqxwlf33av" path="res://src/systems/movement/entity_repulsion_system.gd" id="8_nttbx"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_m4yrq"]
 device = -1

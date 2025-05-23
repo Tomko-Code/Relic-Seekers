@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://c5fdro8asqha0"]
 
-[ext_resource type="Script" path="res://src/entities/enemies/enemy.gd" id="1_kl5qa"]
-[ext_resource type="Script" path="res://src/entities/stats_component.gd" id="3_0sfo1"]
+[ext_resource type="Script" uid="uid://dt8guyx4fxrdq" path="res://src/entities/enemies/enemy.gd" id="1_kl5qa"]
+[ext_resource type="Script" uid="uid://uvfmmqcu25jg" path="res://src/entities/stats_component.gd" id="3_0sfo1"]
 [ext_resource type="Texture2D" uid="uid://dayf0y6nyidev" path="res://icon.svg" id="3_mem3v"]
-[ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="3_pnuqm"]
+[ext_resource type="Script" uid="uid://dt1kwvki67pr4" path="res://src/entities/hitbox_component.gd" id="3_pnuqm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j5vau"]
 size = Vector2(64, 64)
