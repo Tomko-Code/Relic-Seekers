@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b8robqmb4rd47"]
 
 [ext_resource type="Texture2D" uid="uid://bwx1f53jboxkp" path="res://assets/art/UI/9-path-01.png" id="1_kogrt"]
-[ext_resource type="Script" path="res://src/hud/tooltip.gd" id="1_uufea"]
+[ext_resource type="Script" uid="uid://b763l51ebyc4q" path="res://src/hud/tooltip.gd" id="1_uufea"]
 [ext_resource type="FontFile" uid="uid://wxqcfc30ah8a" path="res://assets/fonts/HelvetiPixel.ttf" id="2_woheq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_03k1v"]
@@ -17,7 +17,7 @@ texture_margin_bottom = 8.0
 
 [sub_resource type="Theme" id="Theme_hc10h"]
 default_font = ExtResource("2_woheq")
-default_font_size = 32
+default_font_size = 16
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_03k1v")
 
 [node name="Tooltip" type="PanelContainer"]
