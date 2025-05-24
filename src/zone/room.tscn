@@ -17,7 +17,7 @@ lights = NodePath("Lights")
 tile_set = ExtResource("2_nb1v7")
 format = 2
 layer_0/name = "Floor"
-layer_0/modulate = Color(0.482353, 0.482353, 0.482353, 1)
+layer_0/modulate = Color(0.482416, 0.480484, 0.489102, 1)
 layer_1/name = "Pits"
 
 [node name="Walls" type="TileMap" parent="."]
