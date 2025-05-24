@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://ioljmoceoslq"]
+
+[ext_resource type="PackedScene" uid="uid://bdlxq5bh2qqu2" path="res://src/entities/interactable/interactable_component.tscn" id="1_1jefe"]
+[ext_resource type="Texture2D" uid="uid://tikx6gtgd3h3" path="res://assets/art/props/circle_32x32.png" id="2_3c3k4"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_3c3k4"]
+device = -1
+keycode = 88
+unicode = 120
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hoq47"]
+radius = 48.0
+
+[node name="TeleportPilar" type="Node2D"]
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="InteractableComponent" parent="Components" instance=ExtResource("1_1jefe")]
+interaction_input = SubResource("InputEventKey_3c3k4")
+interaction_title = "test"
+input_text = "X"
+box_position = Vector2(0, 16)
+shape = SubResource("CircleShape2D_hoq47")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_3c3k4")

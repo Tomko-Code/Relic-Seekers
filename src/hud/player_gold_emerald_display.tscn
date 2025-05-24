@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvoj7ynkb5115"]
+[gd_scene load_steps=6 format=3 uid="uid://dvoj7ynkb5115"]
 
 [ext_resource type="Script" uid="uid://tsedastsfch2" path="res://src/hud/player_gold_emerald_display.gd" id="1_v3f80"]
 [ext_resource type="Theme" uid="uid://byoo2gb70drio" path="res://assets/themes/interactable.tres" id="2_dgx7k"]
 [ext_resource type="Texture2D" uid="uid://bu03b6pa34u7a" path="res://assets/art/icons/gold.tres" id="3_nppa6"]
 [ext_resource type="Texture2D" uid="uid://dnxy0ov5k2c7q" path="res://assets/art/icons/emerald.tres" id="4_djald"]
+[ext_resource type="Texture2D" uid="uid://dekj7copda0vd" path="res://assets/art/sprites/teleports/core.png" id="5_78upp"]
 
 [node name="PlayerGoldEmeraldDisplay" type="PanelContainer"]
 custom_minimum_size = Vector2(80, 32)
@@ -60,3 +61,16 @@ stretch_mode = 4
 [node name="EmeraldDisplay" type="Label" parent="MarginContainer/VBoxContainer/EmeraldHbox"]
 layout_mode = 2
 text = "123"
+
+[node name="CoreHbox" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CoreIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/CoreHbox"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("5_78upp")
+expand_mode = 2
+
+[node name="CoreDisplay" type="Label" parent="MarginContainer/VBoxContainer/CoreHbox"]
+layout_mode = 2
+text = "0"

@@ -1,13 +1,13 @@
 [gd_scene load_steps=11 format=3 uid="uid://tyyed3rgehp3"]
 
-[ext_resource type="Script" path="res://src/entities/pickups/emerald_pickup.gd" id="1_tyvui"]
-[ext_resource type="Script" path="res://src/systems/pickup_animation_system.gd" id="2_0vd5f"]
-[ext_resource type="Script" path="res://src/entities/entity_shadow_component.gd" id="3_x2c7b"]
-[ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="4_co5gm"]
+[ext_resource type="Script" uid="uid://bke1nnmw2ygj3" path="res://src/entities/pickups/emerald_pickup.gd" id="1_tyvui"]
+[ext_resource type="Script" uid="uid://bldxd1y3fanu0" path="res://src/systems/pickup_animation_system.gd" id="2_0vd5f"]
+[ext_resource type="Script" uid="uid://ffcct1p8i3i7" path="res://src/entities/entity_shadow_component.gd" id="3_x2c7b"]
+[ext_resource type="Script" uid="uid://bij7aw7p5gd2p" path="res://src/entities/animated_sprite_component.gd" id="4_co5gm"]
 [ext_resource type="Texture2D" uid="uid://dnxy0ov5k2c7q" path="res://assets/art/icons/emerald.tres" id="5_0ebbd"]
-[ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="6_qveea"]
-[ext_resource type="Script" path="res://src/entities/pickups/pickup_repulsion_movement.gd" id="7_yma2a"]
-[ext_resource type="Script" path="res://src/systems/movement/entity_repulsion_system.gd" id="8_bncr8"]
+[ext_resource type="Script" uid="uid://dt1kwvki67pr4" path="res://src/entities/hitbox_component.gd" id="6_qveea"]
+[ext_resource type="Script" uid="uid://cq1ml81c3kyuq" path="res://src/entities/pickups/pickup_repulsion_movement.gd" id="7_yma2a"]
+[ext_resource type="Script" uid="uid://cwjrqxwlf33av" path="res://src/systems/movement/entity_repulsion_system.gd" id="8_bncr8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lihrr"]
 radius = 16.0

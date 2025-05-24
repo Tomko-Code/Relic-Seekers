@@ -42,5 +42,5 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(800, 640)
 
 [node name="Teleport" type="Sprite2D" parent="."]
-position = Vector2(2720, 481)
+position = Vector2(1360, 240.5)
 texture = ExtResource("4_0rwgr")
