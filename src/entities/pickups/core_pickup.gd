@@ -8,7 +8,8 @@ func _ready():
 	super._ready()
 
 func on_player_entered(player):
-	if can_pickup:
+	
+	if can_pickup and GameData.save_file.get_total_cores() < 3:
 		GameData.save_file.player_inventory.core += 1
 		SoundManager.play_sfx("gold_sfx")
 		queue_free()

@@ -129,9 +129,11 @@ position = Vector2(975, 241)
 
 [node name="TeleportPilar2" parent="PortalRoom/Pilars" index="1" instance=ExtResource("9_t0k4r")]
 position = Vector2(1197, 78)
+ID = 1
 
 [node name="TeleportPilar3" parent="PortalRoom/Pilars" index="2" instance=ExtResource("9_t0k4r")]
 position = Vector2(1196, 402)
+ID = 2
 
 [node name="CircleBig160x160" type="Sprite2D" parent="PortalRoom" index="1"]
 position = Vector2(1133, 242)
