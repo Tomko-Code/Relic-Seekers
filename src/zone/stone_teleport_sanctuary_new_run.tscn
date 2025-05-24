@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://3tchj66syyvi"]
+[gd_scene load_steps=8 format=3 uid="uid://3tchj66syyvi"]
 
-[ext_resource type="Script" path="res://src/zone/stone_teleport_sanctuary_new_run.gd" id="1_wbsjo"]
+[ext_resource type="Script" uid="uid://dprv8dcd8asbi" path="res://src/zone/stone_teleport_sanctuary_new_run.gd" id="1_wbsjo"]
 [ext_resource type="PackedScene" uid="uid://bdlxq5bh2qqu2" path="res://src/entities/interactable/interactable_component.tscn" id="2_vn51u"]
-[ext_resource type="Texture2D" uid="uid://dt3qdpradqlxh" path="res://assets/art/sprites/teleports/stone_teleport.png" id="3_dnrux"]
+[ext_resource type="Texture2D" uid="uid://daek2cvxt2sbh" path="res://assets/art/sprites/teleports/stone_teleport_sancruary_floor.png" id="3_a2qwb"]
+[ext_resource type="Texture2D" uid="uid://do0leigdocsiv" path="res://assets/art/sprites/teleports/stone_teleport_sancruary.png" id="4_r7gvy"]
+[ext_resource type="PackedScene" uid="uid://dyt7sb2kcnhas" path="res://assets/sfx/light/light_sources/spot_light.tscn" id="5_r7gvy"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_y8wqn"]
 device = -1
@@ -25,7 +27,16 @@ interaction_title = "Start New Run"
 input_text = "X"
 shape = SubResource("CircleShape2D_otk7v")
 
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(0.482353, 0.482353, 0.490196, 1)
+texture = ExtResource("3_a2qwb")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("3_dnrux")
+texture = ExtResource("4_r7gvy")
+
+[node name="SpotLight" parent="." instance=ExtResource("5_r7gvy")]
+position = Vector2(1, -2)
+color = Color(0.453446, 0.984394, 0.953951, 1)
+texture_scale = 0.4
 
 [connection signal="interacted" from="Components/InteractableComponent" to="." method="_on_interactable_component_interacted"]
