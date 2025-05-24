@@ -1,5 +1,6 @@
 extends Node
 
+var core_resource = load("res://src/entities/pickups/core_pickup.tscn")
 var gold_resource = load("res://src/entities/pickups/gold_pickup.tscn")
 var emerald_resource = load("res://src/entities/pickups/emerald_pickup.tscn")
 var artifact_resource = load("res://src/entities/pickups/artifact_pickup.tscn")
@@ -25,11 +26,14 @@ func create_mana_orb_pickup():
 func create_heart_pickup():
 	return heart_resource.instantiate()
 
+func create_core_pickup():
+	return core_resource.instantiate()
+
 func create_artifact_pickup(artifact: Artifact):
 	var artifact_pickup = artifact_resource.instantiate()
 	artifact_pickup.set_artifact(artifact)
 	return artifact_pickup
-	
+
 func create_artifact(artifact_name: String):
 	if ArtifactsDb.artifacts.has(artifact_name):
 		return ArtifactsDb.artifacts[artifact_name].new()

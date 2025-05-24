@@ -1,15 +1,12 @@
 extends CanvasLayer
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-
 
 func _on_text_edit_text_changed():
 	var text_input = $Console/TextEdit
@@ -46,3 +43,7 @@ func _on_button_5_pressed():
 func _on_button_6_pressed():
 	var stats = GameManager.get_entity_component(GameManager.player, PlayerStatsComponent)[0] as PlayerStatsComponent
 	stats.change_health(-(stats.max_health - stats.current_health))
+
+
+func _on_core_reset_pressed() -> void:
+	GameData.save_file.player_inventory.core = 0

@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqkjikwarcc0d"]
+[gd_scene load_steps=4 format=3 uid="uid://cqkjikwarcc0d"]
 
 [ext_resource type="Script" uid="uid://dby0ls6i8o44m" path="res://src/console/console.gd" id="1_nv5ud"]
+[ext_resource type="FontFile" uid="uid://qbn5lycp6m72" path="res://assets/fonts/PixelFJVerdana12pt.ttf" id="2_wyc7o"]
+
+[sub_resource type="Theme" id="Theme_juhpt"]
+default_font = ExtResource("2_wyc7o")
+default_font_size = 7
 
 [node name="ConsoleLayer" type="CanvasLayer"]
 layer = 20
@@ -11,6 +16,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 640.0
 offset_bottom = 360.0
+theme = SubResource("Theme_juhpt")
 
 [node name="TextEdit" type="TextEdit" parent="Console"]
 layout_mode = 0
@@ -54,6 +60,14 @@ text = "test_spell"
 layout_mode = 2
 text = "Full heal"
 
+[node name="HBoxContainer2" type="HBoxContainer" parent="Console/VBoxContainer"]
+layout_mode = 2
+
+[node name="CoreReset" type="Button" parent="Console/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Reset Player Cores
+"
+
 [connection signal="text_changed" from="Console/TextEdit" to="." method="_on_text_edit_text_changed"]
 [connection signal="pressed" from="Console/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Console/VBoxContainer/HBoxContainer/Button2" to="." method="_on_button_2_pressed_death"]
@@ -61,3 +75,4 @@ text = "Full heal"
 [connection signal="pressed" from="Console/VBoxContainer/HBoxContainer/Button4" to="." method="_on_button_4_pressed"]
 [connection signal="pressed" from="Console/VBoxContainer/HBoxContainer/Button5" to="." method="_on_button_5_pressed"]
 [connection signal="pressed" from="Console/VBoxContainer/HBoxContainer/Button6" to="." method="_on_button_6_pressed"]
+[connection signal="pressed" from="Console/VBoxContainer/HBoxContainer2/CoreReset" to="." method="_on_core_reset_pressed"]

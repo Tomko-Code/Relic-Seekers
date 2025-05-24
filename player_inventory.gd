@@ -19,7 +19,7 @@ var emeralds:int = 0:
 		emeralds = value
 		emit_signal("emeralds_changed")
 
-var core:int = 0:
+@export var core:int = 0:
 	set(value):
 		core = value
 		emit_signal("core_changed")

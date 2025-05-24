@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ioljmoceoslq"]
+[gd_scene load_steps=7 format=3 uid="uid://ioljmoceoslq"]
 
 [ext_resource type="PackedScene" uid="uid://bdlxq5bh2qqu2" path="res://src/entities/interactable/interactable_component.tscn" id="1_1jefe"]
+[ext_resource type="Script" uid="uid://cbke1bh1b0oyx" path="res://src/entities/Interactables/sanctuary/teleport_pilar.gd" id="1_hoq47"]
 [ext_resource type="Texture2D" uid="uid://tikx6gtgd3h3" path="res://assets/art/props/circle_32x32.png" id="2_3c3k4"]
+[ext_resource type="Texture2D" uid="uid://dekj7copda0vd" path="res://assets/art/sprites/teleports/core.png" id="4_bd56y"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_3c3k4"]
 device = -1
@@ -12,6 +14,7 @@ unicode = 120
 radius = 48.0
 
 [node name="TeleportPilar" type="Node2D"]
+script = ExtResource("1_hoq47")
 
 [node name="Components" type="Node2D" parent="."]
 
@@ -24,3 +27,9 @@ shape = SubResource("CircleShape2D_hoq47")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_3c3k4")
+
+[node name="Core" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_bd56y")
+
+[connection signal="interacted" from="Components/InteractableComponent" to="." method="_pilar_interacted"]

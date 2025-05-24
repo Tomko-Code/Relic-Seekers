@@ -85,6 +85,19 @@ func generate(_level_preset:LevelGenerationPreset) -> Level:
 				var new_room:RoomData = pick_room()
 				if add_room(room, new_room):
 					try_cout = 0
+		#elif not end_added:
+			#if room.distance_from_start <= 1:
+				#print("ee")
+				#continue
+			#
+			#if room.connection_arry.size() > 0:
+				#if add_room(room, end_room):
+					#print("end placed")
+					#try_cout = 0
+					#end_added = true
+					#while not boss_room.all_possible_connections.is_empty():
+						#add_random_connection(end_room)
+		
 		elif not boss_added:
 			if room.distance_from_start <= 1:
 					continue

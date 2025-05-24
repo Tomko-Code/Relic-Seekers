@@ -16,8 +16,11 @@ func _input(event):
 		Console.visible = !Console.visible
 		await get_tree().process_frame
 		if Console.visible:
+			if GameManager.player != null: GameManager.player.paused = true
 			Console.get_node("Console/TextEdit").grab_focus()
 			Console.get_node("Console/TextEdit").clear()
+		else:
+			if GameManager.player != null: GameManager.player.paused = false
 
 func register_command(command_name: String, callback: Callable):
 	all_commands[command_name] = callback
