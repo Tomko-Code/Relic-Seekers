@@ -1,14 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://v11uw5rg8gs0"]
+[gd_scene load_steps=12 format=3 uid="uid://r5qj8bxkh5pj"]
 
-[ext_resource type="Script" uid="uid://d1khmpgf7ebow" path="res://src/entities/pickups/gold_pickup.gd" id="1_2tidk"]
-[ext_resource type="Script" uid="uid://bldxd1y3fanu0" path="res://src/systems/pickup_animation_system.gd" id="1_4qdb7"]
-[ext_resource type="Script" uid="uid://ffcct1p8i3i7" path="res://src/entities/entity_shadow_component.gd" id="2_qd6vi"]
-[ext_resource type="Script" uid="uid://bij7aw7p5gd2p" path="res://src/entities/animated_sprite_component.gd" id="3_p42ty"]
-[ext_resource type="Script" uid="uid://dt1kwvki67pr4" path="res://src/entities/hitbox_component.gd" id="4_l8lgd"]
-[ext_resource type="Texture2D" uid="uid://bu03b6pa34u7a" path="res://assets/art/icons/gold.tres" id="5_iiq1q"]
-[ext_resource type="Script" uid="uid://cq1ml81c3kyuq" path="res://src/entities/pickups/pickup_repulsion_movement.gd" id="7_hdwbo"]
-[ext_resource type="AudioStream" uid="uid://b2ydxve0kxj24" path="res://assets/audio/sfx/gold_sfx.wav" id="8_a46m1"]
-[ext_resource type="Script" uid="uid://cwjrqxwlf33av" path="res://src/systems/movement/entity_repulsion_system.gd" id="8_f31fs"]
+[ext_resource type="Script" uid="uid://bpm8jfqyyde44" path="res://src/entities/pickups/core_pickup.gd" id="1_bu7c5"]
+[ext_resource type="Script" uid="uid://bldxd1y3fanu0" path="res://src/systems/pickup_animation_system.gd" id="2_mjqy6"]
+[ext_resource type="Script" uid="uid://ffcct1p8i3i7" path="res://src/entities/entity_shadow_component.gd" id="3_l4emg"]
+[ext_resource type="Script" uid="uid://bij7aw7p5gd2p" path="res://src/entities/animated_sprite_component.gd" id="4_wus5r"]
+[ext_resource type="Texture2D" uid="uid://dekj7copda0vd" path="res://assets/art/sprites/teleports/core.png" id="5_bu7c5"]
+[ext_resource type="Script" uid="uid://dt1kwvki67pr4" path="res://src/entities/hitbox_component.gd" id="6_tc0mv"]
+[ext_resource type="Script" uid="uid://cq1ml81c3kyuq" path="res://src/entities/pickups/pickup_repulsion_movement.gd" id="7_miavn"]
+[ext_resource type="Script" uid="uid://cwjrqxwlf33av" path="res://src/systems/movement/entity_repulsion_system.gd" id="8_pt525"]
+[ext_resource type="AudioStream" uid="uid://b2ydxve0kxj24" path="res://assets/audio/sfx/gold_sfx.wav" id="9_7ae73"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8hb20"]
 radius = 16.0
@@ -16,34 +16,33 @@ radius = 16.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_jn4l4"]
 radius = 16.0
 
-[node name="GoldPickup" type="CharacterBody2D" node_paths=PackedStringArray("_HitboxComponent", "_PickupRepulsionMovement") groups=["auto_pick"]]
+[node name="CorePickup" type="CharacterBody2D" node_paths=PackedStringArray("_HitboxComponent", "_PickupRepulsionMovement") groups=["auto_pick"]]
 collision_layer = 64
 collision_mask = 2
-script = ExtResource("1_2tidk")
+script = ExtResource("1_bu7c5")
 _HitboxComponent = NodePath("Components/PickupHitbox")
 _PickupRepulsionMovement = NodePath("Components/PickupRepulsionMovement")
 
 [node name="Components" type="Node2D" parent="."]
 
 [node name="PickupAnimationSystem" type="Node" parent="Components" node_paths=PackedStringArray("_AnimatedSpriteComponent")]
-script = ExtResource("1_4qdb7")
+script = ExtResource("2_mjqy6")
 is_floating = true
 _AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
 
 [node name="EntityShadowComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("_AnimatedSpriteComponent")]
-script = ExtResource("2_qd6vi")
+script = ExtResource("3_l4emg")
 _AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
 
 [node name="AnimatedSpriteComponent" type="Node2D" parent="Components"]
-script = ExtResource("3_p42ty")
+script = ExtResource("4_wus5r")
 
 [node name="Sprite2D" type="Sprite2D" parent="Components/AnimatedSpriteComponent"]
-scale = Vector2(2, 2)
-texture = ExtResource("5_iiq1q")
+texture = ExtResource("5_bu7c5")
 
 [node name="PickupHitbox" type="Area2D" parent="Components"]
 collision_layer = 0
-script = ExtResource("4_l8lgd")
+script = ExtResource("6_tc0mv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Components/PickupHitbox"]
 shape = SubResource("CircleShape2D_8hb20")
@@ -51,22 +50,22 @@ shape = SubResource("CircleShape2D_8hb20")
 [node name="RepulsionHitbox" type="Area2D" parent="Components"]
 collision_layer = 64
 collision_mask = 69
-script = ExtResource("4_l8lgd")
+script = ExtResource("6_tc0mv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Components/RepulsionHitbox"]
 shape = SubResource("CircleShape2D_jn4l4")
 
 [node name="PickupRepulsionMovement" type="Node" parent="Components" node_paths=PackedStringArray("_HitboxComponent")]
-script = ExtResource("7_hdwbo")
+script = ExtResource("7_miavn")
 _HitboxComponent = NodePath("../RepulsionHitbox")
 
 [node name="EntityRepulsionSystem" type="Node" parent="Components" node_paths=PackedStringArray("_HitboxComponent")]
-script = ExtResource("8_f31fs")
+script = ExtResource("8_pt525")
 _HitboxComponent = NodePath("../RepulsionHitbox")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_8hb20")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_a46m1")
+stream = ExtResource("9_7ae73")
 bus = &"SFX"

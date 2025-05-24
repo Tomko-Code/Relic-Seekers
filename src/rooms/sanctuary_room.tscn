@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bh2fqfxaebj1i"]
+[gd_scene load_steps=12 format=3 uid="uid://bh2fqfxaebj1i"]
 
 [ext_resource type="PackedScene" uid="uid://bnrt7xcfjh5bx" path="res://src/zone/room.tscn" id="1_w2tce"]
 [ext_resource type="PackedScene" uid="uid://blc3na0tm1ve3" path="res://src/entities/Interactables/thaladon/thaladon.tscn" id="2_eybjr"]
@@ -9,7 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://b4ny4w4hiulde" path="res://assets/art/props/circle_big_160x160.png" id="8_gmpp8"]
 [ext_resource type="PackedScene" uid="uid://dyt7sb2kcnhas" path="res://assets/sfx/light/light_sources/spot_light.tscn" id="8_t0k4r"]
 [ext_resource type="PackedScene" uid="uid://bqb43ymw5guvu" path="res://assets/sfx/light/light_sources/light_source_wall.tscn" id="8_wct5c"]
-[ext_resource type="Texture2D" uid="uid://tikx6gtgd3h3" path="res://assets/art/props/circle_32x32.png" id="9_t0k4r"]
+[ext_resource type="PackedScene" uid="uid://ioljmoceoslq" path="res://src/entities/Interactables/sanctuary/teleport_pilar.tscn" id="9_t0k4r"]
+[ext_resource type="PackedScene" uid="uid://r5qj8bxkh5pj" path="res://src/entities/pickups/core_pickup.tscn" id="11_os0iu"]
 
 [node name="SanctuaryRoom" instance=ExtResource("1_w2tce")]
 script = ExtResource("2_f0hrt")
@@ -64,22 +65,22 @@ position = Vector2(96, 224)
 
 [node name="PointLight2D" parent="Lights/RoomLights" index="1" instance=ExtResource("8_wct5c")]
 position = Vector2(-416, 352)
-rotation = -1.5708
+rotation = 4.71239
 direction = 4
 
 [node name="PointLight2D3" parent="Lights/RoomLights" index="2" instance=ExtResource("8_wct5c")]
 position = Vector2(-416, 608)
-rotation = -1.5708
+rotation = 4.71239
 direction = 4
 
 [node name="PointLight2D4" parent="Lights/RoomLights" index="3" instance=ExtResource("8_wct5c")]
 position = Vector2(96, 736)
-rotation = -3.14159
+rotation = 3.14159
 direction = 6
 
 [node name="PointLight2D5" parent="Lights/RoomLights" index="4" instance=ExtResource("8_wct5c")]
 position = Vector2(224, 864)
-rotation = -1.5708
+rotation = 4.71239
 direction = 4
 
 [node name="PointLight2D6" parent="Lights/RoomLights" index="5" instance=ExtResource("8_wct5c")]
@@ -87,7 +88,7 @@ position = Vector2(1446, 248)
 
 [node name="PointLight2D7" parent="Lights/RoomLights" index="6" instance=ExtResource("8_wct5c")]
 position = Vector2(1438, 702)
-rotation = -3.14159
+rotation = 3.14159
 direction = 6
 
 [node name="PointLight2D11" parent="Lights/RoomLights" index="7" instance=ExtResource("8_wct5c")]
@@ -98,7 +99,7 @@ position = Vector2(2784, 236)
 
 [node name="PointLight2D9" parent="Lights/RoomLights" index="9" instance=ExtResource("8_wct5c")]
 position = Vector2(800, 1056)
-rotation = -3.14159
+rotation = 3.14159
 direction = 6
 
 [node name="PointLight2D10" parent="Lights/RoomLights" index="10" instance=ExtResource("8_wct5c")]
@@ -121,49 +122,51 @@ texture_scale = 0.4
 
 [node name="PortalRoom" type="Node2D" parent="." index="8"]
 
-[node name="CircleBig160x160" type="Sprite2D" parent="PortalRoom" index="0"]
+[node name="Pilars" type="Node2D" parent="PortalRoom" index="0"]
+
+[node name="TeleportPilar" parent="PortalRoom/Pilars" index="0" instance=ExtResource("9_t0k4r")]
+position = Vector2(975, 241)
+
+[node name="TeleportPilar2" parent="PortalRoom/Pilars" index="1" instance=ExtResource("9_t0k4r")]
+position = Vector2(1197, 78)
+
+[node name="TeleportPilar3" parent="PortalRoom/Pilars" index="2" instance=ExtResource("9_t0k4r")]
+position = Vector2(1196, 402)
+
+[node name="CircleBig160x160" type="Sprite2D" parent="PortalRoom" index="1"]
 position = Vector2(1133, 242)
 texture = ExtResource("8_gmpp8")
 
-[node name="Circle32x32" type="Sprite2D" parent="PortalRoom" index="1"]
-position = Vector2(1201, 78)
-texture = ExtResource("9_t0k4r")
-
-[node name="Circle32x33" type="Sprite2D" parent="PortalRoom" index="2"]
-position = Vector2(1198, 400)
-texture = ExtResource("9_t0k4r")
-
-[node name="Circle32x34" type="Sprite2D" parent="PortalRoom" index="3"]
-position = Vector2(975, 242)
-texture = ExtResource("9_t0k4r")
-
-[node name="Line2D" type="Line2D" parent="PortalRoom" index="4"]
+[node name="Line2D" type="Line2D" parent="PortalRoom" index="2"]
 position = Vector2(509, 209)
 points = PackedVector2Array(1, 1, 339, -1, 403, -127, 671, -130)
 width = 5.0
 default_color = Color(0.215686, 1, 1, 1)
 
-[node name="Line2D2" type="Line2D" parent="PortalRoom" index="5"]
+[node name="Line2D2" type="Line2D" parent="PortalRoom" index="3"]
 points = PackedVector2Array(511, 240, 959, 241)
 width = 5.0
 default_color = Color(0.215686, 1, 1, 1)
 
-[node name="Line2D3" type="Line2D" parent="PortalRoom" index="6"]
+[node name="Line2D3" type="Line2D" parent="PortalRoom" index="4"]
 points = PackedVector2Array(512, 270, 847, 269, 910, 394, 1176, 402)
 width = 5.0
 default_color = Color(0.215686, 1, 1, 1)
 
-[node name="Line2D4" type="Line2D" parent="PortalRoom" index="7"]
+[node name="Line2D4" type="Line2D" parent="PortalRoom" index="5"]
 points = PackedVector2Array(992, 241, 1051, 243)
 width = 5.0
 default_color = Color(0.215686, 1, 1, 1)
 
-[node name="Line2D5" type="Line2D" parent="PortalRoom" index="8"]
+[node name="Line2D5" type="Line2D" parent="PortalRoom" index="6"]
 points = PackedVector2Array(1196, 93, 1170, 169)
 width = 5.0
 default_color = Color(0.215686, 1, 1, 1)
 
-[node name="Line2D6" type="Line2D" parent="PortalRoom" index="9"]
+[node name="Line2D6" type="Line2D" parent="PortalRoom" index="7"]
 points = PackedVector2Array(1189, 385, 1168, 314)
 width = 5.0
 default_color = Color(0.215686, 1, 1, 1)
+
+[node name="GoldPickup" parent="." index="9" instance=ExtResource("11_os0iu")]
+position = Vector2(214, 238)

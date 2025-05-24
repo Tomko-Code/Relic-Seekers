@@ -3,6 +3,7 @@ class_name PlayerInventory
 
 signal gold_changed( value:int )
 signal emeralds_changed( value:int )
+signal core_changed( value:int )
 
 signal passive_artifact_changed
 signal active_artifact_changed
@@ -17,6 +18,11 @@ var emeralds:int = 0:
 	set(value):
 		emeralds = value
 		emit_signal("emeralds_changed")
+
+var core:int = 0:
+	set(value):
+		core = value
+		emit_signal("core_changed")
 
 #@export var artefact_0
 #@export var artefact_1
