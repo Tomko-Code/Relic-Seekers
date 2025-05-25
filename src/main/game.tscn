@@ -10,7 +10,7 @@
 [ext_resource type="Theme" uid="uid://o6wqytlp1g1i" path="res://assets/themes/death_msg_theme.tres" id="7_xt4eh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vn7mw"]
-bg_color = Color(0.164706, 0.219608, 0.423529, 1)
+bg_color = Color(0.0941176, 0.0745098, 0.117647, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
