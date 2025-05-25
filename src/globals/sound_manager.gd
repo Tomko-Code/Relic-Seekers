@@ -12,7 +12,7 @@ var sfx_sounds = {
 }
 
 var sound_streams = {}
-var sfx_limit = 2
+var sfx_limit = 1
 #var sfx_queue = []
 
 

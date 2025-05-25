@@ -65,6 +65,7 @@ func set_enemy_count(value:int):
 	if enemy_count > 0:
 		if room_closed == false:
 			room_closed = true
+			GameData.in_combat = true
 		
 	else:
 		if data.has_waves:
@@ -73,7 +74,9 @@ func set_enemy_count(value:int):
 		if data.has_waves == false:
 			if room_closed == true:
 				room_closed = false
-				print(enemy_count)
+				GameData.in_combat = false
+				print("room_clear")
+				
 				emit_signal("enemies_clear")
 		# open room or spawn next wave
 
