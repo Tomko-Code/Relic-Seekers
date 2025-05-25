@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="LevelGenerationPreset" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="LevelGenerationPreset" load_steps=2 format=3 uid="uid://d1qocmyy5x43f"]
 
-[ext_resource type="Script" path="res://src/pcg/level_generation_preset.gd" id="1_58rcj"]
+[ext_resource type="Script" uid="uid://dgrm3e4wlepl4" path="res://src/pcg/level_generation_preset.gd" id="1_58rcj"]
 
 [resource]
 script = ExtResource("1_58rcj")
@@ -11,7 +11,9 @@ max_rooms = 10
 start_position = Vector2(0, 0)
 random_start = true
 start_room = ""
-end_room = ""
+end_room = "end_room"
+boss_room = "test_boss_room"
+is_boss_room_required = false
 room_sets = ["standard"]
 difficulty = 1
 shape_weights = {
