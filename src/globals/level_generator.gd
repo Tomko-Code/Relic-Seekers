@@ -42,8 +42,8 @@ func generate(_level_preset:LevelGenerationPreset) -> Level:
 	var end_added = false
 	var special_rooms_added = false
 	
-	var boss_room = RoomData.new().set_up("test_boss_room", level)
-	var end_room = RoomData.new().set_up("end_room", level)
+	var boss_room = RoomData.new().set_up(level_preset.boss_room, level)
+	var end_room = RoomData.new().set_up(level_preset.end_room, level)
 	boss_room.is_special = true
 	boss_room.is_boss = true
 	end_room.is_special = true
@@ -100,7 +100,12 @@ func generate(_level_preset:LevelGenerationPreset) -> Level:
 		
 		elif not boss_added:
 			if room.distance_from_start <= 1:
-					continue
+				continue
+			
+			if !level_preset.is_boss_room_required:
+				try_cout = 0
+				boss_added = true
+				continue
 			
 			if room.connection_arry.size() > 0:
 				if add_room(room, boss_room):
@@ -109,6 +114,19 @@ func generate(_level_preset:LevelGenerationPreset) -> Level:
 					while not boss_room.all_possible_connections.is_empty():
 						add_random_connection(boss_room)
 		elif not end_added:
+			if !level_preset.is_boss_room_required:
+				if room.distance_from_start <= 1:
+					continue
+				
+				if room.connection_arry.size() > 0:
+					if add_room(room, end_room):
+						try_cout = 0
+						end_added = true
+						continue
+						while not end_room.all_possible_connections.is_empty():
+							add_random_connection(end_room)
+				continue
+			
 			if add_room(boss_room, end_room, true):
 				end_added = true
 			else:

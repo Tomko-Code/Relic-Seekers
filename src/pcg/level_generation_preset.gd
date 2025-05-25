@@ -21,7 +21,10 @@ var room_randomize_setting = ROOM_RANOMIZE_SETTINGS.BY_SHAPE_ROOM_WEIGHT
 @export var random_start:bool = false
 
 @export var start_room:String = ""
-@export var end_room:String = ""
+@export var end_room:String = "end_room"
+@export var boss_room:String = "test_boss_room"
+
+@export var is_boss_room_required:bool = false
 
 @export var room_sets = []
 

@@ -2,15 +2,15 @@ extends Node2D
 class_name StoneTeleportSanctuaryNewRun
 
 @export var interactable_component:InteractibleComponent
+var game:Game = null
 
 var scaling_levels:bool = true
 var level_base:LevelGenerationPreset
 func _ready():
 	level_base = ResourceLoader.load("res://assets/level_generation_presets/0_preset.tres")
+	game = GameManager.loaded_scenes["Game"]
 
 func _on_interactable_component_interacted():
-	var game:Game = GameManager.loaded_scenes["Game"]
-
 	var level_preset = level_base.duplicate()
 	
 	GameManager.level_depth += 1
@@ -18,10 +18,17 @@ func _on_interactable_component_interacted():
 	if scaling_levels:
 		level_preset.difficulty = GameManager.level_depth
 	
+	#if is_boss_room_required 
+	
 	level_preset.level_size = Vector2(1000, 1000)
 	level_preset.start_position = Vector2(49,49)
 	
+	level_preset.level_name = str(GameManager.level_depth)
+	
 	level_preset.random_start = false
+	
+	#every other room 2, 4, 6 etc
+	level_preset.is_boss_room_required = !(level_preset.difficulty%2)
 	
 	level_preset.min_rooms = 7 + (level_preset.difficulty * 5)
 	level_preset.max_rooms = 7 + (level_preset.difficulty * 5)

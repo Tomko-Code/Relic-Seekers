@@ -19,7 +19,12 @@ func set_boss(_boss: Enemy):
 	update_stats()
 
 func boss_death():
+	var core = PickupsHandler.create_core_pickup()
+	boss.get_parent().add_child(core)
+	core.position = boss.position
+	
 	boss = null
+	
 	update_stats()
 
 func update_stats():
