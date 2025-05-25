@@ -16,7 +16,7 @@ radius = 16.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_jn4l4"]
 radius = 16.0
 
-[node name="CorePickup" type="CharacterBody2D" node_paths=PackedStringArray("_HitboxComponent", "_PickupRepulsionMovement") groups=["auto_pick"]]
+[node name="CorePickup" type="CharacterBody2D" node_paths=PackedStringArray("_HitboxComponent", "_PickupRepulsionMovement")]
 collision_layer = 64
 collision_mask = 2
 script = ExtResource("1_bu7c5")

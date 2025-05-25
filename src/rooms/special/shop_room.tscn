@@ -44,3 +44,5 @@ position = Vector2(576, 224)
 script = ExtResource("4_ff73c")
 
 [node name="Lights2" parent="Lights" index="0" instance=ExtResource("7_wgwgi")]
+
+[connection signal="player_enterd" from="." to="." method="_on_player_enterd"]

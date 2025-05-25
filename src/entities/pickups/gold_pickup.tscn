@@ -17,6 +17,7 @@ radius = 16.0
 radius = 16.0
 
 [node name="GoldPickup" type="CharacterBody2D" node_paths=PackedStringArray("_HitboxComponent", "_PickupRepulsionMovement") groups=["auto_pick"]]
+z_index = 1
 collision_layer = 64
 collision_mask = 2
 script = ExtResource("1_2tidk")

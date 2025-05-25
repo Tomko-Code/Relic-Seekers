@@ -182,6 +182,13 @@ func _ready():
 	pass
 
 func _process(delta):
+	if not GameData.in_combat:
+		for auto in get_tree().get_nodes_in_group("auto_pick"):
+			auto.auto_pick = true
+			auto.get_node("CollisionShape2D").disabled = true
+			auto.can_pickup = true
+			auto.get_node("Components/RepulsionHitbox").get_child(0).disabled = true
+	
 	if Input.is_action_just_pressed("artifact_slot_e"):
 		if level_state == LEVEL_STATES.SANCTUARY:
 			change_active_to_current_level()

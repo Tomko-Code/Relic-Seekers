@@ -31,3 +31,11 @@ func restock_shop():
 		var shop_item = stock[index]
 		var purchasable = PickupsHandler.make_purchasable(shop_item)
 		shop_marker.set_purchasable(purchasable)
+
+
+func _on_player_enterd() -> void:
+	#if GameData.data["dialog"].has("first_shop"):
+	GameManager.dialog_box.play("remark_thaladon_meeting")
+	#	GameManager.player.paused = true
+	#else:
+	#	GameManager.dialog_box.play("first_thaladon_meeting")
