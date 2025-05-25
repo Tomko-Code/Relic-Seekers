@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdlxu5o1ln7gf"]
+
+[ext_resource type="Texture2D" uid="uid://tikx6gtgd3h3" path="res://assets/art/props/circle_32x32.png" id="1_78y7j"]
+[ext_resource type="Script" uid="uid://bqpaa7jjs5fi8" path="res://src/rooms/switch.gd" id="1_a6k36"]
+[ext_resource type="PackedScene" uid="uid://bdlxq5bh2qqu2" path="res://src/entities/interactable/interactable_component.tscn" id="2_a6k36"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_e1e5k"]
+device = -1
+keycode = 88
+unicode = 120
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a6k36"]
+radius = 24.0
+
+[node name="Switch" type="Node2D"]
+script = ExtResource("1_a6k36")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_78y7j")
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="InteractableComponent" parent="Components" instance=ExtResource("2_a6k36")]
+interaction_input = SubResource("InputEventKey_e1e5k")
+interaction_title = "Use"
+input_text = "X"
+shape = SubResource("CircleShape2D_a6k36")
+
+[connection signal="interacted" from="Components/InteractableComponent" to="." method="_on_interactable_component_interacted"]

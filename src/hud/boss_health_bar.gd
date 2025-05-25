@@ -19,9 +19,11 @@ func set_boss(_boss: Enemy):
 	update_stats()
 
 func boss_death():
-	var core = PickupsHandler.create_core_pickup()
-	boss.get_parent().add_child(core)
-	core.position = boss.position
+	if GameManager.level_depth == Constants.FINAL_BOSS_LEVEL:
+		GameData.just_killed_finall_boss = true
+		var core = PickupsHandler.create_core_pickup()
+		boss.get_parent().add_child(core)
+		core.position = boss.position
 	
 	boss = null
 	

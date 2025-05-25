@@ -11,6 +11,10 @@ func _ready():
 	game = GameManager.loaded_scenes["Game"]
 
 func _on_interactable_component_interacted():
+	if GameManager.level_depth == Constants.FINAL_BOSS_LEVEL:
+		GameData.just_killed_finall_boss = true
+		game.reset_game()
+	
 	var level_preset = level_base.duplicate()
 	
 	GameManager.level_depth += 1
