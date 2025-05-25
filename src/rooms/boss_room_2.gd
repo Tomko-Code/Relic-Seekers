@@ -1,4 +1,4 @@
-class_name BossRoom
+class_name BossRoom2
 extends Room
 
 var spawned = false
@@ -8,6 +8,7 @@ func on_player_enter():
 		var boss = EnemiesHandler.spawn_boss("golem")
 		enemy_count = 1
 		boss.death.connect(on_enemy_death)
+		boss.modulate = Color.CRIMSON;
 		var spawn_point = spawn_point_res.instantiate() as SpawnerPoint
 		boss.position = $SpawnSpot.position
 		spawn_point.animation_player.speed_scale = 0.5

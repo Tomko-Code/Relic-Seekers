@@ -11,32 +11,32 @@ func _ready():
 	game = GameManager.loaded_scenes["Game"]
 
 func _on_interactable_component_interacted():
+	
 	if GameManager.level_depth == Constants.FINAL_BOSS_LEVEL:
 		GameData.just_killed_finall_boss = true
 		game.reset_game()
+		return
 	
-	var level_preset = level_base.duplicate()
+	var level_preset = level_base.duplicate() as LevelGenerationPreset
 	
 	GameManager.level_depth += 1
+	level_preset.level_name = str(GameManager.level_depth)
+	print("Next floor request ... level : " + str(level_preset.level_name) + " / 6")
 	
 	if scaling_levels:
 		level_preset.difficulty = GameManager.level_depth
 	
-	#if is_boss_room_required 
+	set_boss_room(level_preset)
+	print("Boss : " + level_preset.boss_room)
 	
 	level_preset.level_size = Vector2(1000, 1000)
 	level_preset.start_position = Vector2(49,49)
 	
-	level_preset.level_name = str(GameManager.level_depth)
-	
 	level_preset.random_start = false
 	
-	#every other room 2, 4, 6 etc
-	level_preset.is_boss_room_required = !(level_preset.difficulty%2)
-	
-	level_preset.min_rooms = 7 + (level_preset.difficulty * 5)
-	level_preset.max_rooms = 7 + (level_preset.difficulty * 5)
-	var special_rooms = [
+	level_preset.min_rooms = 7 + (level_preset.difficulty * 4)
+	level_preset.max_rooms = 7 + (level_preset.difficulty * 4)
+	var special_rooms = [	
 			"shrine_room",
 			"chest_room"
 	]
@@ -72,3 +72,18 @@ func _on_interactable_component_interacted():
 			game.change_active_to_current_level()
 			return
 	
+
+func set_boss_room(level_preset:LevelGenerationPreset):
+	#every other room 2, 4, 6 etc
+	level_preset.is_boss_room_required = !(level_preset.difficulty%2)
+	# if we don't need boss skip
+	if !level_preset.is_boss_room_required:
+		return
+	
+	match GameManager.level_depth:
+		2:
+			level_preset.boss_room = "test_boss_room"
+		3:
+			level_preset.boss_room = "boss_room_2"
+		4:
+			level_preset.boss_room = "boss_room_3"

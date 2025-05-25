@@ -1,14 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://bms5flh2wdrjj"]
+[gd_scene load_steps=7 format=3 uid="uid://kxycy6huvi6v"]
 
-[ext_resource type="Script" uid="uid://baxwmkqf0jfjl" path="res://src/rooms/boss_room.gd" id="1_pojs7"]
-[ext_resource type="TileSet" uid="uid://dm2xndon4kkfk" path="res://assets/tileset/show_room/show_room_tileset.tres" id="2_qwt10"]
-[ext_resource type="TileSet" uid="uid://d2tr7ruwf8c7j" path="res://assets/tileset/show_room/show_room_walls_tileset.tres" id="3_u1ryh"]
-[ext_resource type="Texture2D" uid="uid://h5822ojp1xkc" path="res://assets/art/sprites/teleports/circle_teleport.png" id="4_0rwgr"]
-[ext_resource type="PackedScene" uid="uid://bmfw1epumh1mt" path="res://assets/sfx/light/light_sets/set_of_lights_for_2x2.tscn" id="4_qlohp"]
-[ext_resource type="PackedScene" uid="uid://dyt7sb2kcnhas" path="res://assets/sfx/light/light_sources/spot_light.tscn" id="5_l235p"]
+[ext_resource type="Script" uid="uid://cdwthavycxgva" path="res://src/rooms/boss_room_3.gd" id="1_vlxxr"]
+[ext_resource type="TileSet" uid="uid://dm2xndon4kkfk" path="res://assets/tileset/show_room/show_room_tileset.tres" id="2_gy02s"]
+[ext_resource type="TileSet" uid="uid://d2tr7ruwf8c7j" path="res://assets/tileset/show_room/show_room_walls_tileset.tres" id="3_ho3f7"]
+[ext_resource type="PackedScene" uid="uid://bmfw1epumh1mt" path="res://assets/sfx/light/light_sets/set_of_lights_for_2x2.tscn" id="4_s8jbl"]
+[ext_resource type="PackedScene" uid="uid://dyt7sb2kcnhas" path="res://assets/sfx/light/light_sources/spot_light.tscn" id="5_83rcb"]
+[ext_resource type="Texture2D" uid="uid://h5822ojp1xkc" path="res://assets/art/sprites/teleports/circle_teleport.png" id="6_nf4fg"]
 
 [node name="BossRoom" type="Node2D" node_paths=PackedStringArray("floors", "walls", "Gates", "lights")]
-script = ExtResource("1_pojs7")
+script = ExtResource("1_vlxxr")
 floors = NodePath("Floors")
 walls = NodePath("Walls")
 Gates = NodePath("Gates")
@@ -17,7 +17,7 @@ lights = NodePath("Lights")
 [node name="Gates" type="Node2D" parent="."]
 
 [node name="Floors" type="TileMap" parent="."]
-tile_set = ExtResource("2_qwt10")
+tile_set = ExtResource("2_gy02s")
 format = 2
 layer_0/name = "Floor"
 layer_0/modulate = Color(0.482353, 0.482353, 0.482353, 1)
@@ -25,16 +25,16 @@ layer_0/tile_data = PackedInt32Array(327686, 589826, 2, 327687, 589826, 2, 32768
 layer_1/name = "Pits"
 
 [node name="Walls" type="TileMap" parent="."]
-tile_set = ExtResource("3_u1ryh")
+tile_set = ExtResource("3_ho3f7")
 rendering_quadrant_size = 32
 format = 2
 layer_0/tile_data = PackedInt32Array(65536, 524288, 1, 1, 458752, 2, 2, 458752, 2, 3, 458752, 2, 0, 262144, 3, 4, 458752, 2, 196608, 524288, 1, 131072, 524288, 1, 5, 458752, 2, 196617, 393216, 1, 131081, 393216, 1, 65545, 393216, 1, 9, 196608, 3, 8, 458752, 2, 7, 458752, 2, 6, 458752, 2, 262144, 524288, 1, 458756, 458752, 0, 458755, 458752, 0, 458754, 458752, 0, 458753, 458752, 0, 458752, 262144, 2, 393216, 524288, 1, 327680, 524288, 1, 458757, 458752, 0, 458758, 458752, 0, 458759, 458752, 0, 458760, 458752, 0, 458761, 196608, 2, 393225, 393216, 1, 327689, 393216, 1, 262153, 393216, 1)
 
 [node name="Lights" type="Node2D" parent="."]
 
-[node name="SetOfLightsFor2x2" parent="Lights" instance=ExtResource("4_qlohp")]
+[node name="SetOfLightsFor2x2" parent="Lights" instance=ExtResource("4_s8jbl")]
 
-[node name="SpotLight" parent="Lights" instance=ExtResource("5_l235p")]
+[node name="SpotLight" parent="Lights" instance=ExtResource("5_83rcb")]
 position = Vector2(800, 607.5)
 scale = Vector2(0.5, 0.5)
 
@@ -43,4 +43,4 @@ position = Vector2(800, 640)
 
 [node name="Teleport" type="Sprite2D" parent="."]
 position = Vector2(800, 640)
-texture = ExtResource("4_0rwgr")
+texture = ExtResource("6_nf4fg")
