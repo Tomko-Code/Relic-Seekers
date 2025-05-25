@@ -17,7 +17,7 @@ class_name SaveFile
 @export var cores_placed:int = 0
 
 @export var core_activation_data:Array[bool] = [false,false,false]
-
+@export var portal_room_open:bool = false
 
 # Show
 @export var wave:int = 0

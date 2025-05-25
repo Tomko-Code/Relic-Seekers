@@ -8,6 +8,7 @@ var save_path = "user://save.tres"
 # Game INFO
 # is it a first time player starts game
 var is_new_game = true
+var just_killed_finall_boss = false
 var dialog_data = {}
 var data = {
 	"prolg_complete": false,

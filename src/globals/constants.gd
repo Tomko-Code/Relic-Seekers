@@ -3,6 +3,7 @@ extends Node
 const FLOOR_TILE_SIZE:Vector2 = Vector2(32, 32)
 const WALL_TILE_SIZE:Vector2 = Vector2(160, 160)
 const CHUNK_SIZE:Vector2 = Vector2(WALL_TILE_SIZE.x * 5, WALL_TILE_SIZE.y * 4)
+const FINAL_BOSS_LEVEL:int = 2
 
 enum damage_types {
 	MAGIC,
