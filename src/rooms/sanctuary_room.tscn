@@ -4,10 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://blc3na0tm1ve3" path="res://src/entities/Interactables/thaladon/thaladon.tscn" id="2_eybjr"]
 [ext_resource type="Script" uid="uid://c36g6j482h7h1" path="res://src/rooms/sanctuary_room.gd" id="2_f0hrt"]
 [ext_resource type="Texture2D" uid="uid://h5822ojp1xkc" path="res://assets/art/sprites/teleports/circle_teleport.png" id="3_icfcy"]
+[ext_resource type="PackedScene" uid="uid://diso2qe4ilv4q" path="res://src/rooms/portal.tscn" id="4_jeb7j"]
 [ext_resource type="PackedScene" uid="uid://dmum7xc14t7v6" path="res://src/zone/stone_teleport_sanctuary.tscn" id="4_olmno"]
 [ext_resource type="PackedScene" uid="uid://3tchj66syyvi" path="res://src/zone/stone_teleport_sanctuary_new_run.tscn" id="5_3lxq3"]
 [ext_resource type="PackedScene" uid="uid://srifbb28vstk" path="res://src/rooms/stone_portal_door.tscn" id="5_d1f05"]
-[ext_resource type="Texture2D" uid="uid://b4ny4w4hiulde" path="res://assets/art/props/circle_big_160x160.png" id="8_gmpp8"]
 [ext_resource type="PackedScene" uid="uid://dyt7sb2kcnhas" path="res://assets/sfx/light/light_sources/spot_light.tscn" id="8_t0k4r"]
 [ext_resource type="PackedScene" uid="uid://bqb43ymw5guvu" path="res://assets/sfx/light/light_sources/light_source_wall.tscn" id="8_wct5c"]
 [ext_resource type="PackedScene" uid="uid://ioljmoceoslq" path="res://src/entities/Interactables/sanctuary/teleport_pilar.tscn" id="9_t0k4r"]
@@ -29,75 +29,13 @@ position = Vector2(975, 241)
 
 [node name="TeleportPilar2" parent="PortalRoom/Pilars" index="1" instance=ExtResource("9_t0k4r")]
 position = Vector2(1197, 78)
-ID = 1
+ID = 2
 
 [node name="TeleportPilar3" parent="PortalRoom/Pilars" index="2" instance=ExtResource("9_t0k4r")]
 position = Vector2(1196, 402)
-ID = 2
+ID = 1
 
-[node name="CircleBig160x160" type="Sprite2D" parent="PortalRoom" index="1"]
-position = Vector2(1133, 242)
-texture = ExtResource("8_gmpp8")
-
-[node name="Line2D" type="Line2D" parent="PortalRoom" index="2"]
-position = Vector2(509, 209)
-points = PackedVector2Array(1, 1, 339, -1, 403, -127, 671, -130)
-width = 5.0
-default_color = Color(0.215686, 1, 1, 1)
-
-[node name="Line2D2" type="Line2D" parent="PortalRoom" index="3"]
-points = PackedVector2Array(511, 240, 959, 241)
-width = 5.0
-default_color = Color(0.215686, 1, 1, 1)
-
-[node name="Line2D3" type="Line2D" parent="PortalRoom" index="4"]
-points = PackedVector2Array(512, 270, 847, 269, 910, 394, 1176, 402)
-width = 5.0
-default_color = Color(0.215686, 1, 1, 1)
-
-[node name="Line2D4" type="Line2D" parent="PortalRoom" index="5"]
-points = PackedVector2Array(992, 241, 1051, 243)
-width = 5.0
-default_color = Color(0.215686, 1, 1, 1)
-
-[node name="Line2D5" type="Line2D" parent="PortalRoom" index="6"]
-points = PackedVector2Array(1196, 93, 1170, 169)
-width = 5.0
-default_color = Color(0.215686, 1, 1, 1)
-
-[node name="Line2D6" type="Line2D" parent="PortalRoom" index="7"]
-points = PackedVector2Array(1189, 385, 1168, 314)
-width = 5.0
-default_color = Color(0.215686, 1, 1, 1)
-
-[node name="Walls" parent="." index="3"]
-layer_0/tile_data = PackedInt32Array(131076, 65536, 0, 0, 524288, 2, 4, 65536, 0, 196608, 262144, 2, 196612, 655360, 0, 131072, 524288, 0, 196609, 458752, 0, 196610, 458752, 0, 196611, 458752, 0, -65532, 589824, 1, -65533, 458752, 2, -65534, 458752, 2, -65535, 458752, 2, -65536, 262144, 3, 196607, 458752, 0, 196606, 262144, 2, 131070, 524288, 1, 65534, 262144, 3, 65535, 458752, 2, 262142, 0, 1, 262143, 0, 1, 196613, 458752, 0, -65531, 458752, 2, -131067, 0, 1, -131068, 0, 1, -131069, 0, 1, -131070, 0, 1, -131071, 0, 1, -131072, 0, 1, -65537, 0, 1, -1, 0, 1, -2, 0, 1, -65538, 0, 1, -65539, 0, 1, -3, 0, 1, 65533, 0, 1, 131069, 0, 1, 196605, 0, 1, 262141, 0, 1, 327677, 0, 1, 327678, 0, 1, 327679, 0, 1, 262144, 0, 1, 262145, 0, 1, 262146, 0, 1, 262147, 0, 1, 262148, 0, 1, 262149, 0, 1, 393213, 458752, 2, 393214, 458752, 2, 393215, 458752, 2, 327680, 458752, 2, 327681, 458752, 2, 327682, 458752, 2, 327683, 458752, 2, 327684, 458752, 2, 327685, 458752, 2, 262150, 0, 1, 196614, 458752, 0, 327686, 458752, 2, -65530, 458752, 2, -131066, 0, 1, -196602, 458752, 0, -196603, 458752, 0, -196604, 458752, 0, -196605, 458752, 0, -196606, 458752, 0, -196607, 458752, 0, -196608, 458752, 0, -131073, 458752, 0, -131074, 458752, 0, -131075, 458752, 0, -131076, 393216, 0, -65540, 393216, 1, -4, 393216, 1, 65532, 393216, 1, 131068, 393216, 1, 196604, 393216, 1, 262140, 393216, 1, 327676, 393216, 1, 393212, 393216, 2, 196615, 458752, 0, 196616, 196608, 2, 131080, 393216, 0, 8, 393216, 2, -65528, 196608, 3, -65529, 458752, 2, 262151, 0, 1, 262152, 0, 1, 262153, 0, 1, 327687, 458752, 2, 327688, 458752, 2, 196617, 0, 1, 327689, 458752, 2, 131081, 196608, 2, 65545, 393216, 1, 9, 196608, 3, -65527, 0, 1, -131063, 0, 1, -131064, 0, 1, -131065, 0, 1, 327690, 458752, 2, 262154, 0, 1, 196618, 0, 1, 131082, 0, 1, 65546, 0, 1, 10, 0, 1, -65526, 0, 1, -131062, 0, 1, 327691, 524288, 2, 262155, 524288, 1, 196619, 524288, 1, 131083, 524288, 1, 65547, 524288, 1, 11, 524288, 1, -65525, 524288, 1, -131061, 524288, 1, -196597, 524288, 0, -196598, 458752, 0, -196599, 458752, 0, -196600, 458752, 0, -196601, 458752, 0, 65540, 65536, 0)
-
-[node name="StonePortalDoor" parent="." index="4" instance=ExtResource("5_d1f05")]
-position = Vector2(671, 237)
-rotation = 1.5708
-direction = Vector2(1, 0)
-distance_travel = 250.0
-metadata/_edit_lock_ = true
-
-[node name="StonePortalDoor2" parent="." index="5" instance=ExtResource("5_d1f05")]
-position = Vector2(769, 237)
-rotation = -1.5708
-direction = Vector2(-1, 0)
-distance_travel = 250.0
-metadata/_edit_lock_ = true
-
-[node name="thaladon" parent="." index="6" instance=ExtResource("2_eybjr")]
-position = Vector2(0, 195)
-
-[node name="CircleTeleport" type="Sprite2D" parent="." index="7"]
-position = Vector2(-87, 236)
-texture = ExtResource("3_icfcy")
-
-[node name="StoneTeleportSanctuary" parent="." index="8" instance=ExtResource("4_olmno")]
-position = Vector2(-1438, -1107)
-
-[node name="StoneTeleportSanctuaryNewRun" parent="." index="9" instance=ExtResource("5_3lxq3")]
+[node name="StoneTeleportSanctuaryNewRun" parent="." index="3" instance=ExtResource("5_3lxq3")]
 position = Vector2(400, 240)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="StoneTeleportSanctuaryNewRun" index="4"]
@@ -117,7 +55,40 @@ polygon = PackedVector2Array(480, 288, 511, 287, 512, 350, 446, 348, 447, 319, 4
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StoneTeleportSanctuaryNewRun/StaticBody2D" index="3"]
 polygon = PackedVector2Array(321, 285, 289, 284, 289, 348, 355, 352, 355, 320, 322, 319)
 
-[node name="Lights" parent="." index="10"]
+[node name="Portal" parent="." index="4" node_paths=PackedStringArray("pillar_0", "pillar_1", "pillar_2") instance=ExtResource("4_jeb7j")]
+position = Vector2(864, 240)
+pillar_0 = NodePath("../PortalRoom/Pilars/TeleportPilar")
+pillar_1 = NodePath("../PortalRoom/Pilars/TeleportPilar3")
+pillar_2 = NodePath("../PortalRoom/Pilars/TeleportPilar2")
+
+[node name="Walls" parent="." index="5"]
+layer_0/tile_data = PackedInt32Array(131076, 65536, 0, 0, 524288, 2, 196608, 262144, 2, 196612, 655360, 0, 131072, 524288, 0, 196609, 458752, 0, 196610, 458752, 0, 196611, 458752, 0, -65532, 589824, 1, -65533, 458752, 2, -65534, 458752, 2, -65535, 458752, 2, -65536, 262144, 3, 196607, 458752, 0, 196606, 262144, 2, 131070, 524288, 1, 65534, 262144, 3, 65535, 458752, 2, 262142, 0, 1, 262143, 0, 1, 196613, 458752, 0, -65531, 458752, 2, -131067, 0, 1, -131068, 0, 1, -131069, 0, 1, -131070, 0, 1, -131071, 0, 1, -131072, 0, 1, -65537, 0, 1, -1, 0, 1, -2, 0, 1, -65538, 0, 1, -65539, 0, 1, -3, 0, 1, 65533, 0, 1, 131069, 0, 1, 196605, 0, 1, 262141, 0, 1, 327677, 0, 1, 327678, 0, 1, 327679, 0, 1, 262144, 0, 1, 262145, 0, 1, 262146, 0, 1, 262147, 0, 1, 262148, 0, 1, 262149, 0, 1, 393213, 458752, 2, 393214, 458752, 2, 393215, 458752, 2, 327680, 458752, 2, 327681, 458752, 2, 327682, 458752, 2, 327683, 458752, 2, 327684, 458752, 2, 327685, 458752, 2, 262150, 0, 1, 196614, 458752, 0, 327686, 458752, 2, -65530, 458752, 2, -131066, 0, 1, -196602, 458752, 0, -196603, 458752, 0, -196604, 458752, 0, -196605, 458752, 0, -196606, 458752, 0, -196607, 458752, 0, -196608, 458752, 0, -131073, 458752, 0, -131074, 458752, 0, -131075, 458752, 0, -131076, 393216, 0, -65540, 393216, 1, -4, 393216, 1, 65532, 393216, 1, 131068, 393216, 1, 196604, 393216, 1, 262140, 393216, 1, 327676, 393216, 1, 393212, 393216, 2, 196615, 458752, 0, 196616, 196608, 2, 131080, 393216, 0, 8, 393216, 2, -65528, 196608, 3, -65529, 458752, 2, 262151, 0, 1, 262152, 0, 1, 262153, 0, 1, 327687, 458752, 2, 327688, 458752, 2, 196617, 0, 1, 327689, 458752, 2, 131081, 196608, 2, 65545, 393216, 1, 9, 196608, 3, -65527, 0, 1, -131063, 0, 1, -131064, 0, 1, -131065, 0, 1, 327690, 458752, 2, 262154, 0, 1, 196618, 0, 1, 131082, 0, 1, 65546, 0, 1, 10, 0, 1, -65526, 0, 1, -131062, 0, 1, 327691, 524288, 2, 262155, 524288, 1, 196619, 524288, 1, 131083, 524288, 1, 65547, 524288, 1, 11, 524288, 1, -65525, 524288, 1, -131061, 524288, 1, -196597, 524288, 0, -196598, 458752, 0, -196599, 458752, 0, -196600, 458752, 0, -196601, 458752, 0, 4, 65536, 0, 65540, 65536, 0)
+
+[node name="StonePortalDoor" parent="." index="6" instance=ExtResource("5_d1f05")]
+position = Vector2(671, 237)
+rotation = 1.5708
+direction = Vector2(1, 0)
+distance_travel = 250.0
+metadata/_edit_lock_ = true
+
+[node name="StonePortalDoor2" parent="." index="7" instance=ExtResource("5_d1f05")]
+position = Vector2(769, 237)
+rotation = -1.5708
+direction = Vector2(-1, 0)
+distance_travel = 250.0
+metadata/_edit_lock_ = true
+
+[node name="thaladon" parent="." index="8" instance=ExtResource("2_eybjr")]
+position = Vector2(0, 195)
+
+[node name="CircleTeleport" type="Sprite2D" parent="." index="9"]
+position = Vector2(-87, 236)
+texture = ExtResource("3_icfcy")
+
+[node name="StoneTeleportSanctuary" parent="." index="10" instance=ExtResource("4_olmno")]
+position = Vector2(-1438, -1107)
+
+[node name="Lights" parent="." index="11"]
 visible = true
 scale = Vector2(0.5, 0.5)
 
@@ -178,14 +149,14 @@ position = Vector2(1948, 484)
 color = Color(0.453446, 0.984394, 0.953951, 1)
 texture_scale = 0.4
 
-[node name="GoldPickup" parent="." index="11" instance=ExtResource("11_os0iu")]
+[node name="GoldPickup" parent="." index="12" instance=ExtResource("11_os0iu")]
 position = Vector2(214, 238)
 
-[node name="Switch" parent="." index="12" instance=ExtResource("13_jeb7j")]
+[node name="Switch" parent="." index="13" instance=ExtResource("13_jeb7j")]
 position = Vector2(849, 434)
 
-[node name="BaseSpawn" type="Marker2D" parent="." index="13"]
+[node name="BaseSpawn" type="Marker2D" parent="." index="14"]
 position = Vector2(-88, 240)
 
-[node name="WiningRunSpawn" type="Marker2D" parent="." index="14"]
+[node name="WiningRunSpawn" type="Marker2D" parent="." index="15"]
 position = Vector2(1132, 242)

@@ -26,6 +26,7 @@ box_position = Vector2(0, 16)
 shape = SubResource("CircleShape2D_hoq47")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("2_3c3k4")
 
 [node name="Core" type="Sprite2D" parent="."]

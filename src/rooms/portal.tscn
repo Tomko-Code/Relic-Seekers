@@ -1,0 +1,92 @@
+[gd_scene load_steps=12 format=3 uid="uid://diso2qe4ilv4q"]
+
+[ext_resource type="Texture2D" uid="uid://dju4ujuhs171r" path="res://assets/art/sprites/teleports/portal.png" id="1_bcybc"]
+[ext_resource type="Shader" uid="uid://b5e3xmabcdv0q" path="res://src/rooms/portal.gdshader" id="1_obhh5"]
+[ext_resource type="Script" uid="uid://deb0v817nrmen" path="res://src/rooms/portal.gd" id="3_h0fcx"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_obhh5"]
+frequency = 0.1183
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_obhh5"]
+width = 480
+height = 480
+seamless = true
+noise = SubResource("FastNoiseLite_obhh5")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h0fcx"]
+shader = ExtResource("1_obhh5")
+shader_parameter/radius_0 = 0.0
+shader_parameter/radius_1 = 0.0
+shader_parameter/radius_2 = 0.0
+shader_parameter/noise = SubResource("NoiseTexture2D_obhh5")
+shader_parameter/color = Color(0, 0.52461, 0.809683, 1)
+
+[sub_resource type="Animation" id="Animation_h0fcx"]
+length = 6.0
+
+[sub_resource type="Animation" id="Animation_obhh5"]
+resource_name = "activate_0"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/radius_0")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_dnono"]
+resource_name = "activate_1"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/radius_1")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_m701d"]
+resource_name = "activate_2"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/radius_2")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dnono"]
+_data = {
+&"RESET": SubResource("Animation_h0fcx"),
+&"activate_0": SubResource("Animation_obhh5"),
+&"activate_1": SubResource("Animation_dnono"),
+&"activate_2": SubResource("Animation_m701d")
+}
+
+[node name="Portal" type="Sprite2D"]
+material = SubResource("ShaderMaterial_h0fcx")
+texture = ExtResource("1_bcybc")
+script = ExtResource("3_h0fcx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+libraries = {
+&"": SubResource("AnimationLibrary_dnono")
+}
