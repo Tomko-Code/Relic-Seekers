@@ -14,10 +14,10 @@ func _ready() -> void:
 		material.set_shader_parameter("radius_0", 1.0)
 		
 	if GameData.save_file.core_activation_data[1]:
-		material.set_shader_parameter("radius_1", 1.0)
+		material.set_shader_parameter("radius_1", 1.1)
 		
 	if GameData.save_file.core_activation_data[2]:
-		material.set_shader_parameter("radius_2", 1.0)
+		material.set_shader_parameter("radius_2", 1.1)
 
 func pillar_0_action() -> void:
 	$AnimationPlayer.play("activate_0")
