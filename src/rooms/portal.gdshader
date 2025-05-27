@@ -29,7 +29,7 @@ void fragment() {
 	
 	if(COLOR.r == 1. && COLOR.a == 1.)
 	{
-		COLOR = color + (0.3 * abs(sin(TIME + noise_mag)));	
+		COLOR = color + (0.3 * abs(sin(TIME + noise_mag)));
 		COLOR *= mask_0;
 	}
 	
