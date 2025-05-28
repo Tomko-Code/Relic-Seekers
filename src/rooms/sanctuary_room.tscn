@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bh2fqfxaebj1i"]
+[gd_scene load_steps=15 format=3 uid="uid://bh2fqfxaebj1i"]
 
 [ext_resource type="PackedScene" uid="uid://bnrt7xcfjh5bx" path="res://src/zone/room.tscn" id="1_w2tce"]
 [ext_resource type="PackedScene" uid="uid://blc3na0tm1ve3" path="res://src/entities/Interactables/thaladon/thaladon.tscn" id="2_eybjr"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ioljmoceoslq" path="res://src/entities/Interactables/sanctuary/teleport_pilar.tscn" id="9_t0k4r"]
 [ext_resource type="PackedScene" uid="uid://r5qj8bxkh5pj" path="res://src/entities/pickups/core_pickup.tscn" id="11_os0iu"]
 [ext_resource type="PackedScene" uid="uid://bdlxu5o1ln7gf" path="res://src/rooms/switch.tscn" id="13_jeb7j"]
+[ext_resource type="AudioStream" uid="uid://drdqmr5it27pt" path="res://assets/audio/music/song_porta_v0.wav" id="14_po0uf"]
 
 [node name="SanctuaryRoom" instance=ExtResource("1_w2tce")]
 script = ExtResource("2_f0hrt")
@@ -161,3 +162,8 @@ position = Vector2(-88, 240)
 
 [node name="WiningRunSpawn" type="Marker2D" parent="." index="15"]
 position = Vector2(1132, 242)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="16"]
+stream = ExtResource("14_po0uf")
+autoplay = true
+bus = &"Music"
