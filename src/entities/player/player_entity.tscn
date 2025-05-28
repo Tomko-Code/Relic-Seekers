@@ -1,11 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://d2bsjmqg1fe1h"]
+[gd_scene load_steps=19 format=3 uid="uid://d2bsjmqg1fe1h"]
 
 [ext_resource type="Script" uid="uid://5hamlj13jsfo" path="res://src/entities/player/player_entity.gd" id="1_7c5ui"]
 [ext_resource type="AudioStream" uid="uid://bq42j7hi8q3h5" path="res://assets/audio/sfx/516858__matrixxx__retro-drop-03.wav" id="2_v3sqh"]
 [ext_resource type="Script" uid="uid://bcbwbyvww4mmw" path="res://src/entities/player/user_movement_component.gd" id="2_xekry"]
 [ext_resource type="Script" uid="uid://ffcct1p8i3i7" path="res://src/entities/entity_shadow_component.gd" id="3_7bjv5"]
 [ext_resource type="Script" uid="uid://bij7aw7p5gd2p" path="res://src/entities/animated_sprite_component.gd" id="3_t82yd"]
+[ext_resource type="AudioStream" uid="uid://bpmcrpt1k3ota" path="res://assets/audio/sfx/197781__sgossner__footstep-on-stone-4.wav" id="6_gaf56"]
 [ext_resource type="SpriteFrames" uid="uid://c5idtrwowbt3l" path="res://assets/sprites/player_eight.tres" id="6_wwd0b"]
+[ext_resource type="Script" uid="uid://bnl8515i58khr" path="res://src/entities/player/footsteps.gd" id="7_7633c"]
 [ext_resource type="Script" uid="uid://cv7u4gcme4m7t" path="res://src/entities/player/user_mouse_shooting_component.gd" id="7_ls8cw"]
 [ext_resource type="Script" uid="uid://n0a4q3hcvs8w" path="res://src/entities/player/player_stats_component.gd" id="8_y5dsv"]
 [ext_resource type="Script" uid="uid://biys6csm1o8vy" path="res://src/systems/combat/combat_system.gd" id="10_tlm1e"]
@@ -65,6 +67,12 @@ _AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
 script = ExtResource("2_xekry")
 _AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
 speed = 250.0
+
+[node name="Footsteps" type="AudioStreamPlayer" parent="Components/UserMovementComponent"]
+stream = ExtResource("6_gaf56")
+volume_db = -7.0
+bus = &"SFX"
+script = ExtResource("7_7633c")
 
 [node name="AnimatedSpriteComponent" type="Node2D" parent="Components"]
 script = ExtResource("3_t82yd")
