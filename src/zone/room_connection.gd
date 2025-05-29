@@ -29,7 +29,9 @@ func _on_area_2d_body_entered(body):
 	call_deferred("tp",body)
 
 func on_opend() -> void:
+	$AudioStreamPlayer2D.play()
 	$AnimationPlayer.play_backwards("Close")
 
 func on_closed() -> void:
+	$AudioStreamPlayer2D.play()
 	$AnimationPlayer.play("Close")

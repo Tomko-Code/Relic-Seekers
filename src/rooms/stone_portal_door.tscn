@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://srifbb28vstk"]
+[gd_scene load_steps=9 format=3 uid="uid://srifbb28vstk"]
 
 [ext_resource type="Script" uid="uid://b25gpe58fks1n" path="res://src/rooms/stone_portal_door.gd" id="1_vo4ke"]
 [ext_resource type="Texture2D" uid="uid://dek58p8qowu7d" path="res://assets/art/other/door/stone_door.png" id="2_2bdmw"]
+[ext_resource type="AudioStream" uid="uid://b66grktpnkcix" path="res://assets/audio/sfx/door_1.mp3" id="3_2bdmw"]
 
 [sub_resource type="Animation" id="Animation_ltwid"]
 resource_name = "Close"
@@ -66,5 +67,10 @@ speed_scale = 2.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4.5)
 shape = SubResource("RectangleShape2D_vo4ke")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_2bdmw")
+volume_db = -10.0
+max_distance = 1000.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

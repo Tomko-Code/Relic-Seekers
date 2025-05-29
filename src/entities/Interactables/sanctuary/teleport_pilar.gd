@@ -29,6 +29,7 @@ func activate_pilar():
 	GameData.save_file.player_inventory.core -= 1
 	GameData.save_file.cores_placed += 1
 	is_pilar_activated = true
+	$AudioStreamPlayer2D.play()
 	$Core.show()
 	emit_signal("pilar_activated")
 
