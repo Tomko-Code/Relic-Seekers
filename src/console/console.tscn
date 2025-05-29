@@ -68,6 +68,11 @@ layout_mode = 2
 text = "Reset Player Cores
 "
 
+[node name="OpenDoor" type="Button" parent="Console/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Open Door
+"
+
 [connection signal="text_changed" from="Console/TextEdit" to="." method="_on_text_edit_text_changed"]
 [connection signal="pressed" from="Console/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Console/VBoxContainer/HBoxContainer/Button2" to="." method="_on_button_2_pressed_death"]
@@ -76,3 +81,4 @@ text = "Reset Player Cores
 [connection signal="pressed" from="Console/VBoxContainer/HBoxContainer/Button5" to="." method="_on_button_5_pressed"]
 [connection signal="pressed" from="Console/VBoxContainer/HBoxContainer/Button6" to="." method="_on_button_6_pressed"]
 [connection signal="pressed" from="Console/VBoxContainer/HBoxContainer2/CoreReset" to="." method="_on_core_reset_pressed"]
+[connection signal="pressed" from="Console/VBoxContainer/HBoxContainer2/OpenDoor" to="." method="_on_open_door_pressed"]

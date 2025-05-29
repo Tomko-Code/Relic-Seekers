@@ -121,19 +121,15 @@ func change_active_to_sanctuary_level() -> void:
 	
 	if level_state == LEVEL_STATES.CURRENT:
 		deactivate_level(current_level)
-
 	activate_level(sanctuary_level)
 	
-	# TODO : replace this to sanctuary room
-	print("player position set to (0, 200)")
-	if GameData.just_killed_finall_boss:
+	if GameData.just_killed_finall_boss or GameData.save_file.portal_room_open_onced:
+		print("game.gd : player position set to (1132.0, 242.0)")
 		player.position = Vector2(1132.0, 242.0)
 		GameData.just_killed_finall_boss = false
 	else:
-		player.position = Vector2(0, 200) #sanctuary_level.get_node("BaseSpawn").position
-	
-	
-	# ######################
+		print("game.gd : player position set to (0, 200)")
+		player.position = Vector2(0, 200)
 	
 	level_state = LEVEL_STATES.SANCTUARY
 
