@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://8no6uiddkv8y"]
+[gd_scene load_steps=9 format=3 uid="uid://8no6uiddkv8y"]
 
 [ext_resource type="Script" uid="uid://dqxhug66i7gko" path="res://src/zone/room_connection.gd" id="1_r3bhd"]
 [ext_resource type="Texture2D" uid="uid://dek58p8qowu7d" path="res://assets/art/other/door/stone_door.png" id="2_0ovl2"]
+[ext_resource type="AudioStream" uid="uid://b66grktpnkcix" path="res://assets/audio/sfx/door_1.mp3" id="3_enl2i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qkpgp"]
 size = Vector2(60, 69)
@@ -68,5 +69,10 @@ libraries = {
 &"": SubResource("AnimationLibrary_qghnu")
 }
 speed_scale = 2.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_enl2i")
+volume_db = -10.0
+max_distance = 1000.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

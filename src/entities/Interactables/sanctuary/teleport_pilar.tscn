@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ioljmoceoslq"]
+[gd_scene load_steps=11 format=3 uid="uid://ioljmoceoslq"]
 
 [ext_resource type="PackedScene" uid="uid://bdlxq5bh2qqu2" path="res://src/entities/interactable/interactable_component.tscn" id="1_1jefe"]
 [ext_resource type="Script" uid="uid://cbke1bh1b0oyx" path="res://src/entities/Interactables/sanctuary/teleport_pilar.gd" id="1_hoq47"]
 [ext_resource type="Texture2D" uid="uid://tikx6gtgd3h3" path="res://assets/art/props/circle_32x32.png" id="2_3c3k4"]
 [ext_resource type="Texture2D" uid="uid://dekj7copda0vd" path="res://assets/art/sprites/teleports/core.png" id="4_bd56y"]
+[ext_resource type="AudioStream" uid="uid://ddkm66o73fq6t" path="res://assets/audio/sfx/264981__renatalmar__sfx-magic.wav" id="5_l8ag5"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_3c3k4"]
 device = -1
@@ -12,6 +13,44 @@ unicode = 120
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hoq47"]
 radius = 48.0
+
+[sub_resource type="Animation" id="Animation_bd56y"]
+resource_name = "float"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Core:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -26), Vector2(0, -32), Vector2(0, -26)]
+}
+
+[sub_resource type="Animation" id="Animation_l8ag5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Core:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -26)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4hwpq"]
+_data = {
+&"RESET": SubResource("Animation_l8ag5"),
+&"float": SubResource("Animation_bd56y")
+}
 
 [node name="TeleportPilar" type="Node2D"]
 script = ExtResource("1_hoq47")
@@ -31,6 +70,19 @@ texture = ExtResource("2_3c3k4")
 
 [node name="Core" type="Sprite2D" parent="."]
 visible = false
+position = Vector2(0, -26)
 texture = ExtResource("4_bd56y")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+libraries = {
+&"": SubResource("AnimationLibrary_4hwpq")
+}
+autoplay = "float"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_l8ag5")
+volume_db = -4.0
+bus = &"SFX"
 
 [connection signal="interacted" from="Components/InteractableComponent" to="." method="_pilar_interacted"]

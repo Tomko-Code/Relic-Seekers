@@ -22,12 +22,14 @@ func tp(body):
 	GameManager.game_camera.unfreeze_position()
 
 func on_opend() -> void:
+	$AudioStreamPlayer2D.play()
 	GameData.save_file.portal_room_open = true
 	GameData.save_file.portal_room_open_onced = true
 	is_open = true
 	$AnimationPlayer.play_backwards("Close")
 
 func on_closed() -> void:
+	$AudioStreamPlayer2D.play()
 	GameData.save_file.portal_room_open = false
 	is_open = false
 	$AnimationPlayer.play("Close")
