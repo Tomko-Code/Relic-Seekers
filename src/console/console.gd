@@ -30,7 +30,6 @@ func _on_button_3_pressed():
 func _on_button_4_pressed():
 	GameData.save_file.player_inventory.emeralds += 50
 
-
 func _on_button_5_pressed():
 	var spell = SpellsHandler.create_spell("test_spell")
 	spell.add_effect(MaxManaEffect.new().init(2))
@@ -39,11 +38,15 @@ func _on_button_5_pressed():
 	GameManager.player.get_parent().call_deferred("add_child", spell_pickup)
 	pass
 
-
 func _on_button_6_pressed():
 	var stats = GameManager.get_entity_component(GameManager.player, PlayerStatsComponent)[0] as PlayerStatsComponent
 	stats.change_health(-(stats.max_health - stats.current_health))
 
-
 func _on_core_reset_pressed() -> void:
 	GameData.save_file.player_inventory.core = 0
+
+func _on_open_door_pressed() -> void:
+	if GameData.save_file.portal_room_open:
+		get_tree().call_group("sanctuary_door", "on_closed")
+	else:
+		get_tree().call_group("sanctuary_door", "on_opend")

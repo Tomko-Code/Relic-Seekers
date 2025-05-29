@@ -23,6 +23,7 @@ func tp(body):
 
 func on_opend() -> void:
 	GameData.save_file.portal_room_open = true
+	GameData.save_file.portal_room_open_onced = true
 	is_open = true
 	$AnimationPlayer.play_backwards("Close")
 

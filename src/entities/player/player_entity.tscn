@@ -70,7 +70,7 @@ speed = 250.0
 
 [node name="Footsteps" type="AudioStreamPlayer" parent="Components/UserMovementComponent"]
 stream = ExtResource("6_gaf56")
-volume_db = -7.0
+volume_db = -8.0
 bus = &"SFX"
 script = ExtResource("7_7633c")
 
