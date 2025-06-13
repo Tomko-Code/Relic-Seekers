@@ -35,9 +35,10 @@ SpellsHandler="*res://src/globals/spells_handler.gd"
 SpellEffectsDb="*res://src/globals/spell_effects_db.gd"
 PickupsHandler="*res://src/globals/pickups_handler.gd"
 ArtifactsDb="*res://src/globals/artifacts_db.gd"
-SoundManager="*res://src/globals/sound_manager.gd"
 LootHandler="*res://src/globals/loot_handler.gd"
 PoolManager="*res://src/globals/pool_manager.gd"
+AudioManager="*res://src/audio_manager/audio_manager.tscn"
+AudioDB="*res://src/audio_manager/audio_db.gd"
 
 [display]
 

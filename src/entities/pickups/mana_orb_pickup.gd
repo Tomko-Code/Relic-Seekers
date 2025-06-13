@@ -13,7 +13,7 @@ func on_player_entered(player):
 		var current_spell = GameData.save_file.player_inventory.get_current_spell() as Spell
 		if current_spell != SpellsHandler.default_spell and current_spell.mana < current_spell.max_mana:
 			current_spell.change_mana(ceilf(current_spell.max_mana/2))
-			SoundManager.play_sfx("mana_orb_sfx")
+			AudioManager.play_sfx(AudioDB.soundID.sfx_mana_orb)
 			queue_free()
 
 func get_description():

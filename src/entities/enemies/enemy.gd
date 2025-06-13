@@ -12,7 +12,7 @@ func call_death():
 	if not is_dead:
 		emit_signal("death")
 		GameData.save_file.killed_enemies += 1
-		SoundManager.play_sfx("death_sfx")
+		AudioManager.play_sfx(AudioDB.soundID.sfx_death)
 		spawn_loot()
 		queue_free()
 		is_dead = true

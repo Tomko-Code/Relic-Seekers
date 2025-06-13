@@ -13,5 +13,5 @@ func on_player_entered(player):
 		player = player as PlayerEntity
 		if player._PlayerStatsComponent.current_health < player._PlayerStatsComponent.max_health:
 			player._PlayerStatsComponent.change_health(-1)
-			SoundManager.play_sfx("heart_sfx")
+			AudioManager.play_sfx(AudioDB.soundID.sfx_heart)
 			queue_free()
