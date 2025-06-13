@@ -43,8 +43,6 @@ var seen:bool = false
 var visited:bool = false
 
 func _ready():
-	#player_exit.connect(on_player_exit)
-	
 	set_physics_process(false)
 	set_process(false)
 
@@ -82,9 +80,8 @@ func set_enemy_count(value:int):
 
 func look_for_open_space(starting_position:Vector2) -> Vector2:
 	starting_position -= (data.cord*5*Vector2(5,4))*Constants.FLOOR_TILE_SIZE
-	
 	snail_start_cord = (starting_position/Constants.FLOOR_TILE_SIZE).floor()
-	#snail_start_cord += (data.cord*5*Vector2(5,4))
+	
 	var found:bool = false
 	var closet_best_cord:Vector2
 	var smallest_distance:float = -1
