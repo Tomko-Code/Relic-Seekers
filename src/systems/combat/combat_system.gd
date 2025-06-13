@@ -32,7 +32,7 @@ func process_entity(entity):
 			_MovementComponent.recoil(entity)
 	
 	if _StatsComponent and entity is DamageArea:
-		SoundManager.play_sfx("hit_sfx")
+		AudioManager.play_sfx(AudioDB.soundID.sfx_hit)
 	
 	if _StatsComponent is PlayerStatsComponent and entity is DamageArea:
 		_StatsComponent = _StatsComponent as PlayerStatsComponent

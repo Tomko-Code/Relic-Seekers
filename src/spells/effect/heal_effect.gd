@@ -7,5 +7,5 @@ func use(spell):
 	active_particles.position = GameManager.player.position
 	active_particles.color = Color.LAWN_GREEN
 	GameManager.player.get_parent().call_deferred("add_child", active_particles)
-	SoundManager.play_sfx("heart_sfx")
+	AudioManager.play_sfx(AudioDB.soundID.sfx_heart)
 	active_particles.run()

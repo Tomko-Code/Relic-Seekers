@@ -32,7 +32,7 @@ func pickup_artifact():
 		var new_pickup = PickupsHandler.create_artifact_pickup(ret_artifact)
 		new_pickup.position = position
 		get_parent().call_deferred("add_child", new_pickup)
-	SoundManager.play_sfx("pickup_sfx")
+	AudioManager.play_sfx(AudioDB.soundID.sfx_pickup)
 	queue_free()
 
 func get_description():

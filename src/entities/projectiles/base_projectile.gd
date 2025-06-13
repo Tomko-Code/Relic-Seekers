@@ -154,7 +154,7 @@ func hit_body(body):
 			comp.process_hit(self)
 
 func hit(target):
-	SoundManager.play_sfx("hit_sfx")
+	AudioManager.play_sfx(AudioDB.soundID.sfx_hit)
 	already_hit.append(target)
 	emit_signal("on_hit")
 	if not is_piercing:
