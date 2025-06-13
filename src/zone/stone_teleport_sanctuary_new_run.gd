@@ -83,7 +83,7 @@ func set_boss_room(level_preset:LevelGenerationPreset):
 	match GameManager.level_depth:
 		2:
 			level_preset.boss_room = "test_boss_room"
-		3:
-			level_preset.boss_room = "boss_room_2"
 		4:
+			level_preset.boss_room = "boss_room_2"
+		6:
 			level_preset.boss_room = "boss_room_3"

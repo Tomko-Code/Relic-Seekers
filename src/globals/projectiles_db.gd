@@ -51,5 +51,10 @@ var projectiles: Dictionary = {
 		#finish_particles = Color.DIM_GRAY,
 		#trail_particles = Color.DIM_GRAY,
 	},
+	hostile_projectile_2 = {
+		sprite = load("res://assets/sprites/projectiles/hostile_projectile_sprite_2.tres"),
+		scale = Vector2(2,2),
+		#trail_particles = Color.DIM_GRAY,
+	},
 	
 }

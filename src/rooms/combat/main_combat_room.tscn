@@ -1,10 +1,10 @@
 [gd_scene load_steps=14 format=3 uid="uid://dq7dfu32hthvr"]
 
 [ext_resource type="PackedScene" uid="uid://bnrt7xcfjh5bx" path="res://src/zone/room.tscn" id="1_ig6x2"]
-[ext_resource type="Script" path="res://src/rooms/combat/main_combat_room.gd" id="2_qmh12"]
+[ext_resource type="Script" uid="uid://pvclspmyx0dq" path="res://src/rooms/combat/main_combat_room.gd" id="2_qmh12"]
 [ext_resource type="PackedScene" uid="uid://cyflwsuyftab3" path="res://src/zone/CircleTeleport.tscn" id="3_g4oiu"]
 [ext_resource type="TileSet" uid="uid://cbtd8fjc7crdq" path="res://assets/tileset/path-tileset.tres" id="3_r3b8n"]
-[ext_resource type="Script" path="res://src/spells/spell_test_spawn.gd" id="5_7lwpr"]
+[ext_resource type="Script" uid="uid://cuxkj1wn6m8rj" path="res://src/spells/spell_test_spawn.gd" id="5_7lwpr"]
 [ext_resource type="PackedScene" uid="uid://dfe20ml66djgu" path="res://src/entities/enemies/other/proximity_spike_trap.tscn" id="6_bti87"]
 [ext_resource type="PackedScene" uid="uid://cd5io7jujipyr" path="res://src/entities/enemies/other/cannon.tscn" id="6_um5of"]
 [ext_resource type="PackedScene" uid="uid://lmlrrv4br5gi" path="res://src/entities/enemies/other/delayed_spike_trap.tscn" id="9_d2tr1"]
@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bgspaj8eb85kd" path="res://src/entities/enemies/other/chest.tscn" id="10_t0dub"]
 [ext_resource type="PackedScene" uid="uid://4f13151paxdp" path="res://src/entities/shrines/blue_shrine.tscn" id="11_l8awo"]
 [ext_resource type="PackedScene" uid="uid://boxe2uihy7622" path="res://src/entities/shrines/red_shrine.tscn" id="12_gh6g6"]
-[ext_resource type="Script" path="res://src/spells/test_artifact_spawn.gd" id="13_l6ugl"]
+[ext_resource type="Script" uid="uid://bbnfeclatw50t" path="res://src/spells/test_artifact_spawn.gd" id="13_l6ugl"]
 
 [node name="MainCombatRoom" node_paths=PackedStringArray("teleport") instance=ExtResource("1_ig6x2")]
 script = ExtResource("2_qmh12")
@@ -34,7 +34,7 @@ layer_0/tile_data = PackedInt32Array(1900562, 524288, 1, 1966098, 524288, 1, 196
 position = Vector2(1000, 1920)
 
 [node name="SpellTestSpawn" type="Marker2D" parent="." index="5"]
-position = Vector2(998, 1143)
+position = Vector2(425, 1153)
 script = ExtResource("5_7lwpr")
 random_spell = true
 is_purchasable = true
@@ -89,3 +89,6 @@ position = Vector2(928, 1504)
 position = Vector2(821.257, 2168.25)
 script = ExtResource("13_l6ugl")
 artifact_name = "jar_of_fireflies"
+
+[node name="SpawnSpot" type="Marker2D" parent="." index="21"]
+position = Vector2(1504, 1530)

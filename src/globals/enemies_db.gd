@@ -7,10 +7,16 @@ var enemies = {
 	stone_eye = {
 		resource = load("res://src/entities/enemies/mobs/stone_eye.tscn"),
 	},
+	purple_stone_eye = {
+		resource = load("res://src/entities/enemies/mobs/stone_eye_purple.tscn"),
+	},
 	goblin = {
 		resource = load("res://src/entities/enemies/mobs/goblin.tscn"),
 	},
 	golem = { 
 		resource = load("res://src/entities/enemies/mobs/golem.tscn"), 
+	},
+	boss_eye = { 
+		resource = load("res://src/entities/enemies/mobs/boss_eye.tscn"), 
 	},
 }

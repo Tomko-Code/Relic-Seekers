@@ -1,0 +1,153 @@
+[gd_scene load_steps=21 format=3 uid="uid://djvmnre8hoa"]
+
+[ext_resource type="Script" uid="uid://dt8guyx4fxrdq" path="res://src/entities/enemies/enemy.gd" id="1_aoq1d"]
+[ext_resource type="Script" uid="uid://dot8ao76e407x" path="res://src/entities/enemies/mobs/boss_eye_behaviour.gd" id="2_aoq1d"]
+[ext_resource type="Script" uid="uid://ffcct1p8i3i7" path="res://src/entities/entity_shadow_component.gd" id="3_v3hut"]
+[ext_resource type="Script" uid="uid://uvfmmqcu25jg" path="res://src/entities/stats_component.gd" id="4_3his5"]
+[ext_resource type="Script" uid="uid://dt1kwvki67pr4" path="res://src/entities/hitbox_component.gd" id="5_jnpak"]
+[ext_resource type="Script" uid="uid://biys6csm1o8vy" path="res://src/systems/combat/combat_system.gd" id="6_i2tya"]
+[ext_resource type="Script" uid="uid://bij7aw7p5gd2p" path="res://src/entities/animated_sprite_component.gd" id="7_5x843"]
+[ext_resource type="SpriteFrames" uid="uid://boeyaq03cw4wa" path="res://assets/sprites/mobs/eye_boss.tres" id="8_aoq1d"]
+[ext_resource type="Script" uid="uid://butmj2a0rcqef" path="res://src/systems/movement/four_direction_animation_system_extra.gd" id="9_dgpd5"]
+[ext_resource type="PackedScene" uid="uid://blv5sfddyxsl6" path="res://src/entities/projectiles/damage_area.tscn" id="10_bwgul"]
+[ext_resource type="Script" uid="uid://cwjrqxwlf33av" path="res://src/systems/movement/entity_repulsion_system.gd" id="11_ooof3"]
+[ext_resource type="Script" uid="uid://dm2qxmntvxeh" path="res://src/entities/entity_effects_handler.gd" id="12_21w8c"]
+[ext_resource type="Script" uid="uid://b5bnv65aos7u5" path="res://src/entities/move_to_dest_movement_component.gd" id="13_jqios"]
+[ext_resource type="Script" uid="uid://cbuuiw204rnkv" path="res://src/entities/enemies/shoot_in_direction_component.gd" id="14_wsarp"]
+[ext_resource type="Script" uid="uid://bpaidjke1hqm" path="res://src/entities/shoot_at_enemy_behaviour.gd" id="15_wvxos"]
+[ext_resource type="Script" uid="uid://bwc0d38dmgv2b" path="res://src/entities/follow_hostile_behaviour.gd" id="16_vmtsd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_auixy"]
+size = Vector2(64, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s78fp"]
+size = Vector2(64, 64)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rp2wp"]
+radius = 80.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hfw7d"]
+radius = 64.0
+
+[node name="BossEye" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 258
+script = ExtResource("1_aoq1d")
+loot_table = "standard_boss_loot"
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_auixy")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+radius = 60.0
+
+[node name="Components" type="Node2D" parent="." node_paths=PackedStringArray("animation_system", "animation", "follow_behaviour", "shooting_behaviour", "shooting", "stats", "clock", "extra_clock", "random_shooting_clock")]
+script = ExtResource("2_aoq1d")
+animation_system = NodePath("FourDirectionMovementSystemExtra")
+animation = NodePath("AnimatedSpriteComponent")
+follow_behaviour = NodePath("FollowEnemyBehaviour")
+shooting_behaviour = NodePath("ShootAtEnemyBehaviour")
+shooting = NodePath("ShootInDirectionComponent")
+stats = NodePath("StatsComponent")
+clock = NodePath("../StateClock")
+extra_clock = NodePath("../ExtraClock")
+random_shooting_clock = NodePath("../RadnomShooting")
+
+[node name="EntityShadowComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("_AnimatedSpriteComponent")]
+position = Vector2(0, -16)
+scale = Vector2(0.8, 0.8)
+script = ExtResource("3_v3hut")
+_AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
+height = 45.0
+
+[node name="StatsComponent" type="Node" parent="Components"]
+script = ExtResource("4_3his5")
+shoot_speed = 200.0
+shoot_range = 150.0
+shoot_frequency = 0.2
+projectile_type = "hostile_projectile_2"
+max_health = 1050.0
+
+[node name="CombatHitbox" type="Area2D" parent="Components"]
+collision_layer = 4
+collision_mask = 8
+script = ExtResource("5_jnpak")
+
+[node name="Hitbox" type="CollisionShape2D" parent="Components/CombatHitbox"]
+visible = false
+shape = SubResource("RectangleShape2D_s78fp")
+
+[node name="CombatSystem" type="Node" parent="Components" node_paths=PackedStringArray("_HitboxComponent", "_StatsComponent")]
+script = ExtResource("6_i2tya")
+_HitboxComponent = NodePath("../CombatHitbox")
+_StatsComponent = NodePath("../StatsComponent")
+
+[node name="AnimatedSpriteComponent" type="Node2D" parent="Components"]
+script = ExtResource("7_5x843")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Components/AnimatedSpriteComponent"]
+sprite_frames = ExtResource("8_aoq1d")
+animation = &"idle_left_down"
+
+[node name="FourDirectionMovementSystemExtra" type="Node" parent="Components" node_paths=PackedStringArray("_MovementComponent", "_AnimatedSpriteComponent")]
+script = ExtResource("9_dgpd5")
+_MovementComponent = NodePath("../MoveToDestMovementComponent")
+_AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
+
+[node name="DamageArea" parent="Components" node_paths=PackedStringArray("stats", "hitbox") instance=ExtResource("10_bwgul")]
+stats = NodePath("../StatsComponent")
+hitbox = NodePath("../ContactDamageHitbox")
+
+[node name="ContactDamageHitbox" type="Area2D" parent="Components" node_paths=PackedStringArray("entity")]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("5_jnpak")
+entity = NodePath("../DamageArea")
+
+[node name="Hitbox" type="CollisionShape2D" parent="Components/ContactDamageHitbox"]
+shape = SubResource("CircleShape2D_rp2wp")
+
+[node name="EntityRepulsionSystem" type="Node" parent="Components" node_paths=PackedStringArray("_HitboxComponent")]
+script = ExtResource("11_ooof3")
+_HitboxComponent = NodePath("../RepulsionHitbox")
+
+[node name="RepulsionHitbox" type="Area2D" parent="Components"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("5_jnpak")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/RepulsionHitbox"]
+shape = SubResource("CircleShape2D_hfw7d")
+
+[node name="EntityEffectsHandler" type="Node2D" parent="Components" node_paths=PackedStringArray("_StatsComponent")]
+script = ExtResource("12_21w8c")
+_StatsComponent = NodePath("../StatsComponent")
+
+[node name="MoveToDestMovementComponent" type="Node" parent="Components" node_paths=PackedStringArray("nav_agent")]
+script = ExtResource("13_jqios")
+nav_agent = NodePath("../../NavigationAgent2D")
+speed = 100.0
+
+[node name="ShootInDirectionComponent" type="Node" parent="Components" node_paths=PackedStringArray("_StatsComponent")]
+script = ExtResource("14_wsarp")
+_StatsComponent = NodePath("../StatsComponent")
+
+[node name="ShootAtEnemyBehaviour" type="Node" parent="Components" node_paths=PackedStringArray("shooting")]
+script = ExtResource("15_wvxos")
+shooting = NodePath("../ShootInDirectionComponent")
+
+[node name="FollowEnemyBehaviour" type="Node" parent="Components" node_paths=PackedStringArray("movement")]
+script = ExtResource("16_vmtsd")
+movement = NodePath("../MoveToDestMovementComponent")
+
+[node name="RadnomShooting" type="Timer" parent="."]
+wait_time = 0.09
+
+[node name="StateClock" type="Timer" parent="."]
+one_shot = true
+
+[node name="ExtraClock" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[connection signal="timeout" from="RadnomShooting" to="Components" method="_on_radnom_shooting_timeout"]
