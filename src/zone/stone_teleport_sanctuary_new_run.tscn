@@ -29,7 +29,6 @@ interactable_component = NodePath("Components/InteractableComponent")
 [node name="Components" type="Node2D" parent="."]
 
 [node name="InteractableComponent" parent="Components" instance=ExtResource("2_vn51u")]
-visible = false
 interaction_input = SubResource("InputEventKey_y8wqn")
 interaction_descryption = ""
 interaction_title = "Start New Run"

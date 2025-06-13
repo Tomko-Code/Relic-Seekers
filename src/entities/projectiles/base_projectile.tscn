@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://beh02bikkq1hm"]
 
-[ext_resource type="Script" path="res://src/entities/projectiles/base_projectile.gd" id="1_3uif0"]
-[ext_resource type="Script" path="res://src/entities/projectiles/projectile_movement_component.gd" id="2_3v5n6"]
-[ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="3_y2vy7"]
-[ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="5_impmo"]
-[ext_resource type="Script" path="res://src/entities/entity_shadow_component.gd" id="6_2kiut"]
-[ext_resource type="Script" path="res://src/systems/movement/bullet_animation_system.gd" id="6_eakuu"]
+[ext_resource type="Script" uid="uid://dw37h0c3styl2" path="res://src/entities/projectiles/base_projectile.gd" id="1_3uif0"]
+[ext_resource type="Script" uid="uid://b4l31g6dxy5og" path="res://src/entities/projectiles/projectile_movement_component.gd" id="2_3v5n6"]
+[ext_resource type="Script" uid="uid://bij7aw7p5gd2p" path="res://src/entities/animated_sprite_component.gd" id="3_y2vy7"]
+[ext_resource type="Script" uid="uid://dt1kwvki67pr4" path="res://src/entities/hitbox_component.gd" id="5_impmo"]
+[ext_resource type="Script" uid="uid://ffcct1p8i3i7" path="res://src/entities/entity_shadow_component.gd" id="6_2kiut"]
+[ext_resource type="Script" uid="uid://hfbu5yx7ytch" path="res://src/systems/movement/bullet_animation_system.gd" id="6_eakuu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_85nud"]
 radius = 8.0

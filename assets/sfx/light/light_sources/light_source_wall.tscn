@@ -1,7 +1,7 @@
 [gd_scene load_steps=24 format=3 uid="uid://bqb43ymw5guvu"]
 
 [ext_resource type="Texture2D" uid="uid://d2ptqhhiy7wis" path="res://assets/sfx/light/light_gradients/gradient_one.tres" id="1_fm80g"]
-[ext_resource type="Script" path="res://assets/sfx/light/light_sources/light_source_wall.gd" id="2_x46qw"]
+[ext_resource type="Script" uid="uid://v020i2kkmmam" path="res://assets/sfx/light/light_sources/light_source_wall.gd" id="2_x46qw"]
 [ext_resource type="Texture2D" uid="uid://qdcvxyiuq1jm" path="res://assets/art/other/light_source_one_back.png" id="3_8fc77"]
 [ext_resource type="Texture2D" uid="uid://lbrqrjbdiq6p" path="res://assets/sfx/fire/orange/loops/burning_loop_2.png" id="4_a4fo3"]
 [ext_resource type="Texture2D" uid="uid://ciyeqct8jotqd" path="res://assets/sfx/fire/orange/loops/burning_loop_1.png" id="5_7yr4r"]

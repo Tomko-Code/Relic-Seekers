@@ -12,13 +12,19 @@ var sfx_sounds = {
 }
 
 var sound_streams = {}
-var sfx_limit = 1
-#var sfx_queue = []
+var sfx_limit = 4
 
 
 func play_sfx(sfx_name):
+	#if min_time < min_time_delta:
+		#return
+	#
+	#min_time = 0
+	
 	if sfx_sounds.has(sfx_name):
+		
 		var sfx_q = sound_streams.get(sfx_name, []) as Array
+		print(sfx_q)
 		sound_streams[sfx_name] = sfx_q
 		
 		if sfx_q.size() >= sfx_limit:
@@ -33,7 +39,7 @@ func play_sfx(sfx_name):
 			audio_player.stream = sfx_sounds[sfx_name]
 			audio_player.bus = "SFX"
 			sfx_q.push_front(audio_player)
-			call_deferred("add_child", audio_player)
+			add_child(audio_player)
 			audio_player.call_deferred("play")
 	
 	#if sfx_sounds.has(sfx_name) and sfx_queue.size() < sfx_limit:

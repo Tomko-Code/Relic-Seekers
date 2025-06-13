@@ -17,13 +17,13 @@
 [ext_resource type="Script" uid="uid://dl40s5xnr12xr" path="res://src/entities/player/player_casting_component.gd" id="13_to852"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eip8d"]
-size = Vector2(34, 43)
+size = Vector2(30, 17)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cn6ma"]
 radius = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kummr"]
-size = Vector2(32, 32)
+size = Vector2(28, 47)
 
 [node name="PlayerEntity" type="CharacterBody2D" node_paths=PackedStringArray("_UserMovementComponent", "_AnimatedSpriteComponent", "_PlayerStatsComponent", "pit_hit_box")]
 z_index = 1
@@ -35,11 +35,12 @@ _PlayerStatsComponent = NodePath("Components/PlayerStatsComponent")
 pit_hit_box = NodePath("PitHitBox")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3.5)
+position = Vector2(1, 17.5)
 shape = SubResource("RectangleShape2D_eip8d")
 
 [node name="PitHitBox" type="Area2D" parent="."]
 position = Vector2(2, 22)
+collision_layer = 0
 collision_mask = 256
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PitHitBox"]
@@ -98,10 +99,12 @@ _StatsComponent = NodePath("../PlayerStatsComponent")
 _MovementComponent = NodePath("../UserMovementComponent")
 
 [node name="HitboxComponent" type="Area2D" parent="Components"]
+collision_layer = 0
 collision_mask = 16
 script = ExtResource("10_vk5ky")
 
 [node name="Hitbox" type="CollisionShape2D" parent="Components/HitboxComponent"]
+position = Vector2(1, 1.5)
 shape = SubResource("RectangleShape2D_kummr")
 
 [node name="EightDirectionMovementSystem" type="Node" parent="Components" node_paths=PackedStringArray("_MovementComponent", "_AnimatedSpriteComponent", "_ShootingComponent")]
