@@ -113,6 +113,15 @@ func on_tp() -> void:
 	
 	active_level.currnet_active_room = room
 	active_level.currnet_active_room.on_player_enter()
+	
+	GameManager.game_camera.new_limit_left = room.global_position.x + (640/2)
+	GameManager.game_camera.new_limit_top = room.global_position.y + (360/2)
+	GameManager.game_camera.new_limit_right = room.global_position.x + (room.data.get_room_size().x * Constants.CHUNK_SIZE.x) - (640/2)
+	GameManager.game_camera.new_limit_bottom = room.global_position.y + (room.data.get_room_size().y * Constants.CHUNK_SIZE.y) - (360/2)
+	GameManager.game_camera.limit_left =  GameManager.game_camera.new_limit_left
+	GameManager.game_camera.limit_right =  GameManager.game_camera.new_limit_right
+	GameManager.game_camera.limit_bottom =  GameManager.game_camera.new_limit_bottom
+	GameManager.game_camera.limit_top =  GameManager.game_camera.new_limit_top
 
 func _draw():
 	if room != null:

@@ -19,11 +19,20 @@ var draw_zones = true
 var use_zones = true
 var interpolate_distance_from_mouse = true
 
+var limit_left:float = 0
+var limit_top:float = 0
+var limit_right:float = 1000000
+var limit_bottom:float = 1000000
+
+var new_limit_left:float = 0
+var new_limit_top:float = 0
+var new_limit_right:float = 1000000
+var new_limit_bottom:float = 1000000
 
 var last_offset = Vector2.ZERO
 
 func initialize(_use_zones: bool = true, _interpolate_distance_from_mouse: bool = true,
-			_speed = 3, _near_zone = 150, _far_zone = 200, _inner_zone = 0, _draw_debug = false):
+			_speed = 3, _near_zone = 150, _far_zone = 200, _inner_zone = 0, _draw_debug = true):
 	speed = _speed
 	near_zone = _near_zone
 	far_zone = _far_zone
@@ -66,14 +75,29 @@ func play_slow():
 func _process(delta):
 	var mouse_pos = Cursor.get_global_mouse_position()
 	var screen_center = get_viewport_rect().size / 2
+	#print(screen_center)
+	#print(get_local_mouse_position())
+	#print(Cursor.get_local_mouse_position())
+	#if Cursor.get_local_mouse_position().y > screen_center.y:
+	#	mouse_pos.y -= 0.3 * (Cursor.get_local_mouse_position().y - screen_center.y)
+	#else:
+	#	mouse_pos.y -= 0.3 * (Cursor.get_local_mouse_position().y - screen_center.y)
 	
 	position = position.lerp(Vector2.ZERO, speed * 2 * delta)
 	
+	limit_left = lerp(limit_left, new_limit_left, speed * 2.0 * delta)
+	limit_right = lerp(limit_right, new_limit_right, speed * 2.0 * delta)
+	limit_top = lerp(limit_top, new_limit_top, speed * 2.0 * delta)
+	limit_bottom = lerp(limit_bottom, new_limit_bottom, speed * 2.0 * delta)
+	
 	if use_zones:
+		#mouse_pos.y *= 1.7
 		var offset = mouse_pos - screen_center
+		offset.y *= 1.7
 		
 		offset = offset.normalized() * max(0, offset.length() - near_zone)
 		offset = offset.normalized() * (offset.length() / intermediate_zone) * inner_zone
+		
 		
 		if offset.length() < 1:
 			if interpolate_distance_from_mouse:
@@ -86,7 +110,9 @@ func _process(delta):
 		else:
 			if offset.length() > inner_zone:
 				#offset = offset.normalized() * intermediate_zone 
-				offset = offset.normalized() * inner_zone 
+				#print(offset)
+				#print(inner_zone)
+				offset = offset.normalized() * inner_zone * Vector2(2.5, 2.5)
 			if interpolate_distance_from_mouse:
 				Cursor.position = Cursor.position.lerp(screen_center + offset, speed * delta)
 				Camera.position = Camera.position.lerp(Vector2.ZERO + offset, speed * delta)
@@ -99,3 +125,6 @@ func _process(delta):
 	else:
 		Cursor.position = screen_center
 		Camera.position = Vector2.ZERO
+	
+	Camera.global_position.x = clamp(Camera.global_position.x, limit_left, limit_right)
+	Camera.global_position.y = clamp(Camera.global_position.y, limit_top, limit_bottom)
