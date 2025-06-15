@@ -478,6 +478,7 @@ func spawn_level() -> void:
 			level.default_room = room
 			level.player_spawn_pos = room.position + (Constants.CHUNK_SIZE/2)
 			level.currnet_active_room = level.default_room
+			level.currnet_active_room.player_enterd.emit()
 
 func get_random_direction() -> Vector2:
 	var random_number = randi()% 4

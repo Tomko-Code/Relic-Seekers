@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cqbi50n88mja2"]
 
 [ext_resource type="Texture2D" uid="uid://h5822ojp1xkc" path="res://assets/art/sprites/teleports/circle_teleport.png" id="1_xad0e"]
-[ext_resource type="Script" path="res://src/zone/level_render/tp_button.gd" id="2_csoev"]
+[ext_resource type="Script" uid="uid://dvlx7w5rqped5" path="res://src/zone/level_render/tp_button.gd" id="2_csoev"]
 
 [node name="tp_button" type="TextureButton"]
 offset_right = 192.0

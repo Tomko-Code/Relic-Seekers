@@ -18,12 +18,10 @@ func _ready():
 	var use_zones = true
 	var interpolate_camera_position = true
 	var camera_speed = 1
-	var near_zone = 300
-	var far_zone = 400
+	var near_zone = 100
+	var far_zone = 200
 	var inner_zone = 50
 	var debug_display = false
-	
-	#GameData.save_file.player_inventory
 	
 	GameManager.attach_camera_to_node(self, use_zones, 
 		interpolate_camera_position, camera_speed, near_zone, far_zone, 
@@ -34,6 +32,24 @@ func _ready():
 func _physics_process(_delta):
 	
 	queue_redraw()
+
+func on_player_enter_room(room: Room) -> void:
+	print(room.name)
+	if room.name != "SanctuaryRoom":
+		GameManager.game_camera.new_limit_left = room.global_position.x + (640/2)
+		GameManager.game_camera.new_limit_top = room.global_position.y + (360/2)
+		
+		GameManager.game_camera.new_limit_right = room.global_position.x + (room.data.get_room_size().x * Constants.CHUNK_SIZE.x) - (640/2)
+		GameManager.game_camera.new_limit_bottom = room.global_position.y + (room.data.get_room_size().y * Constants.CHUNK_SIZE.y) - (360/2)
+	
+		if room.name == "StartRoom":
+			GameManager.game_camera.limit_left =  GameManager.game_camera.new_limit_left
+			GameManager.game_camera.limit_right =  GameManager.game_camera.new_limit_right
+			GameManager.game_camera.limit_bottom =  GameManager.game_camera.new_limit_bottom
+			GameManager.game_camera.limit_top =  GameManager.game_camera.new_limit_top
+	
+	
+	print("room enter player")
 
 func _on_pit_hit_box_body_entered(body:TileMap):
 	pit_count += 1

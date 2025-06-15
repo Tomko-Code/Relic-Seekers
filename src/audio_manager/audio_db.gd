@@ -27,8 +27,8 @@ var sounds: Dictionary[soundID, Sound] = {
 	soundID.sfx_gold : Sound.new()
 		.set_bus("SFX")
 		.set_res_path("res://assets/audio/sfx/gold_sfx.wav")
-		.set_limit(4)
-		.set_minimum_time(0.01),
+		.set_limit(5)
+		.set_minimum_time(0.1),
 		
 	soundID.sfx_mana_orb : Sound.new()
 		.set_bus("SFX")
@@ -36,7 +36,9 @@ var sounds: Dictionary[soundID, Sound] = {
 		
 	soundID.sfx_emerald : Sound.new()
 		.set_bus("SFX")
-		.set_res_path("res://assets/audio/sfx/emerald_sfx.wav"),
+		.set_res_path("res://assets/audio/sfx/emerald_sfx.wav")
+		.set_limit(2)
+		.set_minimum_time(0.1),
 		
 	soundID.sfx_heart : Sound.new()
 		.set_bus("SFX")

@@ -9,7 +9,13 @@ var ambient_light_res = preload("res://assets/sfx/ambient_light/ambient_light.ts
 var map = []
 var unspawned_rooms = []
 var rooms = []
-var currnet_active_room:Room = null
+var currnet_active_room:Room = null:
+	set(value):
+		currnet_active_room = value
+		if currnet_active_room != null:
+			var game:Game = GameManager.loaded_scenes["Game"]
+			game.player.on_player_enter_room(currnet_active_room)
+
 var default_room:Room = null
 var level_size:Vector2 = Vector2.ZERO
 
