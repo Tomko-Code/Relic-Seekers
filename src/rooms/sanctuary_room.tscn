@@ -162,7 +162,7 @@ texture_scale = 0.5
 position = Vector2(214, 238)
 
 [node name="Switch" parent="." index="13" instance=ExtResource("13_jeb7j")]
-position = Vector2(849, 434)
+position = Vector2(832, 29)
 
 [node name="BaseSpawn" type="Marker2D" parent="." index="14"]
 position = Vector2(-88, 240)
