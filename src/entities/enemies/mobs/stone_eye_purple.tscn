@@ -25,6 +25,7 @@ size = Vector2(37, 37)
 
 [node name="StoneEye" type="CharacterBody2D"]
 modulate = Color(0.991402, 0.403817, 1, 1)
+scale = Vector2(2, 2)
 collision_layer = 4
 collision_mask = 258
 script = ExtResource("1_3dsfx")
@@ -37,12 +38,12 @@ _AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
 
 [node name="StatsComponent" type="Node" parent="Components"]
 script = ExtResource("3_td4t7")
-shoot_speed = 170.0
+shoot_speed = 100.0
 shoot_range = 110.0
 shoot_damage = null
-shoot_frequency = 1.6
+shoot_frequency = 2.0
 varible_shoot_frequency = true
-max_health = 25.0
+max_health = 50.0
 
 [node name="HitboxComponent" type="Area2D" parent="Components"]
 collision_layer = 4

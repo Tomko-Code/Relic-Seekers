@@ -11,9 +11,10 @@ extends Node
 @export var varible_shoot_frequency:bool = false
 
 @export var projectile_type: String = "hostile_projectile"
-
+@export var scale: Vector2 = Vector2(1.0, 1.0)
 @export var max_health: float = 10
 @onready var current_health: float = max_health
+
 
 func get_projectile_data():
 	var p_data = {

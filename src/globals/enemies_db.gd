@@ -7,7 +7,7 @@ var enemies = {
 	stone_eye = {
 		resource = load("res://src/entities/enemies/mobs/stone_eye.tscn"),
 	},
-	purple_stone_eye = {
+	stone_eye_purple = {
 		resource = load("res://src/entities/enemies/mobs/stone_eye_purple.tscn"),
 	},
 	goblin = {

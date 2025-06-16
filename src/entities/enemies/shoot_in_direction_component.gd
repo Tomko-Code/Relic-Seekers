@@ -17,6 +17,7 @@ func force_shoot(direction_vector: Vector2):
 
 func shoot(direction_vector):
 	var projectile = ProjectilesHandler.spawn_projectile(_StatsComponent.get_projectile_type(), false)
+	
 	if not projectile:
 		push_error("FAILED TO SPAWN PROJECTILE")
 	projectile.position = parent.position + (direction_vector.normalized()*32)
