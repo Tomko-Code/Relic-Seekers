@@ -199,6 +199,11 @@ func spawn_enemy(enemy_type:String):
 	
 	var pos:Vector2 = cord * Constants.FLOOR_TILE_SIZE
 	enemy_count += 1
+	
+	if enemy_type == "stone_eye":
+		if (randi_range(1, 5) - GameData.save_file.cores_placed) <= 0:
+			enemy_type = "stone_eye_purple"
+	
 	var enemy:Enemy = EnemiesHandler.spawn_enemy(enemy_type)
 	
 	enemy.death.connect(on_enemy_death)

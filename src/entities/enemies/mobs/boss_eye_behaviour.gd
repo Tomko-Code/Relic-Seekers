@@ -40,15 +40,19 @@ var health_division:float = 10
 func _ready():
 	progress_state()
 	clock.timeout.connect(progress_state)
+	current_spawn_treshold = stats.max_health
 	intcrement_spawn_treshold()
 
 func _process(delta: float) -> void:
-	if stats.current_health >= current_spawn_treshold:
-		print("spawn")
+	if current_spawn_treshold >= stats.current_health and current_spawn_treshold > 0:
 		intcrement_spawn_treshold()
+		var game: Game = GameManager.loaded_scenes["Game"]
+		game.current_level.currnet_active_room.spawn_enemy("stone_eye_purple")
 
 func intcrement_spawn_treshold() -> void:
-	current_spawn_treshold = current_spawn_treshold - (stats.max_health/health_division)
+	var chunks:float = (8.0*GameData.save_file.cores_placed)+8.0
+	current_spawn_treshold = current_spawn_treshold - (stats.max_health/chunks)
+
 func match_state(state: STATES):
 	current_state = state
 	match state:
@@ -68,6 +72,7 @@ func match_state(state: STATES):
 			
 			clock.start(2)
 		STATES.SHOOTING_RANDOM:
+			stats.projectile_type = "hostile_projectile"
 			animation_system._ShootingComponent = null
 			follow_behaviour.active = false
 			shooting_behaviour.active = false

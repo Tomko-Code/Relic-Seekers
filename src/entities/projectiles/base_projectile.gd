@@ -77,7 +77,12 @@ func initialize(_projectile_data: Dictionary):
 		if projectile_data.finish_particles is Color:
 			finish_particles = load("res://assets/particles/explosion_particles.tscn").instantiate()
 			finish_particles.color = projectile_data.finish_particles
-		
+	
+	if projectile_data.has("scale"):
+		scale = projectile_data["scale"]
+	else:
+		scale = Vector2(1,1)
+	
 	if projectile_data.has("trail_particles"):
 		if projectile_data.trail_particles is Color:
 			trail_particles = load("res://assets/particles/trail_particles.tscn").instantiate()
