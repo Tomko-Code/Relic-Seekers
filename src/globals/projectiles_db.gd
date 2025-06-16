@@ -19,6 +19,7 @@ var projectiles: Dictionary = {
 		spawn_particles = Color.ORANGE_RED,
 		finish_particles = Color.ORANGE_RED,
 		trail_particles = Color.ORANGE_RED,
+		sound = AudioDB.soundID.sfx_fire_ball_tail
 	},
 	spark = {
 		sprite = load("res://assets/sprites/projectiles/spark_sprite.tres"),

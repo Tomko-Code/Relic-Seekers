@@ -2,6 +2,8 @@ extends Node
 
 enum soundID {
 	sfx_shoot,
+	sfx_fire_ball,
+	sfx_fire_ball_tail,
 	sfx_death,
 	sfx_hit,
 	sfx_gold,
@@ -9,13 +11,22 @@ enum soundID {
 	sfx_emerald,
 	sfx_heart,
 	sfx_pickup,
+	
 }
 
 var sounds: Dictionary[soundID, Sound] = {
 	soundID.sfx_shoot : Sound.new()
 		.set_bus("SFX")
 		.set_res_path("res://assets/audio/sfx/shoot_sfx.wav"),
-		
+	
+	soundID.sfx_fire_ball : Sound.new()
+		.set_bus("SFX")
+		.set_res_path("res://assets/audio/sfx/fire_ball.mp3"),
+	
+	soundID.sfx_fire_ball_tail : Sound.new()
+		.set_bus("SFX")
+		.set_res_path("res://assets/audio/sfx/fire_ball_with_tail.mp3"),
+	
 	soundID.sfx_death : Sound.new()
 		.set_bus("SFX")
 		.set_res_path("res://assets/audio/sfx/death_sfx.wav"),

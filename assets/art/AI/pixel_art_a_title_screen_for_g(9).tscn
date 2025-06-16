@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://owckce277ce7"]
+
+[ext_resource type="Texture2D" uid="uid://bkih4fy4vo7m3" path="res://assets/art/AI/pixel_art_A_title_screen_for_g (9).jpeg" id="1_5sib8"]
+
+[node name="PixelArtATitleScreenForG(9)" type="Sprite2D"]
+position = Vector2(320, 180)
+scale = Vector2(0.833333, 0.703125)
+texture = ExtResource("1_5sib8")

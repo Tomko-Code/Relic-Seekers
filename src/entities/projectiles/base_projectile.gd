@@ -8,6 +8,7 @@ var effects: Array = []
 var damage: float = 1
 var damage_type: Constants.damage_types = Constants.damage_types.MAGIC
 var can_bounce: bool = false
+var sound: AudioDB.soundID = AudioDB.soundID.sfx_shoot
 
 var is_piercing: bool = false
 var pierce_count = 0
@@ -54,6 +55,7 @@ func get_projectile_data():
 			effects = effects,
 			damage = damage,
 			can_bounce = can_bounce,
+			sound = sound,
 		}
 
 func initialize(_projectile_data: Dictionary):
