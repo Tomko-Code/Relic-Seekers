@@ -50,6 +50,16 @@ window/stretch/mode="viewport"
 window/stretch/aspect="keep_width"
 window/stretch/scale_mode="integer"
 
+[file_customization]
+
+folder_colors={
+"res://assets/": "red",
+"res://assets/art/": "red",
+"res://assets/audio/": "purple",
+"res://docs/": "gray",
+"res://src/": "blue"
+}
+
 [global_group]
 
 sanctuary_door=""

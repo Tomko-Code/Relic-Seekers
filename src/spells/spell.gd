@@ -36,7 +36,7 @@ func spawn_projectile():
 			effect = effect as SpellEffect
 			effect.apply_on_projectile(projectile)
 		
-		AudioManager.play_sfx(AudioDB.soundID.sfx_shoot)
+		AudioManager.play_sfx(projectile.sound)
 		emit_signal("on_cast")
 		return projectile
 	return null
