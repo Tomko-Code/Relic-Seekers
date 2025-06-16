@@ -10,19 +10,20 @@ var all_enemies = []
 var killed_enemies: int = 0
 
 func spawn_boss(enemy_name):
-	var enemy = spawn_enemy(enemy_name)
+	var enemy = spawn_enemy(enemy_name, true)
 	if enemy == null:
 		return null
 	else:
 		boss_spawned.emit(enemy)
 		return enemy
 
-func spawn_enemy(enemy_name:String) -> Enemy:
+func spawn_enemy(enemy_name:String, boss:bool = false) -> Enemy:
 	if EnemiesDb.enemies.has(enemy_name):
 		var enemy: Enemy = EnemiesDb.enemies[enemy_name].resource.instantiate()
 		var stats = GameManager.get_entity_component(enemy, StatsComponent)[0]
 		enemy.get_node("Components").add_child(marker.instantiate())
 		stats.max_health = stats.max_health * int((GameManager.level_depth * 0.2) + 1)
+		stats.max_health *= int((GameData.save_file.cores_placed * 0.5) + 1)
 		stats.current_health = stats.max_health
 		
 		all_enemies.append(enemy)

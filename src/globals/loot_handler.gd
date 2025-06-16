@@ -4,17 +4,19 @@ var probability_loot_tables = {
 	# to be used in generating standard_loot
 	# [loot_type, loot chance %, loot min-max]
 	standard_mob_loot = [
-		["gold", 50, [1,4]],
-		["emerald", 5, [1,1]],
-		["mana_orb", 5, [1,1]],
+		["gold", 73, [1,2]],
+		["emerald", 6, [1,1]],
+		["mana_orb", 8, [1,1]],
 		["spell", 3, [1,1]],
-		["artifact", 3, [1,1]],
+		["artifact", 3, [1,1],
+		["heart", 1, [1,1]]
+		],
 	],
 	standard_boss_loot = [
-		["gold", 100, [3,10]],
-		["emerald", 25, [1,2]],
-		["mana_orb", 10, [1,2]],
-		["spell", 100, [1,2]],
+		["gold", 100, [5,15]],
+		["emerald", 25, [1,3]],
+		["mana_orb", 10, [1,3]],
+		["spell", 50, [1,3]],
 	],
 	standard_chest_loot = [
 		["gold", 100, [5,10]],

@@ -63,6 +63,7 @@ func match_state(state: STATES):
 			
 			clock.start(1)
 		STATES.SHOOTING:
+			stats.shoot_range = 1000
 			stats.projectile_type = "hostile_projectile_2"
 			follow_behaviour.active = false
 			shooting_behaviour.active = true
@@ -72,6 +73,7 @@ func match_state(state: STATES):
 			
 			clock.start(2)
 		STATES.SHOOTING_RANDOM:
+			stats.shoot_range = 1000
 			stats.projectile_type = "hostile_projectile"
 			animation_system._ShootingComponent = null
 			follow_behaviour.active = false
@@ -81,7 +83,7 @@ func match_state(state: STATES):
 			
 			random_shooting_clock.start()
 			
-			clock.start(6)
+			clock.start(6+GameData.save_file.cores_placed)
 			
 		STATES.SLAM:
 			animation_system._ShootingComponent = null

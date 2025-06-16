@@ -76,10 +76,11 @@ script = ExtResource("5_jnpak")
 visible = false
 shape = SubResource("RectangleShape2D_s78fp")
 
-[node name="CombatSystem" type="Node" parent="Components" node_paths=PackedStringArray("_HitboxComponent", "_StatsComponent")]
+[node name="CombatSystem" type="Node" parent="Components" node_paths=PackedStringArray("_HitboxComponent", "_StatsComponent", "_EntityEffectsHandler")]
 script = ExtResource("6_i2tya")
 _HitboxComponent = NodePath("../CombatHitbox")
 _StatsComponent = NodePath("../StatsComponent")
+_EntityEffectsHandler = NodePath("../EntityEffectsHandler")
 
 [node name="AnimatedSpriteComponent" type="Node2D" parent="Components"]
 script = ExtResource("7_5x843")

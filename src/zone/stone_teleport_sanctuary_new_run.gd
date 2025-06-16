@@ -23,6 +23,19 @@ func _on_interactable_component_interacted():
 	level_preset.level_name = str(GameManager.level_depth)
 	print("Next floor request ... level : " + str(level_preset.level_name) + " / 6")
 	
+	if GameManager.level_depth <= 2:
+		print("set rooms to standard_boss1")
+		level_preset.shape_weights["2x2"] = 1
+		level_preset.shape_weights["2x1"] = 1
+		level_preset.shape_weights["1x2"] = 1
+		#level_preset.room_sets = ["standard_boss1"]
+	elif  GameManager.level_depth <= 4:
+		print("set rooms to standard_boss2")
+		level_preset.shape_weights["2x2"] = 1
+	else:
+		pass
+		#level_preset.room_sets = ["standard"]
+	
 	if scaling_levels:
 		level_preset.difficulty = GameManager.level_depth
 	
@@ -34,8 +47,8 @@ func _on_interactable_component_interacted():
 	
 	level_preset.random_start = false
 	
-	level_preset.min_rooms = 7 + (level_preset.difficulty * 4)
-	level_preset.max_rooms = 7 + (level_preset.difficulty * 4)
+	level_preset.min_rooms = 7 + (level_preset.difficulty * 3)
+	level_preset.max_rooms = 7 + (level_preset.difficulty * 3)
 	var special_rooms = [	
 			"shrine_room",
 			"chest_room"

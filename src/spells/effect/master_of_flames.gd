@@ -3,8 +3,8 @@ extends ProjectileSpellEffect
 
 @export var tier: int = 0
 @export var burn_chance_modifiers_array = [2,3,4]
-@export var projectile_damage_modifiers_array = [0.75,0.7,0.6]
-@export var burn_damage_modifiers_array = [1.25,1.75,2]
+@export var projectile_damage_modifiers_array = [0.70,0.5,0.25, 0.25]
+@export var burn_damage_modifiers_array = [3, 6, 9, 15]
 
 
 func _init():
