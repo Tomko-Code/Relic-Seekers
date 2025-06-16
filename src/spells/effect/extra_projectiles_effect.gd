@@ -2,12 +2,12 @@ class_name ExtraProjectilesEffect
 extends DirectProjectileSpellEffect
 
 @export var tier: int
-@export var extra_projectile_counts = [1,2,3]
+@export var extra_projectile_counts = [1,1,2,3]
 
 func init(value: int):
 	effect_type = Constants.effect_types.POSITIVE
 	texture = load("res://assets/art/icons/spell_effects/extra_projectiles.png")
-	tier = clampi(value, 0,2)
+	tier = clampi(value, 0,3)
 	return self
 
 func get_description():

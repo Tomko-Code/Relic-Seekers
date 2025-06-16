@@ -2,12 +2,12 @@ class_name RapidFireSpellEffect
 extends DirectSpellEffect
 
 @export var tier: int = 0
-@export var attack_spped_multiplier = [1.5, 2, 2.5, 3]
+@export var attack_spped_multiplier = [1.25, 1.5, 1.75, 2, 2.25]
 
 func init(value: int):
 	effect_type = Constants.effect_types.POSITIVE
 	texture = load("res://assets/art/icons/spell_effects/rapid_fire.png")
-	tier = clampi(value, 0,3)
+	tier = clampi(value, 0,7)
 	return self
 
 func apply_on_spell(spell: Spell):

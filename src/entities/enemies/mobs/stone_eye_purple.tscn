@@ -38,9 +38,8 @@ _AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
 
 [node name="StatsComponent" type="Node" parent="Components"]
 script = ExtResource("3_td4t7")
-shoot_speed = 100.0
-shoot_range = 110.0
-shoot_damage = null
+shoot_speed = 110.0
+shoot_range = 200.0
 shoot_frequency = 2.0
 varible_shoot_frequency = true
 max_health = 50.0

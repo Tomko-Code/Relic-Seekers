@@ -143,7 +143,7 @@ func change_mana(value: int):
 
 func get_gold_value():
 	var effects = get_effects(false)
-	var gold_value = 15
+	var gold_value = 18
 	var pos_effects = 1
 	var neg_effects = 1
 	for effect in effects:
@@ -153,9 +153,9 @@ func get_gold_value():
 			if tier != null:
 				gold_value += tier
 			else:
-				gold_value += 2
+				gold_value += 3
 			gold_value += pos_effects
-			pos_effects *= 2
+			pos_effects *= 3
 		elif effect.effect_type == Constants.effect_types.NEGATIVE:
 			var tier = effect.get("tier")
 			if tier != null:

@@ -2,7 +2,7 @@ class_name PierceEffect
 extends ProjectileSpellEffect
 
 @export var tier: int 
-@export var pierce_counts = [1,2,3,5]
+@export var pierce_counts = [1,1,2,3]
 
 func _init():
 	effect_type = Constants.effect_types.POSITIVE

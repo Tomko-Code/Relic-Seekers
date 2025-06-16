@@ -17,7 +17,7 @@ func get_death_ray():
 	GameData.save_file.player_inventory.change_current_spell(0)
 
 var random_pool = [
-	["fireball", 2],
+	["fireball", 3],
 	["icicle", 3],
 	["heal", 1],
 	["spark", 3],
@@ -60,14 +60,14 @@ var spells = {
 			],
 		projectile_data = {
 			damage_type = Constants.damage_types.FIRE,
-			damage = 5,
+			damage = 7,
 			speed = 400,
 			range = 100,
 		},
 		frames = load("res://assets/sprites/spells/fireball_spell.tres"),
-		max_mana = 100,
-		mana_cost = 1,
-		cast_frequency = 0.5,
+		max_mana = 150,
+		mana_cost = 2,
+		cast_frequency = 0.7,
 		#shoot_frequency = 0.1,
 	},
 	spark = {
@@ -83,12 +83,12 @@ var spells = {
 		],
 		projectile_data = { 
 			damage_type = Constants.damage_types.LIGHTNING,
-			damage = 5,
+			damage = 4,
 			speed = 500,
-			range = 100,
+			range = 300,
 		},
 		frames = load("res://assets/sprites/spells/spark_spell.tres"),
-		max_mana = 100,
+		max_mana = 200,
 		mana_cost = 2,
 		cast_frequency = 0.5,
 	},
@@ -103,12 +103,12 @@ var spells = {
 		],
 		projectile_data = { 
 			damage_type = Constants.damage_types.ICE,
-			damage = 8,
+			damage = 7,
 			speed = 700,
 			range = 100,
 		},
 		frames = load("res://assets/sprites/spells/icicle_spell.tres"),
-		max_mana = 100,
+		max_mana = 200,
 		mana_cost = 2,
 		cast_frequency = 0.5,
 	},

@@ -342,6 +342,22 @@ var room_sets:Dictionary = {
 		"l3_standard",
 		"l4_standard",
 	],
+	"standard_boss1" : [
+		"1x1_small",
+		"l1_standard",
+		"l2_standard",
+		"l3_standard",
+		"l4_standard",
+	],
+	"standard_boss2" : [
+		"1x1_small",
+		"1x2_standard",
+		"2x1_standard",
+		"l1_standard",
+		"l2_standard",
+		"l3_standard",
+		"l4_standard",
+	],
 }
 
 var special_rooms:Array = [

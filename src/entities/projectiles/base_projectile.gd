@@ -83,6 +83,11 @@ func initialize(_projectile_data: Dictionary):
 	else:
 		scale = Vector2(1,1)
 	
+	if projectile_data.has("range"):
+		range = projectile_data["range"]
+	else:
+		range = 200
+	
 	if projectile_data.has("trail_particles"):
 		if projectile_data.trail_particles is Color:
 			trail_particles = load("res://assets/particles/trail_particles.tscn").instantiate()
