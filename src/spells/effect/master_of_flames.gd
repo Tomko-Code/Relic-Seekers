@@ -2,9 +2,9 @@ class_name MasterOfFlames
 extends ProjectileSpellEffect
 
 @export var tier: int = 0
-@export var burn_chance_modifiers_array = [2,3,4]
-@export var projectile_damage_modifiers_array = [0.70,0.5,0.25, 0.25]
-@export var burn_damage_modifiers_array = [3, 6, 9, 15]
+@export var burn_chance_modifiers_array = [2,3,4,4]
+@export var projectile_damage_modifiers_array = [0.70,0.5,0.25,0.25]
+@export var burn_damage_modifiers_array = [2, 4, 6, 9]
 
 
 func _init():
@@ -12,7 +12,7 @@ func _init():
 	texture = load("res://assets/art/icons/spell_effects/master_of_flames.png")
 
 func init(value: int):
-	tier = clampi(value, 0, 2)
+	tier = clampi(value, 0, burn_damage_modifiers_array.size()-1)
 	return self
 
 func check_conditions(spell: Spell):

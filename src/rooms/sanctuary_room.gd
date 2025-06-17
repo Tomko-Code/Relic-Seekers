@@ -2,7 +2,8 @@ extends Room
 
 
 func _enter_tree() -> void:
-	"Init : Sanctuary"
+	AudioManager.play_music(AudioDB.soundID.music_sanctuary, 1.0, 1.0)
+	
 	GameManager.game_camera.new_limit_left = 0
 	GameManager.game_camera.new_limit_top = 0
 	GameManager.game_camera.new_limit_right = 1000000

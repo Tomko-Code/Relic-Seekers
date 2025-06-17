@@ -104,6 +104,8 @@ func activate_level(level:Level) -> void:
 		active_level = level
 
 func change_active_to_current_level() -> void:
+	AudioManager.play_music(AudioDB.soundID.music_floor, 1.0, 1.0)
+	
 	$Map.show()
 	
 	if level_state == LEVEL_STATES.SANCTUARY:
