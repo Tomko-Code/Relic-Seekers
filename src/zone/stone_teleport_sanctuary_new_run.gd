@@ -81,10 +81,14 @@ func _on_interactable_component_interacted():
 		var level:Level = LevelGenerator.generate(level_preset)
 		
 		if level != null:
+			level.tree_entered.connect(level_music)
 			game.change_current_level(level)
 			game.change_active_to_current_level()
 			return
 	
+
+func level_music():
+	AudioManager.play_music(AudioDB.soundID.music_floor, 1.0, 1.0)
 
 func set_boss_room(level_preset:LevelGenerationPreset):
 	#every other room 2, 4, 6 etc

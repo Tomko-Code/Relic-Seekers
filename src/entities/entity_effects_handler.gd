@@ -11,9 +11,11 @@ var on_fire_particles: GenericParticles = null
 var on_fire_damage:float = 0
 var on_fire_counter: int = 0
 var on_fire = false
+## each tick is 0.25 sec
+var ignite_ticks: int = 2 * 4
 
 func _ready():
-	shared_clock.wait_time = 1.0
+	shared_clock.wait_time = 0.25
 	shared_clock.autostart = true
 	shared_clock.one_shot = false
 	shared_clock.timeout.connect(process_effects)
@@ -65,12 +67,16 @@ func set_on_fire(damage_value):
 		on_fire_particles.run()
 	on_fire_damage = damage_value
 	on_fire_counter = 0
+
 	on_fire = true
 
 func clear_fire_particles():
 	on_fire_particles = null
 
 func process_effects():
+	if on_fire_counter >= ignite_ticks:
+		on_fire = false
+	
 	if on_fire:
 		on_fire_counter += 1
 		_StatsComponent.change_health(on_fire_damage)

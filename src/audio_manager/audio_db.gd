@@ -1,6 +1,11 @@
 extends Node
 
 enum soundID {
+	#music
+	music_menu,
+	music_sanctuary,
+	music_floor,
+	#sfx
 	sfx_shoot,
 	sfx_fire_ball,
 	sfx_fire_ball_tail,
@@ -15,6 +20,23 @@ enum soundID {
 }
 
 var sounds: Dictionary[soundID, Sound] = {
+	soundID.music_menu : Sound.new()
+		.set_bus("Music")
+		.set_limit(1)
+		.set_res_path("res://assets/audio/music/Ancient Rite.mp3"),
+		
+	soundID.music_sanctuary : Sound.new()
+		.set_bus("Music")
+		.set_limit(1)
+		.set_res_path("res://assets/audio/music/song_porta_v0.wav"),
+		
+	soundID.music_floor : Sound.new()
+		.set_bus("Music")
+		.set_limit(1)
+		.set_volume(0.9)
+		.set_res_path("res://assets/audio/music/rs_floor.wav"),
+		
+	
 	soundID.sfx_shoot : Sound.new()
 		.set_bus("SFX")
 		.set_res_path("res://assets/audio/sfx/shoot_sfx.wav"),
@@ -33,6 +55,7 @@ var sounds: Dictionary[soundID, Sound] = {
 		
 	soundID.sfx_hit : Sound.new()
 		.set_bus("SFX")
+		.set_volume(0.9)
 		.set_res_path("res://assets/audio/sfx/hit_sfx.wav"),
 		
 	soundID.sfx_gold : Sound.new()
