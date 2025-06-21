@@ -12,6 +12,8 @@ var near_zone = 150
 var far_zone = 200
 var inner_zone = 5
 
+var limit: bool = true
+
 var intermediate_zone = far_zone - near_zone
 
 var draw_zones = true
@@ -84,11 +86,11 @@ func _process(delta):
 	#	mouse_pos.y -= 0.3 * (Cursor.get_local_mouse_position().y - screen_center.y)
 	
 	position = position.lerp(Vector2.ZERO, speed * 2 * delta)
-	
-	limit_left = lerp(limit_left, new_limit_left, speed * 2.0 * delta)
-	limit_right = lerp(limit_right, new_limit_right, speed * 2.0 * delta)
-	limit_top = lerp(limit_top, new_limit_top, speed * 2.0 * delta)
-	limit_bottom = lerp(limit_bottom, new_limit_bottom, speed * 2.0 * delta)
+	if limit:
+		limit_left = lerp(limit_left, new_limit_left, speed * 2.0 * delta)
+		limit_right = lerp(limit_right, new_limit_right, speed * 2.0 * delta)
+		limit_top = lerp(limit_top, new_limit_top, speed * 2.0 * delta)
+		limit_bottom = lerp(limit_bottom, new_limit_bottom, speed * 2.0 * delta)
 	
 	if use_zones:
 		#mouse_pos.y *= 1.7
@@ -126,5 +128,6 @@ func _process(delta):
 		Cursor.position = screen_center
 		Camera.position = Vector2.ZERO
 	
-	Camera.global_position.x = clamp(Camera.global_position.x, limit_left, limit_right)
-	Camera.global_position.y = clamp(Camera.global_position.y, limit_top, limit_bottom)
+	if limit:
+		Camera.global_position.x = clamp(Camera.global_position.x, limit_left, limit_right)
+		Camera.global_position.y = clamp(Camera.global_position.y, limit_top, limit_bottom)

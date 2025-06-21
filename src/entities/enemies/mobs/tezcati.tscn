@@ -60,6 +60,7 @@ position = Vector2(0, -16)
 scale = Vector2(0.8, 0.8)
 script = ExtResource("3_4kt1k")
 _AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
+height = 33.0
 
 [node name="StatsComponent" type="Node" parent="Components"]
 script = ExtResource("4_5htly")

@@ -3,12 +3,7 @@ extends Room
 var spawned = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#var enemy1 = EnemiesHandler.spawn_enemy("goblin")
-	#var enemy2 = EnemiesHandler.spawn_enemy("goblin")
-	#add_child(enemy1)
-	#add_child(enemy2)
-	#enemy1.position = $Marker2D.position
-	#enemy2.position = $Marker2D.position
+	
 	
 	if not spawned:
 		var boss = EnemiesHandler.spawn_boss("tezcati")

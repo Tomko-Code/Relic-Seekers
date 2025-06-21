@@ -9,7 +9,7 @@ var dash_current_cooldown = 0
 
 var das_start_pos:Vector2
 
-var dash_max_duration = 0.12
+var dash_max_duration = 0.14
 var dash_current_duration = 0
 var last_direction
 

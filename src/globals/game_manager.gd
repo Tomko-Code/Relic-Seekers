@@ -18,6 +18,7 @@ var loaded_scenes = {}
 var level_depth:int = 0
 
 
+
 func _init():
 	pass
 
