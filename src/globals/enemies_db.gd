@@ -13,10 +13,16 @@ var enemies = {
 	goblin = {
 		resource = load("res://src/entities/enemies/mobs/goblin.tscn"),
 	},
+	purple_goblin = {
+		resource = load("res://src/entities/enemies/mobs/purple_goblin.tscn"),
+	},
 	golem = { 
 		resource = load("res://src/entities/enemies/mobs/golem.tscn"), 
 	},
 	boss_eye = { 
 		resource = load("res://src/entities/enemies/mobs/boss_eye.tscn"), 
+	},
+	tezcati = { 
+		resource = load("res://src/entities/enemies/mobs/tezcati.tscn"), 
 	},
 }

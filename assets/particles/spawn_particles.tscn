@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://5djqf0ew6mt7"]
 
-[ext_resource type="Script" path="res://assets/particles/despawn_particles.gd" id="1_6ulvr"]
+[ext_resource type="Script" uid="uid://cn8013gegr213" path="res://assets/particles/despawn_particles.gd" id="1_6ulvr"]
 
 [sub_resource type="Gradient" id="Gradient_1euw2"]
 colors = PackedColorArray(0.788235, 0.788235, 0.788235, 1, 1, 1, 1, 1)

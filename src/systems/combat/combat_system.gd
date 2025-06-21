@@ -56,6 +56,11 @@ func _on_bullet_enter_hitbox(_area):
 		var hitbox: HitboxComponent = _area
 		var entity = hitbox.get_entity()
 		process_entity(entity)
+	else:
+		if _MovementComponent.is_dashing == false:
+			_StatsComponent.change_health(1)
+			AudioManager.play_sfx(AudioDB.soundID.sfx_hit)
+			_area.queue_free()
 
 func re_check_area_damage():
 	_StatsComponent.invulnerability_end.disconnect(re_check_area_damage)

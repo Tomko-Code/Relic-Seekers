@@ -20,4 +20,3 @@ func get_title():
 
 func get_description():
 	return "Spawns 5 fireflies orbiting the player"
-

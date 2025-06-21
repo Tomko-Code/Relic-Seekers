@@ -192,10 +192,11 @@ func spawn_wave() -> void:
 		for spawn in range(spawn_amout):
 			spawn_enemy(part[2].pick_random())
 
-func spawn_enemy(enemy_type:String):
-	var cord = get_random_free_spot()
-	while cord == Vector2.INF:
+func spawn_enemy(enemy_type:String, cord: Vector2 = Vector2.ZERO):
+	if cord == Vector2.ZERO:
 		cord = get_random_free_spot()
+		while cord == Vector2.INF:
+			cord = get_random_free_spot()
 	
 	var pos:Vector2 = cord * Constants.FLOOR_TILE_SIZE
 	enemy_count += 1

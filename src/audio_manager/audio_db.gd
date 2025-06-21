@@ -16,7 +16,7 @@ enum soundID {
 	sfx_emerald,
 	sfx_heart,
 	sfx_pickup,
-	
+	sfx_spawner_projectile,
 }
 
 var sounds: Dictionary[soundID, Sound] = {
@@ -40,6 +40,10 @@ var sounds: Dictionary[soundID, Sound] = {
 	soundID.sfx_shoot : Sound.new()
 		.set_bus("SFX")
 		.set_res_path("res://assets/audio/sfx/shoot_sfx.wav"),
+		
+	soundID.sfx_spawner_projectile : Sound.new()
+		.set_bus("SFX")
+		.set_res_path("res://assets/audio/sfx/splater.mp3"),
 	
 	soundID.sfx_fire_ball : Sound.new()
 		.set_bus("SFX")
@@ -62,7 +66,7 @@ var sounds: Dictionary[soundID, Sound] = {
 		.set_bus("SFX")
 		.set_res_path("res://assets/audio/sfx/gold_sfx.wav")
 		.set_limit(5)
-		.set_minimum_time(0.1),
+		.set_minimum_time(0.12),
 		
 	soundID.sfx_mana_orb : Sound.new()
 		.set_bus("SFX")
