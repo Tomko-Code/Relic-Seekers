@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddfskoht7dqfd"]
+
+[ext_resource type="Script" uid="uid://cuwlwdx74w4u5" path="res://spawner_projectile.gd" id="1_7gpm0"]
+[ext_resource type="Texture2D" uid="uid://dh5cjnd24g33i" path="res://assets/art/sprites/projectiles/spawner_projectile.png" id="2_aeuk5"]
+[ext_resource type="Texture2D" uid="uid://cpf6nceyuf4m" path="res://assets/art/sprites/projectiles/spawner_projectile_particle.png" id="2_ne2ig"]
+
+[node name="SpawnerProjectile" type="Node2D"]
+script = ExtResource("1_7gpm0")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+texture = ExtResource("2_ne2ig")
+lifetime = 0.2
+lifetime_randomness = 0.1
+emission_shape = 1
+emission_sphere_radius = 10.0
+gravity = Vector2(0, 0)
+color = Color(0.533037, 0.533037, 0.533037, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_aeuk5")
+hframes = 6

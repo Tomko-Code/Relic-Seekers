@@ -85,7 +85,7 @@ func _on_interactable_component_interacted():
 			game.change_current_level(level)
 			game.change_active_to_current_level()
 			return
-	
+
 
 func level_music():
 	AudioManager.play_music(AudioDB.soundID.music_floor, 1.0, 1.0)

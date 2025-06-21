@@ -1,2 +1,2 @@
-class_name Goblin
+class_name PurpuleGoblin
 extends Enemy

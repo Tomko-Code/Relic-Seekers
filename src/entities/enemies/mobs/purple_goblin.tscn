@@ -1,0 +1,115 @@
+[gd_scene load_steps=17 format=3 uid="uid://f8yje42nq8t4"]
+
+[ext_resource type="Script" uid="uid://cjyj4if0o08tx" path="res://src/entities/enemies/mobs/purple_goblin.gd" id="1_4gq4k"]
+[ext_resource type="Script" uid="uid://ffcct1p8i3i7" path="res://src/entities/entity_shadow_component.gd" id="2_sl07a"]
+[ext_resource type="Script" uid="uid://uvfmmqcu25jg" path="res://src/entities/stats_component.gd" id="3_iqmu3"]
+[ext_resource type="Script" uid="uid://dt1kwvki67pr4" path="res://src/entities/hitbox_component.gd" id="4_gmfa8"]
+[ext_resource type="Script" uid="uid://biys6csm1o8vy" path="res://src/systems/combat/combat_system.gd" id="5_o1buj"]
+[ext_resource type="Script" uid="uid://bij7aw7p5gd2p" path="res://src/entities/animated_sprite_component.gd" id="6_ddqik"]
+[ext_resource type="SpriteFrames" uid="uid://b5r8lbqf1hpk" path="res://assets/sprites/mobs/goblin.tres" id="7_i3bwx"]
+[ext_resource type="Script" uid="uid://butmj2a0rcqef" path="res://src/systems/movement/four_direction_animation_system_extra.gd" id="8_42lal"]
+[ext_resource type="PackedScene" uid="uid://b001mo8qgm6le" path="res://src/entities/enemies/health_bar_component.tscn" id="9_it51a"]
+[ext_resource type="Script" uid="uid://8vxgjggjhmhk" path="res://src/entities/enemies/follow_movement_component.gd" id="10_2cakw"]
+[ext_resource type="PackedScene" uid="uid://blv5sfddyxsl6" path="res://src/entities/projectiles/damage_area.tscn" id="11_yvr18"]
+[ext_resource type="Script" uid="uid://cwjrqxwlf33av" path="res://src/systems/movement/entity_repulsion_system.gd" id="12_2mnuy"]
+[ext_resource type="Script" uid="uid://dm2qxmntvxeh" path="res://src/entities/entity_effects_handler.gd" id="13_0hu7g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k3xfx"]
+size = Vector2(32, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vw706"]
+radius = 16.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6jtr7"]
+size = Vector2(32, 32)
+
+[node name="PurpleGoblin" type="CharacterBody2D"]
+modulate = Color(0.992157, 0.403922, 1, 1)
+collision_layer = 4
+collision_mask = 258
+script = ExtResource("1_4gq4k")
+
+[node name="Components" type="Node2D" parent="."]
+scale = Vector2(2, 2)
+
+[node name="EntityShadowComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("_AnimatedSpriteComponent")]
+script = ExtResource("2_sl07a")
+_AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
+
+[node name="StatsComponent" type="Node" parent="Components"]
+script = ExtResource("3_iqmu3")
+max_health = 40.0
+
+[node name="HitboxComponent" type="Area2D" parent="Components"]
+collision_layer = 4
+collision_mask = 8
+script = ExtResource("4_gmfa8")
+
+[node name="Hitbox" type="CollisionShape2D" parent="Components/HitboxComponent"]
+visible = false
+shape = SubResource("RectangleShape2D_k3xfx")
+
+[node name="CombatSystem" type="Node" parent="Components" node_paths=PackedStringArray("_HitboxComponent", "_StatsComponent", "_MovementComponent", "_EntityEffectsHandler")]
+script = ExtResource("5_o1buj")
+_HitboxComponent = NodePath("../HitboxComponent")
+_StatsComponent = NodePath("../StatsComponent")
+_MovementComponent = NodePath("../FollowMovementComponent")
+_EntityEffectsHandler = NodePath("../EntityEffectsHandler")
+
+[node name="AnimatedSpriteComponent" type="Node2D" parent="Components"]
+script = ExtResource("6_ddqik")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Components/AnimatedSpriteComponent"]
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("7_i3bwx")
+animation = &"idle_right_down"
+
+[node name="FourDirectionMovementSystemExtra" type="Node" parent="Components" node_paths=PackedStringArray("_MovementComponent", "_AnimatedSpriteComponent")]
+script = ExtResource("8_42lal")
+_MovementComponent = NodePath("../FollowMovementComponent")
+_AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
+right_only = true
+
+[node name="HealthBarComponent" parent="Components" node_paths=PackedStringArray("_StatsComponent") instance=ExtResource("9_it51a")]
+_StatsComponent = NodePath("../StatsComponent")
+
+[node name="FollowMovementComponent" type="Node" parent="Components" node_paths=PackedStringArray("nav_agent")]
+script = ExtResource("10_2cakw")
+nav_agent = NodePath("../../NavigationAgent2D")
+speed = 80.0
+
+[node name="DamageArea" parent="Components" node_paths=PackedStringArray("hitbox") instance=ExtResource("11_yvr18")]
+hitbox = NodePath("../ContactDamageHitbox")
+
+[node name="ContactDamageHitbox" type="Area2D" parent="Components" node_paths=PackedStringArray("entity")]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("4_gmfa8")
+entity = NodePath("../DamageArea")
+
+[node name="Hitbox" type="CollisionShape2D" parent="Components/ContactDamageHitbox"]
+visible = false
+shape = SubResource("RectangleShape2D_k3xfx")
+
+[node name="EntityRepulsionSystem" type="Node" parent="Components" node_paths=PackedStringArray("_HitboxComponent")]
+script = ExtResource("12_2mnuy")
+_HitboxComponent = NodePath("../RepulsionHitbox")
+
+[node name="RepulsionHitbox" type="Area2D" parent="Components"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("4_gmfa8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/RepulsionHitbox"]
+shape = SubResource("CircleShape2D_vw706")
+
+[node name="EntityEffectsHandler" type="Node2D" parent="Components" node_paths=PackedStringArray("_StatsComponent")]
+script = ExtResource("13_0hu7g")
+_StatsComponent = NodePath("../StatsComponent")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_6jtr7")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+radius = 60.0

@@ -11,7 +11,7 @@ func _ready():
 	#enemy2.position = $Marker2D.position
 	
 	if not spawned:
-		var boss = EnemiesHandler.spawn_boss("boss_eye")
+		var boss = EnemiesHandler.spawn_boss("tezcati")
 		enemy_count = 1
 		boss.death.connect(on_enemy_death)
 		var spawn_point = spawn_point_res.instantiate() as SpawnerPoint
