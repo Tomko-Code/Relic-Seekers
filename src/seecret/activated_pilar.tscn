@@ -1,0 +1,108 @@
+[gd_scene load_steps=16 format=3 uid="uid://bvfah6iwtbe1i"]
+
+[ext_resource type="Texture2D" uid="uid://bqmag86qeowhw" path="res://assets/art/sprites/seecret/activate_pilar.png" id="1_7ddli"]
+[ext_resource type="Script" uid="uid://be70gbgt3mlqu" path="res://src/seecret/activated_pilar.gd" id="1_ie6no"]
+[ext_resource type="PackedScene" uid="uid://bdlxq5bh2qqu2" path="res://src/entities/interactable/interactable_component.tscn" id="3_nuwxd"]
+[ext_resource type="AudioStream" uid="uid://6iip286b2n4j" path="res://assets/audio/sfx/stone_grinding.mp3" id="4_m6ixe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ie6no"]
+atlas = ExtResource("1_7ddli")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nuwxd"]
+atlas = ExtResource("1_7ddli")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6ixe"]
+atlas = ExtResource("1_7ddli")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvaxe"]
+atlas = ExtResource("1_7ddli")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwpww"]
+atlas = ExtResource("1_7ddli")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6srte"]
+atlas = ExtResource("1_7ddli")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rotvr"]
+atlas = ExtResource("1_7ddli")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vn4p7"]
+atlas = ExtResource("1_7ddli")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_40rdp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ie6no")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nuwxd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6ixe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvaxe")
+}],
+"loop": false,
+"name": &"set_off",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwpww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6srte")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rotvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vn4p7")
+}],
+"loop": false,
+"name": &"set_on",
+"speed": 10.0
+}]
+
+[sub_resource type="InputEventKey" id="InputEventKey_m6ixe"]
+device = -1
+keycode = 88
+unicode = 120
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nuwxd"]
+radius = 30.0
+
+[node name="ActivatedPilar" type="Node2D" groups=["secret_pilar"]]
+script = ExtResource("1_ie6no")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -14)
+sprite_frames = SubResource("SpriteFrames_40rdp")
+animation = &"set_off"
+frame = 3
+frame_progress = 1.0
+
+[node name="Conponents" type="Node2D" parent="."]
+
+[node name="InteractableComponent" parent="Conponents" instance=ExtResource("3_nuwxd")]
+interaction_input = SubResource("InputEventKey_m6ixe")
+interaction_title = "Use"
+input_text = "X"
+shape = SubResource("CircleShape2D_nuwxd")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_m6ixe")
+volume_db = -5.818
+bus = &"SFX"
+
+[connection signal="interacted" from="Conponents/InteractableComponent" to="." method="_on_interactable_component_interacted"]

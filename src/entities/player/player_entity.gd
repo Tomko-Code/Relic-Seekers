@@ -11,7 +11,7 @@ var pit_count:int = 0
 var last_safe_cord: Vector2
 
 var paused:bool = false
-var draw_position:bool = true
+var draw_position:bool = false
 
 signal death
 signal health_changed
@@ -35,12 +35,12 @@ func _physics_process(_delta):
 	
 	var game: Game = GameManager.loaded_scenes["Game"]
 	var room: Room = game.active_level.currnet_active_room
-	var cord: Vector2 = (($PitHitBox.global_position - room.global_position)/Constants.FLOOR_TILE_SIZE).floor()
+	if room != null:
+		var cord: Vector2 = (($PitHitBox.global_position - room.global_position)/Constants.FLOOR_TILE_SIZE).floor()
 	
-	if game.level_state != game.LEVEL_STATES.SANCTUARY and room.name != "SwampRoom":
-		if room.is_this_spot_free(cord) and cord != last_safe_cord:
-			last_safe_cord = cord
-			print(cord)
+		if game.level_state != game.LEVEL_STATES.SANCTUARY and room.name != "SwampRoom":
+			if room.is_this_spot_free(cord) and cord != last_safe_cord:
+				last_safe_cord = cord
 	
 	queue_redraw()
 
@@ -64,8 +64,6 @@ func on_player_enter_room(room: Room) -> void:
 	
 	if room.name == "SwampRoom":
 		GameManager.game_camera.limit = false
-	
-	print("room enter player")
 
 func _on_pit_hit_box_body_entered(body:TileMap):
 	pit_count += 1

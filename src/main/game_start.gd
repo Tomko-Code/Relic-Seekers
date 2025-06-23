@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var STARTING_OPTION:Constants.STARTING_OPTIONS = Constants.STARTING_OPTIONS.COMBAT
+@export var STARTING_OPTION:Constants.STARTING_OPTIONS = Constants.STARTING_OPTIONS.NORMAL
 
 var load_preset = [
 	["res://src/entities/projectiles/friendly_projectile.tscn", "projectile/friendly_projectile"],

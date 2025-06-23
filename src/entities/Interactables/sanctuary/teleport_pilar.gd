@@ -14,6 +14,8 @@ var is_pilar_activated:bool = false:
 func _ready() -> void:
 	if GameData.save_file.core_activation_data[ID]:
 		is_pilar_activated = true
+		$Components/InteractableComponent.active = false
+		
 		$Core.show()
 
 func _pilar_interacted() -> void:
@@ -31,6 +33,7 @@ func activate_pilar():
 	is_pilar_activated = true
 	$AudioStreamPlayer2D.play()
 	$Core.show()
+	$Components/InteractableComponent.active = false
 	emit_signal("pilar_activated")
 
 func deactivate_pilar():

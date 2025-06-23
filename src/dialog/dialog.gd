@@ -46,7 +46,11 @@ func play(dialog_name:String) -> void:
 	string_lable.visible_characters = 0
 	string_lable.text = current_line["string"]
 	who_lable.text = current_line["who"]
-	portret.texture = portrets[current_line["who"]]
+	if portrets.has(current_line["who"]):
+		$Control/HBoxContainer/PortretContainer.hide()
+		portret.texture = portrets[current_line["who"]]
+	else:
+		$Control/HBoxContainer/PortretContainer.hide()
 	current_dialog_char_count = current_line["string"].length()
 	interact_button.text = "> skip <"
 	
@@ -62,6 +66,9 @@ func _on_button_dialog_intearct_pressed() -> void:
 	#_interact()
 
 func _interact() -> void:
+	if not visible:
+		return
+	
 	match interact_button.text:
 		"> skip <":
 			_skip_dialog()
@@ -80,7 +87,13 @@ func _continue_dialog() -> void:
 	string_lable.visible_characters = 0
 	string_lable.text = current_line["string"]
 	who_lable.text = current_line["who"]
-	portret.texture = portrets[current_line["who"]]
+	
+	if portrets.has(current_line["who"]):
+		$Control/HBoxContainer/PortretContainer.hide()
+		portret.texture = portrets[current_line["who"]]
+	else:
+		$Control/HBoxContainer/PortretContainer.hide()
+	
 	current_dialog_char_count = current_line["string"].length()
 	interact_button.text = "> skip <"
 	playing = true
@@ -114,11 +127,11 @@ func _process(delta) -> void:
 		
 		while time > play_speed:
 			
-			if string_lable.visible_characters == current_dialog_char_count:
+			if string_lable.visible_characters >= current_dialog_char_count:
 				_on_dialong_ended()
 				playing = false
 			else:
-				string_lable.visible_characters += 1
+				string_lable.visible_characters += 2
 				if not $Audio.playing:
 					$Audio.play()
 				

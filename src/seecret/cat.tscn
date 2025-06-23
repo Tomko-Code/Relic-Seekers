@@ -1,0 +1,116 @@
+[gd_scene load_steps=16 format=3 uid="uid://n2oi132oyq3h"]
+
+[ext_resource type="Texture2D" uid="uid://c4mqg6vw1gl30" path="res://assets/art/sprites/seecret/cat.png" id="1_kwqma"]
+[ext_resource type="Script" uid="uid://d2rn4orkxwnip" path="res://src/seecret/cat.gd" id="1_xx45x"]
+[ext_resource type="PackedScene" uid="uid://bdlxq5bh2qqu2" path="res://src/entities/interactable/interactable_component.tscn" id="3_dgsbh"]
+[ext_resource type="Texture2D" uid="uid://crorfb4fitqvn" path="res://assets/art/sprites/seecret/Z.png" id="4_mmosw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwqma"]
+atlas = ExtResource("1_kwqma")
+region = Rect2(0, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xx45x"]
+atlas = ExtResource("1_kwqma")
+region = Rect2(60, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgsbh"]
+atlas = ExtResource("1_kwqma")
+region = Rect2(120, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmosw"]
+atlas = ExtResource("1_kwqma")
+region = Rect2(180, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6f4wk"]
+atlas = ExtResource("1_kwqma")
+region = Rect2(240, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpr1i"]
+atlas = ExtResource("1_kwqma")
+region = Rect2(300, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1w1r6"]
+atlas = ExtResource("1_kwqma")
+region = Rect2(0, 60, 60, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t887w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwqma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xx45x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgsbh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmosw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6f4wk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vpr1i")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1w1r6")
+}],
+"loop": true,
+"name": &"sleep",
+"speed": 5.0
+}]
+
+[sub_resource type="InputEventKey" id="InputEventKey_mmosw"]
+device = -1
+keycode = 88
+unicode = 120
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dgsbh"]
+radius = 33.1
+
+[sub_resource type="Gradient" id="Gradient_6f4wk"]
+offsets = PackedFloat32Array(0, 0.490654, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Cat" type="Node2D"]
+script = ExtResource("1_xx45x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_kwqma")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_t887w")
+animation = &"idle"
+
+[node name="Conponents" type="Node2D" parent="."]
+
+[node name="InteractableComponent" parent="Conponents" instance=ExtResource("3_dgsbh")]
+interaction_input = SubResource("InputEventKey_mmosw")
+interaction_title = "Talk"
+input_text = "X"
+box_position = Vector2(0, 20)
+shape = SubResource("CircleShape2D_dgsbh")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 3
+texture = ExtResource("4_mmosw")
+lifetime = 1.9
+gravity = Vector2(0, -50)
+orbit_velocity_min = -0.2
+orbit_velocity_max = 0.1
+color_ramp = SubResource("Gradient_6f4wk")
+
+[connection signal="interacted" from="Conponents/InteractableComponent" to="." method="_on_interactable_component_interacted"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

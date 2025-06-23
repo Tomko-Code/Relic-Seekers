@@ -255,6 +255,16 @@ var rooms_data = {
 			}
 		},
 	},
+	"secret_room" : {
+		"shape" : [[1]],
+		"res" : load("res://src/rooms/special/secret_1x1_small.tscn"),
+		"icons" : {
+			"shop_icon" : {
+				"type" : "label",
+				"res" : preload("res://assets/other/secret_icon.tscn")
+			}
+		},
+	},
 	"shrine_room" : {
 		"shape" : [[1]],
 		"res" : load("res://src/rooms/special/shrine_room.tscn"),
@@ -363,7 +373,8 @@ var room_sets:Dictionary = {
 var special_rooms:Array = [
 	"shop",
 	"shrine_room",
-	"chest_room"
+	"chest_room",
+	"secret_room"
 ]
 
 func load_save_file():
@@ -385,6 +396,8 @@ func _ready():
 	load_presistent()
 	load_dialog_data()
 	load_save_file()
+	
+	save_file.update_secret_unlock()
 
 # save presistent data on game exit
 func _exit_tree():

@@ -20,7 +20,7 @@ func _on_interactable_component_interacted():
 	var level_preset = level_base.duplicate() as LevelGenerationPreset
 	
 	GameManager.level_depth += 1
-	level_preset.level_name = str(GameManager.level_depth)
+	level_preset.level_name = "Floor"
 	print("Next floor request ... level : " + str(level_preset.level_name) + " / 6")
 	
 	if GameManager.level_depth <= 2:
@@ -72,6 +72,17 @@ func _on_interactable_component_interacted():
 			
 			level_preset.special_rooms[random_special]["count"] += 1
 	
+	
+	match GameManager.level_depth:
+		1:
+			level_preset.special_rooms["secret_room"] = {}
+			level_preset.special_rooms["secret_room"]["count"] = 1
+		3:
+			level_preset.special_rooms["secret_room"] = {}
+			level_preset.special_rooms["secret_room"]["count"] = 1
+		5:
+			level_preset.special_rooms["secret_room"] = {}
+			level_preset.special_rooms["secret_room"]["count"] = 1
 #	special_rooms
 #	"shop": {
 #"count": 1.0

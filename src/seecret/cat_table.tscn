@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://bk4ul1ebilbul"]
+
+[ext_resource type="Texture2D" uid="uid://cqjylq2tqtjsi" path="res://assets/art/sprites/seecret/cat_table.png" id="1_3u7ck"]
+[ext_resource type="Script" uid="uid://datu6ip4w8ack" path="res://src/seecret/cat_table.gd" id="1_nf8rx"]
+[ext_resource type="PackedScene" uid="uid://bdlxq5bh2qqu2" path="res://src/entities/interactable/interactable_component.tscn" id="2_nf8rx"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_3u7ck"]
+device = -1
+keycode = 88
+unicode = 120
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_viye6"]
+radius = 40.8
+
+[node name="CatTable" type="Node2D"]
+script = ExtResource("1_nf8rx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3u7ck")
+
+[node name="Conponents" type="Node2D" parent="."]
+
+[node name="InteractableComponent" parent="Conponents" instance=ExtResource("2_nf8rx")]
+interaction_input = SubResource("InputEventKey_3u7ck")
+interaction_title = "Read"
+input_text = "X"
+shape = SubResource("CircleShape2D_viye6")
+
+[connection signal="interacted" from="Conponents/InteractableComponent" to="." method="_on_interactable_component_interacted"]

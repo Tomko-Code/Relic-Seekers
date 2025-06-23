@@ -129,7 +129,6 @@ title_lable = NodePath("Box/MarginContainer/MarginContainer/VBoxContainer/HBoxCo
 input_lable = NodePath("Box/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/Input")
 seperator = NodePath("Box/MarginContainer/MarginContainer/VBoxContainer/HSeparator")
 descryption_lable = NodePath("Box/MarginContainer/MarginContainer/VBoxContainer/Descryption")
-interaction_descryption = "null"
 input_text = "null"
 
 [node name="InteractionArea" type="Area2D" parent="."]

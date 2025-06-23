@@ -61,7 +61,6 @@ _AnimatedSpriteComponent = NodePath("../AnimatedSpriteComponent")
 
 [node name="InteractableComponent" parent="Components" instance=ExtResource("1_gvcdu")]
 interaction_input = SubResource("InputEventKey_l3ux4")
-interaction_descryption = ""
 interaction_title = "Talk"
 input_text = "X"
 box_position = Vector2(0, 10)
