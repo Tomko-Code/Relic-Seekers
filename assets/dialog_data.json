@@ -112,5 +112,101 @@
 				"string" : "I should get moving."
 			}
 		]
-	}
+	},
+	"table_0" : 
+	{
+		"dialogs" : [
+			{
+				"who" : "Table",
+				"string" : "To rule is to recline where one pleases, unbothered, unbowed, unbothered again."
+			}
+		]
+	},
+	"table_1" : 
+	{
+		"dialogs" : [
+			{
+				"who" : "Table",
+				"string" : "Does the world exist when I leave the room? I choose not to care."
+			}
+		]
+	},
+	"table_2" : 
+	{
+		"dialogs" : [
+			{
+				"who" : "Table",
+				"string" : "Lick not the paw in haste, for elegance is patience manifest."
+			}
+		]
+	},
+	"table_3" : 
+	{
+		"dialogs" : [
+			{
+				"who" : "Table",
+				"string" : "To knock the glass is not an act of malice… but a reminder that all things fall."
+			}
+		]
+	},
+	"table_4" : 
+	{
+		"dialogs" : [
+			{
+				"who" : "Table",
+				"string" : "The bowl is empty. What, then, is meaning?"
+			}
+		]
+	},
+	"cat_first_see" : 
+	{
+		"dialogs" : [
+			{
+				"who" : "Player",
+				"string" : "A cat ?"
+			},
+			{
+				"who" : "Cat",
+				"string" : "Finally somone civilized. I'm no ordinary cat, you see I'm a spirit of mischief named Nyxie."
+			},
+			{
+				"who" : "Player",
+				"string" : "And why are you here Nyxie ?"
+			},
+			{
+				"who" : "Nyxie",
+				"string" : "Spirit of a shamn traped me here."
+			},
+			{
+				"who" : "Player",
+				"string" : "And why would he do that ?"
+			},
+			{
+				"who" : "Nyxie",
+				"string" : "Ugh ... so many questions. I don't know, that said i did piss on his belongings, they were all stinky, so i wanted to help."
+			},
+			{
+				"who" : "Nyxie",
+				"string" : "Now now human, i have some work to do. Thanks for letting me out ... i guess. "
+			}
+		]
+	},
+	"cat_sanctuary" : 
+	{
+		"dialogs" : [
+			{
+				"who" : "Nyxie",
+				"string" : "Not now human, I have work to do ..."
+			}
+		]
+	},
+	"cat_floor" : 
+	{
+		"dialogs" : [
+			{
+				"who" : "Nyxie",
+				"string" : "What ? Don't you see i'm busy ..."
+			}
+		]
+	},
 }

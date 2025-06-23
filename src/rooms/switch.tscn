@@ -111,6 +111,7 @@ frame_progress = 1.0
 
 [node name="InteractableComponent" parent="Components" instance=ExtResource("2_a6k36")]
 interaction_input = SubResource("InputEventKey_e1e5k")
+interaction_descryption = "Rock lever."
 interaction_title = "Use"
 input_text = "X"
 shape = SubResource("CircleShape2D_a6k36")

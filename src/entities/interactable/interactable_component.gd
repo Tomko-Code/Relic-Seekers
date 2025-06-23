@@ -10,10 +10,17 @@ signal focus_change(focus:bool)
 @export var seperator:HSeparator
 @export var descryption_lable:RichTextLabel
 
-@export var active: bool = true
+@export var active: bool = true:
+	set(value):
+		active = value
+		visible = active
 @export var interaction_input:InputEvent = null
 @export var interaction_descryption:String = ""
-@export var interaction_title:String = ""
+@export var interaction_title:String = "":
+	set(value):
+		interaction_title = value
+		title_lable.text = interaction_title
+		
 @export var input_text:String = ""
 @export var box_position:Vector2 = Vector2.ZERO
 @export var shape: Shape2D = null

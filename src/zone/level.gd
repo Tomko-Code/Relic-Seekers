@@ -26,6 +26,13 @@ var custom_ambient:bool = false
 
 var ambient_light
 
+func _enter_tree() -> void:
+	print(name)
+	if name == "SanctuaryLevel":
+		pass
+	elif name == "Floor":
+		AudioManager.play_music(AudioDB.soundID.music_floor, 1.0, 1.0)
+
 func _ready():
 	if not custom_ambient:
 		ambient_light = ambient_light_res.instantiate()

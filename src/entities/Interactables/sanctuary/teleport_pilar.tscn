@@ -14,6 +14,21 @@ unicode = 120
 [sub_resource type="CircleShape2D" id="CircleShape2D_hoq47"]
 radius = 48.0
 
+[sub_resource type="Animation" id="Animation_l8ag5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Core:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -26)]
+}
+
 [sub_resource type="Animation" id="Animation_bd56y"]
 resource_name = "float"
 length = 4.0
@@ -31,21 +46,6 @@ tracks/0/keys = {
 "values": [Vector2(0, -26), Vector2(0, -32), Vector2(0, -26)]
 }
 
-[sub_resource type="Animation" id="Animation_l8ag5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Core:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -26)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4hwpq"]
 _data = {
 &"RESET": SubResource("Animation_l8ag5"),
@@ -59,7 +59,8 @@ script = ExtResource("1_hoq47")
 
 [node name="InteractableComponent" parent="Components" instance=ExtResource("1_1jefe")]
 interaction_input = SubResource("InputEventKey_3c3k4")
-interaction_title = "test"
+interaction_descryption = "Stone pillar."
+interaction_title = "Place core."
 input_text = "X"
 box_position = Vector2(0, 16)
 shape = SubResource("CircleShape2D_hoq47")

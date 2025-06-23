@@ -50,7 +50,7 @@ func _process(delta: float) -> void:
 		game.current_level.currnet_active_room.spawn_enemy("stone_eye_purple")
 
 func intcrement_spawn_treshold() -> void:
-	var chunks:float = (8.0*GameData.save_file.cores_placed)+8.0
+	var chunks:float = (4.0*GameData.save_file.cores_placed)+8.0
 	current_spawn_treshold = current_spawn_treshold - (stats.max_health/chunks)
 
 func match_state(state: STATES):
@@ -71,7 +71,7 @@ func match_state(state: STATES):
 			
 			stats.shoot_speed = default_shoot_speed
 			
-			clock.start(2)
+			clock.start(3)
 		STATES.SHOOTING_RANDOM:
 			stats.shoot_range = 1000
 			stats.projectile_type = "hostile_projectile"
