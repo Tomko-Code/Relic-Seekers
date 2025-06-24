@@ -83,6 +83,7 @@ mini_map = NodePath("MiniMapContainer/MiniMap")
 sub_view_container = NodePath("CenterContainer/SubViewportContainer")
 
 [node name="MiniMapContainer" type="MarginContainer" parent="Map"]
+modulate = Color(1, 1, 1, 0.721569)
 custom_minimum_size = Vector2(101, 101)
 anchors_preset = 1
 anchor_left = 1.0

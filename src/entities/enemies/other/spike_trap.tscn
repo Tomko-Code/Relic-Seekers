@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://bprr7yihq8lko"]
 
-[ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="1_326dk"]
-[ext_resource type="Script" path="res://src/entities/enemies/other/spike_trap.gd" id="1_bnqh4"]
-[ext_resource type="Script" path="res://src/entities/hitbox_component.gd" id="2_vmfkc"]
-[ext_resource type="Script" path="res://src/entities/projectiles/damage_area.gd" id="3_dbdms"]
+[ext_resource type="Script" uid="uid://bij7aw7p5gd2p" path="res://src/entities/animated_sprite_component.gd" id="1_326dk"]
+[ext_resource type="Script" uid="uid://djsi7mofcqlbs" path="res://src/entities/enemies/other/spike_trap.gd" id="1_bnqh4"]
+[ext_resource type="Script" uid="uid://dt1kwvki67pr4" path="res://src/entities/hitbox_component.gd" id="2_vmfkc"]
+[ext_resource type="Script" uid="uid://cpo3txpyongqh" path="res://src/entities/projectiles/damage_area.gd" id="3_dbdms"]
 [ext_resource type="SpriteFrames" uid="uid://dq70ko1ydsphm" path="res://assets/sprites/spikes_sprite.tres" id="3_fu5pd"]
-[ext_resource type="Script" path="res://src/entities/stats_component.gd" id="4_1jw4b"]
+[ext_resource type="Script" uid="uid://uvfmmqcu25jg" path="res://src/entities/stats_component.gd" id="4_1jw4b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_53pi3"]
 size = Vector2(64, 64)

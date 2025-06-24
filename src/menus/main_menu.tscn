@@ -24,11 +24,13 @@ layout_mode = 2
 
 [node name="MenuTitle" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 0
 theme = SubResource("Theme_81snc")
 text = "Relic Seekers"
 horizontal_alignment = 1
 
 [node name="MarginContainer1" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 size_flags_horizontal = 4
 
@@ -50,6 +52,7 @@ theme_override_constants/margin_bottom = 20
 
 [node name="MenuButtonList" type="VBoxContainer" parent="VBoxContainer/MarginContainer1/MarginContainer2"]
 layout_mode = 2
+alignment = 1
 
 [node name="Start" type="Button" parent="VBoxContainer/MarginContainer1/MarginContainer2/MenuButtonList"]
 layout_mode = 2
@@ -67,6 +70,7 @@ text = "Options"
 flat = true
 
 [node name="About" type="Button" parent="VBoxContainer/MarginContainer1/MarginContainer2/MenuButtonList"]
+visible = false
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("4_cb0wx")
@@ -74,6 +78,7 @@ text = "About"
 flat = true
 
 [node name="Credits" type="Button" parent="VBoxContainer/MarginContainer1/MarginContainer2/MenuButtonList"]
+visible = false
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("4_cb0wx")

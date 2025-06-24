@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://boxe2uihy7622"]
 
-[ext_resource type="Script" path="res://src/entities/shrines/red_shrine.gd" id="1_sgv7q"]
-[ext_resource type="Script" path="res://src/entities/animated_sprite_component.gd" id="2_30u6n"]
+[ext_resource type="Script" uid="uid://b0i118a60q3hh" path="res://src/entities/shrines/red_shrine.gd" id="1_sgv7q"]
+[ext_resource type="Script" uid="uid://bij7aw7p5gd2p" path="res://src/entities/animated_sprite_component.gd" id="2_30u6n"]
 [ext_resource type="SpriteFrames" uid="uid://bmg5fv3ngdv0i" path="res://assets/sprites/other/red_shrine.tres" id="3_1yctr"]
 [ext_resource type="PackedScene" uid="uid://bdlxq5bh2qqu2" path="res://src/entities/interactable/interactable_component.tscn" id="4_kod2j"]
 
@@ -17,7 +17,7 @@ unicode = 102
 radius = 32.0
 
 [node name="RedShrine" type="StaticBody2D"]
-collision_layer = 66
+collision_layer = 64
 collision_mask = 0
 script = ExtResource("1_sgv7q")
 
