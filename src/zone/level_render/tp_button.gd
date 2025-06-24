@@ -1,7 +1,8 @@
 extends TextureButton
 
+var simple_texture: Texture2D = preload("res://assets/art/sprites/teleports/simple_circle_teleport.png")
+var simple_texture_hover: Texture2D = preload("res://assets/art/sprites/teleports/simple_circle_teleport_hover.png")
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
@@ -10,6 +11,10 @@ func _ready():
 func _process(delta):
 	pass
 
+func set_simple_cirlce() -> void:
+	texture_normal = simple_texture
+	texture_pressed = simple_texture
+	texture_hover = simple_texture_hover
 
 func _on_pressed():
 	print("tp")

@@ -84,6 +84,12 @@ func generate(_level_preset:LevelGenerationPreset) -> Level:
 				#var new_room:RoomData = pick_random_room_by_weight()
 				var new_room:RoomData = pick_room()
 				if add_room(room, new_room):
+					new_room.depth = room.depth + 1
+					
+					if new_room.depth > 5:
+						var random_int = randi_range(1, 15)
+						if random_int == 1:
+							new_room.add_teleport = true
 					try_cout = 0
 		#elif not end_added:
 			#if room.distance_from_start <= 1:
@@ -111,6 +117,7 @@ func generate(_level_preset:LevelGenerationPreset) -> Level:
 				if add_room(room, boss_room):
 					try_cout = 0
 					boss_added = true
+					room.add_teleport = true
 					while not boss_room.all_possible_connections.is_empty():
 						add_random_connection(boss_room)
 		elif not end_added:
@@ -122,6 +129,7 @@ func generate(_level_preset:LevelGenerationPreset) -> Level:
 					if add_room(room, end_room):
 						try_cout = 0
 						end_added = true
+						room.add_teleport = true
 						continue
 						while not end_room.all_possible_connections.is_empty():
 							add_random_connection(end_room)

@@ -14,6 +14,8 @@ var data:RoomData
 @export var teleport:Node2D
 @export var starter:bool = false
 
+
+
 var spawn_point_res = preload("res://src/other/spawner_point/spawner_point.tscn")
 
 # Doors

@@ -12,5 +12,16 @@ pivot_offset = Vector2(10, 18)
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("1_chb86")
 theme_override_font_sizes/font_size = 24
+uppercase = true
+
+[node name="entrence_e_icon2" type="Label" parent="."]
+modulate = Color(0.152941, 1, 0.141176, 1)
+offset_top = 1.0
+offset_right = 14.0
+offset_bottom = 25.0
+pivot_offset = Vector2(10, 18)
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_chb86")
+theme_override_font_sizes/font_size = 24
 text = "E"
 uppercase = true
