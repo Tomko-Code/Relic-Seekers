@@ -213,28 +213,24 @@ var rooms_data = {
 	},
 	"start_room" : {
 		"shape" : [[1]],
-		"res" : load("res://src/rooms/start_room.tscn")
+		"res" : load("res://src/rooms/start_room.tscn"),
+		"has_teleport" : true,
+		"teleport_type" : TeleportData.TELEPORT_TYPES.CIRCLE
 	},
 	#######################################
 	# Boss rooms
 	#######################################
 	"test_boss_room" : {
 		"shape" : [[1, 1],[1, 1]],
-		"res" : load("res://src/rooms/boss_room.tscn"),
-		"has_teleport" : true,
-		"teleport_type" : TeleportData.TELEPORT_TYPES.CIRCLE
+		"res" : load("res://src/rooms/boss_room.tscn")
 	},
 	"boss_room_2" : {
 		"shape" : [[1, 1],[1, 1]],
-		"res" : load("res://src/rooms/boss_room_2.tscn"),
-		"has_teleport" : true,
-		"teleport_type" : TeleportData.TELEPORT_TYPES.CIRCLE
+		"res" : load("res://src/rooms/boss_room_2.tscn")
 	},
 	"boss_room_3" : {
 		"shape" : [[1, 1],[1, 1]],
-		"res" : load("res://src/rooms/boss_room_3.tscn"),
-		"has_teleport" : true,
-		"teleport_type" : TeleportData.TELEPORT_TYPES.CIRCLE
+		"res" : load("res://src/rooms/boss_room_3.tscn")
 	},
 	#######################################
 	# Standard pcg special rooms
@@ -254,6 +250,8 @@ var rooms_data = {
 				"res" : preload("res://assets/other/shop_icon.tscn")
 			}
 		},
+		"has_teleport" : true,
+		"teleport_type" : TeleportData.TELEPORT_TYPES.CIRCLE
 	},
 	"secret_room" : {
 		"shape" : [[1]],

@@ -40,6 +40,7 @@ func _input(event):
 			map_open = false
 			level_render.camera.zoom = Vector2(0.5, 0.5)
 			print("minimap")
+			level_render.camera.position = Vector2.ZERO
 		else:
 			sub_view_container.custom_minimum_size = Vector2(640, 360)
 			

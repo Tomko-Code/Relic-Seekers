@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://cbgrg2gkexspu"]
+[gd_scene load_steps=16 format=3 uid="uid://cbgrg2gkexspu"]
 
 [ext_resource type="Script" uid="uid://cyht2gmvjdde0" path="res://src/main/game.gd" id="1_3g1o0"]
 [ext_resource type="PackedScene" uid="uid://cfmmqeomv02jn" path="res://src/menus/hud.tscn" id="2_ob4nq"]
+[ext_resource type="Script" uid="uid://xyu28t2qv7se" path="res://src/main/sub_viewport_container.gd" id="3_rilqq"]
 [ext_resource type="PackedScene" uid="uid://bh3fyfhc3w8xt" path="res://src/dialog/dialog.tscn" id="3_yw5p0"]
 [ext_resource type="PackedScene" uid="uid://hcarbmby224x" path="res://src/zone/level_render/level_render.tscn" id="4_1l0ym"]
 [ext_resource type="Script" uid="uid://debsrfr2ui4fi" path="res://src/main/map.gd" id="4_xv8q3"]
@@ -129,6 +130,7 @@ visible = false
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 stretch = true
+script = ExtResource("3_rilqq")
 
 [node name="SubViewport" type="SubViewport" parent="Map/CenterContainer/SubViewportContainer"]
 transparent_bg = true

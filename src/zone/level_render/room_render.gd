@@ -61,7 +61,7 @@ func set_up():
 	if room.data.is_end:
 		var end_sprite = entrence_sprite_res.instantiate()
 		end_sprite.position += (Constants.CHUNK_SIZE/16)/2
-		end_sprite.text = "X"
+		end_sprite.get_node("entrence_e_icon2").text = "X"
 		
 		add_child(end_sprite)
 	
@@ -75,16 +75,33 @@ func set_up():
 		
 		add_child(boss_sprite)
 	
+	
 	if room.data.has_teleport:
 		tp_button = tp_button_res.instantiate()
 		
 		if room.has_node("Teleport"):
 			tp_button.position = room.get_node("Teleport").position/16
 			tp_button.position -= Vector2(24, 24)/2
+			if not room.get_node("Teleport").visible:
+				tp_button.set_simple_cirlce()
+				#tp_button.modulate = Color(1.0, 1.0, 1.0, 0.0)
+			
 			tp_button.pressed.connect(on_tp)
 			
 		
 		add_child(tp_button)
+	
+	elif room.data.add_teleport:
+		tp_button = tp_button_res.instantiate()
+		var center_offcet: Vector2 = Vector2(24,24)/2
+		tp_button.position = ((room_size * room.data.get_random_cord_inside()) + (room_size/2)) - center_offcet
+		tp_button.pressed.connect(on_tp)
+		add_child(tp_button)
+		
+		var teleport: Node2D = Node2D.new()
+		teleport.position = tp_button.position*16
+		teleport.name = "Teleport"
+		room.add_child(teleport)
 	
 	for conn in room.data.closed_connection_arry:
 		var sprite:Sprite2D = Sprite2D.new()

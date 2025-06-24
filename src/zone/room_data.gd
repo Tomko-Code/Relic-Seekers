@@ -27,6 +27,8 @@ var all_possible_connections:Array[RoomConnectionData] = []
 var has_teleport:bool = false
 var teleport:TeleportData = null
 
+var add_teleport: bool = false
+
 # physical shape
 var spawned_room:Room = null
 
