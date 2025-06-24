@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bayd172qbyqj0"]
+[gd_scene load_steps=15 format=3 uid="uid://bayd172qbyqj0"]
 
 [ext_resource type="Script" uid="uid://nocc5fyfbic1" path="res://src/menus/menu.gd" id="1_gsry1"]
 [ext_resource type="AudioStream" uid="uid://0y1vkqjs2qu6" path="res://assets/audio/music/Ancient Rite.mp3" id="1_i7oc2"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://55vajytef40i" path="res://src/menus/main_menu.tscn" id="4_pt8b7"]
 [ext_resource type="Texture2D" uid="uid://krb471mm03jh" path="res://assets/art/UI/menu/hook_bottom.png" id="5_vfv4x"]
 [ext_resource type="Texture2D" uid="uid://lw2umemvwnxm" path="res://assets/art/UI/menu/hook_top.png" id="6_j0fqq"]
+[ext_resource type="FontFile" uid="uid://chdwcd6b8dwyl" path="res://assets/fonts/Crumbled-Pixels.ttf" id="7_e51hj"]
 [ext_resource type="PackedScene" uid="uid://bpgge7nk2irr2" path="res://src/menus/options.tscn" id="10_yxr5v"]
 
 [sub_resource type="Gradient" id="Gradient_0pjgu"]
@@ -34,6 +35,10 @@ scale_min = 15.0
 scale_max = 15.0
 scale_curve = SubResource("CurveTexture_sswb2")
 color_ramp = SubResource("GradientTexture1D_mkga2")
+
+[sub_resource type="Theme" id="Theme_81snc"]
+default_font = ExtResource("7_e51hj")
+default_font_size = 96
 
 [node name="Menu" type="Control" node_paths=PackedStringArray("main_menu", "options")]
 layout_mode = 3
@@ -92,6 +97,31 @@ texture = ExtResource("6_j0fqq")
 
 [node name="MainMenu" parent="." instance=ExtResource("4_pt8b7")]
 layout_mode = 1
+
+[node name="VBoxContainer" parent="MainMenu" index="0"]
+alignment = 1
+
+[node name="MenuTitle" parent="MainMenu/VBoxContainer" index="0"]
+visible = false
+
+[node name="MarginContainer1" parent="MainMenu/VBoxContainer" index="1"]
+theme_override_constants/margin_top = 62
+
+[node name="MarginContainer2" parent="MainMenu/VBoxContainer/MarginContainer1" index="1"]
+custom_minimum_size = Vector2(180, 180)
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenu"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_bottom = 254
+
+[node name="MenuTitle2" type="Label" parent="MainMenu/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme = SubResource("Theme_81snc")
+text = "Relic Seekers"
+horizontal_alignment = 1
 
 [node name="Options" parent="." instance=ExtResource("10_yxr5v")]
 visible = false

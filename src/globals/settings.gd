@@ -80,20 +80,20 @@ func set_window_mode(value) -> void:
 
 func set_master_volume(value) -> void:
 	current_settings["master_volume"] = value
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), value)
+	AudioServer.set_bus_volume_linear(AudioServer.get_bus_index("Master"), float(value)/100)
 
 func set_music_volume(value) -> void:
 	current_settings["music_volume"] = value
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), value)
+	AudioServer.set_bus_volume_linear(AudioServer.get_bus_index("Music"), float(value)/100)
 
 func set_ui_volume(value) -> void:
 	current_settings["ui_volume"] = value
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("UI"), value)
+	AudioServer.set_bus_volume_linear(AudioServer.get_bus_index("UI"), float(value)/100)
 
 func set_sfx_volume(value) -> void:
 	current_settings["sfx_volume"] = value
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), value)
+	AudioServer.set_bus_volume_linear(AudioServer.get_bus_index("SFX"), float(value)/100)
 
 func set_dialog_volume(value) -> void:
 	current_settings["dialog_volume"] = value
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Dialog"), value)
+	AudioServer.set_bus_volume_linear(AudioServer.get_bus_index("Dialog"), float(value)/100)

@@ -17,8 +17,9 @@ expand_margin_bottom = 4.0
 [node name="player_health_display" type="MarginContainer"]
 offset_right = 648.0
 offset_bottom = 32.0
+size_flags_vertical = 0
 theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
+theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 script = ExtResource("1_306j0")
@@ -29,11 +30,14 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_tousp")
 
 [node name="Hearts" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(34, 34)
 layout_direction = 2
 layout_mode = 2
 theme_override_constants/separation = 4
 
 [node name="TextureRect" type="TextureRect" parent="Hearts"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
 texture = ExtResource("2_7x357")
-expand_mode = 2
+stretch_mode = 3

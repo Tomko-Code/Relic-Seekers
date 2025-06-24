@@ -33,7 +33,7 @@ theme_override_colors/font_hovered_color = Color(0.886275, 0.886275, 0.270588, 1
 theme_override_colors/font_selected_color = Color(0.886275, 0.886275, 0.270588, 1)
 theme_override_font_sizes/font_size = 24
 tab_alignment = 1
-current_tab = 1
+current_tab = 2
 clip_tabs = false
 all_tabs_in_front = true
 tab_focus_mode = 0
@@ -89,33 +89,48 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Master" type="Label" parent="VBoxContainer/TabContainer/Audio/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/Lables"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+size_flags_horizontal = 0
 size_flags_vertical = 6
 theme = ExtResource("1_u67dd")
+theme_override_font_sizes/font_size = 18
 text = "Master:"
 
 [node name="Music" type="Label" parent="VBoxContainer/TabContainer/Audio/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/Lables"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+size_flags_horizontal = 0
 size_flags_vertical = 6
 theme = ExtResource("1_u67dd")
+theme_override_font_sizes/font_size = 18
 text = "Music:"
 
 [node name="UI" type="Label" parent="VBoxContainer/TabContainer/Audio/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/Lables"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+size_flags_horizontal = 0
 size_flags_vertical = 6
 theme = ExtResource("1_u67dd")
+theme_override_font_sizes/font_size = 18
 text = "UI:"
 
 [node name="SFX" type="Label" parent="VBoxContainer/TabContainer/Audio/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/Lables"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+size_flags_horizontal = 0
 size_flags_vertical = 6
 theme = ExtResource("1_u67dd")
+theme_override_font_sizes/font_size = 18
 text = "SFX:"
 
 [node name="Dialog" type="Label" parent="VBoxContainer/TabContainer/Audio/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/Lables"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+size_flags_horizontal = 0
 size_flags_vertical = 6
 theme = ExtResource("1_u67dd")
+theme_override_font_sizes/font_size = 18
 text = "Dialog:"
 
 [node name="Scrolls" type="VBoxContainer" parent="VBoxContainer/TabContainer/Audio/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer"]
@@ -130,8 +145,6 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_vertical = 2
 theme = ExtResource("1_u67dd")
-min_value = -100.0
-max_value = 0.0
 rounded = true
 
 [node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer/TabContainer/Audio/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/Scrolls"]
@@ -143,8 +156,6 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_vertical = 2
 theme = ExtResource("1_u67dd")
-min_value = -100.0
-max_value = 0.0
 rounded = true
 
 [node name="CenterContainer3" type="CenterContainer" parent="VBoxContainer/TabContainer/Audio/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/Scrolls"]
@@ -156,8 +167,6 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_vertical = 2
 theme = ExtResource("1_u67dd")
-min_value = -100.0
-max_value = 0.0
 rounded = true
 
 [node name="CenterContainer4" type="CenterContainer" parent="VBoxContainer/TabContainer/Audio/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/Scrolls"]
@@ -169,8 +178,6 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_vertical = 2
 theme = ExtResource("1_u67dd")
-min_value = -100.0
-max_value = 0.0
 rounded = true
 
 [node name="CenterContainer5" type="CenterContainer" parent="VBoxContainer/TabContainer/Audio/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/Scrolls"]
@@ -182,8 +189,6 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_vertical = 2
 theme = ExtResource("1_u67dd")
-min_value = -100.0
-max_value = 0.0
 rounded = true
 
 [node name="Values" type="VBoxContainer" parent="VBoxContainer/TabContainer/Audio/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer"]
@@ -192,29 +197,35 @@ layout_mode = 2
 [node name="Master" type="Label" parent="VBoxContainer/TabContainer/Audio/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/Values"]
 layout_mode = 2
 size_flags_vertical = 6
+theme_override_font_sizes/font_size = 18
 text = "100%"
 
 [node name="Music" type="Label" parent="VBoxContainer/TabContainer/Audio/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/Values"]
 layout_mode = 2
 size_flags_vertical = 6
+theme_override_font_sizes/font_size = 18
 text = "100%"
 
 [node name="UI" type="Label" parent="VBoxContainer/TabContainer/Audio/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/Values"]
 layout_mode = 2
 size_flags_vertical = 6
+theme_override_font_sizes/font_size = 18
 text = "100%"
 
 [node name="SFX" type="Label" parent="VBoxContainer/TabContainer/Audio/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/Values"]
 layout_mode = 2
 size_flags_vertical = 6
+theme_override_font_sizes/font_size = 18
 text = "100%"
 
 [node name="Dialog" type="Label" parent="VBoxContainer/TabContainer/Audio/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/Values"]
 layout_mode = 2
 size_flags_vertical = 6
+theme_override_font_sizes/font_size = 18
 text = "100%"
 
 [node name="Graphic" type="MarginContainer" parent="VBoxContainer/TabContainer" node_paths=PackedStringArray("window_mode_options", "vsync")]
+visible = false
 layout_mode = 2
 script = ExtResource("5_dhbm8")
 window_mode_options = NodePath("MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/Scrolls/WindowMode")
@@ -302,7 +313,6 @@ layout_mode = 2
 size_flags_vertical = 7
 
 [node name="Gameplay" parent="VBoxContainer/TabContainer" instance=ExtResource("6_tgner")]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 

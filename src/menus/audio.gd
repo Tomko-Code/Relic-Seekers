@@ -31,25 +31,25 @@ func set_up_value(setting:String, lable:Label, slider:HSlider) -> void:
 		value = Settings.default_settings[setting]
 	
 	slider.value = value
-	slider.emit_signal("value_changed", value)
-	lable.text = str(100+value) + "%"
+	slider.emit_signal("value_changed", int(value))
+	lable.text = str(int(value)) + "%"
 
 func _on_master_value_changed(value) -> void:
-	value_master.text = str(100+value) + "%"
-	Settings.set_master_volume((((-value)/100)*-80))
+	value_master.text = str(int(value)) + "%"
+	Settings.set_master_volume(int(value))
 
 func _on_music_value_changed(value) -> void:
-	value_music.text = str(100+value) + "%"
-	Settings.set_music_volume((((-value)/100)*-80))
+	value_music.text = str(int(value)) + "%"
+	Settings.set_music_volume(int(value))
 
 func _on_ui_value_changed(value) -> void:
-	value_ui.text = str(100+value) + "%"
-	Settings.set_ui_volume((((-value)/100)*-80))
+	value_ui.text = str(int(value)) + "%"
+	Settings.set_ui_volume(int(value))
 
 func _on_sfx_value_changed(value) -> void:
-	value_sfx.text = str(100+value) + "%"
-	Settings.set_sfx_volume((((-value)/100)*-80))
+	value_sfx.text = str(int(value)) + "%"
+	Settings.set_sfx_volume(int(value))
 
 func _on_dialog_value_changed(value) -> void:
-	value_dialog.text = str(100+value) + "%"
-	Settings.set_dialog_volume((((-value)/100)*-80))
+	value_dialog.text = str(int(value) ) + "%"
+	Settings.set_dialog_volume(int(value))
