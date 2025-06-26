@@ -131,9 +131,17 @@ func on_tp() -> void:
 	active_level.currnet_active_room = room
 	active_level.currnet_active_room.on_player_enter()
 	
+	@warning_ignore("integer_division")
+	@warning_ignore("narrowing_conversion")
 	GameManager.game_camera.new_limit_left = room.global_position.x + (640/2)
+	@warning_ignore("integer_division")
+	@warning_ignore("narrowing_conversion")
 	GameManager.game_camera.new_limit_top = room.global_position.y + (360/2)
+	@warning_ignore("integer_division")
+	@warning_ignore("narrowing_conversion")
 	GameManager.game_camera.new_limit_right = room.global_position.x + (room.data.get_room_size().x * Constants.CHUNK_SIZE.x) - (640/2)
+	@warning_ignore("integer_division")
+	@warning_ignore("narrowing_conversion")
 	GameManager.game_camera.new_limit_bottom = room.global_position.y + (room.data.get_room_size().y * Constants.CHUNK_SIZE.y) - (360/2)
 	GameManager.game_camera.limit_left =  GameManager.game_camera.new_limit_left
 	GameManager.game_camera.limit_right =  GameManager.game_camera.new_limit_right

@@ -29,7 +29,7 @@ func _on_game_level_change(level:Level):
 	level.default_room.seen = true
 	level.default_room.emit_signal("status_change")
 
-func _input(event):
+func _input(_event):
 	if Input.is_action_just_pressed("map"):
 		if map_open:
 			sub_view_container.custom_minimum_size = Vector2(100, 100)
@@ -51,7 +51,7 @@ func _input(event):
 			level_render.camera.zoom = Vector2(1, 1)
 			print("map")
 
-func _process(delta):
+func _process(_delta):
 	if sub_view.render_target_update_mode != SubViewport.UPDATE_ALWAYS:
 		sub_view.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 

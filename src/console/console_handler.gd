@@ -4,8 +4,6 @@ extends Node
 var all_commands = {}
 
 func _ready():
-	var a = TextEdit.new()
-	a.text_set
 	add_child(Console)
 	Console.hide()
 	
@@ -31,7 +29,8 @@ func process_command(full_command: String):
 		all_commands[command].call(full_command)
 	else:
 		print("missing command")
-			
+
+@warning_ignore("unused_parameter")
 func cmd_help(args: String):
 	for a_command in all_commands:
 		print("%s: %s" % [a_command, all_commands[a_command].get_method()])

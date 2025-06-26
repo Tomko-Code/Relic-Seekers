@@ -4,7 +4,7 @@ var camera_start_pos:Vector2 = Vector2.ZERO
 var click_start_pos:Vector2 = Vector2.ZERO 
 var mouse_drag:bool = false
 
-func _process(delta):
+func _process(_delta):
 	if $"../..".map_open == true:
 		if Input.is_action_just_released("LMB_pressed"):
 			mouse_drag = false

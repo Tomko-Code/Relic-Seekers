@@ -14,10 +14,6 @@ func _ready():
 	
 	wave = GameData.save_file.wave
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func _exit_tree():
 	pass
 
@@ -29,8 +25,11 @@ func start_wave():
 	GameData.save_file.wave = wave
 	#FLOOR.MATH((B5/2)+(1)+((B5^3)/(B5*16)))
 	var fix_wave:int = wave+1
+	@warning_ignore("integer_division")
 	var mod1:float = fix_wave/2
 	var mod2:int = 1
+	
+	@warning_ignore("integer_division")
 	var mod3:float = (fix_wave^3)/(fix_wave*16)
 	var result:int = floor(mod1+mod2+mod3)
 	

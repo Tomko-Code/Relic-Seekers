@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 var type: String = "base_projectile"
 var speed: float = 100.0
+@warning_ignore("shadowed_global_identifier")
 var range: float = 100
 var effects: Array = []
 var damage: float = 1
@@ -115,6 +116,7 @@ func launch(direction_vector: Vector2):
 	launch_direction = direction_vector
 	emit_signal("launched")
 	if _ProjectileMovementComponent:
+		@warning_ignore("narrowing_conversion")
 		_ProjectileMovementComponent.launch(direction_vector, speed, range)
 	if not is_node_ready():
 		await ready

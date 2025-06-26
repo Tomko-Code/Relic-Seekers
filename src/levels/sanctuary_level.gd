@@ -4,7 +4,7 @@ class_name SanctuaryLevel
 func _init() -> void:
 	name = "SanctuaryLevel"
 
-func set_up(args:Array = []) -> void:
+func set_up(_args:Array = []) -> void:
 	### basic
 	level_activated.connect(on_level_activated)
 	

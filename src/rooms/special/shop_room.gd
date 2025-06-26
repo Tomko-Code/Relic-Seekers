@@ -34,8 +34,7 @@ func restock_shop():
 
 
 func _on_player_enterd() -> void:
-	#if GameData.data["dialog"].has("first_shop"):
-	GameManager.dialog_box.play("remark_thaladon_meeting")
-	#	GameManager.player.paused = true
-	#else:
-	#	GameManager.dialog_box.play("first_thaladon_meeting")
+	
+	if GameData.save_file.first_shop_interaction == false:
+		GameManager.dialog_box.play("first_shop_interaction")
+		GameData.save_file.first_shop_interaction = true

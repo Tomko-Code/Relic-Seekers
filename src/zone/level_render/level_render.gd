@@ -31,7 +31,7 @@ func draw_room(room:Room) -> void:
 	render.set_up()
 	rooms.add_child(render)
 
-func _process(delta):
+func _process(_delta):
 	if GameManager.player != null:
 		player_icon.position = GameManager.player.position/16
 

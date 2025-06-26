@@ -3,7 +3,7 @@ class_name EnemyMarker2D
 
 @export var sprite:Sprite2D
 
-func _physics_process(delta:float) -> void:
+func _physics_process(_delta:float) -> void:
 	var canvas:Transform2D = get_canvas_transform()
 	var top_left:Vector2 = -canvas.origin / canvas.get_scale()
 	var size:Vector2 = get_viewport_rect().size / canvas.get_scale()

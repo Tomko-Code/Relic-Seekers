@@ -24,8 +24,8 @@ var projectiles: Dictionary = {
 	spark = {
 		sprite = load("res://assets/sprites/projectiles/spark_sprite.tres"),
 		spawn_particles = Color.DEEP_SKY_BLUE,
-		finish_particles = Color.DEEP_SKY_BLUE,
-		trail_particles = Color.DEEP_SKY_BLUE,
+		#finish_particles = Color.DEEP_SKY_BLUE,
+		#trail_particles = Color.DEEP_SKY_BLUE,
 	},
 	firefly = {
 		sprite = load("res://assets/sprites/projectiles/firefly.tres"),

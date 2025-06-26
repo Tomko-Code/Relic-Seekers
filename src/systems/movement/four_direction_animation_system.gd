@@ -22,7 +22,7 @@ func get_direction_constant(vector: Vector2):
 				return x-1
 	return Constants.all_directions.RIGHT
 
-func _process(delta):
+func _process(_delta):
 	if _MovementComponent:
 		if _MovementComponent.is_idle:
 			_AnimatedSpriteComponent.set_animation("idle")

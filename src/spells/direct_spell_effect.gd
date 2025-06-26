@@ -1,8 +1,8 @@
 class_name DirectSpellEffect
 extends SpellEffect
 
-func apply_on_spell(spell: Spell):
+func apply_on_spell(_spell: Spell):
 	pass
 
-func use(spell: Spell):
+func use(_spell: Spell):
 	pass

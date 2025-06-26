@@ -1,7 +1,7 @@
 extends Node2D
 class_name SpawnerPoint
 
-signal animation_end
+#signal animation_end
 
 @export var animation_player: AnimationPlayer
 

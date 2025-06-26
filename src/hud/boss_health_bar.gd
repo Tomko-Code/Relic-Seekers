@@ -43,5 +43,5 @@ func update_stats():
 		boss_label.text = boss.name.capitalize()
 		show()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	update_stats()

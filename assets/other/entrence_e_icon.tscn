@@ -16,6 +16,7 @@ uppercase = true
 
 [node name="entrence_e_icon2" type="Label" parent="."]
 modulate = Color(0.152941, 1, 0.141176, 1)
+layout_mode = 0
 offset_top = 1.0
 offset_right = 14.0
 offset_bottom = 25.0

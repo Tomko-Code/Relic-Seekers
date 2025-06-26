@@ -68,7 +68,7 @@ func _input(event) -> void:
 				$AnimationInput.play("Interacted")
 
 func get_distance_to_player() -> int:
-	
+	@warning_ignore("narrowing_conversion")
 	return global_position.distance_to(player.global_position)
 
 # returns if interactable is closer then any other interactable
@@ -89,7 +89,7 @@ func _on_interaction_area_body_entered(body) -> void:
 	add_to_group(group_name)
 	$AnimationPlayer.play("FadeIN")
 
-func _on_interaction_area_body_exited(body) -> void:
+func _on_interaction_area_body_exited(_body) -> void:
 	_in_range = false
 	emit_signal("focus_change", _in_range)
 	player = null

@@ -51,7 +51,7 @@ var is_end = false
 
 var distance_from_start:int = 0
 
-func set_up(_type:String, level:Level) -> RoomData:
+func set_up(_type:String, _level:Level) -> RoomData:
 	type = _type
 	room_shape = GameData.rooms_data[_type]["shape"]
 	
@@ -143,7 +143,9 @@ func get_random_connection() -> RoomConnectionData:
 func get_random_cord_inside() -> Vector2:
 	while true:
 		var rand_cord:Vector2
+		@warning_ignore("narrowing_conversion")
 		rand_cord.x = randi_range(0, get_room_size().x - 1)
+		@warning_ignore("narrowing_conversion")
 		rand_cord.y = randi_range(0, get_room_size().y - 1)
 		
 		if room_shape[rand_cord.y][rand_cord.y] == 1:

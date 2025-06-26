@@ -37,7 +37,7 @@ func _physics_process(delta):
 		process_layer(layers[layer_key], delta)
 		
 func cleanup_layer(layer_key: String, orbital):
-	var layer = layers[layer_key]
+	#var layer = layers[layer_key]
 	layers[layer_key].orbitals.erase(orbital)
 	if layers.is_empty():
 		get_parent().remove_meta("OrbitalAttachment")

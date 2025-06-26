@@ -17,7 +17,7 @@ func spawn_boss(enemy_name):
 		boss_spawned.emit(enemy)
 		return enemy
 
-func spawn_enemy(enemy_name:String, boss:bool = false) -> Enemy:
+func spawn_enemy(enemy_name:String, _boss:bool = false) -> Enemy:
 	if EnemiesDb.enemies.has(enemy_name):
 		var enemy: Enemy = EnemiesDb.enemies[enemy_name].resource.instantiate()
 		var stats = GameManager.get_entity_component(enemy, StatsComponent)[0]

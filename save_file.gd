@@ -4,6 +4,8 @@ class_name SaveFile
 signal secret_pilar_set(id: int, value: bool)
 signal seecret_unlock_change(value: bool)
 
+signal last_core
+
 # Player
 @export var player_inventory:PlayerInventory = PlayerInventory.new()
 
@@ -17,7 +19,11 @@ signal seecret_unlock_change(value: bool)
 
 # Game
 @export var prolog_complete:bool = false
-@export var cores_placed:int = 0
+@export var cores_placed:int = 0:
+	set(value):
+		cores_placed = value
+		if cores_placed == 3:
+			emit_signal("last_core")
 
 @export var core_activation_data:Array[bool] = [false,false,false]
 @export var portal_room_open:bool = false
@@ -31,6 +37,8 @@ signal seecret_unlock_change(value: bool)
 @export var secret_unlocked: bool = false
 @export var first_cat_interaction: bool = false
 
+#Extra dialogs
+@export var first_shop_interaction: bool = false
 
 func set_pilar(id: int, value: bool) -> void:
 	secret_pilar_array_id[id] = value

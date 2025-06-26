@@ -22,13 +22,13 @@ var level_depth:int = 0
 func _init():
 	pass
 
-func load_scene(name: String, res_path: String):
-	if loaded_scenes.has(name):
-		print("game_manger:load_scene | scene :" + name + " is loaded.")
+func load_scene(_name: String, res_path: String):
+	if loaded_scenes.has(_name):
+		print("game_manger:load_scene | scene :" + _name + " is loaded.")
 		return
 	
 	var _res = load(res_path)
-	loaded_scenes[name] = _res.instantiate()
+	loaded_scenes[_name] = _res.instantiate()
 
 func switch_active_scene_to(scene_name: String):
 	if !loaded_scenes.has(scene_name):
@@ -70,6 +70,7 @@ func attach_camera_to_node(target_node: Node, _use_zones: bool = true,
 	if game_camera.get_parent():
 		game_camera.get_parent().remove_child(game_camera)
 	target_node.add_child(game_camera)
+	@warning_ignore("narrowing_conversion")
 	game_camera.initialize(_use_zones, _interpolate_distance_from_mouse, _speed, _near_zone,
 		_far_zone, _inner_zone, _draw_debug)
 

@@ -7,7 +7,7 @@ extends Node
 @export var is_frozen: bool = false
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var bodies = _HitboxComponent.get_overlapping_bodies()
 	for body in bodies:
 		parent.velocity += (parent.global_position - body.global_position).normalized()*32

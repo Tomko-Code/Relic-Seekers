@@ -99,6 +99,7 @@ func _init() -> void:
 func get_soundID(_name: String) -> soundID:
 	if not soundID.has(_name):
 		push_error(_name + " is not registred as a sound -> " + str(get_stack().back()))
+		@warning_ignore("int_as_enum_without_cast")
 		return 0
 	
 	return soundID.get(_name)

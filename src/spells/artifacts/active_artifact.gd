@@ -7,6 +7,7 @@ var max_charge: float = 100 :
 		current_charge = value
 var current_charge: float = 0
 
+@warning_ignore("unused_signal")
 signal used
 signal charge_changed
 signal ready_to_use

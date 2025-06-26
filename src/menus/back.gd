@@ -1,6 +1,6 @@
 extends Button
 
-func _input(event):
+func _input(_event):
 	if Input.is_action_just_pressed("back"):
 		_on_pressed()
 
