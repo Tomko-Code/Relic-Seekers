@@ -21,7 +21,8 @@ var time:float
 var portrets = {
 	"Player" : preload("res://assets/art/portrets/alarion_portret.png"),
 	"Alarion" : preload("res://assets/art/portrets/alarion_portret.png"),
-	"Thaladon" : preload("res://assets/art/portrets/thaladon_portret.png")
+	"Thaladon" : preload("res://assets/art/portrets/thaladon_portret.png"),
+	"Witch" : preload("res://assets/art/portrets/witch_portret.png")
 }
 
 func _ready() -> void:
@@ -46,11 +47,7 @@ func play(dialog_name:String) -> void:
 	string_lable.visible_characters = 0
 	string_lable.text = current_line["string"]
 	who_lable.text = current_line["who"]
-	if portrets.has(current_line["who"]):
-		$Control/HBoxContainer/PortretContainer.hide()
-		portret.texture = portrets[current_line["who"]]
-	else:
-		$Control/HBoxContainer/PortretContainer.hide()
+	set_portret(current_line["who"])
 	current_dialog_char_count = current_line["string"].length()
 	interact_button.text = "> skip <"
 	
@@ -80,6 +77,15 @@ func _interact() -> void:
 func _skip_dialog() -> void:
 	string_lable.visible_characters = current_dialog_char_count
 
+func set_portret(who: String) -> void:
+	if portrets.has(who):
+		portret.texture = portrets[who]
+		$Control/HBoxContainer/StringContainer.set("theme_override_constants/margin_left", 0)
+		$Control/HBoxContainer/PortretContainer.show()
+	else:
+		$Control/HBoxContainer/PortretContainer.hide()
+		$Control/HBoxContainer/StringContainer.set("theme_override_constants/margin_left", 10)
+
 func _continue_dialog() -> void:
 	interact_button.text = "> skip <"
 	
@@ -88,11 +94,7 @@ func _continue_dialog() -> void:
 	string_lable.text = current_line["string"]
 	who_lable.text = current_line["who"]
 	
-	if portrets.has(current_line["who"]):
-		$Control/HBoxContainer/PortretContainer.hide()
-		portret.texture = portrets[current_line["who"]]
-	else:
-		$Control/HBoxContainer/PortretContainer.hide()
+	set_portret(current_line["who"])
 	
 	current_dialog_char_count = current_line["string"].length()
 	interact_button.text = "> skip <"

@@ -29,7 +29,7 @@ func _input(event):
 				spell_pickup.position = parent.position
 				parent.get_parent().call_deferred("add_child", spell_pickup)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	_UserMouseShootingComponent.is_shooting = false
 	_PlayerCastingComponent.is_casting = false
 	if Input.is_action_pressed("shoot_left_click"):

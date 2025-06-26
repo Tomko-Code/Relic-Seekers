@@ -9,5 +9,5 @@ var is_shooting = false
 func get_direction():
 	return Vector2.ZERO
 
-func shoot(direction_vector):
+func shoot(_direction_vector):
 	pass

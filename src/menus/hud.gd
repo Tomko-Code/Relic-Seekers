@@ -9,7 +9,7 @@ func _ready():
 	fps_lable.visible = Settings.get_setting("show_fps")
 	Settings.setting_changed.connect(on_settings_changed)
 
-func _process(delta):
+func _process(_delta):
 	if fps_lable.visible:
 		fps_lable.text = "FPS : " + str(Engine.get_frames_per_second())
 

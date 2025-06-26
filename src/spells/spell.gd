@@ -80,7 +80,7 @@ func set_data(spell_data: Dictionary):
 	for effect in innate_effects:
 		add_effect(effect)
 
-func has_effect(effect: SpellEffect, exact_match:bool = false):
+func has_effect(effect: SpellEffect, _exact_match:bool = false):
 	if effect is DirectSpellEffect:
 		for existing_effect in effects:
 			if existing_effect.get_script() == effect.get_script():
@@ -142,11 +142,11 @@ func change_mana(value: int):
 		emit_signal("mana_changed")
 
 func get_gold_value():
-	var effects = get_effects(false)
+	var _effects = get_effects(false)
 	var gold_value = 18
 	var pos_effects = 1
 	var neg_effects = 1
-	for effect in effects:
+	for effect in _effects:
 		effect = effect as SpellEffect
 		if effect.effect_type == Constants.effect_types.POSITIVE:
 			var tier = effect.get("tier")

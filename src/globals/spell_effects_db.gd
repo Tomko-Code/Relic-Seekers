@@ -71,9 +71,9 @@ func effects_conflict(effect_a: SpellEffect, effect_b: SpellEffect) -> bool:
 	else:
 		return true
 
-func effect_conflicts_array(effect: SpellEffect, effects: Array):
-	var conflicts_arr = get_conflict_entries_for_effect(conflicts_map, effect)
-	for sec_effect in effects:
+func effect_conflicts_array(_effect: SpellEffect, _effects: Array):
+	var conflicts_arr = get_conflict_entries_for_effect(conflicts_map, _effect)
+	for sec_effect in _effects:
 		var sec_conflicts_arr = get_conflict_entries_for_effect(conflicts_arr, sec_effect)
 		if not sec_conflicts_arr.is_empty():
 			return true

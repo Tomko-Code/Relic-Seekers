@@ -17,15 +17,19 @@
 		"dialogs" : [
 			{
 				"who": "Thaladon",
-				"string": "Oh no ..."
+				"string": "Company how nice ..."
 			},
 			{
 				"who": "Player",
-				"string": "Oh no? I'm here to help you."
+				"string": "I'm here to help you."
 			},
 			{
 				"who": "Thaladon",
-				"string": "Help? Teleporting stones you have used to get here are one-way tickets. You are traped with us."
+				"string": "Help me ? And who will help you ? "
+			},
+			{
+				"who": "Thaladon",
+				"string": "There is no way out of here."
 			},
 			{
 				"who": "Player",
@@ -33,19 +37,23 @@
 			},
 			{
 				"who": "Thaladon",
-				"string": "According to the writings on the walls, this place is called sanctuary."
+				"string": "According to the writings on the walls, this place was a tomb of some ancient shaman."
 			},
 			{
 				"who": "Thaladon",
-				"string": "Our only hope out might be to get through this dungeon. Each floor is connected by another teleporting stone."
+				"string": "Funnily enough he is still here ... his spirit that is."
+			},
+			{
+				"who": "Thaladon",
+				"string": "There is a teleport allowing to venture deeper. But no matter where you go it's filled with his minions."
 			},
 			{
 				"who": "Player",
-				"string": "You gulped. Dungeon? What kind of place is this?"
+				"string": "I will look for way out."
 			},
 			{
 				"who": "Thaladon",
-				"string": "A dangerous one. But I will cast a spell on you, so in case you die you will return here back in time."
+				"string": "I can help by placing a teleportation spell on you. So when you get close to dying it will teleport you back here."
 			},
 			{
 				"who": "Player",
@@ -53,7 +61,7 @@
 			},
 			{
 				"who": "Thaladon",
-				"string": "We've tried, but after many failed attempts, we lost hope. Maybe you'll have better luck."
+				"string": "I've tried that, but after many failed attempts, I lost hope. Maybe you'll have better luck."
 			}
 		]
 	},
@@ -70,16 +78,62 @@
 			}
 		]
 	},
+	"placed_last_core" : 
+	{
+		"dialogs" : [
+			{
+				"who" : "Thaladon",
+				"string" : "You have done it !"
+			},
+			{
+				"who" : "Thaladon",
+				"string" : "We are free to leave, this can teleport us all over the continent."
+			},
+			{
+				"who" : "Thaladon",
+				"string" : "That said. It would be shame to leave this place uncharted. I will stay in for some time."
+			}
+		]
+	},
+	"first_shop_interaction" : 
+	{
+		"dialogs" : [
+			{
+				"who" : "Witch",
+				"string" : "Found fancy stuff down here, intrested ?"
+			},
+			{
+				"who" : "Player",
+				"string" : "How did you ... "
+			},
+			{
+				"who" : "Witch",
+				"string" : "Magic."
+			},
+			{
+				"who" : "Player",
+				"string" : "Right. Can you magic your way out of here ?"
+			},
+			{
+				"who" : "Witch",
+				"string" : "No. so about that gold ?"
+			},
+			{
+				"who" : "Player",
+				"string" : "Right. Let me see."
+			}
+		]
+	},
 	"first_stone_interaction" : 
 	{
 		"dialogs" : [
 			{
 				"who" : "Player",
-				"string": "Hmm... I wonder what this is. It looks like some kind of teleporting stone."
+				"string": "A teleporting stone ..."
 			},
 			{
 				"who" : "Player",
-				"string": "I think I might be able to activate it and use it to get inside. It's worth a try."
+				"string": "I guess that's how they got in."
 			}
 		]
 	},
@@ -88,15 +142,11 @@
 		"dialogs" : [
 			{
 				"who" : "Player",
-				"string" : "Hmm... no teleporting stone back."
+				"string" : "No teleporting stone back."
 			},
 			{
 				"who" : "Player",
 				"string" : "Guess that explains why nobody ever came back."
-			},
-			{
-				"who" : "Player",
-				"string" : "I do wonder where everyone is ... if they are still alive."
 			}
 		]
 	},
@@ -105,7 +155,7 @@
 		"dialogs" : [
 			{
 				"who" : "Player",
-				"string" : "Can you believe it? I've finally made it to the ruins, but to my surprise, there's no sign of any expedition members. I wonder what happened to them."
+				"string" : "Made it to the ruins, but there's no sign of any expedition members."
 			},
 			{
 				"who" : "Player",

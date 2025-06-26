@@ -3,6 +3,7 @@ extends MovementComponent
 
 var velocity: Vector2
 var distance_traveled_duration: float = 0
+@warning_ignore("shadowed_global_identifier")
 var range: float = 0
 var can_bounce = false
 

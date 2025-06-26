@@ -26,7 +26,7 @@ func get_direction_constant(vector: Vector2):
 	return Constants.all_directions.RIGHT
 
 
-func _process(delta):
+func _process(_delta):
 	var animation_direction
 	if _ShootingComponent:
 		animation_direction = get_direction_constant(_ShootingComponent.get_direction())

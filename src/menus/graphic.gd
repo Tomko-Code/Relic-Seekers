@@ -7,7 +7,7 @@ func set_up() -> void:
 	set_up_window_mode_option_menu()
 	set_up_flag("vsync", vsync)
 
-func set_up_flag(setting:String, box:CheckBox) -> void:
+func set_up_flag(setting:String, _box:CheckBox) -> void:
 	var value
 	
 	if Settings.current_settings.has(setting):

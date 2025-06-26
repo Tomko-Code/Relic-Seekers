@@ -3,6 +3,7 @@ extends GenericPickup
 
 var spell: Spell = null
 
+@warning_ignore("unused_private_class_variable")
 @export var _AnimatedSpriteComponent: AnimatedSpriteComponent
 
 func get_gold_value():

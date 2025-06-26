@@ -164,13 +164,13 @@ func _random_move_update(delta: float) -> void:
 	elif shard_spiral_timer > spiral_time:
 		set_state(states.shard_spiral_attack)
 
-func shoot_shard(position: Vector2, direction: Vector2, back: bool = false) -> void:
+func shoot_shard(_position: Vector2, direction: Vector2, back: bool = false) -> void:
 	var shard:Node2D = shard_projectile.instantiate()
 	shard.rotation = direction.angle()
 	shard.direction = direction
 	shard.on_inpact_delete = !back
 	shard.boss = get_parent()
-	shard.position = position
+	shard.position = _position
 	room.add_child(shard)
 
 func _set_random_move() -> void:
@@ -196,8 +196,8 @@ func _get_room() -> Room:
 	return game.active_level.currnet_active_room
 
 func set_new_random_move_position() -> void:
-	var min = 200
-	var max = 400
+	#var min = 200
+	#var max = 400
 	
 	while true:
 		random_move_position = get_random_position_in_room()
@@ -206,7 +206,7 @@ func set_new_random_move_position() -> void:
 		if distance > 150 and distance < 450:
 			return
 		
-		max += 5
+		#max += 5
 
 func get_random_position_in_room() -> Vector2:
 	#return Vector2.ZERO

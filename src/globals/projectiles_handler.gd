@@ -57,7 +57,7 @@ func clear_all_projectiles():
 
 func set_projectile_layer(projectile: BaseProjectile, is_friendly: bool):
 	projectile.is_friendly = is_friendly
-	var hitbox: HitboxComponent = projectile.get_node("Components/HitboxComponent")
+	#var hitbox: HitboxComponent = projectile.get_node("Components/HitboxComponent")
 	if is_friendly:
 		#hitbox.set_collision_layer(friendly_layer)
 		#hitbox.set_collision_mask_value(3,1)

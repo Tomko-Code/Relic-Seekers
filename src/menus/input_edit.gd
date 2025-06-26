@@ -6,11 +6,11 @@ extends MarginContainer
 var action:String = ""
 var listening_to_event:bool = false
 
-func set_input_edit(action:String, action_button_name:String):
-	self.action = action
+func set_input_edit(_action:String, action_button_name:String):
+	self.action = _action
 	
-	if Settings.input_settings.data.has(action):
-		Settings.set_action(action, Settings.input_settings.data[action])
+	if Settings.input_settings.data.has(_action):
+		Settings.set_action(_action, Settings.input_settings.data[_action])
 	
 	action_button.text = action_button_name
 	update_input_lable()

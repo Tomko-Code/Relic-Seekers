@@ -53,7 +53,7 @@ func on_hover_show(node: Node, text_callback: Callable, _hover_both: bool = true
 	last_node = node
 	enable()
 
-func _process(delta):
+func _process(_delta):
 	_mouse_exited()
 
 func _mouse_exited():

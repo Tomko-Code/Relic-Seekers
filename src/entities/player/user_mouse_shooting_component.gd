@@ -29,7 +29,7 @@ func shoot(direction_vector):
 		projectile.launch(direction_vector)
 	emit_signal("on_shoot")
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if parent.paused:
 		return
 		

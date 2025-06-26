@@ -3,6 +3,7 @@ class_name Game
 
 signal level_change(level:Level)
 
+@warning_ignore("shadowed_global_identifier")
 @onready var HUD = get_node("HUD")
 
 var game_running:bool = false
@@ -179,7 +180,7 @@ func load_sanctuary():
 func _ready():
 	pass
 
-func _process(delta):
+func _process(_delta):
 	if not GameData.in_combat:
 		for auto in get_tree().get_nodes_in_group("auto_pick"):
 			auto.auto_pick = true

@@ -86,8 +86,8 @@ func look_for_open_space(starting_position:Vector2) -> Vector2:
 	snail_start_cord = (starting_position/Constants.FLOOR_TILE_SIZE).floor()
 	
 	var found:bool = false
-	var closet_best_cord:Vector2
-	var smallest_distance:float = -1
+	#var closet_best_cord:Vector2
+	#var smallest_distance:float = -1
 	
 	while not found:
 		var cord = get_next_snail_cord()
@@ -187,9 +187,9 @@ func get_next_snail_cord() -> Vector2:
 func spawn_wave() -> void:
 	var wave = data.waves[wave_it]
 	for part in wave:
-		var min:int = part[0] * clamp(GameManager.level_depth * 0.7,1,9)
-		var max:int = (part[1] * clamp(GameManager.level_depth * 0.7,1,9)) + GameManager.level_depth
-		var spawn_amout = randi_range(min, max)
+		var _min:int = part[0] * clamp(GameManager.level_depth * 0.7,1,9)
+		var _max:int = (part[1] * clamp(GameManager.level_depth * 0.7,1,9)) + GameManager.level_depth
+		var spawn_amout = randi_range(_min, _max)
 		
 		for spawn in range(spawn_amout):
 			spawn_enemy(part[2].pick_random())

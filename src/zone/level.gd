@@ -1,6 +1,7 @@
 extends Node2D
 class_name Level
 
+@warning_ignore("unused_signal")
 signal level_activated
 
 var room_connection_res = preload("res://src/zone/room_connection.tscn")
@@ -157,5 +158,5 @@ func reveal_level():
 		room.emit_signal("status_change")
 
 #### Virtual
-func set_up(args:Array = []) -> void:
+func set_up(_args:Array = []) -> void:
 	pass

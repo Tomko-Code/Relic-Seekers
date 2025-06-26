@@ -43,7 +43,7 @@ func _ready():
 	current_spawn_treshold = stats.max_health
 	intcrement_spawn_treshold()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if current_spawn_treshold >= stats.current_health and current_spawn_treshold > 0:
 		intcrement_spawn_treshold()
 		var game: Game = GameManager.loaded_scenes["Game"]

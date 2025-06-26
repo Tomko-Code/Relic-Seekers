@@ -8,7 +8,7 @@ func _ready():
 	pass
 	#remove_child(ambient_light)
 
-func set_up(args:Array = []) -> void:
+func set_up(_args:Array = []) -> void:
 	# Set level
 	create_level(Vector2(1,1))
 	

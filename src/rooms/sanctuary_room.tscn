@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bh2fqfxaebj1i"]
+[gd_scene load_steps=19 format=3 uid="uid://bh2fqfxaebj1i"]
 
 [ext_resource type="PackedScene" uid="uid://bnrt7xcfjh5bx" path="res://src/zone/room.tscn" id="1_w2tce"]
 [ext_resource type="PackedScene" uid="uid://blc3na0tm1ve3" path="res://src/entities/Interactables/thaladon/thaladon.tscn" id="2_eybjr"]
@@ -16,9 +16,19 @@
 [ext_resource type="AudioStream" uid="uid://drdqmr5it27pt" path="res://assets/audio/music/song_porta_v0.wav" id="14_po0uf"]
 [ext_resource type="PackedScene" uid="uid://bo4q036plsbam" path="res://src/rooms/stone_portal_door_secret.tscn" id="15_1efcj"]
 [ext_resource type="PackedScene" uid="uid://n2oi132oyq3h" path="res://src/seecret/cat.tscn" id="16_sk0os"]
+[ext_resource type="PackedScene" uid="uid://r5qj8bxkh5pj" path="res://src/entities/pickups/core_pickup.tscn" id="17_1eoc6"]
 
-[node name="SanctuaryRoom" instance=ExtResource("1_w2tce")]
+[sub_resource type="Curve2D" id="Curve2D_sk0os"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 802, 44, -89.4127, 13.0393, 89.4127, -13.0393, 945, -54)
+}
+point_count = 2
+
+[node name="SanctuaryRoom" node_paths=PackedStringArray("thaladon", "path") instance=ExtResource("1_w2tce")]
 script = ExtResource("2_f0hrt")
+thaladon = NodePath("thaladon2")
+path = NodePath("Path2D/PathFollow2D")
+metadata/_edit_lock_ = true
 
 [node name="Floors" parent="." index="1"]
 z_index = -2
@@ -84,15 +94,11 @@ direction = Vector2(-1, 0)
 distance_travel = 250.0
 metadata/_edit_lock_ = true
 
-[node name="thaladon" parent="." index="8" instance=ExtResource("2_eybjr")]
-visible = false
-position = Vector2(0, 195)
-
-[node name="CircleTeleport" type="Sprite2D" parent="." index="9"]
+[node name="CircleTeleport" type="Sprite2D" parent="." index="8"]
 position = Vector2(-80, 240)
 texture = ExtResource("3_icfcy")
 
-[node name="Lights" parent="." index="10"]
+[node name="Lights" parent="." index="9"]
 visible = true
 scale = Vector2(0.5, 0.5)
 
@@ -217,47 +223,70 @@ color = Color(0.453446, 0.984394, 0.953951, 1)
 texture_scale = 0.5
 metadata/_edit_lock_ = true
 
-[node name="Switch" parent="." index="11" instance=ExtResource("13_jeb7j")]
+[node name="Switch" parent="." index="10" instance=ExtResource("13_jeb7j")]
 position = Vector2(832, 29)
 
-[node name="BaseSpawn" type="Marker2D" parent="." index="12"]
+[node name="BaseSpawn" type="Marker2D" parent="." index="11"]
 position = Vector2(-88, 240)
 
-[node name="WiningRunSpawn" type="Marker2D" parent="." index="13"]
+[node name="WiningRunSpawn" type="Marker2D" parent="." index="12"]
 position = Vector2(1132, 242)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="14"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="13"]
 stream = ExtResource("14_po0uf")
 bus = &"Music"
 
-[node name="ActivatedPilar" parent="." index="15" instance=ExtResource("13_po0uf")]
+[node name="ActivatedPilar" parent="." index="14" instance=ExtResource("13_po0uf")]
 position = Vector2(193, 18)
+
+[node name="Marker2D" type="Marker2D" parent="." index="15"]
+position = Vector2(947, 140)
 
 [node name="ActivatedPilar5" parent="." index="16" instance=ExtResource("13_po0uf")]
 position = Vector2(1569, 177)
 pilar_id = 4
 
-[node name="thaladon2" parent="." index="17" instance=ExtResource("2_eybjr")]
+[node name="Path2D" type="Path2D" parent="." index="17"]
+position = Vector2(0, 195)
+curve = SubResource("Curve2D_sk0os")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" index="0"]
+position = Vector2(802, 44)
+rotation = -0.600802
+rotates = false
+
+[node name="Marker2D" type="Marker2D" parent="Path2D/PathFollow2D" index="0"]
+rotation = 0.600802
+
+[node name="thaladon2" parent="." index="18" instance=ExtResource("2_eybjr")]
 position = Vector2(43, 197)
 
-[node name="CatTable" parent="." index="18" instance=ExtResource("14_1efcj")]
+[node name="CatTable" parent="." index="19" instance=ExtResource("14_1efcj")]
 position = Vector2(322, -31)
 
-[node name="CatTable2" parent="." index="19" instance=ExtResource("14_1efcj")]
+[node name="CatTable2" parent="." index="20" instance=ExtResource("14_1efcj")]
 position = Vector2(1451, 129)
 id = 4
 
-[node name="StonePortalDoor3" parent="." index="20" instance=ExtResource("15_1efcj")]
+[node name="StonePortalDoor3" parent="." index="21" instance=ExtResource("15_1efcj")]
 position = Vector2(1631, 237)
 rotation = 1.5708
 direction = Vector2(1, 0)
 distance_travel = 250.0
 
-[node name="StonePortalDoor4" parent="." index="21" instance=ExtResource("15_1efcj")]
+[node name="StonePortalDoor4" parent="." index="22" instance=ExtResource("15_1efcj")]
 position = Vector2(1729, 237)
 rotation = -1.5708
 direction = Vector2(-1, 0)
 distance_travel = 250.0
 
-[node name="Cat" parent="." index="22" instance=ExtResource("16_sk0os")]
+[node name="Cat" parent="." index="23" instance=ExtResource("16_sk0os")]
 position = Vector2(2468, 155)
+
+[node name="CorePickup" parent="." index="24" instance=ExtResource("17_1eoc6")]
+position = Vector2(953, 330)
+
+[node name="Timer" type="Timer" parent="." index="25"]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

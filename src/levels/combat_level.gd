@@ -4,7 +4,7 @@ class_name CombatLevel
 func _init() -> void:
 	name = "CombatLevel"
 
-func set_up(args:Array = []) -> void:
+func set_up(_args:Array = []) -> void:
 	create_level(Vector2(10,10))
 	
 	var main_combat_room:RoomData = RoomData.new().set_up("main_combat_room", self)

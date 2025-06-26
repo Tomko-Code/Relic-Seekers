@@ -24,7 +24,7 @@ func get_direction_constant(vector: Vector2):
 				return x-1
 	return Constants.all_directions.RIGHT
 
-func _process(delta):
+func _process(_delta):
 	if _ShootingComponent:
 		match get_direction_constant(_ShootingComponent.get_direction()):
 			Constants.all_directions.RIGHT:

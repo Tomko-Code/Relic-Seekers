@@ -2,6 +2,7 @@ class_name PlayerEntity
 extends CharacterBody2D
 
 @export var _UserMovementComponent: UserMovementComponent
+@warning_ignore("unused_private_class_variable")
 @export var _AnimatedSpriteComponent: AnimatedSpriteComponent
 @export var _PlayerStatsComponent: PlayerStatsComponent
 
@@ -14,6 +15,7 @@ var paused:bool = false
 var draw_position:bool = false
 
 signal death
+@warning_ignore("unused_signal")
 signal health_changed
 
 func _ready():
@@ -50,10 +52,17 @@ func on_player_enter_room(room: Room) -> void:
 	GameManager.game_camera.limit = true
 	
 	if room.name != "SanctuaryRoom":
+		@warning_ignore("narrowing_conversion")
+		@warning_ignore("integer_division")
 		GameManager.game_camera.new_limit_left = room.global_position.x + (640/2)
+		@warning_ignore("integer_division")
+		@warning_ignore("narrowing_conversion")
 		GameManager.game_camera.new_limit_top = room.global_position.y + (360/2)
-		
+		@warning_ignore("integer_division")
+		@warning_ignore("narrowing_conversion")
 		GameManager.game_camera.new_limit_right = room.global_position.x + (room.data.get_room_size().x * Constants.CHUNK_SIZE.x) - (640/2)
+		@warning_ignore("integer_division")
+		@warning_ignore("narrowing_conversion")
 		GameManager.game_camera.new_limit_bottom = room.global_position.y + (room.data.get_room_size().y * Constants.CHUNK_SIZE.y) - (360/2)
 	
 		if room.name == "StartRoom":
@@ -65,7 +74,7 @@ func on_player_enter_room(room: Room) -> void:
 	if room.name == "SwampRoom":
 		GameManager.game_camera.limit = false
 
-func _on_pit_hit_box_body_entered(body:TileMap):
+func _on_pit_hit_box_body_entered(_body:TileMap):
 	pit_count += 1
 	if not _UserMovementComponent.is_dashing:
 		fall(pit_hit_box.global_position)
@@ -75,7 +84,7 @@ func on_dash_over():
 	if not _UserMovementComponent.is_dashing and pit_count > 0:
 		fall(_UserMovementComponent.das_start_pos)
 
-func fall(pos:Vector2) -> void:
+func fall(_pos:Vector2) -> void:
 	$AnimationPlayer.play("fall")
 	paused = true
 
@@ -97,7 +106,7 @@ func _draw():
 		var cord = (pit_hit_box.global_position/Constants.FLOOR_TILE_SIZE).floor()
 		draw_rect(Rect2(cord*Constants.FLOOR_TILE_SIZE-global_position,Constants.FLOOR_TILE_SIZE), Color(1, 1, 0.27843138575554), false, 2)
 
-func _on_pit_hit_box_body_exited(body):
+func _on_pit_hit_box_body_exited(_body):
 	pit_count -= 1
 	pit_count = clamp(pit_count, 0, INF)
 	

@@ -7,10 +7,10 @@ var effect_type: Constants.effect_types = Constants.effect_types.NEUTRAL
 func color_text(text: String):
 	return "[color=%s]%s[/color]" % [get_color(true), text]
 
-func apply_on_projectile(projectile: BaseProjectile):
+func apply_on_projectile(_projectile: BaseProjectile):
 	pass
 
-func matching_archetype(spell):
+func matching_archetype(_spell):
 	return true
 
 func check_conditions(spell: Spell):

@@ -9,10 +9,10 @@ func _ready():
 	_InteractibleComponent.interaction_descryption = get_description()
 	_InteractibleComponent.update_box()
 
-func can_apply_on_spell(spell: Spell) -> bool:
+func can_apply_on_spell(_spell: Spell) -> bool:
 	return false
 
-func apply_on_spell(spell: Spell):
+func apply_on_spell(_spell: Spell):
 	pass
 
 func _on_interacted():

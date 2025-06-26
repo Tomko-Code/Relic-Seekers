@@ -31,7 +31,7 @@ func _on_interactable_component_interacted() -> void:
 	
 	idle()
 
-func _on_dialog_end(name: String) -> void:
+func _on_dialog_end(_name: String) -> void:
 	if GameManager.dialog_box.dialog_ended.is_connected(_on_dialog_end):
 		GameManager.dialog_box.dialog_ended.disconnect(_on_dialog_end)
 	$Timer.start()

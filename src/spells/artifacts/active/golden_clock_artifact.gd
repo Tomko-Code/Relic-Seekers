@@ -52,7 +52,7 @@ func get_description():
 func on_timeout(timer: Timer, timer2: Timer):
 	timer.queue_free()
 	timer2.queue_free()
-	var player_stats = GameManager.get_entity_component(GameManager.player, PlayerStatsComponent)[0] as PlayerStatsComponent
+	#var player_stats = GameManager.get_entity_component(GameManager.player, PlayerStatsComponent)[0] as PlayerStatsComponent
 	var player_movement = GameManager.get_entity_component(GameManager.player, UserMovementComponent)[0] as UserMovementComponent
 	
 	player_movement.speed /= 1.25

@@ -26,7 +26,8 @@ func fill_hearts():
 	
 	for child in $Hearts.get_children():
 		child.queue_free()
-
+	
+	@warning_ignore("integer_division")
 	for full_hearts in range(floor(current_health / 2)):
 		var sprite = TextureRect.new()
 		sprite.expand_mode = sprite.EXPAND_FIT_WIDTH_PROPORTIONAL
@@ -39,6 +40,7 @@ func fill_hearts():
 		sprite.texture = load("res://assets/art/icons/half_heart.tres")
 		$Hearts.add_child(sprite)
 	
+	@warning_ignore("integer_division")
 	for full_hearts in range(floor((max_health - current_health) / 2)):
 		var sprite = TextureRect.new()
 		sprite.expand_mode = sprite.EXPAND_FIT_WIDTH_PROPORTIONAL

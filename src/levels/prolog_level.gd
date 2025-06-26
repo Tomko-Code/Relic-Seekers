@@ -4,7 +4,7 @@ class_name PrologLevel
 func _init() -> void:
 	name = "PrologLevel"
 
-func set_up(args:Array = []) -> void:
+func set_up(_args:Array = []) -> void:
 	create_level(Vector2(6,4))
 	
 	var start_prolog_room:RoomData = RoomData.new().set_up("start_prolog_room", self)

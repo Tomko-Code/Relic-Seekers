@@ -38,7 +38,7 @@ func set_volume(_volume: float) -> Sound:
 	return self
 
 ## sets minimum delay this sound can be playd reducing cliping
-func set_minimum_time(_minimum_time: int) -> Sound:
+func set_minimum_time(_minimum_time: float) -> Sound:
 	minimum_time = _minimum_time
 	return self
 

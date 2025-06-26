@@ -7,7 +7,7 @@ func _ready():
 	_HitboxComponent.body_entered.connect(on_player_entered)
 	super._ready()
 
-func on_player_entered(player):
+func on_player_entered(_player):
 	
 	if can_pickup and GameData.save_file.get_total_cores() < 3:
 		GameData.save_file.player_inventory.core += 1

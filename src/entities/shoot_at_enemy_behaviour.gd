@@ -5,7 +5,7 @@ extends Node
 @export var shooting: ShootInDirectionComponent = null
 var active = false
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if active and shooting != null:
 		shooting.shooting_direction = GameManager.player.global_position - parent.global_position
 		shooting.is_shooting = true

@@ -9,6 +9,6 @@ extends Node
 func _ready():
 	_AnimatedSpriteComponent.set_animation("default")
 
-func _process(delta):
+func _process(_delta):
 	if _MovementComponent.is_rotable:
 		_AnimatedSpriteComponent.rotation = _MovementComponent.get_direction().angle()

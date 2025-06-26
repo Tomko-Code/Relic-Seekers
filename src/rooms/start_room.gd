@@ -18,9 +18,3 @@ func _ready():
 		
 		call_deferred("add_child", cat)
 		call_deferred("add_child", spell_pickup)
-		
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

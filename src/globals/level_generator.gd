@@ -75,9 +75,6 @@ func generate(_level_preset:LevelGenerationPreset) -> Level:
 		if room == null: # might be no more rooms with open connections
 			continue
 		
-		# TODO :
-			# TODO : trim bad connections
-		
 		if rooms.size() < level_preset.min_rooms:
 			if room.connection_arry.size() > 0:
 				#var new_room:RoomData = pick_random_room()
@@ -284,7 +281,9 @@ func place_start() -> void:
 	var room_data:RoomData = RoomData.new().set_up("start_room", level)
 	room_data.is_start = true
 	if level_preset.random_start:
+		@warning_ignore("narrowing_conversion")
 		level_preset.start_position.x = randi_range(0, level_preset.level_size.x - 1)
+		@warning_ignore("narrowing_conversion")
 		level_preset.start_position.x = randi_range(0, level_preset.level_size.y - 1)
 	level.place_room(room_data, level_preset.start_position)
 	add_random_connection(room_data)
@@ -296,7 +295,7 @@ func add_room(from:RoomData, new_room:RoomData, try_all_possible:bool = false) -
 		#var new_room:RoomData = pick_random_room()
 	#var new_room:RoomData = pick_random_room_by_weight()
 	
-	var new_room_inside_cord:Vector2 = Vector2.ZERO
+	#var new_room_inside_cord:Vector2 = Vector2.ZERO
 	var open_connection:RoomConnectionData
 	var valid_connections
 	
@@ -362,8 +361,8 @@ func pick_room() -> RoomData:
 	return null
 
 func pick_random_room() -> RoomData:
-	var set = pick_random_set_of_rooms()
-	var room_type = set["rooms"].pick_random()
+	var _set = pick_random_set_of_rooms()
+	var room_type = _set["rooms"].pick_random()
 	return RoomData.new().set_up(room_type, level)
 
 func pick_random_set_by_weight() -> Dictionary:
@@ -383,8 +382,9 @@ func place_boss_room():
 func place_end_room():
 	pass
 
-func pick_random_room_by_weight(min:float = 0.0, max:float = 1.0) -> RoomData:
-	var random_weight:float = randf_range(min, max)
+func pick_random_room_by_weight(_min:float = 0.0, _max:float = 1.0) -> RoomData:
+	var random_weight:float = randf_range(_min, _max)
+	@warning_ignore("integer_division")
 	var it:int = (rooms_placement_info.size() - 1)/2
 	var min_it:int = 0
 	var max_it:int = rooms_placement_info.size() - 1
@@ -395,6 +395,7 @@ func pick_random_room_by_weight(min:float = 0.0, max:float = 1.0) -> RoomData:
 		else:
 			max_it = it
 		
+		@warning_ignore("integer_division")
 		it = (min_it + max_it)/2
 		
 		if (max_it - min_it) == 1:
@@ -422,7 +423,7 @@ func room_weight_in_range(data:PlacementRoomData, weight:float) -> bool:
 	
 
 func fits_on_the_map(room_data:RoomData, cord:Vector2) -> bool:
-	var fits_on_map:bool = true
+	#var fits_on_map:bool = true
 	for y in range(room_data.room_shape.size()):
 		for x in range(room_data.room_shape[0].size()):
 			if room_data.room_shape[y][x] == 1:

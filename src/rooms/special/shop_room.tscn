@@ -8,9 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://h5822ojp1xkc" path="res://assets/art/sprites/teleports/circle_teleport.png" id="7_ku7km"]
 [ext_resource type="PackedScene" uid="uid://d0h7d0ariah40" path="res://assets/sfx/light/light_sets/set_of_lights_for_1x1.tscn" id="7_wgwgi"]
 
-[node name="ShopShowRoom" node_paths=PackedStringArray("teleport") instance=ExtResource("1_veiqr")]
+[node name="ShopShowRoom" instance=ExtResource("1_veiqr")]
 script = ExtResource("2_7ubgf")
-teleport = NodePath("")
 
 [node name="Floors" parent="." index="1"]
 modulate = Color(0.729412, 0.729412, 0.729412, 1)
