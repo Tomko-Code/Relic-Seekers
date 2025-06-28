@@ -6,7 +6,28 @@ extends Node2D
 @export var _UserMovementComponent: UserMovementComponent
 @export var _PlayerCastingComponent: PlayerCastingComponent
 
+var minumim_mouse_swap_time: float = 0.07
+var mouse_swap_timer: float = 0
+
 func _input(event):
+	if mouse_swap_timer > minumim_mouse_swap_time:
+		if Input.is_action_just_released("mouse_change_spell_up"):
+			var slot:int = GameData.save_file.player_inventory.current_spell_slot
+			slot -= 1
+			if slot < 0:
+				slot = 4
+			GameData.save_file.player_inventory.change_current_spell(slot)
+			mouse_swap_timer = 0
+		
+		if Input.is_action_just_released("muse_change_spell_down"):
+			var slot:int = GameData.save_file.player_inventory.current_spell_slot
+			slot += 1
+			if slot > 4:
+				slot = 0
+			GameData.save_file.player_inventory.change_current_spell(slot)
+			mouse_swap_timer = 0
+			
+	
 	if event is InputEventKey:
 		if Input.is_action_just_pressed("spell_slot_0") and not event.is_echo():
 			GameData.save_file.player_inventory.change_current_spell(0)
@@ -29,7 +50,9 @@ func _input(event):
 				spell_pickup.position = parent.position
 				parent.get_parent().call_deferred("add_child", spell_pickup)
 
-func _physics_process(_delta):
+func _physics_process(delta):
+	mouse_swap_timer += delta
+	
 	_UserMouseShootingComponent.is_shooting = false
 	_PlayerCastingComponent.is_casting = false
 	if Input.is_action_pressed("shoot_left_click"):

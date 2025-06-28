@@ -11,6 +11,7 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("open_console"):
+		print("console")
 		Console.visible = !Console.visible
 		await get_tree().process_frame
 		if Console.visible:

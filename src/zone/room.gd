@@ -2,6 +2,7 @@ extends Node2D
 class_name Room
 
 signal player_enterd
+@warning_ignore("unused_signal")
 signal player_exit
 signal enemies_clear
 signal status_change
@@ -13,8 +14,6 @@ var data:RoomData
 @export var Gates:Node2D
 @export var teleport:Node2D
 @export var starter:bool = false
-
-
 
 var spawn_point_res = preload("res://src/other/spawner_point/spawner_point.tscn")
 

@@ -19,6 +19,9 @@ format = 2
 layer_0/name = "Floor"
 layer_0/modulate = Color(0.482416, 0.480484, 0.489102, 1)
 layer_1/name = "Pits"
+layer_2/name = "WallCorners"
+layer_2/modulate = Color(0.362191, 0.362189, 0.368966, 1)
+layer_2/navigation_enabled = false
 metadata/_edit_lock_ = true
 
 [node name="Walls" type="TileMap" parent="."]

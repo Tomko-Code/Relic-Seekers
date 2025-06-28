@@ -8,7 +8,8 @@ func _init():
 	#spells.default_spell.projectile_data.effects = [ChainEffect.new().init(0)]
 
 func _ready():
-	get_death_ray()
+	pass
+	#get_death_ray()
 
 func get_death_ray():
 	GameData.save_file.player_inventory.change_current_spell(4)
