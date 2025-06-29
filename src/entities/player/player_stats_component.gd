@@ -35,6 +35,9 @@ func get_health():
 	return current_health
 
 func change_health(value):
+	if GameData.save_file.prolog_complete == false:
+		return
+	
 	value = round(value)
 	if is_invulnerable and value > 0: 
 		return
