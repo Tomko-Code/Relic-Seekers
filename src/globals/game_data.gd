@@ -26,10 +26,7 @@ var wave_1x1 = [
 
 var wave_2x1 = [
 	[
-		[2, 4, ["goblin","stone_eye"]]
-	],
-	[
-		[2, 5, ["goblin","stone_eye"]]
+		[2, 6, ["goblin","stone_eye"]]
 	]
 ]
 
@@ -42,9 +39,6 @@ var wave_2x2 = [
 	],
 	[
 		[4, 7, ["goblin","stone_eye"]]
-	],
-	[
-		[4, 11, ["goblin","stone_eye"]]
 	]
 ]
 
@@ -53,10 +47,7 @@ var wave_lx = [
 		[3, 5, ["goblin","stone_eye"]]
 	],
 	[
-		[3, 6, ["goblin","stone_eye"]]
-	],
-	[
-		[4, 7, ["goblin","stone_eye"]]
+		[3, 7, ["goblin","stone_eye"]]
 	]
 ]
 

@@ -20,7 +20,7 @@ func get_death_ray():
 var random_pool = [
 	["fireball", 3],
 	["icicle", 3],
-	["heal", 1],
+	#["heal", 1],
 	["spark", 3],
 ]
 
