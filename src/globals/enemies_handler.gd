@@ -22,8 +22,8 @@ func spawn_enemy(enemy_name:String, _boss:bool = false) -> Enemy:
 		var enemy: Enemy = EnemiesDb.enemies[enemy_name].resource.instantiate()
 		var stats = GameManager.get_entity_component(enemy, StatsComponent)[0]
 		enemy.get_node("Components").add_child(marker.instantiate())
-		stats.max_health = stats.max_health * int((GameManager.level_depth * 0.2) + 1)
-		stats.max_health *= int((GameData.save_file.cores_placed * 0.5) + 1)
+		stats.max_health = int(stats.max_health * ((GameManager.level_depth * 0.06) + 1))
+		stats.max_health = int(stats.max_health * ((GameData.save_file.cores_placed * 0.25) + 1))
 		stats.current_health = stats.max_health
 		
 		all_enemies.append(enemy)

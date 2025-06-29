@@ -47,8 +47,8 @@ func _on_interactable_component_interacted():
 	
 	level_preset.random_start = false
 	
-	level_preset.min_rooms = 7 + (level_preset.difficulty * 3)
-	level_preset.max_rooms = 7 + (level_preset.difficulty * 3)
+	level_preset.min_rooms = 3 + (level_preset.difficulty * 2)
+	level_preset.max_rooms = 3 + (level_preset.difficulty * 2)
 	var special_rooms = [	
 			"shrine_room",
 			"chest_room"
@@ -60,10 +60,8 @@ func _on_interactable_component_interacted():
 		
 		level_preset.special_rooms["shrine_room"]["count"] = 2
 		level_preset.special_rooms["chest_room"]["count"] = 1
-		level_preset.min_rooms = 5
-		level_preset.max_rooms = 5
 	else:
-		var special_rooms_count = GameManager.level_depth + randi_range(1, 3)
+		var special_rooms_count = floor(GameManager.level_depth/2) + randi_range(1, 3)
 		for room in range(special_rooms_count):
 			var random_special = special_rooms.pick_random()
 			if not level_preset.special_rooms.has(random_special):

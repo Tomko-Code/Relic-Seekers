@@ -78,6 +78,15 @@
 			}
 		]
 	},
+	"remark_thaladon_all_cores" : 
+	{
+		"dialogs" : [
+			{
+				"who" : "Thaladon",
+				"string" : "Not now, I'm busy with work ..."
+			}
+		]
+	},
 	"placed_last_core" : 
 	{
 		"dialogs" : [

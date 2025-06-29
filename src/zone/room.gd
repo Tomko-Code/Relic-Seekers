@@ -186,8 +186,8 @@ func get_next_snail_cord() -> Vector2:
 func spawn_wave() -> void:
 	var wave = data.waves[wave_it]
 	for part in wave:
-		var _min:int = part[0] * clamp(GameManager.level_depth * 0.7,1,9)
-		var _max:int = (part[1] * clamp(GameManager.level_depth * 0.7,1,9)) + GameManager.level_depth
+		var _min:int = part[0] * clamp(GameManager.level_depth * 0.6,1,9)
+		var _max:int = (part[1] * clamp(GameManager.level_depth * 0.6,1,9)) + GameManager.level_depth
 		var spawn_amout = randi_range(_min, _max)
 		
 		for spawn in range(spawn_amout):

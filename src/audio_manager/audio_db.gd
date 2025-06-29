@@ -66,7 +66,7 @@ var sounds: Dictionary[soundID, Sound] = {
 		.set_bus("SFX")
 		.set_res_path("res://assets/audio/sfx/gold_sfx.wav")
 		.set_limit(5)
-		.set_minimum_time(0.12),
+		.set_minimum_time(0.10),
 		
 	soundID.sfx_mana_orb : Sound.new()
 		.set_bus("SFX")
