@@ -118,7 +118,7 @@ func reset():
 		passive_artifact.queue_free()
 		passive_artifact = null
 	
-	SpellsDb.get_death_ray()
+	#SpellsDb.get_death_ray()
 	
 	emit_signal("spells_changed")
 	

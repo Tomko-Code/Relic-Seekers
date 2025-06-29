@@ -151,11 +151,11 @@
 		"dialogs" : [
 			{
 				"who" : "Player",
-				"string" : "No teleporting stone back."
+				"string" : "There is no teleporting stone back."
 			},
 			{
 				"who" : "Player",
-				"string" : "Guess that explains why nobody ever came back."
+				"string" : "That explains why nobody ever came back."
 			}
 		]
 	},

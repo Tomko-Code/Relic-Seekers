@@ -9,15 +9,15 @@ signal setting_changed(setting:String, value)
 var current_settings = {}
 var default_settings = {
 	# Audio
-	"master_volume" : 0,
-	"music_volume" : 0,
-	"ui_volume" : 0,
-	"sfx_volume" : 0,
-	"dialog_volume" :0,
+	"master_volume" : 100,
+	"music_volume" : 50,
+	"ui_volume" : 50,
+	"sfx_volume" : 50,
+	"dialog_volume" :50,
 	# Graphic
 	"window_mode" : DisplayServer.WINDOW_MODE_WINDOWED,
 	"vsync" : true,
-	"show_fps" : true
+	"show_fps" : false
 }
 
 var input_settings:InputSettings

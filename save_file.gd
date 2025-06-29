@@ -40,6 +40,9 @@ signal last_core
 #Extra dialogs
 @export var first_shop_interaction: bool = false
 
+func _init() -> void:
+	pass
+
 func set_pilar(id: int, value: bool) -> void:
 	secret_pilar_array_id[id] = value
 	

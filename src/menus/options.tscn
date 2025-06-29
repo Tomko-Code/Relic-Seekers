@@ -33,13 +33,12 @@ theme_override_colors/font_hovered_color = Color(0.886275, 0.886275, 0.270588, 1
 theme_override_colors/font_selected_color = Color(0.886275, 0.886275, 0.270588, 1)
 theme_override_font_sizes/font_size = 24
 tab_alignment = 1
-current_tab = 2
+current_tab = 0
 clip_tabs = false
 all_tabs_in_front = true
 tab_focus_mode = 0
 
 [node name="Audio" type="MarginContainer" parent="VBoxContainer/TabContainer" node_paths=PackedStringArray("value_master", "value_music", "value_ui", "value_sfx", "value_dialog", "master_slider", "music_slider", "ui_slider", "sfx_slider", "dialog_slider")]
-visible = false
 layout_mode = 2
 script = ExtResource("4_mb07c")
 value_master = NodePath("MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/Values/Master")
@@ -145,6 +144,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_vertical = 2
 theme = ExtResource("1_u67dd")
+value = 80.0
 rounded = true
 
 [node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer/TabContainer/Audio/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/Scrolls"]
@@ -156,6 +156,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_vertical = 2
 theme = ExtResource("1_u67dd")
+value = 50.0
 rounded = true
 
 [node name="CenterContainer3" type="CenterContainer" parent="VBoxContainer/TabContainer/Audio/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/Scrolls"]
@@ -167,6 +168,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_vertical = 2
 theme = ExtResource("1_u67dd")
+value = 50.0
 rounded = true
 
 [node name="CenterContainer4" type="CenterContainer" parent="VBoxContainer/TabContainer/Audio/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/Scrolls"]
@@ -178,6 +180,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_vertical = 2
 theme = ExtResource("1_u67dd")
+value = 50.0
 rounded = true
 
 [node name="CenterContainer5" type="CenterContainer" parent="VBoxContainer/TabContainer/Audio/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/Scrolls"]
@@ -189,6 +192,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_vertical = 2
 theme = ExtResource("1_u67dd")
+value = 50.0
 rounded = true
 
 [node name="Values" type="VBoxContainer" parent="VBoxContainer/TabContainer/Audio/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer"]
@@ -313,6 +317,7 @@ layout_mode = 2
 size_flags_vertical = 7
 
 [node name="Gameplay" parent="VBoxContainer/TabContainer" instance=ExtResource("6_tgner")]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
